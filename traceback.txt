@@ -1,0 +1,37 @@
+﻿I'm sorry, but an uncaught exception occurred.
+
+While running game code:
+IOError: Couldn't find file 'sfx/click.wav'.
+
+-- Full Traceback ------------------------------------------------------------
+
+Full traceback:
+  File "renpy/common/_layout/screen_main_menu.rpym", line 29, in script
+    $ ui.interact()
+  File "C:\Program Files\Renpy\renpy\ast.py", line 806, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "C:\Program Files\Renpy\renpy\python.py", line 1577, in py_exec_bytecode
+    exec bytecode in globals, locals
+  File "renpy/common/_layout/screen_main_menu.rpym", line 29, in <module>
+    $ ui.interact()
+  File "C:\Program Files\Renpy\renpy\ui.py", line 277, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+  File "C:\Program Files\Renpy\renpy\display\core.py", line 2425, in interact
+    repeat, rv = self.interact_core(preloads=preloads, **kwargs)
+  File "C:\Program Files\Renpy\renpy\display\core.py", line 2725, in interact_core
+    renpy.audio.audio.interact()
+  File "C:\Program Files\Renpy\renpy\audio\audio.py", line 919, in interact
+    periodic()
+  File "C:\Program Files\Renpy\renpy\audio\audio.py", line 853, in periodic
+    c.periodic()
+  File "C:\Program Files\Renpy\renpy\audio\audio.py", line 400, in periodic
+    topf = load(self.file_prefix + filename + self.file_suffix)
+  File "C:\Program Files\Renpy\renpy\audio\audio.py", line 66, in load
+    rv = renpy.loader.load(fn)
+  File "C:\Program Files\Renpy\renpy\loader.py", line 533, in load
+    raise IOError("Couldn't find file '%s'." % name)
+IOError: Couldn't find file 'sfx/click.wav'.
+
+Windows-8-6.2.9200
+Ren'Py 6.99.10.1227
+Renpy Imagebuttons GUI Sample 1.0
