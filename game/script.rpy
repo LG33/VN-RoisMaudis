@@ -21,28 +21,34 @@ define anne = Character('Anne', color="#eeeeee")
 define charles = Character('Charles', color="#ffff99")
 
 transform left: 
-    xalign 0.1 
+    xalign -0.2 
     yalign 1.0
+    zoom 3.0
+    
+transform right: 
+    xalign 1.5 
+    yalign 1.0
+    zoom 3.0
+    
+transform center: 
+    xalign 0.5 
+    yalign 1.0
+    zoom 3.0
 
 init python:
     choix1 = 0
 
 # The game starts here.
 label start:
-    # $ bl_game = False
-
     # play music "illurock.ogg"
 
-    scene bg black
-    with fade
+    scene bg black with fade
 
     "???" "Eh ! Tu m'entends ??"
 
-    scene bg intro
-    with fade
+    scene bg intro with fade
 
-    show helene normal
-    with dissolve
+    show helene normal at center with dissolve
 
     "???" "Tu as reçu un sérieux coup apparement. Désolé de te brusquer mais on doit vraiment fuir."
 
@@ -55,7 +61,6 @@ label start:
             jump intro_2
 
 label intro_2:
-
     # show helene panic
     
     "???" "!!!"
@@ -68,12 +73,10 @@ label intro_2:
     jump reveil
 
 label reveil:
-
     scene bg bedroom
     with fade
     
-    show helene normal
-    with dissolve
+    show helene normal at center with dissolve
     
     "???" "Ca y est, tu es réveillé ?"
     "???" "..."
@@ -123,15 +126,13 @@ label arrivee_anne:
 
     "(Autres explications)"
     
-    show anne normal at left
-    with dissolve
+    show anne normal at right with dissolve
     
     anne "Salut Léon !"
     anne "Désolé de vous couper mais Charles nous convoque dans la grande salle."
     helene "OK, on arrive."
     
-    hide anne
-    with dissolve
+    hide anne with dissolve
     
     helene "Tu penses que ça ira ?"
     
@@ -146,25 +147,20 @@ label arrivee_anne:
                     
 label meeting_1:
     
-    scene bg bigroom
-    with fade
+    scene bg bigroom with fade
     
-    show charles normal at right
-    with dissolve
+    show charles normal at left with dissolve
     
     charles "Bonjours Léon. Hélène m'a dit ce qu'il t'était arrivé, j'en suis vraiment désolé. Plus on te parlera de tout rapidement, mieux ça sera pour toi."
     charles "Tu connais déjà Hélène, je vais te présenter Gaston et Anne."
     
-    show gaston normal at left
-    with dissolve
+    show gaston normal at right with dissolve
     
     gaston "Salut mon pote, content de te voir debout"
     
-    hide gaston
-    with fade
+    hide gaston with dissolve
     
-    show anne normal at left
-    with dissolve
+    show anne normal at right with dissolve
     
     anne "Salut, moi c'est Anne."
     anne "--Explications sur Charles--"
@@ -180,23 +176,24 @@ label agenouiller:
     "Suite de la conversation où ils mentionnent que l'attaque précédente leur a permis de mettre la main sur un document indiquant que Jacques de Molay, grand maître des Templiers, partira à la chasse des la forêt de Fontainebleau le lendemain du jour présent, occasion en or pour tenter un assassinat. Léon a finalement des nausées et ressent une douleur au bras et demande à ce qu’on le laisse se reposer."
 
 label retour_chambre:
-    scene bg bedroom
-    with fade
+    scene bg bedroom with fade
+    
     "De retour dans sa chambre, il tire sa manche et aperçoit une marque étrange sur le bras. Il se passe de l'eau dessus via un sceau d'eau avoisinant. Il aperçoit alors son visage dans le reflet de l'eau."
     jump vision_01
 
 label vision_01:
-    scene bg black
-    with fade
+    scene bg black with fade
+    
     "???" "Léon, il y a plusieurs choses que tu dois savoir sur les démons."
     jump gaston_manche
 
 label gaston_manche:
-    scene bg bedroom
-    with fade
+    scene bg bedroom with fade
+    
     "On entend quelqu'un rentrer. Léon retrousse rapidement sa manche."
-    show gaston normal at right
-    with dissolve
+    
+    show gaston normal at right with dissolve
+    
     gaston "Salut ! Quesque tu nous cache sous cette manche mon gars ? T'inquiète, j'suis ton pote ! C'est une blessure c'est ça ?"
     
     menu:
@@ -230,14 +227,12 @@ label gaston_blessure:
     
     "Gaston souhaite se racheter auprès de Léon, alors il lui promet de le protéger vu qu'il est très vulnérable du fait de son amnésie. Il n'a jamais dit ça à quelqu'un mais il lui dit qu'il ne doit pas faire trop confiance à Hélène. Il conseille à Léon de faire attention."
     
-    show anne normal at left
-    with dissolve
+    show anne normal at left with dissolve
     
     anne "Gaston ? Charles voudrait te parler."
     gaston "Ah ? J'y vais de ce pas. A tout à l'heure Léon !"
     
-    hide gaston
-    with dissolve
+    hide gaston with dissolve
     
     "Anne explique à Léon que Gaston peut être dur parfois mais qu'il a un passé difficile. En effet, il avait une relation cachée avec une noble malgré le fait qu'il soit paysan et celle-ci a été tuée lors de l'attaque des templiers."
     "Anne dit qu'elle a une idée, il devraient en parler à Charles."
@@ -245,12 +240,11 @@ label gaston_blessure:
     jump grande_salle
     
 label grande_salle:
-    show bg bigroom
-    with fade
-    show charles normal at right
-    with dissolve
-    show anne normal at left
-    with dissolve   
+    
+    show bg bigroom with fade
+    
+    show charles normal at right with dissolve
+    show anne normal at left with dissolve   
     
     "Anne dit que si Léon voit un peu les environs ça peut l'aider à se rappeler de certaines choses. Charles dit que c'est dangereux, et que seul Hélène pourrait aller avec lui car son visage n'est pas connu contrairement au leur. Léon se sent subitement mal."
     
@@ -260,9 +254,8 @@ label grande_salle:
     with fade
     "???" "Les démons peuvent prendre une forme humaine."
     
-    show bg bigroom
-    with fade
-    show charles normal at right
-    show anne normal at left
+    show bg bigroom with fade
     
+    show charles normal at right with dissolve
+    show anne normal at left with dissolve
     
