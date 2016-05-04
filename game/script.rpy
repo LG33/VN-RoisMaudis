@@ -20,7 +20,9 @@ define gaston = Character('Gaston', color="#9999ff")
 define anne = Character('Anne', color="#eeeeee")
 define charles = Character('Charles', color="#ffff99")
 
-transform left: xalign 0.1 yalign 1.0
+transform left: 
+    xalign 0.1 
+    yalign 1.0
 
 init python:
     choix1 = 0
