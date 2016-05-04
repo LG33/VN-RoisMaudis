@@ -177,20 +177,12 @@ label meeting_1:
         
 label agenouiller:
     anne "Anne éclate de rire et lui explique que les status n'ont plus d'importance au sein de l'ordre."
-    "Suite de la conversation où ils mentionnent que l'attaque précédente leur a permis de mettre la main sur un document indiquant que Jacques de Molay, grand maître des Templiers, partira à la chasse des la forêt de Fontainebleau demain, occasion en or pour tenter un assassinat."
-    "Léon a finalement des nausées et ressent une douleur au bras et demande à ce qu’on le laisse se reposer."
+    "Suite de la conversation où ils mentionnent que l'attaque précédente leur a permis de mettre la main sur un document indiquant que Jacques de Molay, grand maître des Templiers, partira à la chasse des la forêt de Fontainebleau le lendemain du jour présent, occasion en or pour tenter un assassinat. Léon a finalement des nausées et ressent une douleur au bras et demande à ce qu’on le laisse se reposer."
 
 label retour_chambre:
-<<<<<<< HEAD
-    scene bg bedroom with fade
-    
-    "De retour dans sa chambre, il tire sa manche et aperçoit une marque étrange sur le bras."
-    "Il se passe de l'eau dessus via un sceau d'eau avoisinant. Il aperçoit alors son visage dans le reflet de l'eau."
-=======
     scene bg bedroom
     with fade
     "De retour dans sa chambre, il tire sa manche et aperçoit une marque étrange sur le bras. Il se passe de l'eau dessus via un sceau d'eau avoisinant. Il aperçoit alors son visage dans le reflet de l'eau."
->>>>>>> origin/master
     jump vision_01
 
 label vision_01:
