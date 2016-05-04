@@ -2,16 +2,8 @@
 errors listed below, and try again.
 
 
-File "game/script_BACKUP_18352.rpy", line 257: expected statement.
-    <<<<<<< HEAD
-                ^
-
-File "game/script_BACKUP_18352.rpy", line 264: expected statement.
-    =======
-          ^
-
-File "game/script_BACKUP_18352.rpy", line 266: expected statement.
-    >>>>>>> d85eea486df3179f7721d4e8a413dae7b361a987
-                                                    ^
+File "game/script.rpy", line 286: Only one say menuitem may exist per menu.
+    charles "Bon. Je dois retourner travailler, prend soin de toi Léon."
+                                                                        ^
 
 Ren'Py Version: Ren'Py 6.99.10.1227

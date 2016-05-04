@@ -253,15 +253,45 @@ label grande_salle:
     show bg black
     with fade
     "???" "Les démons peuvent prendre une forme humaine."
-    
-    show charles normal at right with dissolve
-    show anne normal at left with dissolve
-    
+
     show bg bigroom
     with fade
-    show charles normal at right
-    show anne normal at left
+    show charles normal at right with dissolve
+    show anne normal at left with dissolve
 
-    "Ceci est un test"
+    "Léon reprend conscience. Anne et Charles le regarde très inquiets."
     
+    menu:
+        "Dire que tout va bien":
+            charles "Léon, non tout ne va pas bien, tu viens de t'écrouler sur le sol au milieu de la conversation !"
+        "Dire qu'on se sent mal":
+            charles "En effet tout ne va pas bien, tu viens de t'écrouler sur le sol au milieu de la conversation !"
+    
+    charles "Anne ? Pourrais tu nous laisser, je dois m'entretenir avec Léon. Merci"
+    anne "Très bien, je dois de toute façon préparer les armes pour l'assaut de demain."
+    hide anne with dissolve
+    show charles at center with dissolve
+    charles "Bon. Qu'est-ce qui ne va pas? Tu peux me le dire tu sais, je n'en parlerai à personne."
+    
+    menu:
+        "Lui montrer la blessure au bras en expliquant l'erreur de Gaston":
+            charles "Oh?! C'est Gaston qui t'as fait ça ? Le pauvre bougre n'a surement pas fait exprès. Bon, j'en parlerai avec lui pour savoir comment te soigner au plus vite."
+        "Dire que tout va bien":
+            charles ".. Très bien, c'est comme tu veux mais sache que je suis là si tu as besoin d'en parler."
+            
+    charles "Au fait, voici une dague, prend la, tu sera heureux de l'avoir quand tu en aura besoin crois moi !"
+    charles "Bon. Je dois retourner travailler, prend soin de toi Léon."
+        
+    menu:
+        "Lui demander si les démons peuvent prendre forme humaine":
+            charles "Hein? Non, d'où te viens des idées pareilles, je ne pense pas que ce soit possible, c'est même completement n'importe quoi !"
+        "Le laisser partir":
+            "..."
+    hide charles with dissolve
+        
+    "Charles laisse Léon seul. Léon regarde alors son bras."
+        
+    jump planque_entree
+    
+label planque_entree:
     
