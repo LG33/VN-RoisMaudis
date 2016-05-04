@@ -264,5 +264,7 @@ label grande_salle:
     with fade
     show charles normal at right
     show anne normal at left
+
+    "Ceci est un test"
     
     
