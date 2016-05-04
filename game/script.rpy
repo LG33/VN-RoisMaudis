@@ -84,7 +84,7 @@ label reveil:
     menu:
         "Non":
 
-            "(Hélène commence à pleurer)"
+            "(Elle commence à pleurer)"
             "???" "Désolé..."
             "???" "J'arrive pas à le croire... Tu étais tout pour moi et..."
             "???" "Désolé, je suis là à pleurer alors que tu te poser énormément de questions."
@@ -108,7 +108,7 @@ label presentation_helene:
 label presentation_leon:
 
     "???" "Oui évidemment, tu dois même plus connaître ton nom."
-    "???" "Tu t'appelles Léon."
+    "???" "Tu t'appelles Léon, et je suis Hélène"
     
     jump arrivee_anne
                     
@@ -123,7 +123,7 @@ label arrivee_anne:
 
     "(Autres explications)"
     
-    show anne normal
+    show anne normal at left
     with dissolve
     
     anne "Salut Léon !"
@@ -131,7 +131,7 @@ label arrivee_anne:
     helene "OK, on arrive."
     
     hide anne
-    with fade
+    with dissolve
     
     helene "Tu penses que ça ira ?"
     
@@ -149,13 +149,13 @@ label meeting_1:
     scene bg bigroom
     with fade
     
-    show charles normal
+    show charles normal at right
     with dissolve
     
     charles "Bonjours Léon. Hélène m'a dit ce qu'il t'était arrivé, j'en suis vraiment désolé. Plus on te parlera de tout rapidement, mieux ça sera pour toi."
     charles "Tu connais déjà Hélène, je vais te présenter Gaston et Anne."
     
-    show gaston normal
+    show gaston normal at left
     with dissolve
     
     gaston "Salut mon pote, content de te voir debout"
@@ -163,7 +163,106 @@ label meeting_1:
     hide gaston
     with fade
     
-    show anne normal
+    show anne normal at left
     with dissolve
     
     anne "Salut, moi c'est Anne."
+    anne "--Explications sur Charles--"
+
+    menu:
+        "S'agenouiller":
+            jump agenouiller
+        "Demander s'il faut s'agenouiller":
+            jump agenouiller
+        
+label agenouiller:
+    anne "Anne éclate de rire et lui explique que les status n'ont plus d'importance au sein de l'ordre."
+    "Suite de la conversation où ils mentionnent que l'attaque précédente leur a permis de mettre la main sur un document indiquant que Jacques de Molay, grand maître des Templiers, partira à la chasse des la forêt de Fontainebleau le lendemain du jour présent, occasion en or pour tenter un assassinat. Léon a finalement des nausées et ressent une douleur au bras et demande à ce qu’on le laisse se reposer."
+
+label retour_chambre:
+    scene bg bedroom
+    with fade
+    "De retour dans sa chambre, il tire sa manche et aperçoit une marque étrange sur le bras. Il se passe de l'eau dessus via un sceau d'eau avoisinant. Il aperçoit alors son visage dans le reflet de l'eau."
+    jump vision_01
+
+label vision_01:
+    scene bg black
+    with fade
+    "???" "Léon, il y a plusieurs choses que tu dois savoir sur les démons."
+    jump gaston_manche
+
+label gaston_manche:
+    scene bg bedroom
+    with fade
+    "On entend quelqu'un rentrer. Léon retrousse rapidement sa manche."
+    show gaston normal at right
+    with dissolve
+    gaston "Salut ! Quesque tu nous cache sous cette manche mon gars ? T'inquiète, j'suis ton pote ! C'est une blessure c'est ça ?"
+    
+    menu:
+        "Montrer la blessure":
+            jump gaston_blessure
+        "Ne pas lui montrer la blessure":
+            gaston "Allez ! Montre !"
+            "Gaston tire la manche !"
+            jump gaston_blessure
+
+label gaston_blessure:
+    gaston "Je suis vraiment désolé, je voulais pas..."
+    gaston "C'est un mauvais coup, je voulais pas te toucher l'autre soir.."
+    
+    menu:
+        "Demander quels sont les effets de la blessure":
+            gaston "Je ne sais même pas moi même. J'avais récupéré artefact avec lequel tu as été blessé lors d'une bataille"
+            gaston "Je ne connais pas ses effets."
+        "S'énerver contre Gaston":
+            gaston "Je comprend ta colère et j'en suis désolé."
+            gaston "J'avais récupéré artefact avec lequel tu as été blessé lors d'une bataille"
+            gaston "Je ne connais pas ses effets."
+            
+    gaston "Il lui demande de ne pas parler de la blessure aux autres pour l’instant avant l’attaque prévue le lendemain car cette annonce pourquoi avoir un impact moral important au sein du groupe et Gaston ne souhaite pas mettre en danger l’attaque."
+    
+    menu:
+        "Rester silencieux":
+            gaston "Je sais que c'est difficile pour toi. Encore une fois je suis vraiment désolé."
+        "Contester et demander pourquoi faire ça pour lui":
+            gaston "Je sais que c'est difficile pour toi. Encore une fois je suis vraiment désolé."
+    
+    "Gaston souhaite se racheter auprès de Léon, alors il lui promet de le protéger vu qu'il est très vulnérable du fait de son amnésie. Il n'a jamais dit ça à quelqu'un mais il lui dit qu'il ne doit pas faire trop confiance à Hélène. Il conseille à Léon de faire attention."
+    
+    show anne normal at left
+    with dissolve
+    
+    anne "Gaston ? Charles voudrait te parler."
+    gaston "Ah ? J'y vais de ce pas. A tout à l'heure Léon !"
+    
+    hide gaston
+    with dissolve
+    
+    "Anne explique à Léon que Gaston peut être dur parfois mais qu'il a un passé difficile. En effet, il avait une relation cachée avec une noble malgré le fait qu'il soit paysan et celle-ci a été tuée lors de l'attaque des templiers."
+    "Anne dit qu'elle a une idée, il devraient en parler à Charles."
+    
+    jump grande_salle
+    
+label grande_salle:
+    show bg bigroom
+    with fade
+    show charles normal at right
+    with dissolve
+    show anne normal at left
+    with dissolve   
+    
+    "Anne dit que si Léon voit un peu les environs ça peut l'aider à se rappeler de certaines choses. Charles dit que c'est dangereux, et que seul Hélène pourrait aller avec lui car son visage n'est pas connu contrairement au leur. Léon se sent subitement mal."
+    
+    hide anne
+    hide charles
+    show bg black
+    with fade
+    "???" "Les démons peuvent prendre une forme humaine."
+    
+    show bg bigroom
+    with fade
+    show charles normal at right
+    show anne normal at left
+    
+    
