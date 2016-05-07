@@ -311,10 +311,12 @@ label village:
     
     menu:
         "Je lui dit que tout va bien, que tout le monde essaye de m'aider":
+            $ showBlessureToHelene = 0
             helene "ok.. Si tu le dis"
         "Je lui parle de la blessure au bras":
+            $ showBlessureToHelene = 1
             "Je lui montre la blessure et lui dit que Gaston en est le responsable. Hélène prend une mine terne et ne répond rien."
-    helene "Bon. Retournons à la planque, il commence à faire frais ici."
+    helene "Bon. Retournons à la planque, la nuit commence à tomber."
     jump grande_salle_suite
 
 label grande_salle_suite:
@@ -324,3 +326,38 @@ label grande_salle_suite:
     show anne normal at left with dissolve 
     
     charles "Si je vous convoque tous ici, c'est pour l'organisation de l'assaut de demain"
+    "Tout le monde est dans la grande salle. Charles parle de l'organisation de l'attaque : infiltration dans les jardins de fontainebleau. Gaston demande s'il est sage de faire participer Léon vu son état. Anne attaque alors Léon par surprise, mais il parvient à contrer aisément. Anne en conclu qu'il a toutes ses capacités. Charles laisse à Léon le choix de les accompagner ou non."
+    charles "Veux-tu venir ?"
+    
+    menu:
+        "Dire que oui, je souhaite venir":
+            charles "Très bien, tu es toujours aussi courageux car ce ne sera pas simple et très dangeureux."
+        "Dire que non, je ne préfère pas venir":
+            charles "Oui tu as raison, ce ne serait pas prudent. Il n'y a pas de problème, tu restera à la planque surveiller"
+    "Tout le monde va se coucher."  
+    
+    hide charles with dissolve
+    hide anne with dissolve
+    hide helene with dissolve
+    
+    jump chambre_soir
+    
+label chambre_soir:
+    show bg bedroom 
+    with fade
+    "Léon est seul dans sa chambre et regarde sa blessure."
+    "Hélène entre brusquement dans la chambre, voit la blessure de Léon, et s'en va froidement."
+    "Avant de s'endormir, la blessure de Léon se ravive."
+    
+    jump last_vision
+
+label last_vision:
+    show bg black with fade
+    "???" "Les démons sous forme humaine... On peut les reconnaître à leurs yeux"
+    jump chambre_nuit
+
+label chambre_nuit:
+    show bg bedroom 
+    with fade
+    "La nuit passe"
+    "Léon est seul dans sa chambre et regarde sa blessure."

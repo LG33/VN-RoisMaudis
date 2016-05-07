@@ -2,12 +2,12 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 323: end of line expected.
-    show helene with dissolve at right
-                              ^
+File "game/script.rpy", line 348: expected ':' not found.
+    label last_vision
+                     ^
 
-File "game/script.rpy", line 324: end of line expected.
-    show anne with dissolve at left
-                            ^
+File "game/script.rpy", line 353: expected ':' not found.
+    label chambre_nuit
+                      ^
 
 Ren'Py Version: Ren'Py 6.99.10.1227
