@@ -2,8 +2,12 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 286: Only one say menuitem may exist per menu.
-    charles "Bon. Je dois retourner travailler, prend soin de toi Léon."
-                                                                        ^
+File "game/script.rpy", line 323: end of line expected.
+    show helene with dissolve at right
+                              ^
+
+File "game/script.rpy", line 324: end of line expected.
+    show anne with dissolve at left
+                            ^
 
 Ren'Py Version: Ren'Py 6.99.10.1227

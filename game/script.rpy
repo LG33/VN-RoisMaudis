@@ -50,7 +50,7 @@ label start:
 
     show helene normal at center with dissolve
 
-    "???" "Tu as reçu un sérieux coup apparement. Désolé de te brusquer mais on doit vraiment fuir."
+    "???" "Tu as reçu un sérieux coup apparement, on verra ça une fois à la planque, suis moi, c'est pas comme si on se faissait poursuivre !"
 
     menu:
         "Qui êtes-vous ?":
@@ -63,7 +63,7 @@ label start:
 label intro_2:
     # show helene panic
     
-    "???" "!!!"
+    "???" "Quoi !!!"
     
     # show helene normal
 
@@ -294,4 +294,33 @@ label grande_salle:
     jump planque_entree
     
 label planque_entree:
+    show bg entry
+    with fade
     
+    show helene normal with dissolve
+    helene "Allons au village, ça te fera du bien de prendre l'air."
+    jump village
+    
+label village:
+    show bg village
+    with fade
+    show helene normal with dissolve
+    
+    "Ils arrivent au village. Hélène reparle de leur ancienne relation. Elle lui dit que malgré qu'il a perdu la mémoire, il n'a pas changé. Elle lui raconte de joyeux souvenirs qu'ils ont eu ensemble dans ce village. "
+    helene "Comment va-tu depuis ta perte de mémoire ? Je suis désolée de pas pouvoir t'aider plus mais nous devons tous préparer l'assaut de demain."
+    
+    menu:
+        "Je lui dit que tout va bien, que tout le monde essaye de m'aider":
+            helene "ok.. Si tu le dis"
+        "Je lui parle de la blessure au bras":
+            "Je lui montre la blessure et lui dit que Gaston en est le responsable. Hélène prend une mine terne et ne répond rien."
+    helene "Bon. Retournons à la planque, il commence à faire frais ici."
+    jump grande_salle_suite
+
+label grande_salle_suite:
+    show bg bigroom with fade
+    show charles normal with dissolve
+    show helene normal at right with dissolve
+    show anne normal at left with dissolve 
+    
+    charles "Si je vous convoque tous ici, c'est pour l'organisation de l'assaut de demain"
