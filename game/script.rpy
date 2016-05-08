@@ -6,7 +6,16 @@ image bg bigroom = "backgrounds/bigroom.jpg"
 image bg entry = "backgrounds/entry.jpg"
 image bg village = "backgrounds/village.jpg"
 
-image helene normal = "characters/helene_normal.png"
+image helene normal = "characters/helene/helene_normal.png"
+image helene triste = "characters/helene/helene_trise.png"
+image helene pleure = "characters/helene/helene_pleure.png"
+image helene surprise = "characters/helene/helene_surprise.png"
+image helene confidente = "characters/helene/helene_confidente.png"
+image helene pense = "characters/helene/helene_pense.png"
+image helene arriere = "characters/helene/helene_arriere.png"
+image helene souriante = "characters/helene/helene_souriante.png"
+image helene inquiete = "characters/helene/helene_inquiete.png"
+image helene demoralisee = "characters/helene/helene_demoralisee.png"
 
 image gaston normal = "characters/gaston_normal.png"
 
@@ -57,14 +66,14 @@ transform enter_left:
         linear 0.5 xalign -3
     
 transform bras_transform:
+    xalign 0.25
+    zoom 2.0
     on show:
-        xalign 0.25
-        yalign 1.3
-        linear 0.5 yalign 0.95
+        yalign 2.0
+        linear 0.5 yalign 1.2
     on hide:
-        xalign 0.25
-        yalign 0.95
-        linear 0.5 yalign 1.3
+        yalign 1.2
+        linear 0.5 yalign 2.0
 
 init python:
     choix1 = 0
@@ -81,7 +90,7 @@ label start:
 
     show helene normal at center with dissolve
 
-    "???" "Tu as reçu un sérieux coup apparement, on verra ça une fois à la planque, suis moi, c'est pas comme si on se faissait poursuivre !"
+    "???" "Tu as reçu un sérieux coup apparement, on verra ça une fois à la planque, là on a pas le temps."
     
     menu:
         "Qui êtes-vous ?":
@@ -92,11 +101,11 @@ label start:
             jump intro_2
 
 label intro_2:
-    # show helene panic
+    show helene surprise at center
     
     "???" "Quoi !!!"
     
-    # show helene normal
+    show helene inquiete
 
     "???" "Aller lève-toi, d'autres gardes vont arriver."
     "???" "Tiens, attrape ma main !"
@@ -110,14 +119,14 @@ label reveil:
     
     "???" "Ca y est, tu es réveillé ?"
     "???" "..."
+    show helene demoralisee at center
     "???" "Hier on s'est fait attaquer et... tu as chuté du haut d'un escalier."
     "???" "..."
     "???" "Tu ne te rappelles vraiment plus de rien ?!"
 
     menu:
         "Non":
-
-            "(Elle commence à pleurer)"
+            show helene pleure at center
             "???" "Désolé..."
             "???" "J'arrive pas à le croire... Tu étais tout pour moi et..."
             "???" "Désolé, je suis là à pleurer alors que tu te poser énormément de questions."
@@ -131,7 +140,8 @@ label reveil:
                     jump presentation_helene
                     
 label presentation_helene:
-
+    show helene demoralisee at center
+    
     "???" "C'est vrai, commençons par ça."
     "???" "Je m'appelle Hélène."
     helene "On se connait depuis de nombreuses années."
@@ -139,22 +149,19 @@ label presentation_helene:
     jump arrivee_anne
                     
 label presentation_leon:
-
     "???" "Oui évidemment, tu dois même plus connaître ton nom."
     "???" "Tu t'appelles Léon, et je suis Hélène"
     
     jump arrivee_anne
                     
 label presentation_lieu:
-
     "???" "Nous sommes dans une planque souterraine, proche du chateau de Fontainebleau."
     "???" "On est un petit groupe de résistant."
     
     jump arrivee_anne
                     
 label arrivee_anne:
-
-    "(Autres explications)"
+    "--Autres explications--"
     
     show anne normal at right with dissolve
     
@@ -168,6 +175,7 @@ label arrivee_anne:
     
     menu:
         "Oui":
+            show helene arriere at center
             helene "Allons-y alors."
             jump meeting_1
         "Je sais pas":
@@ -176,7 +184,6 @@ label arrivee_anne:
             jump meeting_1
                     
 label meeting_1:
-    
     scene bg bigroom with fade
     
     show charles normal at left with dissolve
@@ -194,7 +201,6 @@ label meeting_1:
     
     anne "Salut, moi c'est Anne."
     anne "--Explications sur Charles--"
-
     menu:
         "S'agenouiller":
             jump agenouiller
@@ -202,6 +208,7 @@ label meeting_1:
             jump agenouiller
         
 label agenouiller:
+    show helene souriante at center
     anne "Anne éclate de rire et lui explique que les status n'ont plus d'importance au sein de l'ordre."
     "Suite de la conversation où ils mentionnent que l'attaque précédente leur a permis de mettre la main sur un document indiquant que Jacques de Molay, grand maître des Templiers, partira à la chasse des la forêt de Fontainebleau le lendemain du jour présent, occasion en or pour tenter un assassinat. Léon a finalement des nausées et ressent une douleur au bras et demande à ce qu’on le laisse se reposer."
 
@@ -281,7 +288,6 @@ label gaston_blessure:
     jump grande_salle
     
 label grande_salle:
-    
     show bg bigroom with fade
     
     show charles normal at right with dissolve
@@ -347,26 +353,34 @@ label planque_entree:
 label village:
     show bg village with fade
     
-    show helene normal at center with dissolve
+    show helene souriante at center with dissolve
     
     "Ils arrivent au village. Hélène reparle de leur ancienne relation. Elle lui dit que malgré qu'il a perdu la mémoire, il n'a pas changé. Elle lui raconte de joyeux souvenirs qu'ils ont eu ensemble dans ce village. "
+    
+    show helene demoralisee at center
+            
     helene "Comment va-tu depuis ta perte de mémoire ? Je suis désolée de pas pouvoir t'aider plus mais nous devons tous préparer l'assaut de demain."
     
     menu:
         "Je lui dit que tout va bien, que tout le monde essaye de m'aider":
             $ showBlessureToHelene = 0
             helene "ok.. Si tu le dis"
+            show helene normal at center
         "Je lui parle de la blessure au bras":
             $ showBlessureToHelene = 1
+            show helene surprise at center
             "Je lui montre la blessure et lui dit que Gaston en est le responsable. Hélène prend une mine terne et ne répond rien."
+            show helene demoralisee at center
+            
     helene "Bon. Retournons à la planque, la nuit commence à tomber."
+    
     jump grande_salle_suite
 
 label grande_salle_suite:
     show bg bigroom with fade
     
     show charles normal at center with dissolve
-    show helene normal at right with dissolve
+    show helene demoralisee at right with dissolve
     show anne normal at left with dissolve 
     
     charles "Si je vous convoque tous ici, c'est pour l'organisation de l'assaut de demain"
