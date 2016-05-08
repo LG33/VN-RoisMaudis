@@ -2,12 +2,12 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 348: expected ':' not found.
-    label last_vision
-                     ^
+File "game/script.rpy", line 368: reached end of line when expecting ':'.
+    if wantToGoToBattle == 1
+                            ^
 
-File "game/script.rpy", line 353: expected ':' not found.
-    label chambre_nuit
-                      ^
+File "game/script.rpy", line 370: expected statement.
+    else
+        ^
 
 Ren'Py Version: Ren'Py 6.99.10.1227

@@ -331,14 +331,16 @@ label grande_salle_suite:
     
     menu:
         "Dire que oui, je souhaite venir":
+            $ wantToGoToBattle = 1
             charles "Très bien, tu es toujours aussi courageux car ce ne sera pas simple et très dangeureux."
         "Dire que non, je ne préfère pas venir":
+            $ wantToGoToBattle = 0
             charles "Oui tu as raison, ce ne serait pas prudent. Il n'y a pas de problème, tu restera à la planque surveiller"
     "Tout le monde va se coucher."  
     
     hide charles with dissolve
-    hide anne with dissolve
     hide helene with dissolve
+    hide anne with dissolve
     
     jump chambre_soir
     
@@ -346,7 +348,8 @@ label chambre_soir:
     show bg bedroom 
     with fade
     "Léon est seul dans sa chambre et regarde sa blessure."
-    "Hélène entre brusquement dans la chambre, voit la blessure de Léon, et s'en va froidement."
+    if showBlessureToHelene == 0:
+        "Hélène entre brusquement dans la chambre, voit la blessure de Léon, et s'en va froidement."
     "Avant de s'endormir, la blessure de Léon se ravive."
     
     jump last_vision
@@ -361,3 +364,50 @@ label chambre_nuit:
     with fade
     "La nuit passe"
     "Léon est seul dans sa chambre et regarde sa blessure."
+    if showBlessureToHelene == 0:
+        if wantToGoToBattle == 1:
+            jump final_03
+        else:
+            jump final_02 
+    elif showBlessureToHelene == 1:
+        jump final_01
+        
+        
+label final_01:
+    "Léon se réveille et sort de sa chambre"
+    "Léon découvre le cadavre de Gaston, paniqué."
+    "Léon cours sans se poser de question et tombe sur Hélène dans la grande salle, paniquée, qui lui dit que Charles est devenu fou et a tué Gaston."
+    "Charles arrive et demande ce qui se passe, Léon marche à reculon, paniqué, sous l'incompréhension de Charles. Charles se fait alors soudainement transpercer le coeur par Hélène, sous forme démoniaque."
+    "Anne arrive et hurle de terreur en voyant le cadavre de Charles, puis Hélène la transperce également à son tour."
+    "Hélène s'approche alors de Léon en disant qu'elle aurait préféré ne pas avoir à montrer son véritable visage aussi tôt."
+    jump end
+    
+
+label final_02:
+    "Léon se réveille et consate que les autres sont déjà partis. Il entent alors du bruit à l'entrée et va voir ce qui s'y passe."
+    "Gaston s'y trouve, paniqué, et dis à Léon qu'Helène a tué les autres et qu'il faut vite qu'ils s'enfuissent. "
+    "Hélène, sous forme démoniaque, transperce alors Gaston dans le dos."
+    "Elle se rapproche alors de Léon en disant qu'elle a effectivement tué les deux autres et que si Gaston n'avait pas décidé de revenir à la planque pour prévenir Léon, il aurait eut une meilleure chance de s'enfuir."
+    jump end
+    
+label final_03:
+    "Hélène réveille Léon. Ils partent à l'attaque."
+    "Le groupe s'infiltre dans le Jardin de Fontainebleau en assassinant furtivement des gardes."
+    "Ils se camouflent dans de la verdure sur le terrain de chasse, chemin par lequel Jacques de Molay devrait passer."
+    "Hélène annonce alors qu'elle n'a plus le choix et qu'elle n'aurait pas voulu en arriver là si tôt, puis Anne pousse un hurlement. Elle a été transpercée dans le coeur par Hélène qui a alors pris une forme démoniaque."
+    "Gaston sort son artefact, paniqué mais Hélène se précipite sur lui et le transperce à son tour pendant que Léon est figé par la peur et Charles figé par la mort d'Anne."
+    "Hélène s'approche alors lentement de Charles qui ne tente rien et elle le transperce à son tour."
+    "Hélène s'approche finalement de Léon en lui disant que c'est dommage qu'elle doive en arriver là."
+    jump end
+    
+label end:
+    "Hélène face à lui et dos au mur, Léon sort alors son poignard et transperce Hélène dans le coeur."
+    "Hélène mourrante, Léon retrouve alors ses souvenirs dans un long flashback."
+    
+    "Léon est en réalité un Templier. Les visions que Léon avait ces derniers jours étaient en fait des souvenirs d'une conversation qu'il a eu avec Jacques de Molay, grand maître des Templiers, qui lui parle des démons alors que Léon est sur le point de lui-même faire une invocation. C'est ainsi que Léon invoque Hélène. Léon asassinera alors le roi Philippe le Bel de ses propres mains, et accomplira par le temps plusieurs missions en compagnie deHélène visant à neutraliser la résistance. Pendant ces années, il tissera également des liens amoureux avec Hélène. Un jour, Jacques de Molay demande à Léon et Hélène, en qui il a une entière confiance, d'infiltrer l'Ordre du Lys, principal atout de la résistance que l'Empire Templier a été capable de trouver, afin de récolter le plus d'information possible sur les alliés de l'ordre en leur disant qu'ils pouvaient les décimer si nécéssaire. C'est ainsi que Léon et Hélène ont intégrés l'Ordre."
+    "Hélène, prononçant ses derniers mots, constate que Léon en sanglots se souvient de tous et heureuse de le revoir étant lui-même, lui dit que sa blessure au bras était fatale et que son seul moyen de le sauver était de lui transmettre son énergie vitale, impliquant sa propre mort. Hélène meurt alors dans les bras de Léon, le sourire aux lèvres."
+    
+    "Scène clé sans dialogue où on voit Léon de dos avec 4 tombes."
+    "FIN"
+    
+    return
