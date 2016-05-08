@@ -14,6 +14,11 @@ image anne normal = "characters/anne_normal.png"
 
 image charles normal = "characters/charles_normal.png"
 
+image bras_leon debut = "characters/bras_leon_debut.png"
+    
+image bras_leon mid = "characters/bras_leon_mid.png"
+image bras_leon fin = "characters/bras_leon_fin.png"
+
 # Declare characters used by this game.
 define helene = Character('Hélène', color="#ff99ff")
 define gaston = Character('Gaston', color="#9999ff")
@@ -34,6 +39,32 @@ transform center:
     xalign 0.5 
     yalign 1.0
     zoom 3.0
+    
+transform enter_right:
+    on show:
+        xalign 3
+        linear 0.5 xalign 1.5
+    on hide:
+        xalign 1.5
+        linear 0.5 xalign 3
+    
+transform enter_left:
+    on show:
+        xalign -3
+        linear 0.5 align -0.2
+    on hide:
+        xalign -0.2
+        linear 0.5 xalign -3
+    
+transform bras_transform:
+    on show:
+        xalign 0.25
+        yalign 1.3
+        linear 0.5 yalign 0.95
+    on hide:
+        xalign 0.25
+        yalign 0.95
+        linear 0.5 yalign 1.3
 
 init python:
     choix1 = 0
@@ -51,7 +82,7 @@ label start:
     show helene normal at center with dissolve
 
     "???" "Tu as reçu un sérieux coup apparement, on verra ça une fois à la planque, suis moi, c'est pas comme si on se faissait poursuivre !"
-
+    
     menu:
         "Qui êtes-vous ?":
             $ choix1 = 1
@@ -73,8 +104,7 @@ label intro_2:
     jump reveil
 
 label reveil:
-    scene bg bedroom
-    with fade
+    scene bg bedroom with fade
     
     show helene normal at center with dissolve
     
@@ -178,7 +208,14 @@ label agenouiller:
 label retour_chambre:
     scene bg bedroom with fade
     
-    "De retour dans sa chambre, il tire sa manche et aperçoit une marque étrange sur le bras. Il se passe de l'eau dessus via un sceau d'eau avoisinant. Il aperçoit alors son visage dans le reflet de l'eau."
+    "De retour dans sa chambre, il tire sa manche et aperçoit une marque étrange sur le bras."
+    
+    show bras_leon debut at bras_transform
+    
+    "Il se passe de l'eau dessus via un sceau d'eau avoisinant. Il aperçoit alors son visage dans le reflet de l'eau."
+    
+    hide bras_leon debut at bras_transform
+    
     jump vision_01
 
 label vision_01:
@@ -205,8 +242,12 @@ label gaston_manche:
             jump gaston_blessure
 
 label gaston_blessure:
+    show bras_leon debut at bras_transform
+    
     gaston "Je suis vraiment désolé, je voulais pas..."
     gaston "C'est un mauvais coup, je voulais pas te toucher l'autre soir.."
+    
+    hide bras_leon debut at bras_transform
     
     menu:
         "Demander quels sont les effets de la blessure":
@@ -250,12 +291,13 @@ label grande_salle:
     
     hide anne
     hide charles
-    show bg black
-    with fade
+    
+    show bg black with fade
+    
     "???" "Les démons peuvent prendre une forme humaine."
 
-    show bg bigroom
-    with fade
+    show bg bigroom with fade
+    
     show charles normal at right with dissolve
     show anne normal at left with dissolve
 
@@ -275,7 +317,9 @@ label grande_salle:
     
     menu:
         "Lui montrer la blessure au bras en expliquant l'erreur de Gaston":
+            show bras_leon debut at bras_transform
             charles "Oh?! C'est Gaston qui t'as fait ça ? Le pauvre bougre n'a surement pas fait exprès. Bon, j'en parlerai avec lui pour savoir comment te soigner au plus vite."
+            hide bras_leon debut at bras_transform
         "Dire que tout va bien":
             charles ".. Très bien, c'est comme tu veux mais sache que je suis là si tu as besoin d'en parler."
             
@@ -294,17 +338,16 @@ label grande_salle:
     jump planque_entree
     
 label planque_entree:
-    show bg entry
-    with fade
+    show bg entry with fade
     
-    show helene normal with dissolve
+    show helene normal at center with dissolve
     helene "Allons au village, ça te fera du bien de prendre l'air."
     jump village
     
 label village:
-    show bg village
-    with fade
-    show helene normal with dissolve
+    show bg village with fade
+    
+    show helene normal at center with dissolve
     
     "Ils arrivent au village. Hélène reparle de leur ancienne relation. Elle lui dit que malgré qu'il a perdu la mémoire, il n'a pas changé. Elle lui raconte de joyeux souvenirs qu'ils ont eu ensemble dans ce village. "
     helene "Comment va-tu depuis ta perte de mémoire ? Je suis désolée de pas pouvoir t'aider plus mais nous devons tous préparer l'assaut de demain."
@@ -321,7 +364,8 @@ label village:
 
 label grande_salle_suite:
     show bg bigroom with fade
-    show charles normal with dissolve
+    
+    show charles normal at center with dissolve
     show helene normal at right with dissolve
     show anne normal at left with dissolve 
     
@@ -345,25 +389,34 @@ label grande_salle_suite:
     jump chambre_soir
     
 label chambre_soir:
-    show bg bedroom 
-    with fade
+    show bg bedroom with fade
+    
     "Léon est seul dans sa chambre et regarde sa blessure."
+    
+    show bras_leon debut at bras_transform
+    
     if showBlessureToHelene == 0:
         "Hélène entre brusquement dans la chambre, voit la blessure de Léon, et s'en va froidement."
+    
     "Avant de s'endormir, la blessure de Léon se ravive."
     
     jump last_vision
 
 label last_vision:
     show bg black with fade
+    
     "???" "Les démons sous forme humaine... On peut les reconnaître à leurs yeux"
     jump chambre_nuit
 
 label chambre_nuit:
-    show bg bedroom 
-    with fade
+    show bg bedroom with fade
+    
     "La nuit passe"
+    
+    show bras_leon debut at bras_transform
+    
     "Léon est seul dans sa chambre et regarde sa blessure."
+    
     if showBlessureToHelene == 0:
         if wantToGoToBattle == 1:
             jump final_03
