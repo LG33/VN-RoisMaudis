@@ -90,7 +90,7 @@ label start:
 
     show helene normal at center with dissolve
 
-    "???" "Tu as reçu un sérieux coup apparement, on verra ça une fois à la planque, là on a pas le temps."
+    "???" "Tu as pris un sérieux coup apparement, on verra ça une fois à la planque, là on a pas le temps."
     
     menu:
         "Qui êtes-vous ?":
@@ -120,7 +120,7 @@ label reveil:
     "???" "Ca y est, tu es réveillé ?"
     "???" "..."
     show helene demoralisee at center
-    "???" "Hier on s'est fait attaquer et... tu as chuté du haut d'un escalier."
+    "???" "Hier on s'est fait attaquer et... tu as fait une grosse chute."
     "???" "..."
     "???" "Tu ne te rappelles vraiment plus de rien ?!"
 
@@ -145,23 +145,27 @@ label presentation_helene:
     "???" "C'est vrai, commençons par ça."
     "???" "Je m'appelle Hélène."
     helene "On se connait depuis de nombreuses années."
+    helene "J'étais noble avant le début du Royaume des Templiers, comme toi d'ailleurs."
+    helene "Et nous voilà dans l'Ordre du Lys à mener des attaques terroristes."
     
     jump arrivee_anne
                     
 label presentation_leon:
     "???" "Oui évidemment, tu dois même plus connaître ton nom."
-    "???" "Tu t'appelles Léon, et je suis Hélène"
+    "???" "Tu t'appelles Léon, tu étais un fils de noble quand on s'est connu."
+    "???" "Lors de la prise de pouvoir des Templiers, on a rejoint ensemble l'Ordre du Lys."
+    "???" "Ah oui j'oubliais : je m'appelle Hélène."
     
     jump arrivee_anne
                     
 label presentation_lieu:
     "???" "Nous sommes dans une planque souterraine, proche du chateau de Fontainebleau."
-    "???" "On est un petit groupe de résistant."
+    "???" "Ca fait quelques mois qu'on est ici."
     
     jump arrivee_anne
                     
 label arrivee_anne:
-    "--Autres explications--"
+    "--Autres explications / 2nd lot de question à poser--"
     
     show anne normal at right with dissolve
     
@@ -200,7 +204,7 @@ label meeting_1:
     show anne normal at right with dissolve
     
     anne "Salut, moi c'est Anne."
-    anne "--Explications sur Charles--"
+    anne "Quant à Charles, c'est le troisième fils de Phillipe Le Bel."
     menu:
         "S'agenouiller":
             jump agenouiller
