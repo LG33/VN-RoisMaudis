@@ -51,19 +51,19 @@ transform center:
     
 transform enter_right:
     on show:
-        xalign 3
+        xalign 3.0
         linear 0.5 xalign 1.5
     on hide:
         xalign 1.5
-        linear 0.5 xalign 3
+        linear 0.5 xalign 3.0
     
 transform enter_left:
     on show:
-        xalign -3
+        xalign -3.0
         linear 0.5 align -0.2
     on hide:
         xalign -0.2
-        linear 0.5 xalign -3
+        linear 0.5 xalign -3.0
     
 transform bras_transform:
     xalign 0.25
@@ -115,18 +115,18 @@ label intro_2:
 label reveil:
     scene bg bedroom with fade
     
-    show helene normal at center with dissolve
+    show helene normal at left with dissolve
     
     "???" "Ca y est, tu es réveillé ?"
     "???" "..."
-    show helene demoralisee at center
+    show helene demoralisee at left
     "???" "Hier on s'est fait attaquer et... tu as fait une grosse chute."
     "???" "..."
     "???" "Tu ne te rappelles vraiment plus de rien ?!"
 
     menu:
         "Non":
-            show helene pleure at center
+            show helene pleure at left
             "???" "Désolé..."
             "???" "J'arrive pas à le croire... Tu étais tout pour moi et..."
             "???" "Désolé, je suis là à pleurer alors que tu te poser énormément de questions."
@@ -140,7 +140,7 @@ label reveil:
                     jump presentation_helene
                     
 label presentation_helene:
-    show helene demoralisee at center
+    show helene demoralisee at left
     
     "???" "C'est vrai, commençons par ça."
     "???" "Je m'appelle Hélène."
@@ -167,13 +167,13 @@ label presentation_lieu:
 label arrivee_anne:
     "--Autres explications / 2nd lot de question à poser--"
     
-    show anne normal at right with dissolve
+    show anne normal at left, enter_right
     
     anne "Salut Léon !"
     anne "Désolé de vous couper mais Charles nous convoque dans la grande salle."
     helene "OK, on arrive."
     
-    hide anne with dissolve
+    hide anne
     
     helene "Tu penses que ça ira ?"
     
@@ -213,8 +213,8 @@ label meeting_1:
         
 label agenouiller:
     show helene souriante at center
-    anne "Anne éclate de rire et lui explique que les status n'ont plus d'importance au sein de l'ordre."
-    "Suite de la conversation où ils mentionnent que l'attaque précédente leur a permis de mettre la main sur un document indiquant que Jacques de Molay, grand maître des Templiers, partira à la chasse des la forêt de Fontainebleau le lendemain du jour présent, occasion en or pour tenter un assassinat. Léon a finalement des nausées et ressent une douleur au bras et demande à ce qu’on le laisse se reposer."
+    anne "T'inquiète pas, les statuts n'ont plus d'importance au sein de l'ordre."
+    "Suite de la conversation où Charles mentionne une maladie contagieuse incurable que les démons infligent et que l'attaque précédente leur a permis de mettre la main sur un document indiquant que Jacques de Molay, grand maître des Templiers, partira à la chasse des la forêt de Fontainebleau le lendemain du jour présent, occasion en or pour tenter un assassinat. Léon a finalement des nausées et ressent une douleur au bras et demande à ce qu’on le laisse se reposer."
 
 label retour_chambre:
     scene bg bedroom with fade
@@ -242,44 +242,28 @@ label gaston_manche:
     
     show gaston normal at right with dissolve
     
-    gaston "Salut ! Quesque tu nous cache sous cette manche mon gars ? T'inquiète, j'suis ton pote ! C'est une blessure c'est ça ?"
+    gaston "Salut Léon ! Dis, j'ai quelque chose à te dire."
+    gaston "Je suis pas sûr mais... j'ai peur que ce qui t'es arrivé soit du à l'artefact démoniaque que je portais."
     
     menu:
-        "Montrer la blessure":
-            jump gaston_blessure
-        "Ne pas lui montrer la blessure":
-            gaston "Allez ! Montre !"
-            "Gaston tire la manche !"
-            jump gaston_blessure
+        "Comment ça ?!":
+            gaston "Je suis vraiment désolé..."
+        "Pourquoi tu penses ça ?":
+            gaston "J'ai sentis l'artefact s'activer puis tu es tombé."
 
 label gaston_blessure:
-    show bras_leon debut at bras_transform
-    
-    gaston "Je suis vraiment désolé, je voulais pas..."
-    gaston "C'est un mauvais coup, je voulais pas te toucher l'autre soir.."
-    
-    hide bras_leon debut at bras_transform
     
     menu:
-        "Demander quels sont les effets de la blessure":
+        "Demander quels sont les effets de cet artefact":
             gaston "Je ne sais même pas moi même. J'avais récupéré artefact avec lequel tu as été blessé lors d'une bataille"
             gaston "Je ne connais pas ses effets."
         "S'énerver contre Gaston":
             gaston "Je comprend ta colère et j'en suis désolé."
             gaston "J'avais récupéré artefact avec lequel tu as été blessé lors d'une bataille"
-            gaston "Je ne connais pas ses effets."
-            
-    gaston "Il lui demande de ne pas parler de la blessure aux autres pour l’instant avant l’attaque prévue le lendemain car cette annonce pourquoi avoir un impact moral important au sein du groupe et Gaston ne souhaite pas mettre en danger l’attaque."
-    
-    menu:
-        "Rester silencieux":
-            gaston "Je sais que c'est difficile pour toi. Encore une fois je suis vraiment désolé."
-        "Contester et demander pourquoi faire ça pour lui":
-            gaston "Je sais que c'est difficile pour toi. Encore une fois je suis vraiment désolé."
     
     "Gaston souhaite se racheter auprès de Léon, alors il lui promet de le protéger vu qu'il est très vulnérable du fait de son amnésie. Il n'a jamais dit ça à quelqu'un mais il lui dit qu'il ne doit pas faire trop confiance à Hélène. Il conseille à Léon de faire attention."
     
-    show anne normal at left with dissolve
+    show anne normal at right, enter_left
     
     anne "Gaston ? Charles voudrait te parler."
     gaston "Ah ? J'y vais de ce pas. A tout à l'heure Léon !"
@@ -306,10 +290,10 @@ label grande_salle:
     
     "???" "Les démons peuvent prendre une forme humaine."
 
-    show bg bigroom with fade
-    
-    show charles normal at right with dissolve
-    show anne normal at left with dissolve
+    show bg bigroom
+    show charles normal at right
+    show anne normal at left
+    with fade
 
     "Léon reprend conscience. Anne et Charles le regarde très inquiets."
     
@@ -323,12 +307,12 @@ label grande_salle:
     anne "Très bien, je dois de toute façon préparer les armes pour l'assaut de demain."
     hide anne with dissolve
     show charles at center with dissolve
-    charles "Bon. Qu'est-ce qui ne va pas? Tu peux me le dire tu sais, je n'en parlerai à personne."
+    charles "Bon. Qu'est-ce qui ne va pas ? Tu peux me le dire tu sais, je n'en parlerai à personne."
     
     menu:
         "Lui montrer la blessure au bras en expliquant l'erreur de Gaston":
             show bras_leon debut at bras_transform
-            charles "Oh?! C'est Gaston qui t'as fait ça ? Le pauvre bougre n'a surement pas fait exprès. Bon, j'en parlerai avec lui pour savoir comment te soigner au plus vite."
+            charles "Oh ?! C'est Gaston qui t'as fait ça ? Le pauvre bougre n'a surement pas fait exprès. Bon, j'en parlerai avec lui pour savoir comment te soigner au plus vite."
             hide bras_leon debut at bras_transform
         "Dire que tout va bien":
             charles ".. Très bien, c'est comme tu veux mais sache que je suis là si tu as besoin d'en parler."
@@ -478,7 +462,6 @@ label end:
     "Léon est en réalité un Templier. Les visions que Léon avait ces derniers jours étaient en fait des souvenirs d'une conversation qu'il a eu avec Jacques de Molay, grand maître des Templiers, qui lui parle des démons alors que Léon est sur le point de lui-même faire une invocation. C'est ainsi que Léon invoque Hélène. Léon asassinera alors le roi Philippe le Bel de ses propres mains, et accomplira par le temps plusieurs missions en compagnie deHélène visant à neutraliser la résistance. Pendant ces années, il tissera également des liens amoureux avec Hélène. Un jour, Jacques de Molay demande à Léon et Hélène, en qui il a une entière confiance, d'infiltrer l'Ordre du Lys, principal atout de la résistance que l'Empire Templier a été capable de trouver, afin de récolter le plus d'information possible sur les alliés de l'ordre en leur disant qu'ils pouvaient les décimer si nécéssaire. C'est ainsi que Léon et Hélène ont intégrés l'Ordre."
     "Hélène, prononçant ses derniers mots, constate que Léon en sanglots se souvient de tous et heureuse de le revoir étant lui-même, lui dit que sa blessure au bras était fatale et que son seul moyen de le sauver était de lui transmettre son énergie vitale, impliquant sa propre mort. Hélène meurt alors dans les bras de Léon, le sourire aux lèvres."
     
-    "Scène clé sans dialogue où on voit Léon de dos avec 4 tombes."
     "FIN"
     
     return
