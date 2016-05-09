@@ -263,7 +263,7 @@ label gaston_blessure:
     
     "Gaston souhaite se racheter auprès de Léon, alors il lui promet de le protéger vu qu'il est très vulnérable du fait de son amnésie. Il n'a jamais dit ça à quelqu'un mais il lui dit qu'il ne doit pas faire trop confiance à Hélène. Il conseille à Léon de faire attention."
     
-    show anne normal at right, enter_left
+    show anne normal at right
     
     anne "Gaston ? Charles voudrait te parler."
     gaston "Ah ? J'y vais de ce pas. A tout à l'heure Léon !"

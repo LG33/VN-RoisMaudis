@@ -1,22 +1,42 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
-While running game code:
-  File "game/script.rpy", line 367, in script
-    if showBlessureToHelene == 0 && wantToGoToBattle == 1:
-SyntaxError: invalid syntax (game/script.rpy, line 367)
+Executing ATL code at game/script.rpy:63
+  File "game/script.rpy", line 266, in script
+    show anne normal at right, enter_left
+TypeError: 'float' object is not iterable
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 367, in script
-    if showBlessureToHelene == 0 && wantToGoToBattle == 1:
-  File "D:\Documents\Isart_Docs\GD2\VN\Projet\RenPy\renpy-6.99.10-sdk\renpy\ast.py", line 1648, in execute
-    if renpy.python.py_eval(condition):
-  File "D:\Documents\Isart_Docs\GD2\VN\Projet\RenPy\renpy-6.99.10-sdk\renpy\python.py", line 1605, in py_eval
-    code = py_compile(code, 'eval')
-  File "D:\Documents\Isart_Docs\GD2\VN\Projet\RenPy\renpy-6.99.10-sdk\renpy\python.py", line 512, in py_compile
-    raise e
-SyntaxError: invalid syntax (game/script.rpy, line 367)
+  File "game/script.rpy", line 266, in script
+    show anne normal at right, enter_left
+  File "D:\Documents\Isart_Docs\GD2\VN\Projet\RenPy\renpy-6.99.10-sdk\renpy\ast.py", line 1065, in execute
+    show_imspec(self.imspec, atl=getattr(self, "atl", None))
+  File "D:\Documents\Isart_Docs\GD2\VN\Projet\RenPy\renpy-6.99.10-sdk\renpy\ast.py", line 1037, in show_imspec
+    atl=atl)
+  File "D:\Documents\Isart_Docs\GD2\VN\Projet\RenPy\renpy-6.99.10-sdk\renpy\exports.py", line 645, in show
+    sls.add(layer, img, key, zorder, behind, at_list=at_list, name=name, atl=atl, default_transform=default_transform, transient=transient)
+  File "D:\Documents\Isart_Docs\GD2\VN\Projet\RenPy\renpy-6.99.10-sdk\renpy\display\core.py", line 907, in add
+    thing._show()
+  File "D:\Documents\Isart_Docs\GD2\VN\Projet\RenPy\renpy-6.99.10-sdk\renpy\display\motion.py", line 938, in _show
+    super(ATLTransform, self)._show()
+  File "D:\Documents\Isart_Docs\GD2\VN\Projet\RenPy\renpy-6.99.10-sdk\renpy\display\motion.py", line 922, in _show
+    self.update_state()
+  File "D:\Documents\Isart_Docs\GD2\VN\Projet\RenPy\renpy-6.99.10-sdk\renpy\display\motion.py", line 779, in update_state
+    fr = self.function(self, self.st, self.at)
+  File "D:\Documents\Isart_Docs\GD2\VN\Projet\RenPy\renpy-6.99.10-sdk\renpy\atl.py", line 502, in execute
+    action, arg, pause = block.execute(trans, timebase, self.atl_state, event)
+  File "D:\Documents\Isart_Docs\GD2\VN\Projet\RenPy\renpy-6.99.10-sdk\renpy\atl.py", line 690, in execute
+    action, arg, pause = stmt.execute(trans, target - start, child_state, event)
+  File "D:\Documents\Isart_Docs\GD2\VN\Projet\RenPy\renpy-6.99.10-sdk\renpy\atl.py", line 1413, in execute
+    action, arg, pause = self.handlers[name].execute(trans, st - start, cstate, event)
+  File "D:\Documents\Isart_Docs\GD2\VN\Projet\RenPy\renpy-6.99.10-sdk\renpy\atl.py", line 690, in execute
+    action, arg, pause = stmt.execute(trans, target - start, child_state, event)
+  File "D:\Documents\Isart_Docs\GD2\VN\Projet\RenPy\renpy-6.99.10-sdk\renpy\atl.py", line 1047, in execute
+    setattr(newts, k, v)
+  File "D:\Documents\Isart_Docs\GD2\VN\Projet\RenPy\renpy-6.99.10-sdk\renpy\display\motion.py", line 356, in set_align
+    self.xanchor, self.yanchor = value
+TypeError: 'float' object is not iterable
 
 Windows-8-6.2.9200
 Ren'Py 6.99.10.1227
