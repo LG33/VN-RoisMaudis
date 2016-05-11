@@ -6,14 +6,14 @@ init -1 python hide:
     config.developer = True
 
     ## These control the width and height of the screen.
-    config.screen_width = 1024
-    config.screen_height = 576
+    config.screen_width = 1980
+    config.screen_height = 1024
 
     ## This controls the title of the window, when Ren'Py is running in a window.
-    config.window_title = u"Renpy Imagebuttons GUI Sample"
+    config.window_title = u"L'Ordre du Lys"
     
     ## These control the name and version of the game, that are reported with tracebacks and other debugging logs.
-    config.name = "Renpy Imagebuttons GUI Sample"
+    config.name = "L'Ordre du Lys"
     config.version = "1.0"
 
     #########################################
@@ -62,13 +62,15 @@ init -1 python hide:
     # style.window.bottom_margin = 6
 
     ## Padding is space inside the window, where the background is drawn.
-    style.window.left_padding = 60
-    style.window.right_padding = 60
-    style.window.top_padding = 10
+    style.window.left_padding = 120
+    style.window.right_padding = 120
+    style.window.top_padding = 20
     # style.window.bottom_padding = 6
 
     ## This is the minimum height of the window, including the margins and padding.
     # style.window.yminimum = 250
+    
+    style.window.yminimum = 250
 
     #########################################
     ## This lets you change the placement of the main menu.
@@ -96,7 +98,7 @@ init -1 python hide:
     # style.default.font = "DejaVuSans.ttf"
 
     ## The default size of text.
-    style.default.size = 24
+    style.default.size = 36
 
     #########################################
     ## These settings let you change some of the sounds that are used by
@@ -173,7 +175,7 @@ init -1 python hide:
     ## is run, so the persisten information can be found by the init code.)
 python early:
 #    config.save_directory = "GUI Template Imagemap - PEACH-1283057230"
-    config.save_directory = "Renpy Imagebuttons GUI Sample - PEACH-02934857390"
+    config.save_directory = "Renpy - L'Ordre du Lys"
 
 init -1 python hide:
     #########################################
@@ -183,7 +185,7 @@ init -1 python hide:
     config.default_fullscreen = False
 
     ## The default text speed in characters per second. 0 is infinite.
-    config.default_text_cps = 60
+    config.default_text_cps = 30
 
     #########################################
     ## Size of the thumbnails for save games.
@@ -192,3 +194,68 @@ init -1 python hide:
 
     #########################################
     ## More customizations can go here.
+
+## This section contains information about how to build your project into
+## distribution files.
+init python:
+
+    ## The name that's used for directories and archive files. For example, if
+    ## this is 'mygame-1.0', the windows distribution will be in the
+    ## directory 'mygame-1.0-win', in the 'mygame-1.0-win.zip' file.
+    build.directory_name = "VN-RoisMaudits-1.0"
+
+    ## The name that's uses for executables - the program that users will run
+    ## to start the game. For example, if this is 'mygame', then on Windows,
+    ## users can click 'mygame.exe' to start the game.
+    build.executable_name = "VN-RoisMaudits"
+
+    ## If True, Ren'Py will include update information into packages. This
+    ## allows the updater to run.
+    build.include_update = False
+
+    ## File patterns:
+    ##
+    ## The following functions take file patterns. File patterns are case-
+    ## insensitive, and matched against the path relative to the base
+    ## directory, with and without a leading /. If multiple patterns match,
+    ## the first is used.
+    ##
+    ##
+    ## In a pattern:
+    ##
+    ## /
+    ##     Is the directory separator.
+    ## *
+    ##     Matches all characters, except the directory separator.
+    ## **
+    ##     Matches all characters, including the directory separator.
+    ##
+    ## For example:
+    ##
+    ## *.txt
+    ##     Matches txt files in the base directory.
+    ## game/**.ogg
+    ##     Matches ogg files in the game directory or any of its subdirectories.
+    ## **.psd
+    ##    Matches psd files anywhere in the project.
+
+    ## Classify files as None to exclude them from the built distributions.
+
+    build.classify('**~', None)
+    build.classify('**.bak', None)
+    build.classify('**/.**', None)
+    build.classify('**/#**', None)
+    build.classify('**/thumbs.db', None)
+
+    ## To archive files, classify them as 'archive'.
+
+    # build.classify('game/**.png', 'archive')
+    # build.classify('game/**.jpg', 'archive')
+
+    ## Files matching documentation patterns are duplicated in a mac app
+    ## build, so they appear in both the app and the zip file.
+
+    build.documentation('*.html')
+    build.documentation('*.txt')
+    
+    

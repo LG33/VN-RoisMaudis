@@ -18,6 +18,91 @@
 # Note: comments like #begin foo and #end foo at the start of lines are used to display code examples. See example.rpy for more details.
 #
 
+##############################################################################
+# Choice
+#
+# Screen that's used to display in-game menus.
+# http://www.renpy.org/doc/html/screen_special.html#choice
+
+screen choice(items):
+
+    window:
+        style "menu_window"
+        xalign 0.5
+        yalign 0.95
+        
+        $i = 0
+        $hSpacing = 20
+        $vSpacing = 20
+            
+        hbox:
+            spacing hSpacing
+            vbox:
+                style "menu"
+                spacing vSpacing 
+                 
+                for caption, action, chosen in items:
+                    $i += 1
+                    if i % 2 == 1:
+                        if action:
+                             
+                            button:
+                                action action
+                                style "menu_choice_button"                       
+                               
+                                text caption style "menu_choice"
+                             
+                        else:
+                            text caption style "menu_caption"
+           
+            if i % 2 == 0:
+                $i = 1
+            else:
+                $i = 1               
+                           
+            vbox:
+                style "menu"
+                spacing vSpacing
+                 
+                for caption, action, chosen in items:
+                    $i += 1
+                    if i % 2 == 1:
+                        if action:
+                             
+                            button:
+                                action action
+                                style "menu_choice_button"                     
+                               
+                                text caption style "menu_choice"
+                             
+                        else:
+                            text caption style "menu_caption"
+
+init -2:
+    $ config.narrator_menu = True
+
+    style menu_window is default
+
+    style menu_choice is button_text:
+        color "#fff"
+        size 28
+        drop_shadow [ (-1, -1), (1, -1), (-1, 1), (1, 1) ] 
+        outlines [(1, "#000099", 0, 0)]
+        hover_outlines [(1, "#000000", 0, 0)]
+        selected_outlines [(1, "#000000", 0, 0)]
+        selected_hover_outlines [(1, "#000000", 0, 0)]
+
+    style menu_choice_button is button:
+        xminimum 500
+        xmaximum 500
+        yminimum 50
+        ymaximum 50
+        ypadding 20
+        xpadding 20
+        background "#000000dd"
+        hover_background "#000033dd"
+        
+
 ## ■██▓▒░ MAIN MENU ░▒▓█████████████████████████████████████■
 ## Screen that's used to display the main menu, when Ren'Py first starts
 ## http://www.renpy.org/doc/html/screen_special.html#main-menu
@@ -27,8 +112,8 @@ screen main_menu:
 #begin add_image
     add "gui/main_menu_ground.jpg" # Add a background image for the main menu.
 #end add_image
-    $ y=114 # To make things easier, we define a variable y and use it to set positions for our imagebuttons
-    imagebutton auto "gui/main_start_%s.png" xpos 773 ypos y focus_mask True action Start() hovered [ Play ("test_one", "sfx/click.wav"), Show("gui_tooltip", my_picture="gui/tooltip_main_menu_start.png", my_tt_xpos=46, my_tt_ypos=518) ] unhovered [Hide("gui_tooltip")] at main_eff1
+    $ y=250 # To make things easier, we define a variable y and use it to set positions for our imagebuttons
+    imagebutton auto "gui/main_start_%s.png" xpos 1490 ypos y focus_mask True action Start() hovered [ Play ("test_one", "sfx/click.wav")] at main_eff1
     # Imagebutton documentation: http://www.renpy.org/doc/html/screens.html#imagebutton
     
     # auto - is used to automatically define the images used by this button. We could also use:
@@ -44,19 +129,19 @@ screen main_menu:
     
     # unhovered - action to run when the button loses focus. In this case we hide a tooltip.
     
-    $ y+=71 # We increase y position for the next menu item. y has a value of 185(114+81=185) now. We could also use: xpos 773 ypos 185
-    imagebutton auto "gui/main_load_%s.png" xpos 773 ypos y focus_mask True  action ShowMenu('load') hovered [ Play ("test_two", "sfx/click.wav"), Show("gui_tooltip", my_picture="gui/tooltip_main_menu_load.png", my_tt_xpos=46, my_tt_ypos=518) ] unhovered [Hide("gui_tooltip")] at main_eff2
-    $ y+=71
-    imagebutton auto "gui/main_config_%s.png" xpos 773 ypos y focus_mask True action ShowMenu('preferences') hovered [ Play ("test_three", "sfx/click.wav"), Show("gui_tooltip", my_picture="gui/tooltip_main_menu_config.png", my_tt_xpos=46, my_tt_ypos=518) ] unhovered [Hide("gui_tooltip")] at main_eff3
-    $ y+=71
+    $ y+=142 # We increase y position for the next menu item. y has a value of 185(114+81=185) now. We could also use: xpos 773 ypos 185
+    imagebutton auto "gui/main_load_%s.png" xpos 1490 ypos y focus_mask True  action ShowMenu('load') hovered [ Play ("test_two", "sfx/click.wav")] at main_eff2
+    $ y+=142
+    imagebutton auto "gui/main_config_%s.png" xpos 1490 ypos y focus_mask True action ShowMenu('preferences') hovered [ Play ("test_three", "sfx/click.wav")] at main_eff3
+    $ y+=142
     if persistent.extra_unlocked: # We only show the extras, if they have been unlocked. Because we are using a variable (y) for ypos, we don't need to worry about positioning the rest of the button(s).
-        imagebutton auto "gui/main_extras_%s.png" xpos 773 ypos y focus_mask True action Start('extras') hovered [ Play ("test_four", "sfx/click.wav"), Show("gui_tooltip", my_picture="gui/tooltip_main_menu_extra.png", my_tt_xpos=46, my_tt_ypos=518) ] unhovered [Hide("gui_tooltip")] at main_eff4
-        $ y+=71
-    imagebutton auto "gui/main_quit_%s.png" xpos 773 ypos y focus_mask True action Quit(confirm=False) hovered [ Play ("test_five", "sfx/click.wav"), Show("gui_tooltip", my_picture="gui/tooltip_main_menu_quit.png", my_tt_xpos=46, my_tt_ypos=518) ] unhovered [Hide("gui_tooltip")] at main_eff5
+        imagebutton auto "gui/main_extras_%s.png" xpos 1490 ypos y focus_mask True action Start('extras') hovered [ Play ("test_four", "sfx/click.wav")] at main_eff4
+        $ y+=142
+    imagebutton auto "gui/main_quit_%s.png" xpos 1490 ypos y focus_mask True action Quit(confirm=False) hovered [ Play ("test_five", "sfx/click.wav")] at main_eff5
 
 screen example: #this screen isn't used. It's just used as an example in the script.
 #begin at_atl
-    imagebutton auto "gui/main_start_%s.png" xpos 773 ypos 114 focus_mask True action Start() at main_eff1
+    imagebutton auto "gui/main_start_%s.png" xpos 1490 ypos 114 focus_mask True action Start() at main_eff1
 #end at_atl
 
 # The code below defines the ATL transform effects for each button on the main menu. These effects are triggered when the buttons are shown.
@@ -64,20 +149,20 @@ screen example: #this screen isn't used. It's just used as an example in the scr
 #begin main_eff
 init -2:
     transform main_eff1:
-        zoom 0.5
-        easein 0.4 zoom 1.0
+        zoom 1
+        easein 0.4 zoom 2
     transform main_eff2:
-        zoom 0.5
-        easein 0.8 zoom 1.0
+        zoom 1
+        easein 0.8 zoom 2
     transform main_eff3:
-        zoom 0.5
-        easein 1.2 zoom 1.0
+        zoom 1
+        easein 1.2 zoom 2
     transform main_eff4:
-        zoom 0.5
-        easein 1.6 zoom 1.0
+        zoom 1
+        easein 1.6 zoom 2
     transform main_eff5:
-        zoom 0.5
-        easein 2.0 zoom 1.0
+        zoom 1
+        easein 2.0 zoom 2
 #end main_eff
 
 ## ■██▓▒░ NAVIGATION ░▒▓████████████████████████████████████■
@@ -228,8 +313,8 @@ screen yesno_prompt:
     modal True # A modal screen prevents the user from interacting with displayables below it, except for the default keymap.
 
     add "gui/yesno_ground.png"
-    imagebutton auto "gui/yesno_yes_%s.png" xpos 267 ypos 369 action yes_action hover_sound "sfx/click.wav"
-    imagebutton auto "gui/yesno_no_%s.png" xpos 526 ypos 369 action no_action hover_sound "sfx/click.wav"
+    imagebutton auto "gui/yesno_yes_%s.png" xpos 0.35 ypos 0.8 action yes_action hover_sound "sfx/click.wav"
+    imagebutton auto "gui/yesno_no_%s.png" xpos 0.65 ypos 0.8 action no_action hover_sound "sfx/click.wav"
     
     if message == layout.ARE_YOU_SURE:
         add "gui/yesno_are_you_sure.png"

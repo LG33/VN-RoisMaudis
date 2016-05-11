@@ -2,27 +2,28 @@
 
 image decor intro:
     "backgrounds/intro.jpg"
-    zoom 0.45
+    zoom 1
     
 image decor chambre:
     "backgrounds/bedroom.jpg"
-    zoom 1.0
+    zoom 2
     
 image decor grande_salle:
     "backgrounds/bigroom.jpg"
-    zoom 1.0
+    zoom 2
     
 image decor entree:
     "backgrounds/entry.jpg"
-    zoom 1.0
+    zoom 2
     
 image decor village:
     "backgrounds/village.jpg"
-    zoom 0.3
+    zoom 0.6
     
 image decor fontainebleau:
     "backgrounds/fontainebleau.jpg"
-    zoom 0.3
+    zoom 0.6
+
 
 image helene normal = "characters/helene/helene_normal.png"
 image helene masque = "characters/helene/helene_masque.png"
@@ -59,21 +60,22 @@ define helene = Character('Hélène', color="#ff99ff")
 define gaston = Character('Gaston', color="#9999ff")
 define anne = Character('Anne', color="#eeeeee")
 define charles = Character('Charles', color="#ffff99")
+define self = Character(None, what_italic=True, what_color="#fff274")
 
 transform left: 
     xalign -0.2 
     yalign 1.0
-    zoom 3.0
+    zoom 5.0
     
 transform right: 
     xalign 1.5 
     yalign 1.0
-    zoom 3.0
+    zoom 5.0
     
 transform center: 
     xalign 0.5 
     yalign 1.0
-    zoom 3.0
+    zoom 5.0
     
 transform enter_right:
     on show:
@@ -93,7 +95,7 @@ transform enter_left:
     
 transform bras_transform:
     xalign 0.25
-    zoom 2.0
+    zoom 4.0
     on show:
         yalign 2.0
         linear 0.5 yalign 1.2
@@ -112,9 +114,9 @@ label start:
 
     scene decor noir with fade
     
-    "--En pleine nuit--"
+    self "--En pleine nuit--"
 
-    "???" "Eh ! Tu m'entends ??"
+    "???" "{cps=30}Eh ! Tu m'entends ??{/cps}"
 
     scene decor intro with fade
 
