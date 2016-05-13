@@ -6,8 +6,8 @@ init -1 python hide:
     config.developer = True
 
     ## These control the width and height of the screen.
-    config.screen_width = 1980
-    config.screen_height = 1024
+    config.screen_width = 1920
+    config.screen_height = 1080
 
     ## This controls the title of the window, when Ren'Py is running in a window.
     config.window_title = u"L'Ordre du Lys"
@@ -15,6 +15,8 @@ init -1 python hide:
     ## These control the name and version of the game, that are reported with tracebacks and other debugging logs.
     config.name = "L'Ordre du Lys"
     config.version = "1.0"
+    
+    config.quit_action = Quit(confirm=False)
 
     #########################################
     # Themes
@@ -55,24 +57,19 @@ init -1 python hide:
     ## The background of the window. In a Frame, the two numbers are the size of the left/right and top/bottom borders, respectively.
     style.window.background = Frame("gui/narrative_box.png", 0, 0)
 
-    ## Margin is space surrounding the window, where the background is not drawn.
-    # style.window.left_margin = 6
-    # style.window.right_margin = 6
-    # style.window.top_margin = 6
-    # style.window.bottom_margin = 6
-
     ## Padding is space inside the window, where the background is drawn.
     style.window.left_padding = 110
     style.window.right_padding = 110
     style.window.top_padding = 90
     # style.window.bottom_padding = 6
     
-    # style.say_label.text_align = 0.5
+    style.say_vbox.spacing = 30
 
     ## This is the minimum height of the window, including the margins and padding.
     # style.window.yminimum = 250
     
-    style.window.yminimum = 300
+    style.window.yminimum = 330
+    style.window.ymaximum = 330
 
     #########################################
     ## This lets you change the placement of the main menu.
