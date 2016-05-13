@@ -53,7 +53,7 @@ init -1 python hide:
     #########################################
     ## These settings let you customize the window containing the dialogue and narration, by replacing it with an image.
     ## The background of the window. In a Frame, the two numbers are the size of the left/right and top/bottom borders, respectively.
-    style.window.background = Frame("gui/frame.png", 0, 0)
+    style.window.background = Frame("gui/narrative_box.png", 0, 0)
 
     ## Margin is space surrounding the window, where the background is not drawn.
     # style.window.left_margin = 6
@@ -62,15 +62,17 @@ init -1 python hide:
     # style.window.bottom_margin = 6
 
     ## Padding is space inside the window, where the background is drawn.
-    style.window.left_padding = 120
-    style.window.right_padding = 120
-    style.window.top_padding = 20
+    style.window.left_padding = 110
+    style.window.right_padding = 110
+    style.window.top_padding = 90
     # style.window.bottom_padding = 6
+    
+    # style.say_label.text_align = 0.5
 
     ## This is the minimum height of the window, including the margins and padding.
     # style.window.yminimum = 250
     
-    style.window.yminimum = 250
+    style.window.yminimum = 300
 
     #########################################
     ## This lets you change the placement of the main menu.

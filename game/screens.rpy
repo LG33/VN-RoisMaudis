@@ -93,12 +93,12 @@ init -2:
         selected_hover_outlines [(1, "#000000", 0, 0)]
 
     style menu_choice_button is button:
-        xminimum 500
-        xmaximum 500
-        yminimum 50
-        ymaximum 50
-        ypadding 20
-        xpadding 20
+        xminimum 700
+        xmaximum 700
+        yminimum 90
+        ymaximum 90
+        ypadding 10
+        xpadding 10
         background "#000000dd"
         hover_background "#000033dd"
         

@@ -56,11 +56,14 @@ image bras_leon mid = "characters/bras_leon_mid.png"
 image bras_leon fin = "characters/bras_leon_fin.png"
 
 
-define helene = Character('Hélène', color="#ff99ff")
-define gaston = Character('Gaston', color="#9999ff")
-define anne = Character('Anne', color="#eeeeee")
-define charles = Character('Charles', color="#ffff99")
-define self = Character(None, what_italic=True, what_color="#fff274")
+define leon = Character('Léon', outlines=[(1, "#008800", 0, 0)], window_top_padding=20, window_background="gui/dialogue_box.png")
+define helene = Character('Hélène', outlines=[(1, "#ff00ff", 0, 0)], window_top_padding=20, window_background="gui/dialogue_box.png")
+define gaston = Character('Gaston', color="#9999ff", window_top_padding=20, window_background="gui/dialogue_box.png")
+define anne = Character('Anne', color="#eeeeee", window_top_padding=20, window_background="gui/dialogue_box.png")
+define charles = Character('Charles', outlines=[(1, "#aa7700", 0, 0)], window_top_padding=20, window_background="gui/dialogue_box.png")
+define inconnu = Character('???', window_top_padding=20, window_background="gui/dialogue_box.png")
+define self = Character(None, color="#ffff99", what_italic=True, what_color="#ffdd55", window_top_padding=90, window_background="gui/narrative_box.png")
+define jacques = Character("jacques_name", dynamic=True, what_color="#8888ff", what_italic=True, what_slow_cps=10, window_top_padding=20, window_background="gui/dialogue_box.png")
 
 transform left: 
     xalign -0.2 
@@ -68,7 +71,7 @@ transform left:
     zoom 5.0
     
 transform right: 
-    xalign 1.5 
+    xalign 1.5
     yalign 1.0
     zoom 5.0
     
@@ -105,63 +108,91 @@ transform bras_transform:
 
 init python:
     choix1 = 0
-    
-define fade1 = Fade(1.0)
+    jacques_name = "???"
+    helene_side = Character('',color="#ff99ff",window_left_padding=288,window_top_padding=40,show_side_image=Image("side_image/lucy_surprized.png", xalign=100, yalign=0.87), )
 
-# The game starts here.
+    
+define ellipse = Fade(0.5, 1.0, 0.5)
+define long_dissolve = Dissolve(1.0)
+
+# init python:
+#    def beepy_voice(event, interact=True, **kwargs):
+#        if not interact:
+#            return
+#
+#        if event == "show_done":
+#            renpy.sound.play("melodic1_click.wav", loop=True)
+#        elif event == "slow_done":
+#            renpy.sound.stop()
+#
+#define pike = Character("Christopher Pike", callback=beepy_voice)
+
 label start:
+
+    # pike "So, hanging out on Talos IV, minding my own business, when..."
     # play music "illurock.ogg"
+    # $ jacques_name = "Jacques de Molay"
 
-    scene decor noir with fade
+    scene decor noir with dissolve
     
-    self "--En pleine nuit--"
-
-    "???" "{cps=30}Eh ! Tu m'entends ??{/cps}"
-
-    scene decor intro with fade
-
-    show helene masque at center with dissolve
-
-    "???" "Tu as pris un sérieux coup apparement, on verra ça une fois à la planque, là on a pas le temps."
+    inconnu "Léon ! Léon !!"
+    self "Que… qu’est-ce qu’il se passe ?"
     
+    scene decor intro
+    show helene masque at center
+    with long_dissolve
+    
+    pause 0.5
+
+    inconnu "Tu t’es évanoui, dépêche-toi, il faut fuir !"
+    self "Je… je ne comprends rien…"
+
     menu:
-        "Qui êtes-vous ?":
-            $ choix1 = 1
-            jump intro_2
-        "Qui suis-je ?":
-            $ choix1 = 2
-            jump intro_2
+        "Demander qui je suis":
+            leon "Qui suis-je ?"
+            jump fuite_fin
+        "Demander qui elle est":
+            leon "Qui êtes-vous ?"
+            jump fuite_fin
+    
+label fuite_fin:
+    inconnu "QU… {p=1.0}QUOI ?!"
+    
+    pause 2.0
+    
+    inconnu "On n’a pas le temps, suis-moi !"
+    leon "Ah… ma tête…"
 
-label intro_2:
-    "???" "Quoi !!!"
-    
-    pause 1.0
-    
-    "???" "Aller lève-toi, d'autres gardes vont arriver."
-    "???" "Attrape ma main !"
-    
-    jump reveil
+    scene decor noir 
+    hide helene
+    with dissolve
 
-label reveil:
+    inconnu "LÉON!!!"
+
+    pause 5.0
+
+    jump reveil_start
+
+label reveil_start:
     scene decor chambre
     show helene normal at left
-    with fade
+    with ellipse
      
-    "???" "Ça y est, t'es réveillé ?"
-    "???" "..."
+    inconnu "Ça y est, t'es réveillé ?"
+    inconnu "..."
     
-    "???" "Hier on s'est fait attaquer et... tu as fait une grosse chute."
-    "???" "..."
+    inconnu "Hier on s'est fait attaquer et... tu as fait une grosse chute."
+    inconnu "..."
     
-    "???" "Tu ne te rappelles vraiment plus de rien ?!"
+    inconnu "Tu ne te rappelles vraiment plus de rien ?!"
     
     menu:
         "Non.":
-            "???" "OK…"
+            inconnu "OK…"
     
     pause 1.0
 
-    "???" "Du coup, j’imagine que t’as beaucoup de questions."
+    inconnu "Du coup, j’imagine que t’as beaucoup de questions."
     
     menu:
         "Qui suis-je ?":
@@ -172,8 +203,8 @@ label reveil:
             jump presentation_helene
                     
 label presentation_helene:
-    "???" "C'est vrai, commençons par ça."
-    "???" "Je m'appelle Hélène."
+    inconnu "C'est vrai, commençons par ça."
+    inconnu "Je m'appelle Hélène."
     helene "On se connait depuis de nombreuses années."
     helene "J'étais noble avant le début du Royaume des Templiers, comme toi d'ailleurs."
     helene "Et nous voilà dans l'Ordre du Lys à mener des attaques terroristes."
@@ -181,16 +212,16 @@ label presentation_helene:
     jump arrivee_anne
                     
 label presentation_leon:
-    "???" "Oui évidemment, tu dois même plus connaître ton nom."
-    "???" "Tu t'appelles Léon, tu étais un enfant noble quand on s'est connu."
-    "???" "Lors de la prise de pouvoir des Templiers, on a rejoint ensemble l'Ordre du Lys."
-    "???" "Ah oui j'oubliais : je m'appelle Hélène."
+    inconnu "Oui évidemment, tu dois même plus connaître ton nom."
+    inconnu "Tu t'appelles Léon, tu étais un enfant noble quand on s'est connu."
+    inconnu "Lors de la prise de pouvoir des Templiers, on a rejoint ensemble l'Ordre du Lys."
+    inconnu "Ah oui j'oubliais : je m'appelle Hélène."
     
     jump arrivee_anne
                     
 label presentation_lieu:
-    "???" "Nous sommes dans une planque souterraine, proche du chateau de Fontainebleau."
-    "???" "Ca fait quelques mois qu'on est ici."
+    inconnu "Nous sommes dans une planque souterraine, proche du chateau de Fontainebleau."
+    inconnu "Ca fait quelques mois qu'on est ici."
     
     jump arrivee_anne
                     
@@ -223,7 +254,7 @@ label meeting_1:
     show charles normal at center
     show gaston normal at left
     show anne normal at right
-    with fade
+    with ellipse
 
     charles "Content de te voir debout Léon, tu nous auras fais une grosse frayeur, surtout à Hélène. Mais ne perdons pas de temps, tu dois te poser beaucoup de questions !"
     charles "Je parle, je parle mais je ne me suis toujours pas présenté ! Je m’appelle Charles IV fils de Philippe Le Bel et dernier descendant direct des Capétiens."
@@ -259,7 +290,7 @@ label meeting_1:
     "Suite de la conversation où Charles mentionne une maladie contagieuse incurable que les démons infligent et que l'attaque précédente leur a permis de mettre la main sur un document indiquant que Jacques de Molay, grand maître des Templiers, partira à la chasse des la forêt de Fontainebleau le lendemain du jour présent, occasion en or pour tenter un assassinat. Léon a finalement des nausées et ressent une douleur au bras et demande à ce qu’on le laisse se reposer."
 
 label retour_chambre:
-    scene decor chambre with fade
+    scene decor chambre with ellipse
     
     "De retour dans sa chambre, il tire sa manche et aperçoit une marque étrange sur le bras."
     
@@ -272,14 +303,14 @@ label retour_chambre:
     jump vision_01
 
 label vision_01:
-    scene decor noir with fade
+    scene decor noir with ellipse
     
     "--Réminéscence : Un souvenir flou revient à l'esprit de Léon. Il distinque la silouhette d'un homme--"
-    "???" "Léon, il y a plusieurs choses que tu dois savoir sur les démons."
+    inconnu "Léon, il y a plusieurs choses que tu dois savoir sur les démons."
     jump gaston_manche
 
 label gaston_manche:
-    scene decor chambre with fade
+    scene decor chambre with ellipse
     
     "On entend quelqu'un rentrer. Léon retrousse rapidement sa manche."
     
@@ -328,7 +359,7 @@ label gaston_manche:
     jump grande_salle
     
 label grande_salle:
-    scene decor grande_salle with fade
+    scene decor grande_salle with ellipse
     
     show charles normal at right with dissolve
     show anne normal at left with dissolve   
@@ -338,7 +369,7 @@ label grande_salle:
     
     scene decor noir with dissolve
     
-    "???" "Les démons peuvent prendre une forme humaine."
+    inconnu "Les démons peuvent prendre une forme humaine."
 
     scene decor grande_salle
     show charles serieux at right
@@ -374,14 +405,14 @@ label grande_salle:
     jump planque_entree
     
 label planque_entree:
-    scene decor entree with fade
+    scene decor entree with ellipse
     
     show helene normal at center with dissolve
     helene "Allons au village, ça te fera du bien de prendre l'air."
     jump village
     
 label village:
-    scene decor village with fade
+    scene decor village with ellipse
     
     show helene souriante at center with dissolve
     
@@ -414,7 +445,7 @@ label grande_salle_suite:
     show charles normal at center
     show helene inquiete at right
     show anne normal at left
-    with fade
+    with ellipse
     
     charles "Si je vous convoque tous ici, c'est pour l'organisation de l'assaut de demain"
     "Tout le monde est dans la grande salle. Charles parle de l'organisation de l'attaque : infiltration dans les jardins de fontainebleau. Gaston demande s'il est sage de faire participer Léon vu son état. Anne attaque alors Léon par surprise, mais il parvient à contrer aisément. Anne en conclu qu'il a toutes ses capacités. Charles laisse à Léon le choix de les accompagner ou non."
@@ -432,7 +463,7 @@ label grande_salle_suite:
     jump chambre_soir
     
 label chambre_soir:
-    scene decor chambre with fade
+    scene decor chambre with ellipse
     
     "Léon est seul dans sa chambre et regarde sa blessure."
     
@@ -446,14 +477,14 @@ label chambre_soir:
     jump last_vision
 
 label last_vision:
-    scene decor noir with fade
+    scene decor noir with ellipse
     
-    "???" "Les démons sous forme humaine... On peut les reconnaître à leurs yeux"
+    inconnu "Les démons sous forme humaine... On peut les reconnaître à leurs yeux"
     "--Hélène a les yeux vairons, c'est au joueur de faire le rapprochement--"
     jump chambre_nuit
 
 label chambre_nuit:
-    scene decor chambre with fade
+    scene decor chambre with ellipse
     
     "La nuit passe"
     
@@ -467,7 +498,7 @@ label chambre_nuit:
         
         
 label final_01:
-    scene decor chambre with fade
+    scene decor chambre with ellipse
     
     "Léon se réveille et sort de sa chambre"
     
@@ -482,7 +513,7 @@ label final_01:
     
 
 label final_02:
-    scene decor chambre with fade
+    scene decor chambre with ellipse
     
     "Silence..."
     
@@ -510,7 +541,7 @@ label final_02:
     jump end
     
 label final_03:
-    scene decor chambre with fade
+    scene decor chambre with ellipse
     
     "Toc-Toc-Toc"
     
@@ -518,7 +549,7 @@ label final_03:
     
     helene "Aller, c'est l'heure de partir à l'attaque !"
     
-    scene decor fontainebleau with fade
+    scene decor fontainebleau with ellipse
     
     "Le groupe s'infiltre dans le Jardin de Fontainebleau en assassinant furtivement des gardes."
     "Ils se camouflent dans de la verdure sur le terrain de chasse, chemin par lequel Jacques de Molay devrait passer."
