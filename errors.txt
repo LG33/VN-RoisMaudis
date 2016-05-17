@@ -2,12 +2,8 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 368: reached end of line when expecting ':'.
-    if wantToGoToBattle == 1
-                            ^
-
-File "game/script.rpy", line 370: expected statement.
-    else
-        ^
+File "game/script.rpy", line 533: expected statement.
+    gaston: "Mais… C’est demain !"
+          ^
 
 Ren'Py Version: Ren'Py 6.99.10.1227

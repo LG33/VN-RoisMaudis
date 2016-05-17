@@ -319,44 +319,234 @@ label reveil_1_end:
     jump reunion_start
     
 label reunion_start:
-    scene decor grande_salle
+    scene decor noir with dissolve
+    pause 2.0
+    "*bruits de pas multiples*"
+    self "Les couloirs étrois et humides... ça ne me met pas vraiment à l'aise"
+    
+    scene decor grande_salle with dissolve
+    show charles normal at left
+    show gaston normal at right
+    
+    pause 2.0
+    show charles at center with move
+    
+    inconnu "Alors comme ça, tu as perdu la mémoire..."
+    charles "Je suppose qu'on doit se présenter du coup. Tu peux m'appeler Charles. Je suis le fondateur et dirigeant de l'Ordre du Lys"
+    
+    show charles at left with move
+    show gaston at center with move
+    
+    gaston souriant "Moi, c'est Gaston. T'as intérêt à vite retrouver la mémoire mon gars !"
+    
+    hide charles
+    hide gaston
+    show helene serieuse at center with dissolve
+    
+    helene "Gaston!"
+    
+    hide helene
+    show gaston normal at center with dissolve
+    
+    gaston "Oh ça va je plaisante!"
+    leon "Vous parliez de l'Ordre du Lys.. vous pouvez m'expliquez ce que c'est ?"
+    hide gaston
+    
     show charles normal at center
-    show gaston normal at left
-    show anne normal at right
-    with ellipse
+    charles "Nous sommes un groupe de résistants qui nous battons désespérément pour libérer le pays des Templiers."
+    
+    menu:
+      "Demander pourquoi le combat est désespéré":
+           jump reunion_1_1
+      "Demander qui sont les Templiers":
+           jump reunion_1_2
 
-    charles "Content de te voir debout Léon, tu nous auras fais une grosse frayeur, surtout à Hélène. Mais ne perdons pas de temps, tu dois te poser beaucoup de questions !"
-    charles "Je parle, je parle mais je ne me suis toujours pas présenté ! Je m’appelle Charles IV fils de Philippe Le Bel et dernier descendant direct des Capétiens."
+label reunion_1_1:
+    leon "Comment ça, désespérément?"
+    jump reunion_1_end
 
+label reunion_1_2:
+    leon "Comment ça, les Templiers?"
+
+    hide charles
+    show helene inquiete at center with dissolve
+
+    helene "Tu ne te souviens vraiment plus de rien…"
+
+    hide helene
+    jump reunion_1_end
+    
+label reunion_1_end:
+
+    show charles serieux at center with dissolve
+
+    charles "Il y a une dizaine d’années, les Templiers, un groupe religieux maléfique, a eu recours à des rites démoniaques."
+
+    hide charles
+    show gaston serieux at center with dissolve
+
+    gaston "Ces salopards ont invoqué des démons et ont utilisé leurs pouvoirs pour tuer un grand nombre d’innocents."
+
+    hide gaston
+    show charles serieux at center with dissolve
+    
+    charles "Ces démons ont écrasé le Royaume en seulement quelques jours et terrorisent maintenant le peuple en lançant une malédiction à tous ceux qui agiront d’une façon qui leur déplait."
+    charles "Une marque noire apparaît sur le corps de la personne maudite et s’étend peu à peu sur tout son corps. Après quelques jours, quand le corps est entièrement recouvert, la personne meurt dans d’atroces souffrances. Comme si ça ne suffisait pas, les personnes affectées sont généralement rejetées par leurs proches, par peur."
+    leon "Ça n’a pas l’air plaisant..."
+
+    hide charles
+    show anne serieuse at center with dissolve
+
+    anne "L’Ordre du Lys a été crée dans le but de lutter contre ce règne de terreur. Nous sommes tous les cinq de bons combattants. On se manifeste pour l’instant surtout en assassinant des haut gradés Templiers, mais notre véritable objectif est de renverser entièrement les Templiers."
+    menu:
+        "Annoncer que je ferais tout mon possible":
+           jump reunion_2_1
+        "Demander si c’est vraiment un objectif réaliste":
+           jump reunion_2_2
+
+label reunion_2_1:
+    leon "Je vais faire tout mon possible pour vous aider!"
+
+    show anne souriante
+
+    anne "Ravie de l’entendre ! Et ne t’inquiète pas, le peuple aussi est de notre côté ! D’ailleurs, bien qu’ils ne souhaitent pas s’impliquer directement dans la lutte, on a de nombreux alliés qui nous fournissent en fonds ou en informations. "
+    jump reunion_2_end
+
+label reunion_2_2:
+    leon "Vaincre les Templiers… C’est vraiment à notre portée ? Nous ne sommes que cinq..."
+    anne "Mais le peuple est de notre côté ! D’ailleurs, bien qu’ils ne souhaitent pas s’impliquer directement dans la lutte, on a de nombreux alliés qui nous fournissent en fonds ou en informations. "
+
+    show anne souriante
+
+    jump reunion_2_end
+
+label reunion_2_end:
+
+    anne "Charles était un prince de l’ancien royaume et est le seul survivant de la famille Royale. L’avoir de notre côté aide pour notre image."
+
+    hide anne
+    show charles normal at center with dissolve
+
+    self "Un… un prince ?!"
+ 
     menu:
         "S’agenouiller":
-            show gaston souriant at left
-            show anne souriante at right
-            gaston "Ha ha ha!"
-            anne "Ne rigole pas trop Gaston, souviens toi, tu as réagis de la même manière lors de votre première rencontre !"
-            
-            show charles serieux at center
-            
-            charles "Arrêtez un peux vous deux !"
-            
-            show gaston serieux at left
-            show anne serieuse at right
-            
-            show charles normal at center
-            
-            charles "Relèves toi Léon, pas besoin d’un tels protocole, nous sommes tous égaux dans ce groupe, et puis la monarchie a disparut depuis bien longtemps"
-        "Ne pas s’agenouiller":
-            pause 0.0
-    
-    charles "Le monarchie a disparu depuis bien longtemps, je ne suis maintenant plus qu’un prince déchus. Nous sommes dorénavant tous égaux dans ce groupe contre un ennemi commun"
-    
-    menu:
-        "La monarchie a disparu ?":
-            charles "Oui… C'est maintenant les Templiers qui gouvernent. Nous étions à deux doigts de mettre fin à leurs pratique de la magie noire. Mais ils ont commencé à (...)"
-        "Qui est l’ennemi commun ?":
-            charles "Les templiers… Nous étions à deux doigts de mettre fin à leurs pratique de la magie noire. Mais ils ont commencé à (...)"
+           jump reunion_3_1
+        "Demander ce qu’un prince fait ici":
+           jump reunion_3_2
 
-    "Suite de la conversation où Charles mentionne une maladie contagieuse incurable que les démons infligent et que l'attaque précédente leur a permis de mettre la main sur un document indiquant que Jacques de Molay, grand maître des Templiers, partira à la chasse des la forêt de Fontainebleau le lendemain du jour présent, occasion en or pour tenter un assassinat. Léon a finalement des nausées et ressent une douleur au bras et demande à ce qu’on le laisse se reposer."
+label reunion_3_1:
+    leon "Excusez-moi, mon altesse. Je ne savais pas."
+
+    pause 2.0
+    hide charles
+    show gaston souriant at center with dissolve
+
+    gaston "Ha ha ha! Tu devrais voir ta tête !"
+
+    hide gaston
+    show anne normal at center with dissolve
+
+    "Anne semble aussi se retenir de rire…"
+    anne "Gaston! Ne te moque pas, tu avais réagi exactement de la même façon la première fois que tu as rencontré Charles toi aussi."
+
+    show anne souriante
+
+    anne "On a décidé que les statuts auraient peu d’importance au sein de l’ordre. D’ailleurs, j’étais une servante à l’origine!"
+
+    jump reunion_3_end
+
+label reunion_3_2:
+
+    leon "Un prince devrait vraiment se battre parmi un groupe pareil ?"
+
+    hide charles
+    show anne souriante
+
+    anne "Son simple nom permet de nous rendre plus crédible auprès de nos alliés. Et puis on a décidé qu’au sein de l’ordre les statuts auraient peu d’importance. D’ailleurs, j’étais servante à l’origine !"
+
+    jump reunion_3_end
+
+label reunion_3_end:
+
+    hide anne
+    show gaston souriant at center with dissolve
+
+    gaston "Et moi, j’étais paysan. Dur à croire, hein !"
+
+    hide gaston
+    show helene normal at center with dissolve
+
+    helene "Quand à nous, nous étions des nobles."
+
+    hide helene
+    show charles normal at center with dissolve
+
+    charles "Bien. Je sais que tout ne doit pas être encore très clair pour toi, mais je vous  ai tous demandé à venir pour une raison précise."
+    "Tout le monde semble si sérieux d’un coup…"
+    charles "L’attaque d’hier, dont le but était d’assassiner un officier Templier, a été menée avec succès."
+
+    show charles serieux
+
+    charles "Enfin, si on omet ce qui est arrivé à Léon, bien entendu."
+
+    show charles normal
+
+    charles "Comme à notre habitude, nous avons rapidement pris les documents qui traînaient sur place avec nous, juste au cas où."
+    charles "Nous avons entre autres ramassé cette lettre. Anne, peux-tu la lire ? Tu vas comprendre où je veux en venir."
+
+    hide charles
+    show anne normal at center with dissolve
+
+    anne "Voyons voir… oh, c’est une lettre écrite par Jacques de Molay !"
+    leon "Jacques de Molay ?"
+
+    hide anne
+    show helene normal at center with dissolve
+
+    helene "C’est le grand Maître des Templiers. Il n’y a personne au dessus de lui"
+    leon "Je vois…"
+
+    hide helene
+    show anne normal at center with dissolve
+
+    anne "Elle s’adresse au Templier qu’on a assassiné. Ils semblaient plutôt proche, mais il n’y a rien de bien intéressant jusque là… OH !"
+
+    show anne serieuse
+
+    anne "Charles ! On ne peut pas passer à côté d’une occasion pareille !"
+
+    hide anne
+    show gaston serieux at center with dissolve
+
+    gaston "Qu’est ce qu’il y a ?"
+
+    hide gaston
+    show anne serieuse at center with dissolve
+
+    anne "Je vous lis ce qu’il y a d’écrit"
+    anne "\"Mon âge me permet de moins en moins à partir à la chasse, mais ça m’arrive encore de temps en temps. D’ailleurs, j’ai prévu de partir chasser dans la forêt de Fontainebleau à l’occasion de l’Ascension, dans la matinée. J’ai hâte !\""
+
+    hide anne
+    show gaston serieux at center with dissolve
+
+    gaston "Mais… C’est demain !"
+
+    hide gaston
+    show charles serieux at center with dissolve
+
+    charles "C’est exact. Vous voyez où je veux en venir. Jacques de Molay ne sort quasiment plus du château, ce genre d’occasion est très rare. Nous allons évidemment nous préparer à"
+    hide charles
+    show helene inquiete at center
+    helene "Léon ! Tu vas bien ?!"
+    leon "…pas vraiment… je peux me reposer dans ma chambre ?"
+
+    hide helene
+    show charles serieux at center
+
+    charles "Bien sûr. Repose-toi bien."
+
+    jump retour_chambre
 
 label retour_chambre:
     scene decor chambre with ellipse
