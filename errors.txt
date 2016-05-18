@@ -2,8 +2,20 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 533: expected statement.
-    gaston: "Mais… C’est demain !"
-          ^
+File "game/script.rpy", line 575: end of line expected.
+    scene decor noir with flash blanc
+                                ^
+
+File "game/script.rpy", line 581: end of line expected.
+    scene chambre with flash blanc
+                             ^
+
+File "game/script.rpy", line 607: expected menuitem
+    “Rester calme”:
+    ^
+
+File "game/script.rpy", line 652: expected statement.
+    move anne to center with dissolve
+                                     ^
 
 Ren'Py Version: Ren'Py 6.99.10.1227

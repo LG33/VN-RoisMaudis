@@ -549,70 +549,137 @@ label reunion_3_end:
     jump retour_chambre
 
 label retour_chambre:
-    scene decor chambre with ellipse
-    
-    "De retour dans sa chambre, il tire sa manche et aperçoit une marque étrange sur le bras."
-    
-    show bras_leon debut at bras_transform
-    
-    "Il se passe de l'eau dessus via un sceau d'eau avoisinant. Il aperçoit alors son visage dans le reflet de l'eau."
-    
-    "Tout d'un coup, son bras se met à lui faire très mal."
-    
-    jump vision_01
-
-label vision_01:
-    scene decor noir with ellipse
-    
-    "--Réminéscence : Un souvenir flou revient à l'esprit de Léon. Il distinque la silouhette d'un homme--"
-    inconnu "Léon, il y a plusieurs choses que tu dois savoir sur les démons."
-    jump gaston_manche
-
-label gaston_manche:
-    scene decor chambre with ellipse
-    
-    "On entend quelqu'un rentrer. Léon retrousse rapidement sa manche."
-    
-    show gaston normal at right with dissolve
-    
-    gaston "Salut Léon ! T'as un petit moment ? J'ai quelque chose à te dire."
-    
-    show gaston serieux at right
-    
-    gaston "Pendant l'attaque, je me suis servis d'un artéfact démoniaque et... tu as été touché."
-    
-    menu:
-        "S'énerver":
-            gaston "Je suis vraiment désolé..."
-        "Demander plus de précisions":
-            pause 0.0
-    
-    gaston "Je l'avais trouvé après une attaque. On s'est dit que ça pourrait nous protéger contre les démons."
-    gaston "Je savais que ça faisait tombé la personne dans les pommes, mais je savais pas que ça leur faisait aussi perdre la mémoire."
-    
+    scene decor noir with dissolve
     pause 2.0
-    
-    gaston "Je m'en veut énormément tu sais ! Je sais à quel point ça t'as fait du mal."
-    gaston "Crois-moi, je vais tout faire pour me racheter."
-    gaston "A ce propos, il faut que je te dise quelque chose que j'ai jamais osé te dire avant : fais attention à Hélène. Je sais à quel point vous vous aimez tous les deux mais..."
+    scene chambre with dissolve
+
+    self "J’ai la tête qui tourne… et mon bras me brûle sous ma manche… voyons voir…!"
+
+    scene arm_1 with dissolve
+
+    self "Qu… Qu’est ce que c’est que ça !"
+    self "Ce ne serait quand même pas… non, ça ne peut pas être ça !"
+    self "C’était déjà là quand je me suis réveillé ?"
+    self "Qu’est ce qu’il va m’arriver si les autres le découvrent ?"
+    self "Ah ! De l’eau !"
+    self "Ça ne veut pas partir…"
+    self "Oh !"
+
+    scene water with dissolve
+    pause 2.0
+
+    self "C’est vrai… avec tout ça, je n’ai pas eu l’occasion de voir mon visage plus tôt."
+    self "D’ailleurs je n’ai aucune idée de l’âge que j’ai…"
+    self "J’ai l’air plus vieux que je ne l’aurais espéré…"
+
+    scene decor noir with flash
+    pause 1.0
+
+    inconnu "{cps=*0.25}Il y a plusieurs choses que tu dois savoir sur les démons.{/cps}"
+
+    pause 1.0
+    scene chambre with flash
+
+    self "Que… quoi ?!"
+    self "Qu’est ce que c’était que ça ?!"
+    self "Une hallucination ? Un souvenir ?"
+
+    pause 0.5
+    "*bruits de pas suivis d’une porte qui s’ouvre.*"
+    show gaston normal at center
+    with dissolve
+
+    gaston "Eh, tu te sens bien? On est tous inquiets, tu sais."
+    self "C’était limite mais j’ai pu tirer ma manche juste à temps."
+    gaston "Eh, tu m’écoutes ?"
+    leon "Ne… ne t’inquiète pas, c’est juste un coup de fatigue, rien de bien grave."
+    gaston serieux "Je dois te parler de quelque chose d’important. Reste calme et écoute-moi."
+    gaston normal "Il y a quelques mois, on a récupéré par hasard un artefact démoniaque lors d’une de nos attaques résistantes."
+    gaston "On ne connaissait pas trop ses effets mais on savait que c’était une arme dangereuse."
+    gaston souriant "On a finalement décidé avec les autres membres de l’Ordre que je le prendrai avec moi lors de nos attaques, mais que je ne m’en servirai qu’en cas de dernier recours."
+    gaston souriant "Ne va pas le répéter aux autres, mais je me suis même entraîné à le contrôler en cachette."
+    gaston normal "Par contre, pendant l’attaque d’hier, l’artefact est tombé de ma poche pendant qu’on courait et…"
+    gaston serieux "Une drôle de boule de lumière noire en est sortie et est partie dans ta direction."
+    gaston "C’est à ce moment que tu t’es écroulé et que tu as fini par perdre la mémoire."
+    gaston normal "C’était vraiment pas de chance, pas vrai ?"
 
     menu:
-        "S'exclamer et demander plus d'info":
-            gaston "Comment ça ? Elle t'as rien dit ?!"
-            gaston "Tu vois, c'est pour ça que je te dis de te méfier d'elle. A mon avis elle joue un double jeu."
-            gaston "Ta perte de mémoire, c'est peut-être l'occasion de remettre votre relation en question."
-        "Ne rien dire":
-            gaston "...je la suspecte de jouer un double jeu."
+        "Rester calme":
+           jump chambre_1_1
+        "S’énerver":
+           jump chambre_1_2
+
+label chambre_1_1:
+    leon "J’ai donc été touché par cette lumière… qu’est ce qu’il va m’arriver?"
+    jump chambre_1_end
+
+label chambre_1_2:
+    leon "Tu plaisantes, j'espère !"
+    leon "Tu veux dire que tout c’est à cause de toi que j’ai perdu la mémoire ?"
+    leon "D’ailleurs, pourquoi tu transportes une arme pareille si elle est aussi dangereuse ?!"
+    gaston serieux "Eh, calme toi, mon gars !"
+    gaston "Ramener l’artefact sur le champs de bataille est une décision qu’on a prit tous ensemble, tu sais !"
+    gaston "Tu étais toi-même partant pour qu’on le ramène !"
+    leon "Je…"
+    leon "qu’est-ce qu’il va m’arriver maintenant ?"
+
+    show gaston normal
+
+    jump chambre_1_end
     
-    show anne normal at left with dissolve
+label chambre_1_end:
+    gaston "Pour être honnête, on ne sait presque rien sur cet artefact…"
+    gaston souriant "Mais bon, tu as l’air de pas aller trop mal et tout ira mieux une fois qu’on aura trouvé un moyen de te rendre la mémoire !"
+    gaston "En attendant que ça arrive, je ferai en sorte qu’il ne t’arrive rien !"
+
+    "*bruits de pas suivis d’une porte qui s’ouvre"
+
+    show gaston at left with move
+    show anne normal at right with dissolve
+
+    anne "Ah, Gaston, tu es là."
+    anne serieuse "On avait dit qu’on laisserai Léon se reposer."
+    gaston "Je voulais juste voir comment il allait"
+    anne normal "Peu importe. Charles veut te parler à propos des préparatifs de l’attaque de demain."
+    gaston normal "Ça marche. Ah, Léon, une dernière chose !"
+    gaston serieux "Tu ne devrais pas trop te rapprocher de Hélène. Elle n’en a pas l’air, mais elle est vicieuse."
+    anne serieuse "Gaston ! Tu es ridicule."
+    gaston souriant "Je ne sais pas comment elle a fait pour t’amadouer avant que tu ne perdes la mémoire, mais ne refait pas la même erreur !"
+    gaston "Je vous laisse !"
+    leon "Att…"
+
+    hide gaston
+    show anne at center with move
+
+    leon "Il est parti…"
+    anne normal "Excuse-le… il est incorrigible."
+    anne "Il faut un peu de temps pour s’habituer à lui, mais son côté insouciant nous permet à tous de tenir le coup sans se démoraliser."
+
     
-    anne "Gaston ? Charles voudrait te parler."
-    gaston "Ah ? J'y vais de ce pas. A tout à l'heure Léon !"
+    menu:
+        "Demander quelle est la relation entre Hélène et Gaston":
+           jump chambre_2_1
+        "Demander pourquoi Gaston a dit qu’Hélène m’avait \“amadoué\”":
+           jump chambre_2_2
+
+label chambre_2_1:
+    leon "J’ai donc été touché par cette lumière… qu’est ce qu’il va m’arriver?"
+    jump chambre_1_end
+
+label chambre_2_2:
+    leon "Gaston a sous-entendu que j’étais à la botte d’Hélène avant de perdre la mémoire. Qu’est ce qu’il voulait dire par là ?"
+    anne souriante "Il a exagéré, tu n’étais pas vraiment à sa botte. Vous aviez une relation plutôt normale pour un couple."
+    leon "Un couple ?!"
+    anne normal "Oh… elle ne t’en a pas parlé ?"
+    anne serieuse "Je vois… ton amnésie doit être très dur à vivre pour elle aussi."
+    anne souriante "Hélène êtes en couple depuis bien avant que vous n'ayez intégré l’Ordre."
+    leon "Gaston n’avait pas l’air de penser ça…"
+    anne serieuse "Hélène et Gaston ne se supportent pas l’un et l’autre."
+    anne "Il faut dire que Gaston n'est pas toujours facile !"
+
+    jump chambre_2_end
     
-    hide gaston with dissolve
-    
-    anne "T'en fais une drôe de tête !"
-    anne "T'inquiète pas, Gaston peut être dur parfois mais qu'il a un passé difficile. Il avait une relation cachée avec une noble et elle a été tuée lors de l'attaque des templiers."
+label chambre_2_end:
     anne "Dis, j'ai un truc à te proposer, mais faut qu'on en parle à Charles."
     
     jump grande_salle
