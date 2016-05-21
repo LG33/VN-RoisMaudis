@@ -2,20 +2,28 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 575: end of line expected.
+File "game/script.rpy", line 732: end of line expected.
     scene decor noir with flash blanc
                                 ^
 
-File "game/script.rpy", line 581: end of line expected.
+File "game/script.rpy", line 738: end of line expected.
     scene chambre with flash blanc
                              ^
 
-File "game/script.rpy", line 607: expected menuitem
-    “Rester calme”:
-    ^
+File "game/script.rpy", line 801: expected statement.
+    leon: "Non… rien…"
+        ^
 
-File "game/script.rpy", line 652: expected statement.
-    move anne to center with dissolve
-                                     ^
+File "game/script.rpy", line 802: expected statement.
+    charles: "..."
+           ^
+
+File "game/script.rpy", line 803: expected statement.
+    charles: "Très bien. Je vais aller prévenir Hélène."
+           ^
+
+File "game/script.rpy", line 847: expected statement.
+    leon: "Si, ils étaient insupportables. D’ailleurs, je suis bien content de pouvoir enfin m’éloigner d’eux."
+        ^
 
 Ren'Py Version: Ren'Py 6.99.10.1227

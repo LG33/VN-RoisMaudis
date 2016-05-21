@@ -391,7 +391,8 @@ label reunion_1_end:
     show charles serieux at center with dissolve
     
     charles "Ces démons ont écrasé le Royaume en seulement quelques jours et terrorisent maintenant le peuple en lançant une malédiction à tous ceux qui agiront d’une façon qui leur déplait."
-    charles "Une marque noire apparaît sur le corps de la personne maudite et s’étend peu à peu sur tout son corps. Après quelques jours, quand le corps est entièrement recouvert, la personne meurt dans d’atroces souffrances. Comme si ça ne suffisait pas, les personnes affectées sont généralement rejetées par leurs proches, par peur."
+    charles "Une marque noire apparaît sur le corps de la personne maudite et s’étend peu à peu sur tout son corps. Après quelques jours, quand le corps est entièrement recouvert, la personne meurt dans d’atroces souffrances."
+    charles "Comme si ça ne suffisait pas, les personnes affectées sont généralement rejetées par leurs proches, par peur."
     leon "Ça n’a pas l’air plaisant..."
 
     hide charles
@@ -565,7 +566,7 @@ label retour_chambre:
     self "Ça ne veut pas partir…"
     self "Oh !"
 
-    scene water with dissolve
+    scene decor water with dissolve
     pause 2.0
 
     self "C’est vrai… avec tout ça, je n’ai pas eu l’occasion de voir mon visage plus tôt."
@@ -578,7 +579,7 @@ label retour_chambre:
     inconnu "{cps=*0.25}Il y a plusieurs choses que tu dois savoir sur les démons.{/cps}"
 
     pause 1.0
-    scene chambre with flash
+    scene decor chambre with flash
 
     self "Que… quoi ?!"
     self "Qu’est ce que c’était que ça ?!"
@@ -657,14 +658,17 @@ label chambre_1_end:
 
     
     menu:
-        "Demander quelle est la relation entre Hélène et Gaston":
+        "Demander pourquoi Gaston a dit de se méfier d'Hélène":
            jump chambre_2_1
         "Demander pourquoi Gaston a dit qu’Hélène m’avait \“amadoué\”":
            jump chambre_2_2
 
 label chambre_2_1:
-    leon "J’ai donc été touché par cette lumière… qu’est ce qu’il va m’arriver?"
-    jump chambre_1_end
+    leon "Pourquoi Gaston m'a dit de se méfier d'Hélène ?"
+    anne serieuse "Hélène et Gaston ne se supportent pas l’un et l’autre."
+    anne serieuse "J'ai abandonné il y a longtemps de savoir pourquoi !"
+    anne "Mais il faut dire que Gaston n'est pas toujours facile et Hélène s'énerve rapidement !"
+    jump chambre_2_end
 
 label chambre_2_2:
     leon "Gaston a sous-entendu que j’étais à la botte d’Hélène avant de perdre la mémoire. Qu’est ce qu’il voulait dire par là ?"
@@ -675,7 +679,7 @@ label chambre_2_2:
     anne souriante "Hélène êtes en couple depuis bien avant que vous n'ayez intégré l’Ordre."
     leon "Gaston n’avait pas l’air de penser ça…"
     anne serieuse "Hélène et Gaston ne se supportent pas l’un et l’autre."
-    anne "Il faut dire que Gaston n'est pas toujours facile !"
+    anne "Il faut dire que Gaston n'est pas toujours facile et Hélène s'énerve rapidement !"
 
     jump chambre_2_end
     
@@ -685,59 +689,182 @@ label chambre_2_end:
     jump grande_salle
     
 label grande_salle:
-    scene decor grande_salle with ellipse
-    
-    show charles normal at right with dissolve
-    show anne normal at left with dissolve   
-    
-    "Anne dit que si Léon voit un peu les environs ça peut l'aider à se rappeler de certaines choses. Charles dit que c'est dangereux, et que seul Hélène pourrait aller avec lui car son visage n'est pas connu contrairement au leur."
-    "Léon se sent subitement mal."
     
     scene decor noir with dissolve
-    
-    inconnu "Les démons peuvent prendre une forme humaine."
-
-    scene decor grande_salle
-    show charles serieux at right
-    show anne serieuse at left
-    with dissolve
-    
-    anne "Léon ! T'es sur que ça va ?"
-
-    menu:
-        "Dire que tout va bien":
-            charles "Comment ça ?! Tu viens de t'écrouler sur le sol au milieu de la conversation !"
-        "Dire qu'on se sent mal":
-            charles "Je vois ça oui ! Tu viens de t'écrouler sur le sol au milieu de la conversation !"
-    
-    charles "Anne, pourrais tu nous laisser, je dois m'entretenir avec Léon. Merci"
-    anne "Très bien, je dois de toute façon préparer les armes pour l'assaut de demain."
-    hide anne with dissolve
-    
-    charles "J'ai quelque chose à te donner. C'est une dague. Prends là, tu seras heureux de l'avoir quand tu en auras besoin, crois moi !"
-    charles "Bon. Je dois retourner travailler, prends soin de toi Léon."
-        
-    menu:
-        "Lui demander si les démons peuvent prendre forme humaine":
-            charles "Hein? Non, d'où te viens des idées pareilles, je ne pense pas que ce soit possible, c'est même completement n'importe quoi !"
-        "Le laisser partir":
-            pause 0.0
-    
-    hide charles with dissolve
-    show bras_leon mid at bras_transform
-    
     pause 3.0
-        
-    jump planque_entree
+    scene decor grande_salle
+    show anne normal at left
+    show charles normal at right
+    with dissolve
+ 
+    charles "Une idée ?"
+    anne "Oui. Je pense que Léon devrait revivre des moments dont il était habitué avant de devenir amnésique."
+    anne souriante "Avec un peu de chance, ça l’aidera à retrouver la mémoire !"
+    charles "Que propose-tu ?"
+    anne normal "Léon, tu avais l’habitude de sortir au village avec Hélène pour faire des provisions."
+    anne "Après tout, vos visages ne sont pas connus des Templiers, contrairement à ceux du reste de l’Ordre"
+    anne souriante "Je pense que vous devriez sortir vous balader dans ce village. Ça ne pourra que te faire du bien !"
+    charles "Anne… tu es consciente de l’importance de l’attaque de demain…?"
+    anne souriane "Ce n’est pas comme si Léon pouvait nous aider à la préparer dans cet état…"
+    charles "Et pour Hélène ?"
+    helene "Je veux y aller !"
+    anne "Ah, tu es là !"
+
+    hide anne
+    hide charles
+    show helene souriante at center
+    with dissolve
+
+    helene "S’il ne manque que moi, vous devriez pouvoir vous débrouiller pour les préparatifs de l’attaque, pas vrai ?"
+
+    hide helene
+    show charles at center with dissolve
+
+    charles "Si même Hélène s’y met… je n’ai pas d’autre choix que d’accepter."
+    self "Je ne me sens pas vraiment à l’aise dans ce trou à rat. Ça ne peut que me faire du bien de sortir un peu."
+
+    hide charles
+    show anne at left with dissolve
+    show helene at right with dissolve
+
+    self "Et puis ce n’est pas vraiment comme si je pouvais dire non après avoir vu leurs airs enjoués…"
+    leon "Agh..."
+
+    scene decor noir with flash
+    pause 1.0
+
+    inconnu "{cps=*0.25}Les démons peuvent prendre une forme humaine.{/cps}"
+
+    pause 1.0
+    scene decor chambre with flash
+
+    self "Ah… encore ça ?!"
+
+    show helene inquiete at center with dissolve
+
+    helene "Léon ! Tu vas bien ?!"
+    leon "Ne t’inquiète pas, j’ai juste des vertiges."
+    helene "..."
+
+    hide helene
+    show charles serieux at center with dissolve
+
+    charles "..."
+    charles "Anne, Hélène, laissez-nous seuls un instant."
+
+    hide charles
+    show anne serieuse at left with dissolve
+    show helene inquiete at right with dissolve
+
+    anne "Très bien."
+
+    hide anne with dissolve
+    hide helene with dissolve
+    show charles normal at center with dissolve
+
+    charles "Léon… tu es sûr que tout va bien ? Tu as vraiment mauvaise mine depuis ce matin."
+    charles "Si ce n’est pas le cas tu peux nous le dire, tu sais."
+    self "Je ne peux pas le laisser savoir ce que j’ai au bras…"
+    leon "Je t’assure, je suis juste un peu fatigué mais je ne me sens pas particulièrement mal."
+    charles serieux "..."
+    charles normal "Peu importe."
+    charles "Ah, j’allais oublier !"
+    charles dague "Cette dague, tu t’en sers toujours pour le combat."
+    charles "Tu avais l’habitude de ne jamais t’en séparer."
+    charles "Je te la rends."
+    leon "Ah, merci."
+
+    show charles normal
+
+    self "En effet, elle rentre parfaitement dans le fourreau que j’ai à la taille."
+    charles "Bien. Je vais prévenir Hélène. Vous allez pouvoir y aller."
+    leon "Ah! Je…"
+    charles "Oui ?"
+
+    menu:
+        "Demander si les démons peuvent prendre une forme humaine":
+           jump dialogue_charles_1_1
+        "Ne rien demander":
+           jump dialogue_charles_1_2
+
+label dialogue_charles_1_1:
+
+    leon "Est-ce que les démons peuvent prendre une forme humaine ?"
+    charles serieux "Où a-tu entendu une chose pareille ?"
+    leon "Nulle part… je me posais juste la question."
+    charles normal "Ne te pose pas des questions aussi insensées. Évidemment qu’ils ne peuvent pas."
+    charles "Bref. Je vais aller prévenir Hélène."
+
+    jump dialogue_charles_1_end
+
+label dialogue_charles_1_2:
+
+    leon "Non… rien…"
+    charles "..."
+    charles "Très bien. Je vais aller prévenir Hélène."
+
+    jump dialogue_charles_1_end
     
-label planque_entree:
-    scene decor entree with ellipse
+label dialogue_charles_1_end:
+
+    hide charles
+
+    self "Tout à l’heure… mon bras…"
+
+    show arm_2 with dissolve
+
+    self "La marque… elle s’est propagée…"
+
+    jump sortie_start
+
+label sortie_start:
+    scene decor noir with dissolve
+    pause 3.0
+    scene entree
+    show helene normal at center
+    with dissolve
+
+    helene "Ah, te voila !"
+    helene "On n’a pas beaucoup eu l’occasion de parler seul à seul jusqu’à maintenant. J’espère que les autres ne se sont pas montrés trop rustres envers toi."
+
+    menu:
+
+        "Dire que tout s’est bien passé avec eux":
+           jump sortie_1_1
+        "Plaisanter":
+           jump sortie_1_2
+
+label sortie_1_1:
+
+    leon "Tout va bien. Ils essayent tous de m’aider autant qu’ils le peuvent."
+    helene serieuse "Même Gaston ?"
+    leon "Oui… même lui."
+    helene souriante "Tu devrais éviter de t’approcher de lui. Il est stupide et ne réfléchit jamais avant d’agir."    
+
+    jump sortie_1_end
+
+label sortie_1_2:
+
+    leon "Si, ils étaient insupportables. D’ailleurs, je suis bien content de pouvoir enfin m’éloigner d’eux."
+    helene serieuse "Quoi ?!"
+    helene "Qu’est-ce qu’ils t’ont fait ?"
+    helene "C’est Gaston, pas vrai ?"
+    helene "Gaston t’as dis quelque chose de méchant, c’est ça ?"
+    leon "Hélène… calme-toi, je plaisantais…"
+    helene "Oh…"
+    helene souriante "Quoi qu’il en soit, tu devrais éviter Gaston autant que possible. Il est stupide et ne réfléchit jamais avant d’agir."
+
+    jump sortie_1_end
     
-    show helene normal at center with dissolve
-    helene "Allons au village, ça te fera du bien de prendre l'air."
-    jump village
+label sortie_1_end:
+
+    self "Elle ne devrait pas dire ça avec un tel sourire…"
+    helene normal "Peu importe. Allons-y."
+
+    jump village_start
+
     
-label village:
+label village_start:
     scene decor village with ellipse
     
     show helene souriante at center with dissolve
