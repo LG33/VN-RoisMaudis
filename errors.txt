@@ -2,20 +2,8 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 383: Line is indented, but the preceding say statement statement does not expect a block. Please check this line's indentation.
-    charles "Une marque noire apparaît sur le corps de la personne maudite et s’étend peu à peu sur tout son corps. Après quelques jours, quand le corps est entièrement recouvert, la personne meurt dans d’atroces souffrances."
-    ^
-
-File "game/script.rpy", line 1320: expected statement.
-    charles “Ah, des chevaux, au loin !”
-               ^
-
-File "game/script.rpy", line 1321: expected statement.
-    charles serieux “Restez sur vos gardes, c’est peut-être lui.”
-                                          ^
-
-File "game/script.rpy", line 1511: expected statement.
-    jacques_name = "Jacques de Molay"
-                 ^
+File "game/script.rpy", line 678: end of line expected.
+    show anne at centerwith dissolve
+                            ^
 
 Ren'Py Version: Ren'Py 6.99.10.1227
