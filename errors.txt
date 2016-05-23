@@ -2,28 +2,8 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 732: end of line expected.
-    scene decor noir with flash blanc
-                                ^
-
-File "game/script.rpy", line 738: end of line expected.
-    scene chambre with flash blanc
-                             ^
-
-File "game/script.rpy", line 801: expected statement.
-    leon: "Non… rien…"
-        ^
-
-File "game/script.rpy", line 802: expected statement.
-    charles: "..."
-           ^
-
-File "game/script.rpy", line 803: expected statement.
-    charles: "Très bien. Je vais aller prévenir Hélène."
-           ^
-
-File "game/script.rpy", line 847: expected statement.
-    leon: "Si, ils étaient insupportables. D’ailleurs, je suis bien content de pouvoir enfin m’éloigner d’eux."
-        ^
+File "game/script.rpy", line 1430: end of line expected.
+    with flash rouge
+               ^
 
 Ren'Py Version: Ren'Py 6.99.10.1227
