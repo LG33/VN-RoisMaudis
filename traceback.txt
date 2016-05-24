@@ -1,23 +1,17 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 186, in <module>
-    with flash
-NameError: name 'flash' is not defined
+Exception: Sayer 'b' is not defined.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "lib/windows-i686/script.rpyc", line 186, in script
-  File "C:\Program Files\Renpy\renpy\ast.py", line 1259, in execute
-    trans = renpy.python.py_eval(self.expr)
-  File "C:\Program Files\Renpy\renpy\python.py", line 1606, in py_eval
-    return py_eval_bytecode(code, globals, locals)
-  File "C:\Program Files\Renpy\renpy\python.py", line 1601, in py_eval_bytecode
-    return eval(bytecode, globals, locals)
-  File "game/script.rpy", line 186, in <module>
-    with flash
-NameError: name 'flash' is not defined
+  File "lib/windows-i686/script.rpyc", line 184, in script
+  File "C:\Program Files\Renpy\renpy\ast.py", line 584, in execute
+    who = eval_who(self.who, self.who_fast)
+  File "C:\Program Files\Renpy\renpy\ast.py", line 501, in eval_who
+    raise Exception("Sayer '%s' is not defined." % who.encode("utf-8"))
+Exception: Sayer 'b' is not defined.
 
 Windows-8-6.2.9200
 Ren'Py 6.99.10.1227

@@ -51,9 +51,10 @@ image charles masque = "characters/charles/charles_masque.png"
 image charles panique = "characters/charles/charles_panique.png"
 image charles serieux = "characters/charles/charles_serieux.png"
 
-image bras_leon debut = "characters/bras_leon_debut.png"
-image bras_leon mid = "characters/bras_leon_mid.png"
-image bras_leon fin = "characters/bras_leon_fin.png"
+image arm_0 = "backgrounds/bras/bras_0.jpg"
+image arm_1 = "backgrounds/bras/bras_1.jpg"
+image arm_2 = "backgrounds/bras/bras_2.jpg"
+image arm_3 = "backgrounds/bras/bras_3.jpg"
 
 image bras_leon_flashback = im.MatrixColor("characters/bras_leon_fin.png",im.matrix.saturation(0.1))
 
@@ -64,7 +65,8 @@ define anne = Character('Anne', image="anne", color="#eeeeee", window_top_paddin
 define charles = Character('Charles', image="charles", outlines=[(1, "#aa7700", 0, 0)], window_top_padding=40, window_background="gui/dialogue_box.png")
 define inconnu = Character('???', window_top_padding=40, window_background="gui/dialogue_box.png")
 define self = Character(None, color="#ffff99", what_italic=True, what_color="#ffdd55", window_top_padding=90, window_background="gui/narrative_box.png")
-define jacques = Character("jacques_name", dynamic=True, what_color="#8888ff", what_italic=True, what_slow_cps=10, window_top_padding=40, window_background="gui/dialogue_box.png")
+define jacques_inconnu = Character("???", what_color="#8888ff", what_italic=True, what_slow_cps=10, window_top_padding=40, window_background="gui/dialogue_box.png")
+define jacques = Character("Jacques De Molay", what_color="#8888ff", what_italic=True, what_slow_cps=20, window_top_padding=40, window_background="gui/dialogue_box.png")
 
 transform left: 
     xalign -0.2 
@@ -171,25 +173,21 @@ init python:
     
     choix1 = 0
     jacques_name = "???"
-    helene_side = Character('',color="#ff99ff",window_left_padding=288,window_top_padding=40,show_side_image=Image("side_image/lucy_surprized.png", xalign=100, yalign=0.87), )
     
-    #config.empty_window = renpy.curry(extend)("", interact=False)
-
 # commentaires généraux.
 
 
 #01 - Fuite
 label start:
 
-    scene decor noir
-    show helene masque at center
-    with dissolve
-    
-    inconnu "Léon ! Léon !!"
+    scene decor noir with dissolve
     
     with flash_blanc
+    #self "Q{w=0}u{w=0}e{w=0}…{w=0} {w=0}q{w=0}u{w=0}’{w=0}e{w=0}s{w=0}t{w=0}-{w=0}c{w=0}e{w=0} {w=0}q{w=0}u{w=0}’{w=0}i{w=0}l{w=0} {w=0}s{w=0}e{w=0} {w=0}p{w=0}a{w=0}s{w=0}s{w=0}e{w=0} {w=0}? Q{w=0}u{w=0}e{w=0}…{w=0} {w=0}q{w=0}u{w=0}’{w=0}e{w=0}s{w=0}t{w=0}-{w=0}c{w=0}e{w=0} {w=0}q{w=0}u{w=0}’{w=0}i{w=0}l{w=0} {w=0}se {w=0}p{w=0}a{w=0}s{w=0}s{w=0}e{w=0} {w=0}?"
     
-    self "Que… qu’est-ce qu’il se passe ?"
+    inconnu "Léon ! Léon !!"
+    pause 1.0
+    self "Que… {w=0.5}Qu’est-ce qu’il se passe ?"
     
     scene decor intro
     show helene masque at center
@@ -675,7 +673,8 @@ label chambre_1_end:
     leon "Att…"
 
     hide gaston
-    show anne at center with dissolve
+    show anne normal at center
+    with dissolve
 
     leon "Il est parti…"
     anne normal "Excuse-le… il est incorrigible."
@@ -1350,6 +1349,7 @@ label massacre_endingA_start:
     scene decor noir with dissolve
     pause 3.0
 
+    with shake
     self "*bruit de coeur transpercé*"
     charles "Bien. Nous avons réussi à franchir les gardes en les éliminant avant qu’ils ne donnent l’alerte."
     charles "Tout se passe comme prévu."

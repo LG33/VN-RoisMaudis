@@ -54,11 +54,11 @@ screen choice(items):
                              
                         else:
                             text caption style "menu_caption"
-           
-            if i % 2 == 0:
-                $i = 1
-            else:
-                $i = 1               
+                   
+                    if i % 2 == 0:
+                        $i = 1
+                    else:
+                        $i = 1               
                            
             vbox:
                 style "menu"
