@@ -2,10 +2,6 @@ errors.txt
 game/cache/bytecode.rpyb
 game/cache/pyanalysis.rpyb
 game/cache/screens.rpyb
-game/gui/config_ground.jpg
-game/gui/config_ground.png
-game/gui/ingame_menu_hover.png
-game/gui/ingame_menu_idle.png
 game/saves/_reload-2-LT1.save
 game/saves/auto-1-LT1.save
 game/saves/auto-10-LT1.save
