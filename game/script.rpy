@@ -67,6 +67,7 @@ define inconnu = Character('???', window_top_padding=40, window_background="gui/
 define self = Character(None, color="#ffff99", what_italic=True, what_color="#ffdd55", window_top_padding=90, window_background="gui/narrative_box.png")
 define jacques_inconnu = Character("???", what_color="#8888ff", what_italic=True, what_slow_cps=10, window_top_padding=40, window_background="gui/dialogue_box.png")
 define jacques = Character("Jacques De Molay", what_color="#8888ff", what_italic=True, what_slow_cps=20, window_top_padding=40, window_background="gui/dialogue_box.png")
+define t = Character(None, what_xalign=0.5, what_yalign=0.5, what_text_align=0.5, window_background="gui/dialogue_box.png")
 
 transform left: 
     xalign -0.2 
@@ -123,7 +124,7 @@ init python:
             'bottom' : 1.0,
             'left' : 0.0,
             'right' : 1.0,
-            }
+        }
     
         def __init__(self, start, child, dist):
             if start is None:
@@ -174,18 +175,22 @@ init python:
     choix1 = 0
     jacques_name = "???"
     
+    
+    
 # commentaires généraux.
 
 
 #01 - Fuite
 label start:
 
+    show screen menu_button
+
     scene decor noir with dissolve
     
     with flash_blanc
     #self "Q{w=0}u{w=0}e{w=0}…{w=0} {w=0}q{w=0}u{w=0}’{w=0}e{w=0}s{w=0}t{w=0}-{w=0}c{w=0}e{w=0} {w=0}q{w=0}u{w=0}’{w=0}i{w=0}l{w=0} {w=0}s{w=0}e{w=0} {w=0}p{w=0}a{w=0}s{w=0}s{w=0}e{w=0} {w=0}? Q{w=0}u{w=0}e{w=0}…{w=0} {w=0}q{w=0}u{w=0}’{w=0}e{w=0}s{w=0}t{w=0}-{w=0}c{w=0}e{w=0} {w=0}q{w=0}u{w=0}’{w=0}i{w=0}l{w=0} {w=0}se {w=0}p{w=0}a{w=0}s{w=0}s{w=0}e{w=0} {w=0}?"
     
-    inconnu "Léon ! Léon !!"
+    t "Léon ! Léon !!"
     pause 1.0
     self "Que… {w=0.5}Qu’est-ce qu’il se passe ?"
     

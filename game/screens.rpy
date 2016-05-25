@@ -1,27 +1,3 @@
-#########################################
-# ____  ____  _  _  ____  _  _ 
-#(  _ \( ___)( \( )(  _ \( \/ )
-# )   / )__)  )  (  )___/ \  / 
-#(_)\_)(____)(_)\_)(__)   (__) 
-# ____  __  __    __    ___  ____  ____  __  __  ____  ____  _____  _  _  ___ 
-#(_  _)(  \/  )  /__\  / __)( ___)(  _ \(  )(  )(_  _)(_  _)(  _  )( \( )/ __)
-# _)(_  )    (  /(__)\( (_-. )__)  ) _ < )(__)(   )(    )(   )(_)(  )  ( \__ \
-#(____)(_/\/\_)(__)(__)\___/(____)(____/(______) (__)  (__) (_____)(_)\_)(___/
-#  ___  __  __  ____    ___    __    __  __  ____  __    ____ 
-# / __)(  )(  )(_  _)  / __)  /__\  (  \/  )(  _ \(  )  ( ___)
-#( (_-. )(__)(  _)(_   \__ \ /(__)\  )    (  )___/ )(__  )__) 
-# \___/(______)(____)  (___/(__)(__)(_/\/\_)(__)  (____)(____)
-#
-# This file is in the public domain. Feel free to modify it as a basis for your own screens.
-#
-#########################################
-# Note: comments like #begin foo and #end foo at the start of lines are used to display code examples. See example.rpy for more details.
-#
-
-##############################################################################
-# Choice
-#
-# Screen that's used to display in-game menus.
 # http://www.renpy.org/doc/html/screen_special.html#choice
 
 screen choice(items):
@@ -55,10 +31,10 @@ screen choice(items):
                         else:
                             text caption style "menu_caption"
                    
-                    if i % 2 == 0:
-                        $i = 1
-                    else:
-                        $i = 1               
+                if i % 2 == 0:
+                    $i = 1
+                else:
+                    $i = 1               
                            
             vbox:
                 style "menu"
@@ -82,7 +58,8 @@ init -2:
     $ config.narrator_menu = True
 
     style menu_window is default
-
+    
+    #le texte
     style menu_choice is button_text:
         color "#fff"
         size 28
@@ -91,7 +68,8 @@ init -2:
         hover_outlines [(1, "#000000", 0, 0)]
         selected_outlines [(1, "#000000", 0, 0)]
         selected_hover_outlines [(1, "#000000", 0, 0)]
-
+    
+    # la boite de texte
     style menu_choice_button is button:
         xminimum 700
         xmaximum 700
@@ -197,43 +175,11 @@ init -2:
 ## http://www.renpy.org/doc/html/screen_special.html#prefereces
 screen preferences:
     tag menu # This ensures that any other menu screen is replaced.
-    add "gui/config_ground.jpg" # We add the image that is shown in the background of the preferences screen.
-    use navigation # We include the navigation screen (game menu)
+    add "gui/config_ground.png" # We add the image that is shown in the background of the preferences screen.
+    # use navigation # We include the navigation screen (game menu)
     # Display windowed/full screen:
-    imagebutton auto "gui/config_display_window_%s.png" xpos 300 ypos 186 focus_mask True action Preference('display', 'window') at config_eff hovered [ Play ("test_one", "sfx/click.wav"), Show("gui_tooltip", my_picture="gui/tooltip_config_windowed.png", my_tt_xpos=46, my_tt_ypos=518) ] unhovered [Hide("gui_tooltip")]
-    imagebutton auto "gui/config_display_fullscreen_%s.png" xpos 388 ypos 186 focus_mask True action Preference('display', 'fullscreen') at config_eff hovered [ Play ("test_two", "sfx/click.wav"), Show("gui_tooltip", my_picture="gui/tooltip_config_fullscreen.png", my_tt_xpos=46, my_tt_ypos=518) ] unhovered [Hide("gui_tooltip")]
-    # Transitions on/off:
-    imagebutton auto "gui/config_transitions_none_%s.png" xpos 502 ypos 186 focus_mask True action Preference('transitions', 'none') at config_eff hovered [ Play ("test_four", "sfx/click.wav"), Show("gui_tooltip", my_picture="gui/tooltip_config_enable_transition.png", my_tt_xpos=46, my_tt_ypos=518) ] unhovered [Hide("gui_tooltip")]
-    imagebutton auto "gui/config_transitions_all_%s.png" xpos 591 ypos 186 focus_mask True action Preference('transitions', 'all') at config_eff hovered [ Play ("test_four", "sfx/click.wav"), Show("gui_tooltip", my_picture="gui/tooltip_config_enable_transition.png", my_tt_xpos=46, my_tt_ypos=518) ] unhovered [Hide("gui_tooltip")]
-    # Stop/continue skipping after choices
-    imagebutton auto "gui/config_afterchoices_stop_%s.png" xpos 300 ypos 345 focus_mask True action Preference('after choices', 'stop') at config_eff hovered [ Play ("test_one", "sfx/click.wav"), Show("gui_tooltip", my_picture="gui/tooltip_config_stop_skip.png", my_tt_xpos=46, my_tt_ypos=518) ] unhovered [Hide("gui_tooltip")]
-    imagebutton auto "gui/config_afterchoices_skip_%s.png" xpos 388 ypos 345 focus_mask True action Preference('after choices', 'skip') at config_eff hovered [ Play ("test_two", "sfx/click.wav"), Show("gui_tooltip", my_picture="gui/tooltip_config_go_skip.png", my_tt_xpos=46, my_tt_ypos=518) ] unhovered [Hide("gui_tooltip")]
-    # Skip all/seen text
-    imagebutton auto "gui/config_skip_seen_%s.png" xpos 501 ypos 345 focus_mask True action Preference('skip', 'seen') at config_eff hovered [ Play ("test_one", "sfx/click.wav"), Show("gui_tooltip", my_picture="gui/tooltip_config_stop_skip.png", my_tt_xpos=46, my_tt_ypos=518) ] unhovered [Hide("gui_tooltip")]
-    imagebutton auto "gui/config_skip_all_%s.png" xpos 591 ypos 345 focus_mask True action Preference('skip', 'all') at config_eff hovered [ Play ("test_two", "sfx/click.wav"), Show("gui_tooltip", my_picture="gui/tooltip_config_go_skip.png", my_tt_xpos=46, my_tt_ypos=518) ] unhovered [Hide("gui_tooltip")]
-    # Button to begin skipping. Only active/visible if the game is started. Image config_begin_skipping_insensitive.png is used when the button is not active.
-    imagebutton auto "gui/config_begin_skipping_%s.png" xpos 420 ypos 117 focus_mask True action Preference('begin skipping') hovered [ Play ("test_one", "sfx/click.wav"), Show("gui_tooltip", my_picture="gui/tooltip_config_skipping.png", my_tt_xpos=46, my_tt_ypos=518) ] unhovered [Hide("gui_tooltip")]
-    # bar sliders for volume control, text speed and auto-forward time
-    frame xpos 57 ypos 136:
-        style_group "pref"
-        has vbox
-        bar value Preference("music volume")
-    frame xpos 57 ypos 202:
-        style_group "pref"
-        has vbox
-        bar value Preference("sound volume")
-    frame xpos 57 ypos 268:
-        style_group "pref"
-        has vbox
-        bar value Preference("voice volume")
-    frame xpos 57 ypos 354:
-        style_group "pref"
-        has vbox
-        bar value Preference("text speed")
-    frame xpos 57 ypos 420:
-        style_group "pref"
-        has vbox
-        bar value Preference("auto-forward time")
+    imagebutton auto "gui/config_display_window_%s.png" xpos 0.475 ypos 0.5 focus_mask True action Preference('display', 'window') at config_eff hovered [ Play ("test_one", "sfx/click.wav")]
+    imagebutton auto "gui/config_display_fullscreen_%s.png" xpos 0.525 ypos 0.5 focus_mask True action Preference('display', 'fullscreen') at config_eff hovered [ Play ("test_two", "sfx/click.wav")]
       
 init -2 python: 
     # Styling for the bar sliders:
@@ -281,7 +227,7 @@ screen save:
     tag menu # This ensures that any other menu screen is replaced.
     add "gui/file_picker_ground.jpg" # We add the file picker background image. This image is the same for save and load screens.
     add "gui/title_save.png" # We add the save title image on top of the background
-    use file_picker # We include the file_picker screen
+    use file_picker # We include the file_picker screens
 
 ## ■██▓▒░ LOAD SCREEN ░▒▓███████████████████████████████████■
 screen load:
@@ -374,23 +320,6 @@ screen say:
         add SideImage() xalign 0.0 yalign 1.0
 
     # Which quick menu should we use? We use 5 different quick menues for presentation purposes in the script.
-    if show_quick_menu1:
-        use quick_menu1    
-    if show_quick_menu2:
-        use quick_menu3
-    if show_quick_menu3:
-        use quick_menu3
-    if show_quick_menu4:
-        use quick_menu4
-    if show_quick_menu5:
-        use quick_menu5
-
-init -2 python:   
-    show_quick_menu1=False
-    show_quick_menu2=False
-    show_quick_menu3=False
-    show_quick_menu4=False
-    show_quick_menu5=False
 
 ## ■██▓▒░ TEXTBOX DROP SHADOW ░▒▓███████████████████████████■
 ## This block is responsible for the text drop shadow effect for the textbox dialogue.
@@ -400,85 +329,27 @@ init:
 
 ## ■██▓▒░ QUICK MENU ░▒▓████████████████████████████████████■
 ## Screens for the quick menus above the textbox. We use several different quick menus for presentation purposes.
-#begin quick_menu1
-screen quick_menu1:    
-    hbox:
-        style_group "quick"
-        xpos 650
-        ypos 410
-        textbutton _("Save") action ShowMenu('save')
-        textbutton _("Load") action ShowMenu('load')
-        textbutton _("Prefs") action ShowMenu('preferences')
-        textbutton _("Menu") action MainMenu()
-#end quick_menu1
 
-# Note that we actually never display the imagemap-based quick menu below; we cheat and display the imagebutton-based quick menu and say it's imagemap-based. There actually isn't even an image for the imagemap. DEATH TO ALL IMAGEMAPS! MUAHAHAHAHA!
-#begin quick_menu2
-screen quick_menu2:
-    imagemap:
-        xpos 660 ypos 390
-        auto "GUI/quick_imagemap_%s.png"
-        hotspot (0,0,80,36) action ShowMenu("save")
-        hotspot (162,0,80,36) action ShowMenu("load")
-        hotspot (162,0,80,36) action ShowMenu("preferences")
-        hotspot (243,0,80,36) action MainMenu()
-#end quick_menu2
+screen menu_button:
+    imagebutton auto "gui/ingame_menu_%s.png" action [Show('ingame_menu'), Hide('menu_button')] xpos 0.85 ypos 0 focus_mask True
 
-#begin quick_menu3
-screen quick_menu3:
-    imagebutton auto "gui/quick_config_%s.png" action ShowMenu('preferences') xpos 690 ypos 390 focus_mask True
-    imagebutton auto "gui/quick_save_%s.png" action ShowMenu('save') xpos 760 ypos 390 focus_mask True
-    imagebutton auto "gui/quick_load_%s.png"action ShowMenu('load') xpos 830 ypos 390 focus_mask True
-    imagebutton auto "gui/quick_main_%s.png" action MainMenu() xpos 900 ypos 390 focus_mask True
-#end quick_menu3
-
-#begin quick_menu4
-screen quick_menu4:
-    imagebutton auto "gui/quick_config_%s.png" action ShowMenu('preferences') xpos 690 ypos 390 focus_mask True at q_move1
-    imagebutton auto "gui/quick_save_%s.png" action ShowMenu('save') xpos 760 ypos 390 focus_mask True at q_move2
-    imagebutton auto "gui/quick_load_%s.png"action ShowMenu('load') xpos 830 ypos 390 focus_mask True at q_move3
-    imagebutton auto "gui/quick_main_%s.png" action MainMenu() xpos 900 ypos 390 focus_mask True
+screen ingame_menu:
+    imagebutton auto "gui/quick_config_%s.png" action ShowMenu('preferences') focus_mask True at option
+    imagebutton auto "gui/quick_main_%s.png" action MainMenu() focus_mask True at home
+    imagebutton auto "gui/ingame_menu_%s.png" action [Show('menu_button'), Hide('ingame_menu')] xpos 0.85 ypos 0 focus_mask True
+    
 init -2:
-    transform q_move1:
-        xpos 690
-        linear 5.0 xpos 830
-    transform q_move2:
-        xpos 760
-        time 3
-        linear 5.0 xpos 690
-    transform q_move3:
-        xpos 830
-        time 4
-        linear 5.0 xpos 760        
-#end quick_menu4
-
-#begin quick_menu5
-screen quick_menu5:
-    imagebutton auto "gui/quick_config_%s.png" action ShowMenu('preferences') xpos 690 ypos 390 focus_mask True at q_move4
-    imagebutton auto "gui/quick_save_%s.png" action ShowMenu('save') xpos 760 ypos 390 focus_mask True at q_move5
-    imagebutton auto "gui/quick_load_%s.png"action ShowMenu('load') xpos 830 ypos 390 focus_mask True at q_move6
-    imagebutton auto "gui/quick_main_%s.png" action MainMenu() xpos 900 ypos 390 focus_mask True at q_move7
-init -2:
-    transform q_move4:
-        linear 1.0 alpha 0.0
-        linear 1.0 alpha 1.0
-        repeat
-    transform q_move5:
-        linear 5.0 rotate 180
-        linear 5.0 rotate 0
-        repeat
-    transform q_move6:
-        linear 2.0 zoom 0.5
-        linear 2.0 zoom 2
-        repeat
-    transform q_move7:
-         xalign 0.0 yalign 1.0
-         linear 1.0 xalign 0.0
-         ease 1.0 truecenter
-         pause 1.0
-         alignaround (.5, .5)
-         linear 2.0 yalign 0.0 clockwise circles 3
-         linear 2.0 align (0.5, 1.0) knot (0.0, .33) knot (1.0, .66)
-         linear 1.0 xalign 0.0 yalign 1.0
-         repeat
-#end quick_menu5
+    transform option:
+        xpos 0.85
+        ypos -150
+        easein_bounce 0.5 ypos 75
+        on hide:
+            ypos 75
+            linear 0.3 ypos -150
+    transform home:
+        xpos 0.85
+        ypos -75
+        easein_bounce 0.5 ypos 150
+        on hide:
+            ypos 150
+            linear 0.3 ypos -75
