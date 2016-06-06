@@ -1,8 +1,8 @@
 ﻿image decor noir = "#000"
 
 image decor intro:
-    "backgrounds/intro.jpg"
-    zoom 1
+    "backgrounds/intro.png"
+    zoom 0.5
     
 image decor chambre:
     "backgrounds/bedroom.jpg"
@@ -13,48 +13,101 @@ image decor grande_salle:
     zoom 2
     
 image decor entree:
-    "backgrounds/entry.jpg"
-    zoom 2
+    "backgrounds/entry.png"
+    zoom 0.5
     
 image decor village:
     "backgrounds/village.jpg"
-    zoom 0.6
+    zoom 0.2
     
 image decor fontainebleau:
-    "backgrounds/fontainebleau.jpg"
-    zoom 0.6
+    "backgrounds/fontainebleau.png"
+    zoom 0.5
 
 
-image helene normal = "characters/helene/helene_normal.png"
-image helene masque = "characters/helene/helene_masque.png"
-image helene inquiete = "characters/helene/helene_inquiete.png"
-image helene serieuse = "characters/helene/helene_serieuse.png"
-image helene souriante = "characters/helene/helene_souriante.png"
+image helene normal:
+    "characters/helene/helene_normal.png"
+    zoom 0.45
+image helene masque:
+    "characters/helene/helene_masque.png"
+    zoom 5
+image helene inquiete:
+    "characters/helene/Helene_Panique.png"
+    zoom 0.45
+image helene serieuse:
+    "characters/helene/helene_serieuse.png"
+    zoom 0.45
+image helene souriante:
+    "characters/helene/Helene_Sourire.png"
+    zoom 0.45
 
-image helene_demon normal = "characters/helene_demon/helene_demon_normal.png"
-image helene_demon souriante = "characters/helene_demon/helene_demon_souriante.png"
+image helene_demon normal:
+    "characters/helene_demon/helene_demon_normal.png"
+    zoom 0.45
+image helene_demon souriante:
+    "characters/helene_demon/helene_demon_souriante.png"
+    zoom 0.45
 
-image gaston normal = "characters/gaston/gaston_normal.png"
-image gaston masque = "characters/gaston/gaston_masque.png"
-image gaston serieux = "characters/gaston/gaston_serieux.png"
-image gaston souriant = "characters/gaston/gaston_souriant.png"
-image gaston panique = "characters/gaston/gaston_panique.png"
+image gaston normal:
+    "characters/gaston/gaston_normal.png"
+    zoom 5
+image gaston masque:
+    "characters/gaston/gaston_masque.png"
+    zoom 5
+image gaston serieux:
+    "characters/gaston/gaston_serieux.png"
+    zoom 5
+image gaston souriant:
+    "characters/gaston/gaston_souriant.png"
+    zoom 5
+image gaston panique:
+    "characters/gaston/gaston_panique.png"
+    zoom 5
 
-image anne normal = "characters/anne/anne_normal.png"
-image anne masque = "characters/anne/anne_masque.png"
-image anne choquee = "characters/anne/anne_choquee.png"
-image anne serieuse = "characters/anne/anne_serieuse.png"
-image anne souriante = "characters/anne/anne_souriante.png"
+image anne normal:
+    "characters/anne/anne_normal.png"
+    zoom 5
+image anne masque:
+    "characters/anne/anne_masque.png"
+    zoom 5
+image anne choquee:
+    "characters/anne/anne_choquee.png"
+    zoom 5
+image anne serieuse:
+    "characters/anne/anne_serieuse.png"
+    zoom 5
+image anne souriante:
+    "characters/anne/anne_souriante.png"
+    zoom 5
 
-image charles normal = "characters/charles/charles_normal.png"
-image charles masque = "characters/charles/charles_masque.png"
-image charles panique = "characters/charles/charles_panique.png"
-image charles serieux = "characters/charles/charles_serieux.png"
+image charles normal:
+    "characters/charles/charles_normal.png"
+    zoom 0.4
+image charles masque:
+    "characters/charles/charles_masque.png"
+    zoom 5
+image charles panique:
+    "characters/charles/charles_panique.png"
+    zoom 0.4
+image charles serieux:
+    "characters/charles/charles_serieux.png"
+    zoom 0.4
+image charles dague:
+    "characters/charles/charles_dague.png"
+    zoom 0.4
 
-image arm_0 = "backgrounds/bras/bras_0.jpg"
-image arm_1 = "backgrounds/bras/bras_1.jpg"
-image arm_2 = "backgrounds/bras/bras_2.jpg"
-image arm_3 = "backgrounds/bras/bras_3.jpg"
+image arm_0:
+    "backgrounds/bras/bras_0.png"
+    zoom 0.5
+image arm_1:
+    "backgrounds/bras/bras_1.png"
+    zoom 0.5
+image arm_2:
+    "backgrounds/bras/bras_2.png"
+    zoom 0.5
+image arm_3:
+    "backgrounds/bras/bras_3.png"
+    zoom 0.5
 
 image bras_leon_flashback = im.MatrixColor("characters/bras_leon_fin.png",im.matrix.saturation(0.1))
 
@@ -70,19 +123,16 @@ define jacques = Character("Jacques De Molay", what_color="#8888ff", what_italic
 define t = Character(None, what_xalign=0.5, what_yalign=0.5, what_text_align=0.5, window_background="gui/dialogue_box.png")
 
 transform left: 
-    xalign -0.2 
-    yalign 1.0
-    zoom 5.0
+    xalign 0.2 
+    yalign 1.8
     
 transform right: 
-    xalign 1.5
-    yalign 1.0
-    zoom 5.0
+    xalign 0.8
+    yalign 1.8
     
 transform center: 
     xalign 0.5 
-    yalign 1.0
-    zoom 5.0
+    yalign 1.8
     
 transform enter_right:
     on show:
@@ -102,7 +152,6 @@ transform enter_left:
     
 transform bras_transform:
     xalign 0.25
-    zoom 4.0
     on show:
         yalign 2.0
         linear 0.5 yalign 1.2
@@ -173,26 +222,17 @@ init python:
     flash_blanc = Fade(.25, 0, .25, color="#ffffff")
     
     choix1 = 0
-    jacques_name = "???"
-    
-    
-    
 # commentaires généraux.
+# ATTENTION : vrai guillemet-> "    (faux guillemets -> “”)
 
-
-#01 - Fuite
+# 01 - Fuite
 label start:
-
-    show screen menu_button
 
     scene decor noir with dissolve
     
-    with flash_blanc
-    #self "Q{w=0}u{w=0}e{w=0}…{w=0} {w=0}q{w=0}u{w=0}’{w=0}e{w=0}s{w=0}t{w=0}-{w=0}c{w=0}e{w=0} {w=0}q{w=0}u{w=0}’{w=0}i{w=0}l{w=0} {w=0}s{w=0}e{w=0} {w=0}p{w=0}a{w=0}s{w=0}s{w=0}e{w=0} {w=0}? Q{w=0}u{w=0}e{w=0}…{w=0} {w=0}q{w=0}u{w=0}’{w=0}e{w=0}s{w=0}t{w=0}-{w=0}c{w=0}e{w=0} {w=0}q{w=0}u{w=0}’{w=0}i{w=0}l{w=0} {w=0}se {w=0}p{w=0}a{w=0}s{w=0}s{w=0}e{w=0} {w=0}?"
-    
-    t "Léon ! Léon !!"
+    inconnu "Léon ! Léon !!"
     pause 1.0
-    self "Que… {w=0.5}Qu’est-ce qu’il se passe ?"
+    self "Que… qu’est-ce qu’il se passe ?"
     
     scene decor intro
     show helene masque at center
@@ -204,10 +244,10 @@ label start:
     self "Je… je ne comprends rien…"
 
     menu:
-        "Demander qui je suis":
-            leon "Qui suis-je ?"
+        "\"Qui est-ce que je suis ?\"":
+            leon "Qui est-ce que je suis ?"
             jump fuite_fin
-        "Demander qui elle est":
+        "\"Qui êtes-vous\"":
             leon "Qui êtes-vous ?"
             jump fuite_fin
     
@@ -217,15 +257,15 @@ label fuite_fin:
     pause 2.0
     
     inconnu "On n’a pas le temps, suis-moi !"
-    leon "Ah… ma tête…"
+    leon "Ah… {w=0.5}ma tête…"
     
     with shake
 
     scene decor noir with dissolve
 
-    inconnu "LEON !!!"
+    inconnu "LÉON !!!"
 
-    pause 5.0
+    pause 4.0
 
     jump reveil_start
 # END FILE 01 - Fuite
@@ -236,50 +276,41 @@ label reveil_start:
     show helene inquiete at left
     with dissolve
 
-    inconnu "Ça y est, t'es réveillé ?"
+    inconnu "Ça y est, tu es réveillé ?"
     leon "..."    
-    inconnu "J’étais vraiment inquiète, tu sais!"
-    self "Cette voix… c’est la fille au masque ?"
+    inconnu "J’étais vraiment inquiète, tu sais !"
+    self "Cette voix… {w=0.5}c’est la fille au masque ?"
 
     show helene normal
     
-    inconnu "L’attaque d’hier ne s’est pas passée comme prévu mais ne t’inquiète pas, Gaston t’as porté et on s’en est tous sortis indemnes."
+    inconnu "L’attaque d’hier ne s’est pas tout à fait passée comme prévu mais ne t’inquiète pas, Gaston t’as porté et on s’en est tous sortis indemnes."
     leon "Une attaque ? Gaston ?"
 
     show helene inquiete
     pause 1.0
 
-    inconnu "Je m’en doutais… Tu ne te souviens vraiment plus de rien…"
+    inconnu "Je m’en doutais… {w=0.5}Tu ne te souviens vraiment plus de rien…"
 
-    #show helene normal at left
-
-    helene normal "Tu ne te souviens même plus de moi… je m’appelle Hélène."
+    helene normal "Tu ne te souviens même plus de moi… {w=0.5}je m’appelle Hélène."
 
     menu:
-        "Demander qui je suis":
+        "\"Où est ce qu’on est ?\"":
             jump reveil_1_1
-        "Demander où nous sommes":
+        "\"Qu’est-ce qui s’est passé ?\"":
             jump reveil_1_2
-        "Demander ce qu’était l’attaque d’hier":
-            jump reveil_1_3
 
 label reveil_1_1:
-    leon "Qui suis-je ?"
-    helene "Tu t’appelles Léon. Comme nous tous, tu es un membre de l’Ordre du Lys"
+    leon "Où est ce qu’on est ?"
+    helene "Nous sommes dans des souterrains. Tu peux voir ça comme la base secrète de l’Ordre du Lys."
     jump reveil_1_end
 
 label reveil_1_2:
-    leon "Où est-ce qu’on est ?"
-    helene "Nous sommes dans des souterrains. Tu peux voir ça comme la base secrète de l’Ordre du Lys"
-    jump reveil_1_end
-
-label reveil_1_3:
-    leon "De quelle attaque tu parles ?"
-    helene "Nous avons attaqué une église templière au nom de l’Ordre du Lys"
+    leon "Qu’est-ce qui s’est passé ?"
+    helene "Nous avons attaqué une église au nom de l’Ordre du Lys, mais ça ne s’est pas passé comme prévu..."
     jump reveil_1_end
 
 label reveil_1_end:
-    leon "L’ordre du Lys ?"
+    leon "L’Ordre du Lys ?"
 
     pause 0.3
     self "*bruit de porte qui s’ouvre*"
@@ -292,11 +323,11 @@ label reveil_1_end:
     show anne souriante
 
     inconnu "Ah, Léon, tu es enfin réveillé !"
-    inconnu "Tu as dormi comme un loir, tu sais! Ne nous fais plus de frayeurs comme ça !"
+    inconnu "Tu as dormi comme un loir, tu sais. Ne nous fais plus de frayeurs comme ça !"
 
     show helene inquiete
 
-    helene "Anne… Il a perdu la mémoire…"
+    helene "Anne… {w=0.5}Il a perdu la mémoire…"
 
     show anne serieuse
 
@@ -306,113 +337,129 @@ label reveil_1_end:
 
     show anne souriante
 
-    anne "Je suis Anne, nous sommes amis. J’espère que tu retrouveras rapidement la mémoire !"
-
-    show anne normal
-
-    anne "Charles nous attend. Léon, tu devrais venir avec nous."
+    anne "Je suis Anne, nous sommes amis. "
+    anne normal "Charles nous attend. Léon, tu devrais venir avec nous."
     
     jump reunion_start
 # END FILE 02 - Réveil
+
 
 # 03 - Réunion
 label reunion_start:
     scene decor noir with dissolve
     pause 2.0
-    self "*bruits de pas multiples*"
-    self "Les couloirs étrois et humides... ça ne me met pas vraiment à l'aise"
+
+    self "Les couloirs sont étroits et humides... {w=0.5}ça ne me met pas vraiment à l'aise."
+
+    pause 2.0
     
     scene decor grande_salle
     show charles normal at left
     show gaston normal at right
     with dissolve
     
-    pause 2.0
-    show charles at center with dissolve
-    
-    inconnu "Alors comme ça, tu as perdu la mémoire..."
-    charles "Je suppose qu'on doit se présenter du coup. Tu peux m'appeler Charles. Je suis le fondateur et dirigeant de l'Ordre du Lys"
-    
-    show charles at left
-    show gaston at center
-    with dissolve
-    
-    gaston souriant "Moi, c'est Gaston. T'as intérêt à vite retrouver la mémoire mon gars !"
-    
+    self "Ces personnes… {w=0.5}évidemment, leur visage ne me dit rien."
+
     hide charles
     hide gaston
-    show helene serieuse at center
+
+    self "On dirait une salle de réunion. Elle est pas très grande..."
+
+    show charles normal at center with dissolve
+    
+    inconnu "Léon aurait donc perdu la mémoire..."
+    charles "Je me présente. Tu peux m'appeler Charles. Je suis fondateur et dirigeant de l'Ordre du Lys."
+    
+    hide charles
+    show gaston at center with dissolve
     with dissolve
-    
-    helene "Gaston!"
-    
-    hide helene
-    show gaston normal at center
-    with dissolve
-    
-    gaston "Oh ça va je plaisante!"
-    leon "Vous parliez de l'Ordre du Lys.. vous pouvez m'expliquez ce que c'est ?"
+
+    gaston souriant "Moi, c'est Gaston. T'as intérêt à vite retrouver la mémoire !"
+    leon "L'Ordre du Lys... {w=0.5}qu’est-ce que c'est ?"
 
     hide gaston
-    
     show charles normal at center
-    with dissolve
 
-    charles "Nous sommes un groupe de résistants qui nous battons désespérément pour libérer le pays des Templiers."
-    
-    menu:
-      "Demander pourquoi le combat est désespéré":
-           jump reunion_1_1
-      "Demander qui sont les Templiers":
-           jump reunion_1_2
-
-label reunion_1_1:
-    leon "Comment ça, désespérément?"
-    jump reunion_1_end
-
-label reunion_1_2:
-    leon "Comment ça, les Templiers?"
+    charles "Te souviens-tu de la situation dans laquelle la France se trouve actuellement ?"
+    leon "Absolument pas…"
 
     hide charles
     show helene inquiete at center
     with dissolve
 
-    helene "Tu ne te souviens vraiment plus de rien…"
+    helene "Tu ne te souviens même pas de ça…"
 
     hide helene
-    jump reunion_1_end
-    
-label reunion_1_end:
+    show charles normal at center
+    with dissolve
 
-    show charles serieux at center with dissolve
-
-    charles "Il y a une dizaine d’années, les Templiers, un groupe religieux maléfique, a eu recours à des rites démoniaques."
+    #charles "Jusqu’à récemment, le Royaume de France prospérait paisiblement."
+    charles "Le royaume de France était encore paisible jusqu’à récemment."
+    charles serieux "Cependant, il y a une dizaine d’années, celui-ci a été renversé par les Templiers."
+    leon "Les Templiers ?"
+    charles normal "C’est un groupe religieux maléfique qui a mis la main sur un artefact démoniaque lors de la dernière croisade."
+    charles serieux "Ils s’en sont servis afin de pratiquer des rites occultes qui leur ont permis d’invoquer des démons."
+    self "Des… {w=0.5}des démons ?! Vraiment ?!"
 
     hide charles
     show gaston serieux at center
-    with dissolve
 
-    gaston "Ces salopards ont invoqué des démons et ont utilisé leurs pouvoirs pour tuer un grand nombre d’innocents."
+    gaston "Ces salopards ont utilisé les pouvoirs des démons pour tuer un grand nombre d’innocents."
 
     hide gaston
     show charles serieux at center
     with dissolve
     
-    charles "Ces démons ont écrasé le Royaume en seulement quelques jours et terrorisent maintenant le peuple en lançant une malédiction à tous ceux qui agiront d’une façon qui leur déplait."
-    charles "Une marque noire apparaît sur le corps de la personne maudite et s’étend peu à peu sur tout son corps. Après quelques jours, quand le corps est entièrement recouvert, la personne meurt dans d’atroces souffrances."
-    charles "Les personnes affectées n'arrivent de toutes façons pas jusque là. Personne ne sait vraiment si c'est contagieux et les proches des victimes finissent pas les tuer eux-même la plupart du temps pour ne prendre aucun risque."
-
-    leon "Ça n’a pas l’air plaisant..."
+    charles "Il ne leur a fallu qu’une nuit pour prendre d’assaut le château royal et assassiner la majorité des nobles qui s’y trouvaient."
+    charles "En un clin d’oeil, ils ont terrassé tout le royaume et ont pris le pouvoir"
+    charles normal "L’Ordre du Lys est un groupe de résistants."
+    charles "Il a été crée dans le but de lutter contre leur règne de terreur."
 
     hide charles
     show anne serieuse at center
-    with dissolve
+
+    anne "Maintenant qu’ils ont pris le pouvoir, ils dirigent le pays dans une atmosphère de terreur."
+    anne "Si quelqu’un exprime son mécontentement par rapport à leur façon de faire ou est soupçonné d’agir contre leur intérêt…"
+    anne "Ils le punissent par une malédiction."
+
+    hide anne
+    show charles serieux at center
+
+    charles "Cette malédiction est pire que la mort."
+    charles normal "Des écailles noires apparaissent sur le corps de la personne maudite et s’étendent peu à peu sur son corps."
+    charles "Le corps est entièrement recouvert après quelques jours."
+    charles serieux "La personne maudite perd alors la raison, se met à se déchaîner sans distinction sur les gens qui l’entourent et fini par mourir une fois épuisée mentalement."
+    self "Ça semble vraiment tiré par les cheveux... {w=0.5}Un phénomène pareil existe réellement ?"
+    leon "Pourquoi les Templiers ne tuent pas simplement la personne concernée plutôt que de lui infliger ça ?"
+    charles normal "Leur objectif est de traumatiser le peuple pour le convaincre de ne pas s’opposer à eux."
+    charles "Cette malédiction est contagieuse. Elle se transmet simplement en touchant les écailles."
+    charles serieux "Par conséquent, les personnes affectées finissent exécutées par leur propre famille ou amis."
+    charles "Malheureusement, il n’y a pas d’autre alternative une fois que quelqu’un a été affecté par la malédiction."
+
+    hide charles
+    show gaston serieux at center
+
+    gaston "Eh, on s’était mis d’accord pour plus aborder ce sujet."
+
+    hide gaston
+    show helene serieuse "Gaston… Léon ne se souvient plus de rien, la situation est particulière."
+
+    show gaston serieux at center
+
+    gaston "Alors ce sera sans moi."
+
+    hide gaston with dissolve
+    pause 1.0
+
+    self "Qu’est-ce qui lui prend ?"
+
+    show helene serieuse with dissolve
 
     anne "L’Ordre du Lys a été crée dans le but de lutter contre ce règne de terreur. Nous sommes tous les cinq de bons combattants. On se manifeste pour l’instant surtout en assassinant des haut gradés Templiers, mais notre véritable objectif est de renverser entièrement les Templiers."
     menu:
-        "Annoncer que je ferais tout mon possible":
+        "\"Je vais faire tout mon possible pour vous aider!\"":
            jump reunion_2_1
-        "Demander si c’est vraiment un objectif réaliste":
+        "\"Vaincre les Templiers… C’est vraiment à notre portée ?\"":
            jump reunion_2_2
 
 label reunion_2_1:
@@ -420,12 +467,12 @@ label reunion_2_1:
 
     show anne souriante
 
-    anne "Ravie de l’entendre ! Et ne t’inquiète pas, le peuple aussi est de notre côté ! D’ailleurs, bien qu’ils ne souhaitent pas s’impliquer directement dans la lutte, on a de nombreux alliés qui nous fournissent en fonds ou en informations. "
+    anne "Ravie de l’entendre ! Et ne t’inquiète pas, le peuple aussi est de notre côté ! D’ailleurs, bien qu’ils ne souhaitent pas s’impliquer directement dans la lutte, on a de nombreux alliés qui nous fournissent en fonds ou en informations."
     jump reunion_2_end
 
 label reunion_2_2:
     leon "Vaincre les Templiers… C’est vraiment à notre portée ? Nous ne sommes que cinq..."
-    anne "Mais le peuple est de notre côté ! D’ailleurs, bien qu’ils ne souhaitent pas s’impliquer directement dans la lutte, on a de nombreux alliés qui nous fournissent en fonds ou en informations. "
+    anne "Mais le peuple est de notre côté ! D’ailleurs, bien qu’ils ne souhaitent pas s’impliquer directement dans la lutte, on a de nombreux alliés qui nous fournissent en fonds ou en informations."
 
     show anne souriante
 
@@ -444,7 +491,7 @@ label reunion_2_end:
     menu:
         "S’agenouiller":
            jump reunion_3_1
-        "Demander ce qu’un prince fait ici":
+        "\"Un prince devrait vraiment se battre alors qu’il n’y a plus d’autre héritier ?\"":
            jump reunion_3_2
 
 label reunion_3_1:
@@ -458,20 +505,21 @@ label reunion_3_1:
     gaston "Ha ha ha! Tu devrais voir ta tête !"
 
     hide gaston
-    show anne normal at center with dissolve
+    show anne normal at center
+    with dissolve
 
     self "Anne semble aussi se retenir de rire…"
     anne "Gaston! Ne te moque pas, tu avais réagi exactement de la même façon la première fois que tu as rencontré Charles toi aussi."
 
     show anne souriante
 
-    anne "On a décidé que les statuts auraient peu d’importance au sein de l’ordre. D’ailleurs, j’étais une servante à l’origine!"
+    anne "On a décidé que les statuts auraient peu d’importance au sein de l’ordre. D’ailleurs, j’étais une servante à l’origine !"
 
     jump reunion_3_end
 
 label reunion_3_2:
 
-    leon "Un prince devrait vraiment se battre parmi un groupe pareil ?"
+    leon "Un prince devrait vraiment se battre alors qu’il n’y a plus d’autre héritier ?"
 
     hide charles with dissolve
 
@@ -557,8 +605,11 @@ label reunion_3_end:
     show charles serieux at center
     with dissolve
 
-    charles "C’est exact. Vous voyez où je veux en venir. Jacques de Molay ne sort quasiment plus de son fief, ce genre d’occasion est très rare. Nous devons réfléchir à un plan d’action"
-
+    $ charles("C’est exact. Vous voyez où je veux en venir. Jacques de Molay ne sort quasiment plus de son fief, ce genre d’occasion est très rare. Nous devons réfléchir à un plan d’action", interact=False)
+    pause 5.5
+    
+    with flash_blanc
+    
     hide charles
     show helene inquiete at center
     with dissolve
@@ -603,7 +654,7 @@ label retour_chambre:
     scene decor noir with flash_blanc
     pause 1.0
 
-    jacques "{cps=*0.25}Il y a plusieurs choses que tu dois savoir sur les démons.{/cps}"
+    jacques_inconnu "Il y a plusieurs choses que tu dois savoir sur les démons."
 
     pause 1.0
     scene decor chambre with flash_blanc
@@ -617,139 +668,58 @@ label retour_chambre:
     show gaston normal at center
     with dissolve
 
-    gaston "Eh, tu te sens bien? On est tous inquiets, tu sais."
+    gaston "Eh, tu te sens bien ? On est tous inquiets, tu sais."
     self "C’était limite mais il n’a pas l’air de l’avoir vu."
     gaston "Eh, tu m’écoutes ?"
     leon "Ne… ne t’inquiète pas, c’est juste un coup de fatigue, rien de bien grave."
-    gaston serieux "Je dois te parler de quelque chose d’important. Reste calme et écoute-moi."
-    gaston normal "Il y a quelques mois, on a récupéré par hasard un artefact démoniaque lors d’une de nos attaques résistantes."
-    gaston "On ne connaissait pas trop ses effets mais on savait que c’était une arme dangereuse."
-    gaston souriant "On a finalement décidé avec les autres membres de l’Ordre que je le prendrai avec moi lors de nos attaques, mais que je ne m’en servirai qu’en cas de dernier recours."
-    gaston souriant "Ne va pas le répéter aux autres, mais je me suis même entraîné à le contrôler en cachette."
-    gaston normal "Par contre, pendant l’attaque d’hier, l’artefact est tombé de ma poche pendant qu’on courait et…"
-    gaston serieux "Une drôle de boule de lumière noire en est sortie et est partie dans ta direction."
-    gaston "C’est à ce moment que tu t’es écroulé et que tu as fini par perdre la mémoire."
-    gaston normal "C’était vraiment pas de chance, pas vrai ?"
+    gaston serieux "Je voulais m'excuser d’être parti pendant la conférence tout à l’heure. Que je ne fasse pas mauvaise impression quoi."
 
     menu:
-        "Rester calme":
+        "\"C’est déja assez difficile pour moi alors si je dois supporter vos caprices en plus.\"":
            jump chambre_1_1
-        "S’énerver":
+        "\"C’est pas grave, on a tous nos problèmes.\"":
            jump chambre_1_2
 
 label chambre_1_1:
-    leon "J’ai donc été touché par cette lumière… qu’est ce qu’il va m’arriver?"
+    gaston "Oh ! Je comprend, a ta place je sais pas dans quel état je serais."
     jump chambre_1_end
 
 label chambre_1_2:
-    leon "Tu plaisantes, j'espère !"
-    leon "Tu veux dire que tout c’est à cause de toi que j’ai perdu la mémoire ?"
-    leon "D’ailleurs, pourquoi tu transportes une arme pareille si elle est aussi dangereuse ?!"
-    gaston serieux "Eh, calme toi, mon gars !"
-    gaston "Ramener l’artefact sur le champs de bataille est une décision qu’on a prit tous ensemble, tu sais !"
-    gaston "Tu étais toi-même partant pour qu’on le ramène !"
-    leon "Je…"
-    leon "qu’est-ce qu’il va m’arriver maintenant ?"
-
-    show gaston normal
-
+    gaston "Merci, t’es vraiment un pote !"
     jump chambre_1_end
-    
-label chambre_1_end:
-    gaston "Pour être honnête, on ne sait presque rien sur cet artefact…"
-    gaston souriant "Mais bon, tu as l’air de pas aller trop mal et tout ira mieux une fois qu’on aura trouvé un moyen de te rendre la mémoire !"
-    gaston "En attendant que ça arrive, je ferai en sorte qu’il ne t’arrive rien !"
 
+label chambre_1_end:
+    show gaston normal
     self "*bruit de porte qui s’ouvre"
 
-    show gaston at left
+    show gaston normal at left with move
     show anne normal at right
     with dissolve
 
     anne "Ah, Gaston, tu es là."
-    anne serieuse "On avait dit qu’on laisserai Léon se reposer."
-    gaston "Je voulais juste voir comment il allait"
+    anne serieuse "On avait dit qu’on laisserait Léon se reposer."
+    gaston "Je voulais juste voir comment il allait."
     anne normal "Peu importe. Charles veut te parler à propos des préparatifs de l’attaque de demain."
     gaston normal "Ça marche. Ah, Léon, une dernière chose !"
-    gaston serieux "Tu ne devrais pas trop te rapprocher de Hélène. Elle n’en a pas l’air, mais elle est vicieuse."
+    gaston serieux "Tu ne devrais pas trop te rapprocher de Hélène. Elle n’en a pas l’air, mais elle est manipulatrice."
     anne serieuse "Gaston ! Tu es ridicule."
     gaston souriant "Je ne sais pas comment elle a fait pour t’amadouer avant que tu ne perdes la mémoire, mais ne refait pas la même erreur !"
     gaston "Je vous laisse !"
-    leon "Att…"
 
     hide gaston
-    show anne normal at center
+    show anne at center with move
     with dissolve
 
-    leon "Il est parti…"
     anne normal "Excuse-le… il est incorrigible."
     anne "Il faut un peu de temps pour s’habituer à lui, mais son côté insouciant nous permet à tous de tenir le coup sans se démoraliser."
 
-    
-    menu:
-        "Demander pourquoi Gaston a dit de se méfier d'Hélène":
-           jump chambre_2_1
-        "Demander pourquoi Gaston a dit qu’Hélène m’avait \"amadoué\"":
-           jump chambre_2_2
-
-label chambre_2_1:
-    label chambre_2_1:
-
-    anne serieuse "Hélène et Gaston ne se supportent pas l’un et l’autre."
-    anne "Si tu veux mon avis, la raison de leur mésentente est assez puérile."
-    anne normal "Tu sais déjà que Gaston était un paysan avant que les Templiers ne prennent le pouvoir, n’est-ce pas ?"
-    anne "À cette époque, Gaston fréquentait une femme noble de son âge, malgré la différence de statut."
-    anne souriante "Elle et Gaston étaient fous amoureux l’un de l’autre."
-    anne serieuse "Cependant…"
-    anne "Cette femme n’a pas survécu à la prise de pouvoir par les Templiers."
-    anne "Depuis ce jour, Gaston éprouve une haine sans limites envers les Templiers. Plus que n’importe qui au sein de l’Ordre."
-    leon "Quel rapport avec Hélène ?"
-    anne normal "Quand Hélène et toi avez rejoins l’Ordre, Gaston s’est tout de suite montré très amical envers vous deux."
-    anne serieuse "Mais Hélène a toujours agis de façon très froide envers Gaston."
-    anne "Il faut dire qu’Hélène n’est pas très sociale et assez dure à approcher."
-    self "Ce n’est pas vraiment l’impression qu’elle donnait…"
-    anne normal "Apparemment, Hélène ressemble physiquement à la femme dont Gaston était amoureux."
-    anne serieuse "Je suppose qu’il n’a pas pu supporter qu’une personne qui lui rappelle quelqu’un qu’il aimait ait un caractère aussi différent."
-    anne "Depuis ce jour, leur relation n’a pas évolué et ni l’un ni l’autre ne fait d’efforts pour arranger ça."
-    leon "Tu as dis qu’Hélène et moi avions rejoins l’Ordre en même temps ?"
-    anne souriante "Bien sûr, vous étiez déjà en couple bien avant d’intégrer l’Ordre, après tout !"
-    leon "En… en couple ?!"
-    anne normal "Oh… elle ne t’en a pas parlé ?"
-    anne serieuse "Je vois… ton amnésie doit être très dure à vivre pour elle aussi."
-    anne souriante "Hélène et toi êtes en couple depuis longtemps. C’est toujours agréable de vous voir ensemble, vous êtes vraiment faits l’un pour l’autre."
-
-    jump chambre_end
-
-
-label chambre_2_2:
     leon "Gaston a sous-entendu que j’étais à la botte d’Hélène avant de perdre la mémoire. Qu’est ce qu’il voulait dire par là ?"
     anne souriante "Il a exagéré, tu n’étais pas vraiment à sa botte. Vous avez une relation plutôt normale pour un couple."
     leon "Un… un couple ?!"
     anne normal "Oh… elle ne t’en a pas parlé ?"
     anne serieuse "Je vois… ton amnésie doit être très dure à vivre pour elle aussi."
-    anne souriante "Hélène et toi êtes en couple depuis bien avant que vous n'ayez intégré l’Ordre. C’est toujours agréable de vous voir ensemble, vous êtes vraiment faits l’un pour l’autre."
-    leon "Gaston n’avait pas l’air de penser ça…"
-    anne serieuse "Hélène et Gaston ne se supportent pas l’un et l’autre."
-    anne "Si tu veux mon avis, la raison de leur mésentente est assez puérile."
-    anne normal "Tu sais déjà que Gaston était un paysan avant que les Templiers ne prennent le pouvoir, n’est-ce pas?"
-    anne "À cette époque, Gaston fréquentait une femme noble de son âge, malgré la différence de statut."
-    anne souriante "Elle et Gaston étaient fous amoureux l’un de l’autre."
-    anne serieuse "Cependant…"
-    anne "Cette femme n’a pas survécu à la prise de pouvoir par les Templiers."
-    anne "Depuis ce jour, Gaston éprouve une haine sans limites envers les Templiers. Plus que n’importe qui au sein de l’Ordre."
-    leon "Quel rapport avec Hélène ?"
-    anne normal "Quand Hélène et toi avez rejoins l’Ordre, Gaston s’est tout de suite montré très amical envers vous deux."
-    anne serieuse "Mais Hélène a toujours agis de façon très froide envers Gaston."
-    anne "Il faut dire qu’Hélène n’est pas très sociale et assez dure à approcher."
-    self "Ce n’est pas vraiment l’impression qu’elle donnait…"
-    anne normal "Apparemment, Hélène ressemble physiquement à la femme dont Gaston était amoureux."
-    anne serieuse "Je suppose qu’il n’a pas pu supporter qu’une personne qui lui rappelle quelqu’un qu’il aimait ait un caractère aussi différent."
-    anne "Depuis ce jour, leur relation n’a pas évolué et ni l’un ni l’autre ne fait d’efforts pour arranger ça."
+    anne souriante "Hélène et toi êtes en couple depuis bien avant que vous n'ayez intégré l’Ordre."
 
-    jump chambre_end
-
-    
-label chambre_end:
     anne "Dis, j'ai un truc à te proposer, mais faut qu'on en parle à Charles."
     
     jump grande_salle
@@ -766,12 +736,12 @@ label grande_salle:
     with dissolve
  
     charles "Une idée ?"
-    anne "Oui. Je pense que Léon devrait revoir des lieux auxquels il était habitué avant de devenir amnésique."
+    anne "Oui. Je pense que Léon devrait sortir acheter des herbes médicinal. Il pourra par la même occasion revoir des lieux auxquels il était habitué avant de devenir amnésique."
     anne souriante "Avec un peu de chance, ça l’aidera à retrouver la mémoire !"
-    charles "Que propose-tu ?"
+    charles "Mais qui l’accompagnera ?"
     anne normal "Léon, tu avais l’habitude de sortir au village avec Hélène pour faire des provisions."
     anne "Après tout, vos visages ne sont pas connus des Templiers, contrairement à ceux du reste de l’Ordre"
-    anne souriante "Je pense que vous devriez sortir vous balader dans ce village. Ça ne pourra que te faire du bien !"
+    anne souriante "Je pense que vous devriez sortir vous balader dans ce village. Ça ne pourra que te faire du bien ! Et les herbes médicinales vendues là-bas te seront sûrement utiles."
     charles "Anne… tu es consciente de l’importance de l’attaque de demain…?"
     anne souriante "Ce n’est pas comme si Léon pouvait nous aider à la préparer dans cet état…"
     charles "Et pour Hélène ?"
@@ -797,13 +767,12 @@ label grande_salle:
     show helene normal at right
     with dissolve
 
-    self "Et puis ce n’est pas vraiment comme si je pouvais dire non après avoir vu leurs airs enjoués…"
     leon "Agh..."
 
     scene decor noir with flash_blanc
     pause 1.0
 
-    jacques "{cps=*0.25}Les démons peuvent prendre une forme humaine.{/cps}"
+    jacques_inconnu "Les démons peuvent prendre une forme humaine."
 
     pause 1.0
     scene decor grande_salle with flash_blanc
@@ -835,7 +804,7 @@ label grande_salle:
     show charles normal at center
     with dissolve
 
-    charles "Léon… tu es sûr que tout va bien ? Tu as vraiment mauvaise mine depuis ce matin."
+    charles "Léon… tu es sûr que tout va bien ? Normalement une amnésie n'entraîne pas de perte de conscience comme ça."
     charles "Si ce n’est pas le cas tu peux nous le dire, tu sais."
     self "Je ne peux pas le laisser savoir ce que j’ai au bras…"
     leon "Je t’assure, je suis juste un peu fatigué mais je ne me sens pas particulièrement mal."
@@ -953,7 +922,7 @@ label village_start:
     helene "Ne va pas le répéter au marchand, il est persuadé du contraire."
     helene souriante "Tu n’aimes déjà pas les navets, alors imagine quand ils sont mauvais."
     leon "Je n’aime pas les navets ?"
-    helene normal "En général, tu n’es pas difficile avec la nourriture, mais alors pour les navets… tu es incorrigible !"
+    helene normal "En général, tu n’es pas difficile avec la nourriture, mais alors pour les navets par contre… !"
     helene souriante "Une fois, Anne en avait mit dans une soupe de légumes et tu as agis comme un gamin ! Tu as finis par aller te coucher en boudant sans rien manger."
     leon "Vraiment ? C’est embarrassant…"
     helene "C’est ce qui fait ton charme !"
@@ -977,7 +946,7 @@ label village_1_1:
     helene normal "Vraiment ? Décidément, elle ne sait pas tenir sa langue !"
     helene "J’aurais préféré te l’annoncer moi-même…"
     helene "C’est aussi de ma faute, je n’ai pas eu le courage de t’en parler avant..."
-    helene souriante "Quoi qu’il en soit… tu es tout pour moi."
+    helene souriante "Quoi qu’il en soit… maintenant tu sais."
 
     jump village_1_end
 
@@ -985,13 +954,13 @@ label village_1_2:
 
     leon "Vraiment ?! Je n’en avais aucune idée…"
     helene normal "Oui, désolé de ne pas t’en avoir parlé plus tôt. Nous étions déjà ensemble bien avant de rejoindre l’Ordre."
-    helene souriante "Tu sais… Tu es tout pour moi."
+    helene souriante "Bon bah… maintenant tu sais."
     
     jump village_1_end
     
 label village_1_end:
 
-    helene "Rien ne m’importe plus que ton bien-être."
+    helene "Tu es très important pour moi."
     helene normal "Et tu sais, je te connais mieux que quiconque."
     helene souriante "Je peux comprendre ce que tu ressens juste en te regardant !"
     helene normal "..."
@@ -1007,7 +976,7 @@ label village_1_end:
     self "Non. C’est probablement une mauvaise idée de lui en parler."
     self "Ça ne peut que mal finir."
     self "Mais… Elle m’aime, pas vrai ?"
-    self "Mais même si je lui en parle... elle ne pourrait rien faire pour m’aider..."
+    self "Mais même si je lui en parle... {w=0.5}elle ne pourrait rien faire pour m’aider..."
 
     menu:
 
@@ -1051,7 +1020,7 @@ label village_2_2:
     helene inquiete "Je vois… tu ne me fais pas encore confiance, pas vrai ?"
     helene "Je ne peux pas t’en vouloir puisque tu as tout oublié."
     helene normal "Peu importe."
-    helene souriante "Si un jour tu dois me parler de quelque chose, tu sais que je serais là pour t’écouter."
+    helene souriante "Si un jour tu dois me parler de quelque chose, tu sais que je serai là pour t’écouter."
     helene normal "Il commence à être tard. Nous devrions rentrer."
      
     jump briefing_endingAB_start
@@ -1254,15 +1223,15 @@ label soir_endingA_start:
     scene decor noir with flash_blanc
     pause 1.0
 
-    jacques "{cps=*0.25}On peut reconnaître ces démons sous forme humaine à leurs yeux.{/cps}"
+    jacques_inconnu "On peut reconnaître ces démons sous forme humaine à leurs yeux."
 
     pause 1.0
     scene chambre with flash_blanc
 
     self "Encore ce truc…"
-    self "Plus important… Hélène !"
+    self "Plus important… {w=0.5}Hélène !"
     self "Elle a manifestement vu mon bras…"
-    self "Elle ne va pas en parler aux autres... pas vrai ?"
+    self "Elle ne va pas en parler aux autres... {w=0.5}pas vrai ?"
     self "Nous sommes en couple… Elle ne ferait pas ça !"
     self "..."
     self "Enfin, j’espère…"
@@ -1306,7 +1275,7 @@ label soir_endingB_start:
     scene decor noir with flash_blanc
     pause 1.0
 
-    jacques "{cps=*0.25}On peut reconnaître ces démons sous forme humaine à leurs yeux.{/cps}"
+    jacques "On peut reconnaître ces démons sous forme humaine à leurs yeux."
 
     pause 1.0
     scene chambre with flash_blanc
@@ -1398,16 +1367,17 @@ label massacre_endingA_start:
     with flash_rouge
     hide anne
     pause 0.5
+    with shake
     self "*bruit de corps qui tombe au sol*"
     pause 1.5
     show helene_demon normal at center
     with dissolve
 
     helene "Et de un."
-    self "...!"
+    self "... !"
     self "Cette chose… {w=0.5}C’est Hélène ?!"
 
-    show helene to left with slide
+    show helene at left with move
     show charles masque at right
     with dissolve
 
@@ -1419,7 +1389,7 @@ label massacre_endingA_start:
     show gaston masque at right
     with dissolve
 
-    gaston "Ah !... L’artefact !..."
+    gaston "Ah !... {w=0.5}L’artefact !..."
     gaston "Espèce de monstre ! Meurs !"
     helene_demon souriante "Rassure-moi, tu n’es quand même pas assez stupide pour penser que ce genre de sort fonctionne sur un démon ?"
 
@@ -1427,6 +1397,7 @@ label massacre_endingA_start:
     with flash_rouge
     hide gaston with dissolve
     pause 0.5
+    with shake
     self "*bruit de corps qui tombe au sol*"
     pause 0.5
 
@@ -1442,6 +1413,7 @@ label massacre_endingA_start:
     with flash_rouge
     hide charles
     pause 0.5
+    with shake
     self "*bruit de corps qui tombe au sol*"
     pause 0.5
 
@@ -1501,6 +1473,7 @@ label massacre_endingB_start:
     with flash_rouge
     hide gaston
     pause 0.5
+    with shake
     self "*bruit de corps qui tombe au sol*"
     pause 1.5
     show helene_demon normal at center with dissolve
@@ -1544,6 +1517,7 @@ label mort_de_helene_start:
     self "Elle débloque !"
 
     scene decor noir with dissolve
+    with shake
     self "*bruit de corps qui tombe au sol*"
     self "..."
     self "...elle ne respire plus."
@@ -1569,13 +1543,12 @@ label flashback_start:
     scene decor noir with dissolve
 
 
-    jacques "Il y a plusieurs choses que tu dois savoir sur les démons."
-    jacques "Les démons peuvent prendre une forme humaine."
-    jacques "On peut reconnaître ces démons sous forme humaine à leurs yeux."
-    jacques "Ils ont les yeux vairons, c’est à dire que chaque oeil a une couleur différente."
+    jacques "{cps=*3}Il y a plusieurs choses que tu dois savoir sur les démons.{/cps}"
+    jacques "{cps=*3}Les démons peuvent prendre une forme humaine.{/cps}"
+    jacques "{cps=*3}On peut reconnaître ces démons sous forme humaine à leurs yeux.{/cps}"
+    jacques "{cps=*3}Ils ont les yeux vairons, c’est à dire que chaque oeil a une couleur différente.{/cps}"
 
     scene eglise with dissolve
-    $ jacques_name = "Jacques de Molay"
 
     jacques "Autre chose. Un démon et son invocateur peuvent se transférer leur énergie vitale."
     jacques "Un démon peut même allonger la durée de vie de son invocateur de cette façon."
@@ -1584,6 +1557,7 @@ label flashback_start:
     jacques "Aujourd’hui est un jour historique. Le jour qui marque le début de notre lutte face au royaume de France."
     jacques "Je suppose que tu te souviens de toutes les étapes du rituel ?"
     leon "Oui, grand maître."
-    jacques "Parfait. Tu vas maintenant pouvoir invoquer ton démon."
+    jacques "Parfait. Tu vas maintenant pouvoir invoquer ton démon, as-tu choisi un nom ?"
+    leon "Oui, Hélène."
     return
 # END 12 - Flashback
