@@ -108,15 +108,10 @@ screen main_menu:
     # unhovered - action to run when the button loses focus. In this case we hide a tooltip.
     
     $ y+=142 # We increase y position for the next menu item. y has a value of 185(114+81=185) now. We could also use: xpos 773 ypos 185
-    imagebutton auto "gui/main_load_%s.png" xpos 1490 ypos y focus_mask True  action ShowMenu('charger') hovered [ Play ("test_two", "sfx/click.wav")] at main_eff2
+    imagebutton auto "gui/main_load_%s.png" xpos 1490 ypos y focus_mask True  action ShowMenu('load') hovered [ Play ("test_two", "sfx/click.wav")] at main_eff2
     $ y+=142
-    imagebutton auto "gui/main_config_%s.png" xpos 1490 ypos y focus_mask True action ShowMenu('preferences') hovered [ Play ("test_three", "sfx/click.wav")] at main_eff3
-    $ y+=142
-    if persistent.extra_unlocked: # We only show the extras, if they have been unlocked. Because we are using a variable (y) for ypos, we don't need to worry about positioning the rest of the button(s).
-        imagebutton auto "gui/main_extras_%s.png" xpos 1490 ypos y focus_mask True action Start('extras') hovered [ Play ("test_four", "sfx/click.wav")] at main_eff4
-        $ y+=142
-    imagebutton auto "gui/main_quit_%s.png" xpos 1490 ypos y focus_mask True action Quit(confirm=False) hovered [ Play ("test_five", "sfx/click.wav")] at main_eff5
-
+    imagebutton auto "gui/main_quit_%s.png" xpos 1490 ypos y focus_mask True action Quit(confirm=False) hovered [ Play ("test_five", "sfx/click.wav")] at main_eff3
+    
 screen example: #this screen isn't used. It's just used as an example in the script.
 #begin at_atl
     imagebutton auto "gui/main_start_%s.png" xpos 1490 ypos 114 focus_mask True action Start() at main_eff1
@@ -135,77 +130,7 @@ init -2:
     transform main_eff3:
         zoom 1
         easein 1.2 zoom 2
-    transform main_eff4:
-        zoom 1
-        easein 1.6 zoom 2
-    transform main_eff5:
-        zoom 1
-        easein 2.0 zoom 2
 #end main_eff
-
-## ■██▓▒░ NAVIGATION ░▒▓████████████████████████████████████■
-## This screen is responsible for the game menu/navigation. It's included in other screens to display the game menu navigation.
-## http://www.renpy.org/doc/html/screen_special.html#navigation
-screen navigation:
-    imagebutton auto "gui/game_menu_save_%s.png" xpos 810 ypos 99 focus_mask True action ShowMenu('charger') hovered [ Play ("test_one", "sfx/click.wav"), Show("gui_tooltip", my_picture="gui/tooltip_geme_menu_save.png", my_tt_xpos=46, my_tt_ypos=518) ] unhovered [Hide("gui_tooltip")] at nav_eff
-    imagebutton auto "gui/game_menu_load_%s.png" xpos 810 ypos 164 focus_mask True action ShowMenu('charger') hovered [ Play ("test_two", "sfx/click.wav"), Show("gui_tooltip", my_picture="gui/tooltip_geme_menu_load.png", my_tt_xpos=46, my_tt_ypos=518) ] unhovered [Hide("gui_tooltip")] at nav_eff
-    imagebutton auto "gui/game_menu_config_%s.png" xpos 810 ypos 227 focus_mask True action ShowMenu('preferences') hovered [ Play ("test_three", "sfx/click.wav"), Show("gui_tooltip", my_picture="gui/tooltip_geme_menu_config.png", my_tt_xpos=46, my_tt_ypos=518) ] unhovered [Hide("gui_tooltip")] at nav_eff
-    imagebutton auto "gui/game_menu_main_%s.png" xpos 810 ypos 291 focus_mask True action MainMenu() hovered [ Play ("test_one", "sfx/click.wav"), Show("gui_tooltip", my_picture="gui/tooltip_geme_menu_main.png", my_tt_xpos=46, my_tt_ypos=518) ] unhovered [Hide("gui_tooltip")] at nav_eff
-    imagebutton auto "gui/game_menu_return_%s.png" xpos 810 ypos 355 focus_mask True action Return() hovered [ Play ("test_two", "sfx/click.wav"), Show("gui_tooltip", my_picture="gui/tooltip_geme_menu_return.png", my_tt_xpos=46, my_tt_ypos=518) ] unhovered [Hide("gui_tooltip")] at nav_eff
-    imagebutton auto "gui/game_menu_quit_%s.png" xpos 810 ypos 419 focus_mask True action Quit() hovered [ Play ("test_three", "sfx/click.wav"), Show("gui_tooltip", my_picture="gui/tooltip_geme_menu_quit.png", my_tt_xpos=46, my_tt_ypos=518) ] unhovered [Hide("gui_tooltip")] at nav_eff
-
-# The code below defines the ATL transform effects for the buttons on the game menu. These effects are triggered when we hover the mouse over them (hover and selected_hover). Effects that are triggered by idle and selected_idle events (when we stop hovering the mouse over them) ensure that the buttons are moved back to the initial state.
-#begin nav_eff
-init -2:
-    transform nav_eff:
-        on idle:
-            easein 0.5 xpos 810
-        on selected_idle:
-            easein 0.5 xpos 810
-        on hover:
-            easein 0.3 xpos 830
-            easein 0.3 xpos 790
-        on selected_hover:
-            easein 0.3 xpos 830
-            easein 0.3 xpos 790
-#end nav_eff
-
-## ■██▓▒░ PREFERENCES ░▒▓███████████████████████████████████■
-## Screen that allows the user to change the preferences.
-## http://www.renpy.org/doc/html/screen_special.html#prefereces
-screen preferences:
-    tag menu # This ensures that any other menu screen is replaced.
-    add "gui/config_ground.png" # We add the image that is shown in the background of the preferences screen.
-    # use navigation # We include the navigation screen (game menu)
-    # Display windowed/full screen:
-    imagebutton auto "gui/config_display_window_%s.png" xpos 0.475 ypos 0.5 focus_mask True action Preference('display', 'window') at config_eff hovered [ Play ("test_one", "sfx/click.wav")]
-    imagebutton auto "gui/config_display_fullscreen_%s.png" xpos 0.525 ypos 0.5 focus_mask True action Preference('display', 'fullscreen') at config_eff hovered [ Play ("test_two", "sfx/click.wav")]
-    
-init -2 python: 
-    # Styling for the bar sliders:
-    # Aleema's Customizing Menus tutorial: http://lemmasoft.renai.us/forums/viewtopic.php?f=51&t=9812
-    # Bar style properties documentation: http://www.renpy.org/doc/html/style.html#bar-style-properties
-    style.pref_frame.background = None
-    style.pref_slider.left_bar = "gui/config_bar_full.png"
-    style.pref_slider.right_bar = "gui/config_bar_empty.png"
-    style.pref_slider.thumb = None
-    style.pref_slider.xmaximum = 223
-    style.pref_slider.ymaximum = 36    
-    
-init -2:
-    transform config_eff:
-        on idle:
-            easein 0.5 rotate 0
-        on selected_idle:
-            easein 0.5 rotate 0
-        on hover:
-            easein 0.3 rotate 5
-            easein 0.3 rotate -5
-            repeat
-        on selected_hover:
-            easein 0.3 rotate 5
-            easein 0.3 rotate -5
-            repeat
 
             
 ## ■██▓▒░ SAVE / LOAD SLOT ░▒▓██████████████████████████████■
@@ -216,55 +141,57 @@ init -2 python: #we initialize x and y, so the load_save_slot screen below works
         
 screen load_save_slot:
     $ file_text = "% s\n  %s" % (FileTime(number, empty="Empty Slot."), FileSaveName(number))
-    $x1=x+220
-    $y1=y+10
+    
+    $ x1=x+220
+    $ y1=y+10
     add FileScreenshot(number) xpos x1 ypos y1
-    $x2=x+10
-    $y2=y+10
+    $ x2=x+10
+    $ y2=y+10
     text file_text xpos x2 ypos y2 size 20
+    
 
 ## ■██▓▒░ SAVE / LOAD FILE PICKER ░▒▓███████████████████████■
 ## Since saving and loading are so similar, we combine them into a single screen, file_picker. We then use the file_picker screen from simple load and save screens.
-screen charger:
+    
+screen save:
     tag menu
     
-    use load
-        
+    image "gui/save_tab_on.png" xpos 0.22 ypos 0.1
+    imagebutton auto "gui/load_tab_off_%s.png" xpos 0.1 ypos 0.1 focus_mask True action [Hide("save"), Show("load")] hovered [ Play ("test_one", "sfx/click.wav")]
+    use save_load_slots
+    
     use sound_On
     use fullscreen_Off
     
-    imagebutton auto "gui/menu_%s.png" xpos 0.5 ypos 0.8 focus_mask True action MainMenu() hovered [ Play ("test_one", "sfx/click.wav")]
-    
-    imagebutton auto "gui/retour_%s.png" xpos 0.2 ypos 0.8 focus_mask True action Return() hovered [ Play ("test_one", "sfx/click.wav")]
-    
-screen save:
-    
-    #imagebutton auto "gui/load_tab_off_%s.png" xpos 0.5 ypos 0.8 focus_mask True action MainMenu() hovered [ Play ("test_one", "sfx/click.wav")]
-    #imagebutton auto "gui/save_tab_on_%s.png" xpos 0.2 ypos 0.8 focus_mask True action Return() hovered [ Play ("test_one", "sfx/click.wav")]
-    
-    $ y=104
-    for i in range(0, 3):
-        imagebutton auto "gui/fileslot_%s.png" xpos 195 ypos y focus_mask True action FileAction(i)
-        use load_save_slot(number=i, x=195, y=y)
-        $ y+=124
-    
-    $ y=104
-    for i in range(0, 3):
-        imagebutton auto "gui/fileslot_%s.png" xpos 620 ypos y focus_mask True action FileAction(3+i)
-        use load_save_slot(number=(i+3), x=620, y=y)
-        $ y+=124
+    imagebutton auto "gui/retour_%s.png" xpos 0.1 ypos 0.8 action Return() hovered [ Play ("test_one", "sfx/click.wav")]
+    imagebutton auto "gui/menu_%s.png" xpos 0.22 ypos 0.8 action MainMenu() hovered [ Play ("test_one", "sfx/click.wav")]
+    imagebutton auto "gui/log_%s.png" xpos 0.7 ypos 0.8 action ShowMenu('text_history') hovered [ Play ("test_one", "sfx/click.wav")]
     
 screen load:
-    $ y=104
+    tag menu
+    
+    image "gui/load_tab_on.png" xpos 0.1 ypos 0.1
+    imagebutton auto "gui/save_tab_off_%s.png" xpos 0.22 ypos 0.1 focus_mask True action [Hide("load"), Show("save")] hovered [ Play ("test_one", "sfx/click.wav")]
+    use save_load_slots
+    
+    use sound_On
+    use fullscreen_Off
+    
+    imagebutton auto "gui/retour_%s.png" xpos 0.1 ypos 0.8 action Return() hovered [ Play ("test_one", "sfx/click.wav")]
+    imagebutton auto "gui/menu_%s.png" xpos 0.22 ypos 0.8 action MainMenu() hovered [ Play ("test_one", "sfx/click.wav")]
+    imagebutton auto "gui/log_%s.png" xpos 0.7 ypos 0.8 action ShowMenu('text_history') hovered [ Play ("test_one", "sfx/click.wav")]
+    
+screen save_load_slots:
+    $ y=210
     for i in range(0, 3):
         imagebutton auto "gui/fileslot_%s.png" xpos 195 ypos y focus_mask True action FileAction(i)
         use load_save_slot(number=i, x=195, y=y)
         $ y+=124
     
-    $ y=104
-    for i in range(0, 3):
-        imagebutton auto "gui/fileslot_%s.png" xpos 620 ypos y focus_mask True action FileAction(3+i)
-        use load_save_slot(number=(i+3), x=620, y=y)
+    $ y=210
+    for i in range(3, 6):
+        imagebutton auto "gui/fileslot_%s.png" xpos 620 ypos y focus_mask True action FileAction(i)
+        use load_save_slot(number=i, x=620, y=y)
         $ y+=124
     
 screen sound_Off: 
@@ -360,7 +287,7 @@ init:
 ## Screens for the quick menus above the textbox. We use several different quick menus for presentation purposes.
 
 screen menu_button:
-    imagebutton auto "gui/ingame_menu_%s.png" action ShowMenu('charger') xpos 0.85 ypos 0 focus_mask True
+    imagebutton auto "gui/ingame_menu_%s.png" action ShowMenu('save') xpos 0.85 ypos 0 focus_mask True
 
 screen ingame_menu:
     imagebutton auto "gui/quick_config_%s.png" action ShowMenu('preferences') focus_mask True at option
@@ -382,3 +309,322 @@ init -2:
         on hide:
             ypos 150
             linear 0.3 ypos -75
+            
+# readback.rpy
+# drop in readback module for Ren'Py by delta
+# this file is licensed under the terms of the WTFPL
+# see http://sam.zoy.org/wtfpl/COPYING for details
+
+# voice_replay function added by backansi from Lemma soft forum.
+# required renpy 6.12 or higher.
+
+init -3 python:
+    # config.game_menu.insert(1,( "text_history", u"Text History", ui.jumps("text_history_screen"), 'not main_menu'))
+
+    # styles
+    style.readback_window.xmaximum = 1400
+    style.readback_window.ymaximum = 700
+    style.readback_window.align = (.5, .5)
+    style.readback_window.background = None
+
+    style.readback_frame.background = "#000000aa"
+    style.readback_frame.xpadding = 10
+    style.readback_frame.xmargin = 5
+    style.readback_frame.ymargin = 5
+    
+    style.readback_text.color = "#fff"
+
+    style.create("readback_button", "readback_text")
+    style.readback_button.background = None
+    
+    style.create("readback_button_text", "readback_text")
+    style.readback_button_text.selected_color = "#f12"
+    style.readback_button_text.hover_color = "#f12"
+    
+    style.readback_label_text.bold = True
+    
+    # starts adding new config variables
+    config.locked = False 
+    
+    # Configuration Variable for Text History 
+    config.readback_buffer_length = 100 # number of lines stored
+    config.readback_full = True # True = completely replaces rollback, False = readback accessible from game menu only (dev mode)
+    config.readback_disallowed_tags = ["size"] # a list of tags that will be removed in the text history
+    config.readback_choice_prefix = ">> "   # this is prefixed to the choices the user makes in readback
+    
+    # ends adding new config variables
+    config.locked = True
+    
+init -2 python:
+
+    # Two custom characters that store what they said
+    class ReadbackADVCharacter(ADVCharacter):
+        def do_done(self, who, what):
+            store_say(who, what)
+            store.current_voice = ''
+            return
+
+    class ReadbackNVLCharacter(NVLCharacter):
+        def do_done(self, who, what):
+            store_say(who, what)
+            store.current_voice = ''
+            return
+            
+    # this enables us to show the current line in readback without having to bother the buffer with raw shows
+    def say_wrapper(who, what, **kwargs):
+        store_current_line(who, what)
+        return renpy.show_display_say(who, what, **kwargs)
+    
+    config.nvl_show_display_say = say_wrapper
+    
+    adv = ReadbackADVCharacter(show_function=say_wrapper)
+    nvl = ReadbackNVLCharacter()
+    NVLCharacter = ReadbackNVLCharacter
+    
+    # rewriting voice function to replay voice files when you clicked dialogues in text history screen
+    def voice(file, **kwargs):
+        if not config.has_voice:
+            return
+        
+        _voice.play = file
+        
+        store.current_voice = file
+
+    # overwriting standard menu handler
+    # Overwriting menu functions makes Text History log choice which users choose.
+    def menu(items, **add_input): 
+        
+        newitems = []
+        for label, val in items:
+            if val == None:
+                narrator(label, interact=False)
+            else:
+                newitems.append((label, val))
+                
+        rv = renpy.display_menu(newitems, **add_input)
+        
+        # logging menu choice label.
+        for label, val in items:
+            if rv == val:
+                store.current_voice = ''
+                store_say(None, config.readback_choice_prefix + label)
+        return rv
+        
+    def nvl_screen_dialogue(): 
+        """
+         Returns widget_properties and dialogue for the current NVL
+         mode screen.
+         """
+
+        widget_properties = { }
+        dialogue = [ ]
+        
+        for i, entry in enumerate(nvl_list):
+            if not entry:
+                continue
+
+            who, what, kwargs = entry
+
+            if i == len(nvl_list) - 1:
+                who_id = "who"
+                what_id = "what"
+                window_id = "window"
+
+            else:
+                who_id = "who%d" % i
+                what_id = "what%d" % i
+                window_id = "window%d" % i
+                
+            widget_properties[who_id] = kwargs["who_args"]
+            widget_properties[what_id] = kwargs["what_args"]
+            widget_properties[window_id] = kwargs["window_args"]
+
+            dialogue.append((who, what, who_id, what_id, window_id))
+        
+        return widget_properties, dialogue
+        
+    # Overwriting nvl menu function
+    def nvl_menu(items):
+
+        renpy.mode('nvl_menu')
+        
+        if nvl_list is None:
+            store.nvl_list = [ ]
+
+        screen = None
+        
+        if renpy.has_screen("nvl_choice"):
+            screen = "nvl_choice"
+        elif renpy.has_screen("nvl"):
+            screen = "nvl"
+            
+        if screen is not None:
+
+            widget_properties, dialogue = nvl_screen_dialogue()        
+
+            rv = renpy.display_menu(
+                items,
+                widget_properties=widget_properties,
+                screen=screen,
+                scope={ "dialogue" : dialogue },
+                window_style=style.nvl_menu_window,
+                choice_style=style.nvl_menu_choice,
+                choice_chosen_style=style.nvl_menu_choice_chosen,
+                choice_button_style=style.nvl_menu_choice_button,
+                choice_chosen_button_style=style.nvl_menu_choice_chosen_button,
+                type="nvl",                      
+                )
+                
+            for label, val in items:
+                if rv == val:
+                    store.current_voice = ''
+                    store_say(None, config.readback_choice_prefix + label)
+            return rv
+            
+        # Traditional version.
+        ui.layer("transient")
+        ui.clear()
+        ui.close()
+
+        ui.window(style=__s(style.nvl_window))
+        ui.vbox(style=__s(style.nvl_vbox))
+
+        for i in nvl_list:
+            if not i:
+                continue
+
+            who, what, kw = i            
+            rv = renpy.show_display_say(who, what, **kw)
+
+        renpy.display_menu(items, interact=False,
+                           window_style=__s(style.nvl_menu_window),
+                           choice_style=__s(style.nvl_menu_choice),
+                           choice_chosen_style=__s(style.nvl_menu_choice_chosen),
+                           choice_button_style=__s(style.nvl_menu_choice_button),
+                           choice_chosen_button_style=__s(style.nvl_menu_choice_chosen_button),
+                           )
+
+        ui.close()
+
+        roll_forward = renpy.roll_forward_info()
+
+        rv = ui.interact(roll_forward=roll_forward)
+        renpy.checkpoint(rv)
+
+        for label, val in items:
+            if rv == val:
+                store.current_voice = ''
+                store_say(None, config.readback_choice_prefix + label)
+        return rv
+        
+    ## readback
+    readback_buffer = []
+    current_line = None
+    current_voice = None
+    
+    def store_say(who, what):
+        global readback_buffer, current_voice
+        if preparse_say_for_store(what):
+            new_line = (preparse_say_for_store(who), preparse_say_for_store(what), current_voice)
+            readback_buffer = readback_buffer + [new_line]
+            readback_prune()
+
+    def store_current_line(who, what):
+        global current_line, current_voice
+        current_line = (preparse_say_for_store(who), preparse_say_for_store(what), current_voice)
+
+    # remove text tags from dialogue lines 
+    disallowed_tags_regexp = ""
+    for tag in config.readback_disallowed_tags:
+        if disallowed_tags_regexp != "":
+            disallowed_tags_regexp += "|"
+        disallowed_tags_regexp += "{"+tag+"=.*?}|{"+tag+"}|{/"+tag+"}"
+    
+    import re
+    remove_tags_expr = re.compile(disallowed_tags_regexp) # remove tags undesirable in readback
+    def preparse_say_for_store(input):
+        global remove_tags_expr
+        if input:
+            return re.sub(remove_tags_expr, "", input)
+
+    def readback_prune():
+        global readback_buffer
+        while len(readback_buffer) > config.readback_buffer_length:
+            del readback_buffer[0]
+
+    # keymap overriding to show text_history.
+    def readback_catcher():
+        ui.add(renpy.Keymap(rollback=(SetVariable("yvalue", 1.0), ShowMenu("text_history"))))
+        ui.add(renpy.Keymap(rollforward=ui.returns(None)))
+
+    if config.readback_full:
+        config.rollback_enabled = False
+        config.overlay_functions.append(readback_catcher)    
+    
+init python:
+    yvalue = 1.0
+    class NewAdj(renpy.display.behavior.Adjustment):
+        def change(self,value):
+
+            if value > self._range and self._value == self._range:
+                return Return()
+            else:
+                return renpy.display.behavior.Adjustment.change(self, value)
+                
+    def store_yvalue(y):
+        global yvalue
+        yvalue = int(y)
+
+screen text_history:
+
+    #use navigation
+    tag menu 
+    
+    if not current_line and len(readback_buffer) == 0:
+        $ lines_to_show = []
+        
+    elif current_line and len(readback_buffer) == 0:
+        $ lines_to_show = [current_line]
+        
+    elif current_line and not ( ( len(readback_buffer) == 3 and current_line == readback_buffer[-2]) or current_line == readback_buffer[-1]):  
+        $ lines_to_show = readback_buffer + [current_line]
+        
+    else:
+        $ lines_to_show = readback_buffer
+    
+    
+    $ adj = NewAdj(changed = store_yvalue, step = 300)
+    
+    window:
+        style_group "readback"
+    
+        side "c r":
+            
+            frame:
+                
+                has viewport:
+                    mousewheel True
+                    draggable True
+                    yinitial yvalue
+                    yadjustment adj
+
+                vbox:
+                    null height 10
+                    
+                    for line in lines_to_show:
+                        
+                        if line[0] and line[0] != " ":
+                            label line[0] # name
+
+                        # if there's no voice just log a dialogue
+                        if not line[2]:
+                            text line[1]
+                            
+                        # else, dialogue will be saved as a button of which plays voice when clicked
+                        else: 
+                            textbutton line[1] action Play("voice", line[2] )
+                        
+                        null height 10
+                
+            bar adjustment adj style 'vscrollbar'
+        imagebutton auto "gui/retour_%s.png" xpos 0.0 ypos 1.1 focus_mask True action Return() hovered [ Play ("test_one", "sfx/click.wav")]

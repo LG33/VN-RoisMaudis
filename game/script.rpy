@@ -1,36 +1,29 @@
 ﻿image decor noir = "#000"
-
 image decor intro:
     "backgrounds/intro.png"
     zoom 0.5
-    
 image decor chambre:
-    "backgrounds/bedroom.jpg"
-    zoom 2
-    
+    "backgrounds/bedroom.png"
+    zoom 0.5
 image decor grande_salle:
-    "backgrounds/bigroom.jpg"
-    zoom 2
-    
+    "backgrounds/bigroom.png"
+    zoom 0.5
 image decor entree:
     "backgrounds/entry.png"
     zoom 0.5
-    
 image decor village:
     "backgrounds/village.jpg"
     zoom 0.5
-    
 image decor chateau:
     "backgrounds/fontainebleau.png"
     zoom 0.5
-
 
 image helene normal:
     "characters/helene/helene_normal.png"
     zoom 0.45
 image helene masque:
     "characters/helene/helene_masque.png"
-    zoom 5
+    zoom 0.45
 image helene inquiete:
     "characters/helene/helene_panique.png"
     zoom 0.45
@@ -50,19 +43,19 @@ image helene_demon souriante:
 
 image gaston normal:
     "characters/gaston/gaston_normal.png"
-    zoom 5
+    zoom 0.45
 image gaston masque:
     "characters/gaston/gaston_masque.png"
-    zoom 5
+    zoom 0.45
 image gaston serieux:
     "characters/gaston/gaston_serieux.png"
-    zoom 5
+    zoom 0.45
 image gaston souriant:
     "characters/gaston/gaston_souriant.png"
-    zoom 5
+    zoom 0.45
 image gaston panique:
     "characters/gaston/gaston_panique.png"
-    zoom 5
+    zoom 0.45
 
 image anne normal:
     "characters/anne/anne_normal.png"
@@ -82,19 +75,19 @@ image anne souriante:
 
 image charles normal:
     "characters/charles/charles_normal.png"
-    zoom 0.4
+    zoom 0.45
 image charles masque:
     "characters/charles/charles_masque.png"
-    zoom 0.4
+    zoom 0.45
 image charles panique:
     "characters/charles/charles_panique.png"
-    zoom 0.4
+    zoom 0.45
 image charles serieux:
     "characters/charles/charles_serieux.png"
-    zoom 0.4
+    zoom 0.45
 image charles dague:
     "characters/charles/charles_dague.png"
-    zoom 0.4
+    zoom 0.45
 
 image arm_0:
     "backgrounds/bras/bras_0.png"
@@ -918,7 +911,7 @@ label dialogue_charles_1_end:
 label sortie_start:
     scene decor noir with dissolve
     pause 3.0
-    scene entree
+    scene decor entree
     show helene normal at center
     with dissolve
 
@@ -1088,7 +1081,7 @@ label briefing_endingAB_start:
 
     scene decor noir with dissolve
     pause 3.0
-    scene grande_salle
+    scene decor grande_salle
     show anne normal at center
     with dissolve
 
@@ -1205,7 +1198,7 @@ label soir_endingA_start:
 
     scene decor noir with dissolve
     pause 3.0
-    scene chambre with dissolve
+    scene decor chambre with dissolve
 
     self "La journée passe tellement rapidement..."
 
@@ -1217,7 +1210,7 @@ label soir_endingA_start:
     self "Ça s’est encore propagé…"
     self "*bruit de porte qui s’ouvre*"
 
-    scene chambre
+    scene decor chambre
     show helene normal at center
     with dissolve
 
@@ -1237,7 +1230,7 @@ label soir_endingA_start:
     jacques_inconnu "On peut reconnaître ces démons sous forme humaine à leurs yeux."
 
     pause 1.0
-    scene chambre with flash_blanc
+    scene decor chambre with flash_blanc
 
     self "Encore ce truc…"
     self "Plus important… {w=0.5}Hélène !"
@@ -1256,7 +1249,7 @@ label soir_endingB_start:
 
     scene decor noir with dissolve
     pause 3.0
-    scene chambre with dissolve
+    scene decor chambre with dissolve
 
     self "La journée passe tellement rapidement..."
 
@@ -1268,7 +1261,7 @@ label soir_endingB_start:
     self "Ça s’est encore propagé…"
     self "*bruit de porte qui s’ouvre*"
 
-    scene chambre
+    scene decor chambre
     show helene normal at center
     with dissolve
 
@@ -1288,7 +1281,7 @@ label soir_endingB_start:
     jacques_inconnu "On peut reconnaître ces démons sous forme humaine à leurs yeux."
 
     pause 1.0
-    scene chambre with flash_blanc
+    scene decor chambre with flash_blanc
 
     self "Encore ce truc…"
     self "Plus important… {w=0.5}Hélène !"
@@ -1307,7 +1300,7 @@ label massacre_endingA_start:
 
     scene decor noir with dissolve
     pause 5.0
-    scene chambre
+    scene decor chambre
     show anne serieuse at center
     with dissolve
 
@@ -1338,7 +1331,7 @@ label massacre_endingA_start:
     charles "Bien. Nous avons réussi à franchir les gardes en les éliminant avant qu’ils ne donnent l’alerte."
     charles "Tout se passe comme prévu."
 
-    scene chateau
+    scene decor chateau
     show charles masque
     with dissolve
 
@@ -1442,7 +1435,7 @@ label massacre_endingB_start:
 
     scene decor noir with dissolve
     pause 5.0
-    scene chambre with dissolve
+    scene decor chambre with dissolve
 
     self "Voila… ils sont partis."
     self "Anne et Gaston sont venus, probablement pour me prévenir de leur départ, mais j’ai fait semblant de dormir."
@@ -1458,7 +1451,7 @@ label massacre_endingB_start:
     self "Je devrais peut-être m’enfuir d’ici…? Au moins, je ne leur causerais plus de problèmes…"
     self "...!"
 
-    scene chambre with dissolve
+    scene decor chambre with dissolve
 
     self "J’ai entendu quelque chose !"
     inconnu "...Léon !"
@@ -1515,7 +1508,7 @@ label mort_de_helene_start:
     self "*bruit de coeur transpercé*"
     scene decor rouge with dissolve
     pause 3.0
-    scene mort_de_helene with dissolve
+    scene decor mort_de_helene with dissolve
 
     helene "L...Léon."
     self "...Ça a marché ? Une simple dague ?"
@@ -1559,7 +1552,7 @@ label flashback_start:
     jacques_inconnu "{cps=*3}...{/cps}"
     jacques_inconnu "{cps=*3}Il y a plusieurs choses que tu dois savoir sur les démons.{/cps}"
 
-    scene eglise with dissolve
+    scene decor eglise with dissolve
     pause 1.0
 
     jacques "Les démons peuvent prendre une forme humaine."
