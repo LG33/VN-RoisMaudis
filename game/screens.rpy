@@ -213,20 +213,21 @@ init -2:
 init -2 python: #we initialize x and y, so the load_save_slot screen below works at startup
     x=0
     y=0
+        
 screen load_save_slot:
     $ file_text = "% s\n  %s" % (FileTime(number, empty="Empty Slot."), FileSaveName(number))
-    $x1=x+321
+    $x1=x+220
     $y1=y+10
     add FileScreenshot(number) xpos x1 ypos y1
     $x2=x+10
-    $y2=y+11
+    $y2=y+10
     text file_text xpos x2 ypos y2 size 20
 
 ## ■██▓▒░ SAVE SCREEN ░▒▓███████████████████████████████████■
 screen save:
     tag menu # This ensures that any other menu screen is replaced.
-    add "gui/file_picker_ground.jpg" # We add the file picker background image. This image is the same for save and load screens.
-    add "gui/title_save.png" # We add the save title image on top of the background
+    #add "gui/file_picker_ground.jpg" # We add the file picker background image. This image is the same for save and load screens.
+    #add "gui/title_save.png" # We add the save title image on top of the background
     use file_picker # We include the file_picker screens
 
 ## ■██▓▒░ LOAD SCREEN ░▒▓███████████████████████████████████■
@@ -239,16 +240,50 @@ screen load:
 ## ■██▓▒░ SAVE / LOAD FILE PICKER ░▒▓███████████████████████■
 ## Since saving and loading are so similar, we combine them into a single screen, file_picker. We then use the file_picker screen from simple load and save screens.
 screen file_picker:
-    use navigation # We include the navigation/game menu screen
+    # use navigation # We include the navigation/game menu screen
     # Buttons for selecting the save/load page:
-    imagebutton auto "gui/filepage1_%s.png" xpos 46 ypos 104 focus_mask True action FilePage(1) hover_sound "sfx/click.wav"
-    imagebutton auto "gui/filepage2_%s.png" xpos 46 ypos 228 focus_mask True action FilePage(2) hover_sound "sfx/click.wav"
-    imagebutton auto "gui/filepage3_%s.png" xpos 46 ypos 353 focus_mask True action FilePage(3) hover_sound "sfx/click.wav"
-    $ y=104 # ypos for the first save slot
-    for i in range(0, 3): # This repeats the block below 3 times (counts from 0 to 2), for the 3 save slots. We could also copy/paste the block below 3 times, but we are too lazy to do that.
+    # imagebutton auto "gui/filepage1_%s.png" xpos 46 ypos 104 focus_mask True action FilePage(1) hover_sound "sfx/click.wav"
+    # imagebutton auto "gui/filepage2_%s.png" xpos 46 ypos 228 focus_mask True action FilePage(2) hover_sound "sfx/click.wav"
+    # imagebutton auto "gui/filepage3_%s.png" xpos 46 ypos 353 focus_mask True action FilePage(3) hover_sound "sfx/click.wav"
+    
+    $ y=104
+    for i in range(0, 3):
         imagebutton auto "gui/fileslot_%s.png" xpos 195 ypos y focus_mask True action FileAction(i)
-        use load_save_slot(number=i, x=195, y=y) # This calls the load_save_slot screen defined above. We pass variable i as the slot number and x, y coordinates.
-        $ y+=124 # We increase the y variable so every next save slot is moved 124px lower.
+        use load_save_slot(number=i, x=195, y=y)
+        $ y+=124
+    
+    $ y=104
+    for i in range(0, 3):
+        imagebutton auto "gui/fileslot_%s.png" xpos 620 ypos y focus_mask True action FileAction(i)
+        use load_save_slot(number=(i+3), x=620, y=y)
+        $ y+=124
+        
+    use sound_toggle
+        
+init -2 python:
+
+    global soundOn
+    soundOn = True
+    
+    def SoundOff():
+        soundOn = False
+        SetMute("music",True)
+        SetMute("sfx",True)
+        SetMute("voice",True)
+        return
+    
+    def SoundOn():
+        soundOn = True
+        SetMute("music",False)
+        SetMute("sfx",False)
+        SetMute("voice",False)
+        return
+        
+screen sound_toggle:
+    if soundOn is True:
+        imagebutton auto "gui/sound_off_%s.png" xpos 1100 ypos 700 focus_mask True action SoundOn()
+    else:
+        imagebutton auto "gui/sound_on_%s.png" xpos 1100 ypos 700 focus_mask True action SoundOff()
         
 ## ■██▓▒░ YES/NO PROMPT ░▒▓█████████████████████████████████■
 ## Screen that asks the user a yes or no question. You'll need to edit this to change the position and style of the text.
@@ -331,7 +366,7 @@ init:
 ## Screens for the quick menus above the textbox. We use several different quick menus for presentation purposes.
 
 screen menu_button:
-    imagebutton auto "gui/ingame_menu_%s.png" action [Show('ingame_menu'), Hide('menu_button')] xpos 0.85 ypos 0 focus_mask True
+    imagebutton auto "gui/ingame_menu_%s.png" action ShowMenu('save') xpos 0.85 ypos 0 focus_mask True
 
 screen ingame_menu:
     imagebutton auto "gui/quick_config_%s.png" action ShowMenu('preferences') focus_mask True at option
