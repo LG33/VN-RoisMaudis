@@ -108,7 +108,7 @@ screen main_menu:
     # unhovered - action to run when the button loses focus. In this case we hide a tooltip.
     
     $ y+=142 # We increase y position for the next menu item. y has a value of 185(114+81=185) now. We could also use: xpos 773 ypos 185
-    imagebutton auto "gui/main_load_%s.png" xpos 1490 ypos y focus_mask True  action ShowMenu('load') hovered [ Play ("test_two", "sfx/click.wav")] at main_eff2
+    imagebutton auto "gui/main_load_%s.png" xpos 1490 ypos y focus_mask True  action ShowMenu('charger') hovered [ Play ("test_two", "sfx/click.wav")] at main_eff2
     $ y+=142
     imagebutton auto "gui/main_config_%s.png" xpos 1490 ypos y focus_mask True action ShowMenu('preferences') hovered [ Play ("test_three", "sfx/click.wav")] at main_eff3
     $ y+=142
@@ -147,8 +147,8 @@ init -2:
 ## This screen is responsible for the game menu/navigation. It's included in other screens to display the game menu navigation.
 ## http://www.renpy.org/doc/html/screen_special.html#navigation
 screen navigation:
-    imagebutton auto "gui/game_menu_save_%s.png" xpos 810 ypos 99 focus_mask True action ShowMenu('save') hovered [ Play ("test_one", "sfx/click.wav"), Show("gui_tooltip", my_picture="gui/tooltip_geme_menu_save.png", my_tt_xpos=46, my_tt_ypos=518) ] unhovered [Hide("gui_tooltip")] at nav_eff
-    imagebutton auto "gui/game_menu_load_%s.png" xpos 810 ypos 164 focus_mask True action ShowMenu('load') hovered [ Play ("test_two", "sfx/click.wav"), Show("gui_tooltip", my_picture="gui/tooltip_geme_menu_load.png", my_tt_xpos=46, my_tt_ypos=518) ] unhovered [Hide("gui_tooltip")] at nav_eff
+    imagebutton auto "gui/game_menu_save_%s.png" xpos 810 ypos 99 focus_mask True action ShowMenu('charger') hovered [ Play ("test_one", "sfx/click.wav"), Show("gui_tooltip", my_picture="gui/tooltip_geme_menu_save.png", my_tt_xpos=46, my_tt_ypos=518) ] unhovered [Hide("gui_tooltip")] at nav_eff
+    imagebutton auto "gui/game_menu_load_%s.png" xpos 810 ypos 164 focus_mask True action ShowMenu('charger') hovered [ Play ("test_two", "sfx/click.wav"), Show("gui_tooltip", my_picture="gui/tooltip_geme_menu_load.png", my_tt_xpos=46, my_tt_ypos=518) ] unhovered [Hide("gui_tooltip")] at nav_eff
     imagebutton auto "gui/game_menu_config_%s.png" xpos 810 ypos 227 focus_mask True action ShowMenu('preferences') hovered [ Play ("test_three", "sfx/click.wav"), Show("gui_tooltip", my_picture="gui/tooltip_geme_menu_config.png", my_tt_xpos=46, my_tt_ypos=518) ] unhovered [Hide("gui_tooltip")] at nav_eff
     imagebutton auto "gui/game_menu_main_%s.png" xpos 810 ypos 291 focus_mask True action MainMenu() hovered [ Play ("test_one", "sfx/click.wav"), Show("gui_tooltip", my_picture="gui/tooltip_geme_menu_main.png", my_tt_xpos=46, my_tt_ypos=518) ] unhovered [Hide("gui_tooltip")] at nav_eff
     imagebutton auto "gui/game_menu_return_%s.png" xpos 810 ypos 355 focus_mask True action Return() hovered [ Play ("test_two", "sfx/click.wav"), Show("gui_tooltip", my_picture="gui/tooltip_geme_menu_return.png", my_tt_xpos=46, my_tt_ypos=518) ] unhovered [Hide("gui_tooltip")] at nav_eff
@@ -180,7 +180,7 @@ screen preferences:
     # Display windowed/full screen:
     imagebutton auto "gui/config_display_window_%s.png" xpos 0.475 ypos 0.5 focus_mask True action Preference('display', 'window') at config_eff hovered [ Play ("test_one", "sfx/click.wav")]
     imagebutton auto "gui/config_display_fullscreen_%s.png" xpos 0.525 ypos 0.5 focus_mask True action Preference('display', 'fullscreen') at config_eff hovered [ Play ("test_two", "sfx/click.wav")]
-      
+    
 init -2 python: 
     # Styling for the bar sliders:
     # Aleema's Customizing Menus tutorial: http://lemmasoft.renai.us/forums/viewtopic.php?f=51&t=9812
@@ -223,28 +223,24 @@ screen load_save_slot:
     $y2=y+10
     text file_text xpos x2 ypos y2 size 20
 
-## ■██▓▒░ SAVE SCREEN ░▒▓███████████████████████████████████■
-screen save:
-    tag menu # This ensures that any other menu screen is replaced.
-    #add "gui/file_picker_ground.jpg" # We add the file picker background image. This image is the same for save and load screens.
-    #add "gui/title_save.png" # We add the save title image on top of the background
-    use file_picker # We include the file_picker screens
-
-## ■██▓▒░ LOAD SCREEN ░▒▓███████████████████████████████████■
-screen load:
-    tag menu # This ensures that any other menu screen is replaced.
-    add "gui/file_picker_ground.jpg"
-    add "gui/title_load.png"
-    use file_picker
-
 ## ■██▓▒░ SAVE / LOAD FILE PICKER ░▒▓███████████████████████■
 ## Since saving and loading are so similar, we combine them into a single screen, file_picker. We then use the file_picker screen from simple load and save screens.
-screen file_picker:
-    # use navigation # We include the navigation/game menu screen
-    # Buttons for selecting the save/load page:
-    # imagebutton auto "gui/filepage1_%s.png" xpos 46 ypos 104 focus_mask True action FilePage(1) hover_sound "sfx/click.wav"
-    # imagebutton auto "gui/filepage2_%s.png" xpos 46 ypos 228 focus_mask True action FilePage(2) hover_sound "sfx/click.wav"
-    # imagebutton auto "gui/filepage3_%s.png" xpos 46 ypos 353 focus_mask True action FilePage(3) hover_sound "sfx/click.wav"
+screen charger:
+    tag menu
+    
+    use load
+        
+    use sound_On
+    use fullscreen_Off
+    
+    imagebutton auto "gui/menu_%s.png" xpos 0.5 ypos 0.8 focus_mask True action MainMenu() hovered [ Play ("test_one", "sfx/click.wav")]
+    
+    imagebutton auto "gui/retour_%s.png" xpos 0.2 ypos 0.8 focus_mask True action Return() hovered [ Play ("test_one", "sfx/click.wav")]
+    
+screen save:
+    
+    #imagebutton auto "gui/load_tab_off_%s.png" xpos 0.5 ypos 0.8 focus_mask True action MainMenu() hovered [ Play ("test_one", "sfx/click.wav")]
+    #imagebutton auto "gui/save_tab_on_%s.png" xpos 0.2 ypos 0.8 focus_mask True action Return() hovered [ Play ("test_one", "sfx/click.wav")]
     
     $ y=104
     for i in range(0, 3):
@@ -254,37 +250,35 @@ screen file_picker:
     
     $ y=104
     for i in range(0, 3):
-        imagebutton auto "gui/fileslot_%s.png" xpos 620 ypos y focus_mask True action FileAction(i)
+        imagebutton auto "gui/fileslot_%s.png" xpos 620 ypos y focus_mask True action FileAction(3+i)
         use load_save_slot(number=(i+3), x=620, y=y)
         $ y+=124
-        
-    use sound_toggle
-        
-init -2 python:
+    
+screen load:
+    $ y=104
+    for i in range(0, 3):
+        imagebutton auto "gui/fileslot_%s.png" xpos 195 ypos y focus_mask True action FileAction(i)
+        use load_save_slot(number=i, x=195, y=y)
+        $ y+=124
+    
+    $ y=104
+    for i in range(0, 3):
+        imagebutton auto "gui/fileslot_%s.png" xpos 620 ypos y focus_mask True action FileAction(3+i)
+        use load_save_slot(number=(i+3), x=620, y=y)
+        $ y+=124
+    
+screen sound_Off: 
+    imagebutton auto "gui/sound_off_%s.png" xpos 0.58 ypos 0.22 focus_mask True action [SetMute("music",False), SetMute("sfx",False), SetMute("voice",False), Hide("sound_Off"), Show("sound_On")] hovered [ Play ("test_one", "sfx/click.wav")]
+    
+screen sound_On: 
+    imagebutton auto "gui/sound_on_%s.png" xpos 0.58 ypos 0.22 focus_mask True action [SetMute("music",True), SetMute("sfx",True), SetMute("voice",True), Hide("sound_On"), Show("sound_Off")] hovered [ Play ("test_one", "sfx/click.wav")]
+    
+screen fullscreen_Off:
+    imagebutton auto "gui/config_display_fullscreen_%s.png" xpos 0.58 ypos 0.1 focus_mask True action [Preference('display', 'fullscreen'), Hide("fullscreen_Off"), Show("fullscreen_On")] hovered [ Play ("test_one", "sfx/click.wav")]
+    
+screen fullscreen_On: 
+    imagebutton auto "gui/config_display_window_%s.png" xpos 0.58 ypos 0.1 focus_mask True action [Preference('display', 'window'), Hide("fullscreen_On"), Show("fullscreen_Off")] hovered [ Play ("test_one", "sfx/click.wav")]
 
-    global soundOn
-    soundOn = True
-    
-    def SoundOff():
-        soundOn = False
-        SetMute("music",True)
-        SetMute("sfx",True)
-        SetMute("voice",True)
-        return
-    
-    def SoundOn():
-        soundOn = True
-        SetMute("music",False)
-        SetMute("sfx",False)
-        SetMute("voice",False)
-        return
-        
-screen sound_toggle:
-    if soundOn is True:
-        imagebutton auto "gui/sound_off_%s.png" xpos 1100 ypos 700 focus_mask True action SoundOn()
-    else:
-        imagebutton auto "gui/sound_on_%s.png" xpos 1100 ypos 700 focus_mask True action SoundOff()
-        
 ## ■██▓▒░ YES/NO PROMPT ░▒▓█████████████████████████████████■
 ## Screen that asks the user a yes or no question. You'll need to edit this to change the position and style of the text.
 ## http://www.renpy.org/doc/html/screen_special.html#yesno-prompt
@@ -366,7 +360,7 @@ init:
 ## Screens for the quick menus above the textbox. We use several different quick menus for presentation purposes.
 
 screen menu_button:
-    imagebutton auto "gui/ingame_menu_%s.png" action ShowMenu('save') xpos 0.85 ypos 0 focus_mask True
+    imagebutton auto "gui/ingame_menu_%s.png" action ShowMenu('charger') xpos 0.85 ypos 0 focus_mask True
 
 screen ingame_menu:
     imagebutton auto "gui/quick_config_%s.png" action ShowMenu('preferences') focus_mask True at option
