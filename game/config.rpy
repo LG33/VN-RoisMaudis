@@ -188,3 +188,7 @@ init python:
     flash_blanc = Fade(.25, 0, .25, color="#ffffff")
     
     choix1 = 0
+	
+    # Channels
+    renpy.music.register_channel('cloche')
+	
