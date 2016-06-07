@@ -24,75 +24,54 @@ image decor eglise:
     "backgrounds/eglise.jpg"
 
 image helene normal:
-    "characters/helene/helene_normal.png"
-    zoom 0.45
+    "characters/helene/Helene_Normale.png"
 image helene masque:
-    "characters/helene/helene_masque.png"
-    zoom 0.45
+    "characters/helene/Helene_Masque.png"
 image helene inquiete:
-    "characters/helene/helene_panique.png"
-    zoom 0.45
+    "characters/helene/Helene_Panique.png"
 image helene serieuse:
-    "characters/helene/helene_serieuse.png"
-    zoom 0.45
+    "characters/helene/Helene_Panique.png"
 image helene souriante:
-    "characters/helene/helene_sourire.png"
-    zoom 0.45
+    "characters/helene/Helene_Sourire.png"
 
 image helene_demon normal:
-    "characters/helene_demon/helene_demon_normal.png"
-    zoom 0.45
+    "characters/helene_demon/Helene_Demon_Evil.png"
 image helene_demon souriante:
-    "characters/helene_demon/helene_demon_souriante.png"
-    zoom 0.45
+    "characters/helene_demon/Helene_Demon_Smirk.png"
+image mort_de_helene = "backgrounds/CG_Helene.png"
 
 image gaston normal:
-    "characters/gaston/gaston_normal.png"
-    zoom 0.4
+    "characters/gaston/Gaston_Normal.png"
 image gaston masque:
-    "characters/gaston/gaston_masque.png"
-    zoom 0.4
+    "characters/gaston/Gaston_Masque.png"
 image gaston serieux:
-    "characters/gaston/gaston_serieux.png"
-    zoom 0.4
+    "characters/gaston/Gaston_Serieux.png"
 image gaston souriant:
-    "characters/gaston/gaston_souriant.png"
-    zoom 0.4
+    "characters/gaston/Gaston_Sourire.png"
 image gaston panique:
-    "characters/gaston/gaston_panique.png"
-    zoom 0.4
+    "characters/gaston/Gaston_Panique.png"
 
 image anne normal:
-    "characters/anne/anne_normal.png"
-    zoom 5
+    "characters/anne/Anne_Normale.png"
 image anne masque:
-    "characters/anne/anne_masque.png"
-    zoom 5
+    "characters/anne/Anne_Masque.png"
 image anne choquee:
-    "characters/anne/anne_choquee.png"
-    zoom 5
+    "characters/anne/Anne_Panique.png"
 image anne serieuse:
-    "characters/anne/anne_serieuse.png"
-    zoom 5
+    "characters/anne/Anne_Serieuse.png"
 image anne souriante:
-    "characters/anne/anne_souriante.png"
-    zoom 5
+    "characters/anne/Anne_Sourire.png"
 
 image charles normal:
-    "characters/charles/charles_normal.png"
-    zoom 0.4
+    "characters/charles/Charles_Normal.png"
 image charles masque:
-    "characters/charles/charles_masque.png"
-    zoom 0.4
+    "characters/charles/Charles_Masque.png"
 image charles panique:
-    "characters/charles/charles_panique.png"
-    zoom 0.4
+    "characters/charles/Charles_Panique.png"
 image charles serieux:
-    "characters/charles/charles_serieux.png"
-    zoom 0.4
+    "characters/charles/Charles_Serieux.png"
 image charles dague:
-    "characters/charles/charles_dague.png"
-    zoom 0.4
+    "characters/charles/Charles_Dague.png"
 
 image arm_0:
     "backgrounds/bras/bras_0.png"
