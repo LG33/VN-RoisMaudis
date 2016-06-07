@@ -17,6 +17,11 @@ image decor village:
 image decor chateau:
     "backgrounds/fontainebleau.png"
     zoom 0.5
+image decor water:
+    "backgrounds/water.png"
+    zoom 0.5
+image decor eglise:
+    "backgrounds/eglise.jpg"
 
 image helene normal:
     "characters/helene/helene_normal.png"
@@ -108,56 +113,37 @@ image arm_gant:
     "backgrounds/bras/bras_gant.png"
     zoom 0.5
 
-image bras_leon_flashback = im.MatrixColor("characters/bras_leon_fin.png",im.matrix.saturation(0.1))
+# image test = im.MatrixColor("characters/bras_leon_fin.png",im.matrix.saturation(0.1))
 
 define leon = Character('Léon', outlines=[(1, "#008800", 0, 0)], window_top_padding=40, window_background="gui/dialogue_box.png")
+
 define helene = Character('Hélène', image="helene", outlines=[(1, "#ff00ff", 0, 0)], window_top_padding=40, window_background="gui/dialogue_box.png")
 define helene_demon = Character('Hélène', image="helene_demon", outlines=[(1, "#ff00ff", 0, 0)], window_top_padding=40, window_background="gui/dialogue_box.png")
+
 define gaston = Character('Gaston', image="gaston", color="#9999ff", window_top_padding=40, window_background="gui/dialogue_box.png")
+
 define anne = Character('Anne', image="anne", color="#eeeeee", window_top_padding=40, window_background="gui/dialogue_box.png")
+
 define charles = Character('Charles', image="charles", outlines=[(1, "#aa7700", 0, 0)], window_top_padding=40, window_background="gui/dialogue_box.png")
+
 define inconnu = Character('???', window_top_padding=40, window_background="gui/dialogue_box.png")
-define self = Character(None, color="#ffff99", what_italic=True, what_color="#ffdd55", window_top_padding=90, window_background="gui/narrative_box.png")
+
 define jacques_inconnu = Character("???", what_color="#8888ff", what_italic=True, what_slow_cps=10, window_top_padding=40, window_background="gui/dialogue_box.png")
 define jacques = Character("Jacques De Molay", what_color="#8888ff", what_italic=True, what_slow_cps=20, window_top_padding=40, window_background="gui/dialogue_box.png")
-define t = Character(None, what_xalign=0.5, what_yalign=0.5, what_text_align=0.5, window_background="gui/dialogue_box.png")
+
+define self = Character(None, color="#ffff99", what_italic=True, what_color="#ffdd55", window_top_padding=90, window_background="gui/narrative_box.png")
 
 transform left: 
     xalign 0.2 
-    yalign 1.0
+    yalign 1.2
     
 transform right: 
     xalign 0.8
-    yalign 1.0
+    yalign 1.2
     
 transform center: 
     xalign 0.5 
-    yalign 1.0
-    
-transform enter_right:
-    on show:
-        xalign 3.0
-        linear 0.5 xalign 1.5
-    on hide:
-        xalign 1.5
-        linear 0.5 xalign 3.0
-    
-transform enter_left:
-    on show:
-        xalign -3.0
-        linear 0.5 align -0.2
-    on hide:
-        xalign -0.2
-        linear 0.5 xalign -3.0
-    
-transform bras_transform:
-    xalign 0.25
-    on show:
-        yalign 2.0
-        linear 0.5 yalign 1.2
-    on hide:
-        yalign 1.2
-        linear 0.5 yalign 2.0
+    yalign 1.2
 
 define ellipse = Fade(0.5, 2.0, 0.5)
 define long_dissolve = Dissolve(0.5)
