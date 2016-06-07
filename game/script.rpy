@@ -22,8 +22,8 @@ label start:
     self "Je... je ne comprends rien..."
 
     menu:
-        "\"Qu’est-ce qui c’est passé ?\"":
-            leon "Qu’est-ce qui c’est passé ?"
+        "\"Ou sommes nous ?\"":
+            leon "Ou sommes nous ?"
             jump fuite_fin
         "\"Qui êtes-vous\"":
             leon "Qui êtes-vous ?"
@@ -178,9 +178,7 @@ label reunion_start:
     charles serieux "C’est tout ?"
     charles "..."
     charles normal  "On va devoir reprendre depuis le début."
-    charles "La France est actuellement dirigée par les Templier."
-    leon "Les Templiers ?"
-    charles normal "C’est un groupe religieux extrémiste."
+    charles "La France est actuellement dirigée par les Templier, un groupe religieux extrémiste"
     charles serieux "Ils se sont procurés durant la dernière croisade un artefact démoniaque."
     charles "Ils s’en sont servi afin d’invoquer des démons en pratiquant des rites occultes."
     self "Des... {w=0.5}des démons ?! Vraiment ?!"
@@ -239,7 +237,7 @@ label reunion_start:
     charles normal "Des points noirs apparaissent sur le corps de la personne maudite et finissent par former une marque qui s’étend peu à peu sur son corps."
     charles "Le corps est entièrement recouvert après quelques jours."
     charles serieux "La personne maudite perd alors la raison. Elle se met à se déchaîner sans distinction sur les gens qui l’entourent." 
-    charles "Elle fini alors par mourir une fois épuisée mentalement."
+    charles "Elle finit alors par mourir une fois épuisée mentalement."
     self "Un phénomène pareil existe réellement ?"
     charles normal "Cette malédiction est contagieuse. Elle se transmet simplement par le toucher."
     charles "Il n’y a pas de remède une fois que quelqu’un a été affecté par la malédiction."
@@ -386,7 +384,7 @@ label retour_chambre:
     self "Une hallucination ?! Un souvenir ?!"
 
     pause 0.5
-    self "*bruit de porte qui s’ouvre.*"
+    play sound "music/Clacporte.mp3"
     show anne normal at center with dissolve
 
     anne "Léon, tu vas mieux ?"
@@ -396,10 +394,12 @@ label retour_chambre:
     anne serieuse "..."
     anne "Te réveiller sans souvenirs au milieu d’inconnus doit être dur à vivre."
     leon "Je n’ai des souvenirs d’aucun d’entre vous…"
-    leon "Je suppose que vous devez être des personnes importantes"
-    
-
-    anne souriante ""
+    leon "Je suppose que vous devez être des personnes importantes si Charles est un prince."
+    anne souriante "Absolument pas !"
+    anne "Je n’étais qu’une servante avant la prise du pouvoir par les Templiers."
+    anne normal "Depuis le début, les statuts sociaux des membres de l’Ordre étaient très variés."
+    anne "Gaston, lui, n’était qu’un paysan."
+    anne souriante "Quand à Hélène et toi, vous étiez un couple de nobles."
     leon "Un… un couple ?!"
     leon "Vraiment ?!"
     anne normal "Oh... elle ne t’en a pas parlé ?"
@@ -407,7 +407,7 @@ label retour_chambre:
     anne souriante "Hélène et toi êtes en couple depuis bien avant que vous n'ayez intégré l’Ordre."
     leon "Elle ne m’en a pas dit un mot..."
     anne normal "..."
-    anne serieuse "Tu as vraiment mavaise mine."
+    anne serieuse "Tu as vraiment mauvaise mine."
     anne normal "J’ai quelque chose à proposer. Allons voir Charles."
     
     jump grande_salle
@@ -416,10 +416,10 @@ label retour_chambre:
 # 05 - Dialogue Charles
 label grande_salle:
     
-    scene decor grande_salle with ellipse
+    scene decor grande_salle
     show anne normal at left
     show charles normal at right
-    with dissolve
+    with ellipse
  
     charles "Au village ?"
     anne "Oui. Je pense que Léon devrait sortir acheter des herbes médicinales. Ça calmera ses douleurs si jamais il doit participer à l’assaut de ce soir."
@@ -585,7 +585,7 @@ label village_start:
     helene "C’est ce qui fait ton charme !"
     leon "..."
     leon "On devrait rentrer maintenant qu’on a les herbes, non ? Ils doivent nous attendre."
-    helene "On peut bien traîner un peu, ce sont pas 10 minutes que vont changer quoi que ce soit."
+    helene "On peut bien traîner un peu, ce sont pas dix minutes que vont changer quoi que ce soit."
     helene "..."
     helene normal "..."
     helene serieuse "Léon..."
@@ -669,8 +669,7 @@ label village_2_1:
     helene "Nous rentrons."
     leon "..."    
    
-    self "COMMENTAIRE: Cet ending n’étant pas encore intégré, la structure retourne sur la route où Léon n’a pas montré son bras à Hélène."
-    jump briefing_endingAB_start
+    jump briefing_endingC_start
 
 
 label village_2_2:
@@ -683,7 +682,7 @@ label village_2_2:
     helene normal "Il commence à être tard. Nous devrions rentrer."
 
     # On stoppe la musique dans cette scène là, en même temps que la transition visuelle
-    stop music fadeout 1.0
+    stop music fadeout 3.0
      
     jump briefing_endingAB_start
 # END FILE 07 - Village
@@ -754,7 +753,7 @@ label briefing_endingAB_start:
     leon "Charles serait furieux..."
     helene "Ne t’inquiète pas, je m’occuperai de lui expliquer."
     helene "Je pourrais même lui dire que c’est moi qui t’ai forcé à ne pas venir."
-    helene "Vouloir te faire participer est déjà une erreur de toutes façons."
+    helene "Vouloir te faire participer est déjà une erreur de toutes façon."
     leon "..."
     helene "..."
     helene "Je dois finir de me préparer. Réfléchis-y."
@@ -830,7 +829,7 @@ label briefing_endingC_start:
 # END FILE 08 - Ending C - Briefing
 
     
-# 09 - Ending AB - Soir
+# 09 - Ending A/B - Soir
 label soir_endingAB_start:
 
     scene decor chambre with ellipse
@@ -846,7 +845,7 @@ label soir_endingAB_start:
 
     self "..."
     self "Ça s’est encore propagé..."
-    self "*bruit de porte qui s’ouvre*"
+    play sound "music/Clacporte.mp3"
 
     scene decor chambre
     show helene normal at center
@@ -896,7 +895,7 @@ label soir_2_1:
 
     jump massacre_endingA_start
 
-label soir_2_1:
+label soir_2_2:
 
     self "..."
     self "Et puis merde !"
@@ -941,7 +940,7 @@ label massacre_endingA_start:
     pause 3.0
 
     with shake
-    self "*bruit de coeur transpercé*"
+
     play sound "music/sf_decapitation.mp3"
     charles "Bien. Nous avons réussi à franchir les gardes en les éliminant avant qu’ils ne donnent l’alerte."
     charles "Tout se passe comme prévu."
@@ -984,13 +983,12 @@ label massacre_endingA_start:
     $ anne("Qu’est-ce que tu veux dire pa", interact=False)
     pause 0.95
 
-    self "*bruit de coeur transpercé*"
     with flash_rouge
     play sound "music/sf_decapitation.mp3"
     hide anne with dissolve
     pause 0.5
     with shake
-    self "*bruit de corps qui tombe au sol*"
+    #self "*bruit de corps qui tombe au sol*"
     pause 1.5
     show helene_demon normal at center
     with dissolve
@@ -1012,13 +1010,13 @@ label massacre_endingA_start:
     gaston "Espèce de monstre ! Meurs !"
     helene_demon souriante "Tu es ridicule."
 
-    self "*bruit de coeur transpercé*"
+    #self "*bruit de coeur transpercé*"
     with flash_rouge
     play sound "music/sf_decapitation.mp3"
     hide gaston with dissolve
     pause 0.5
     with shake
-    self "*bruit de corps qui tombe au sol*"
+    #self "*bruit de corps qui tombe au sol*"
     pause 0.5
 
     self "C’est un cauchemar !"
@@ -1028,12 +1026,12 @@ label massacre_endingA_start:
 
     charles "Anne...! Dis quelque chose !"
 
-    self "*bruit de coeur transpercé*"
+    play sound "music/BruitDattaque.mp3"
     with flash_rouge
     hide charles with dissolve
     pause 0.5
     with shake
-    self "*bruit de corps qui tombe au sol*"
+    #self "*bruit de corps qui tombe au sol*"
     pause 0.5
 
     self "Qu’est-ce que je dois faire ? Fuir ?"
@@ -1098,20 +1096,20 @@ label massacre_endingB_start:
 
     gaston "Dieu merci, tu es bien là ! Dépêche-toi, on dégage en vitesse !"
     leon "Qu’est-ce qui se passe ?!"
-    gaston "C’est Hélène ! C’est une saloperie de démone !"
+    gaston "C’est Hélène ! C’est une saloperie de démon !"
     leon "Qu... {w=0.5}quoi ?!"
     gaston "Elle a tué Anne et Charles et si on ne se grouille pas, on est les suivants !"
     leon "Qu’est-ce que tu racontes ?!"
     $ gaston("Magne-toi, putain, on n’a pas le temps ! Elle va nou", interact=False)
     pause 1.75
 
-    self "*bruit de coeur transpercé*"
+    #self "*bruit de coeur transpercé*"
     with flash_rouge
     play sound "music/sf_decapitation.mp3"
     hide gaston with dissolve
     pause 0.5
     with shake
-    self "*bruit de corps qui tombe au sol*"
+    #self "*bruit de corps qui tombe au sol*"
     pause 1.5
     show helene_demon normal at center with dissolve
 
@@ -1120,20 +1118,17 @@ label massacre_endingB_start:
     self "... Gaston !"
     helene_demon souriante "Cet imbécile avait une chance de s’échapper mais il a préféré revenir ici pour te prévenir."
     self "Cette chose... C’est Hélène ?!"
-    helene_demon normal "J’aurais préféré garder ma couverture plus longtemps, mais l’attaque se déroulait trop bien et je ne pouvais pas risquer la vie du grand maître."
     self "C’est vraiment elle ?!"
-    helene_demon "Je devais récolter autant d’informations que possible sur les alliés de la résistance... On dirait que ma mission se termine prématurément."
+    helene_demon normal "J’aurais préféré garder ma couverture plus longtemps, mais l’attaque se déroulait trop bien et je ne pouvais pas risquer la vie du grand maître."
     self "Qu’est-ce que je dois faire ? Fuir ?"
-    helene_demon souriante "J’ai commencé par attaquer Anne dans le dos, par surprise. C’était la plus dangereuse des trois, après tout !"
     self "Impossible, elle bloque l’entrée... et elle me rattraperait probablement sans difficulté."
-    helene_demon normal "Elle est morte en un instant. Charles était complètement figé, je l’ai tué dans la foulée sans qu’il ne bouge d’un pouce."
+    helene_demon "Je devais récolter autant d’informations que possible sur les alliés de la résistance... On dirait que ma mission se termine prématurément."
     self "Me battre ? Ah, j’ai la dague que Charles m’a donné !"
-    helene_demon "Gaston a essayé d’utiliser son artefact sur moi."
-    helene_demon souriante "Quel crétin ! Comme si ça pouvait marcher sur un démon !"
+    helene_demon souriante "J’ai commencé par attaquer Anne dans le dos, par surprise. C’était la plus dangereuse des trois, après tout !"
     self "Est-ce que ça va vraiment marcher sur une créature pareille ?"
-    helene_demon normal "Quand il a vu que ça n’avait aucun effet, cet imbécile s’est enfuit au seul endroit où il savait que j’allais le chercher."
+    helene_demon normal "Elle est morte en un instant. Charles était complètement figé, je l’ai tué dans la foulée sans qu’il ne bouge d’un pouce."
     self "Elle se rapproche de plus en plus... Je n’ai plus le choix !"
-    helene_demon souriante "Je ne l’aurais pas cru capable de courir aussi vite."
+    helene_demon "Je m’attendais à plus de résistance... C’en est presque décevant."
 
     jump mort_de_helene_start
 # END FILE 10 - Ending B - Massacre
@@ -1175,7 +1170,7 @@ label soir_endingC_start:
     self "Il faut que j’aille lui parler !"
 
     pause 0.5
-    self "*bruit de porte qui s’ouvre*"
+    play sound "music/ClacPorte.mp3"
     stop music fadeout 1.0
     play music "music/action.mp3" fadein 1.0 loop
     pause 0.5
@@ -1212,13 +1207,13 @@ label soir_endingC_start:
     $ self("Je dois partir d’ici le plu", interact=False)
     pause 1.0
 
-    self "*bruit de coeur transpercé*"
+    #self "*bruit de coeur transpercé*"
     with flash_rouge
-    play sound "music/sf_decapitation.mp3"
+    play sound "music/BruitDattaque.mp3"
     hide charles with dissolve
     pause 0.5
     with shake
-    self "*bruit de corps qui tombe au sol*"
+    #self "*bruit de corps qui tombe au sol*"
     pause 1.5
     show helene_demon normal at center
     with dissolve
@@ -1238,13 +1233,13 @@ label soir_endingC_start:
     $ anne("Dis quelque cho", interact=False)
     pause 0.6
 
-    self "*bruit de coeur transpercé*"
+    #self "*bruit de coeur transpercé*"
     with flash_rouge
     play sound "music/sf_decapitation.mp3"
     hide anne with dissolve
     pause 0.5
     with shake
-    self "*bruit de corps qui tombe au sol*"
+    #self "*bruit de corps qui tombe au sol*"
     pause 1.0
 
     show helene_demon souriante at center
@@ -1266,7 +1261,7 @@ label soir_endingC_start:
 # 11 - Mort de Hélène
 label mort_de_helene_start:
 
-    self "*bruit de coeur transpercé*"
+    play sound "music/BruitDattaque.mp3"
     with flash_rouge
     # on stoppe la musique car moment drama
     stop music fadeout 1.0
@@ -1282,7 +1277,7 @@ label mort_de_helene_start:
 
     scene decor noir with dissolve
     with shake
-    self "*bruit de corps qui tombe au sol*"
+    #self "*bruit de corps qui tombe au sol*"
     self "..."
     self "...elle ne respire plus."
     self "...!"
@@ -1333,7 +1328,7 @@ label flashback_start:
     jacques "Cependant..."
     jacques "On peut reconnaître ces démons sous forme humaine à leurs yeux."
     jacques "Leurs yeux sont vairons, c’est à dire que chaque oeil a une couleur différente."
-    jacques "Fait en sorte que nos ennemis ne s’en rendent jamais comptes."
+    jacques "Fait en sorte que nos ennemis ne s’en rendent jamais compte."
 
     jacques "Autre chose. Un démon et son invocateur peuvent se transférer leur énergie vitale."
     jacques "Un démon peut même allonger la durée de vie de son invocateur de cette façon."
@@ -1345,8 +1340,12 @@ label flashback_start:
     jacques "Parfait. Tu vas pouvoir passer à l’invocation de ton démon."
     jacques "Tu lui as déjà choisi un nom ?"
     leon "Oui, grand maître."
-    leon "Si c’est un mâle, je l’appellerai Horace." # ohrace oh desespoir !
+    leon "Si c’est un mâle, je l’appellerai Horace." # horace oh desespoir !
     leon "Et si c’est une femelle, je l’appellerais..."
+    pause 0.5
     leon "Hélène."
-    return
+    pause 1.0
+
+    jump end_credits
+
 # END 12 - Flashback

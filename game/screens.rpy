@@ -200,6 +200,7 @@ screen nav_buttons:
     imagebutton auto "gui/retour_%s.png" xpos 0.1 ypos 0.8 action [Return(), Hide("save"), Hide("load"), Hide("sound_On"), Hide("sound_Off"), Hide("fullscreen_Off"), Hide("fullscreen_On")] hovered [ Play ("test_one", "sfx/click.wav")]
     imagebutton auto "gui/menu_%s.png" xpos 0.22 ypos 0.8 action [MainMenu(), Hide("save"), Hide("load"), Hide("sound_On"), Hide("sound_Off"), Hide("fullscreen_Off"), Hide("fullscreen_On")] hovered [ Play ("test_one", "sfx/click.wav")]
     imagebutton auto "gui/log_%s.png" xpos 0.7 ypos 0.8 action [ShowMenu('text_history'), Hide("save"), Hide("load"), Hide("sound_On"), Hide("sound_Off"), Hide("fullscreen_Off"), Hide("fullscreen_On")] hovered [ Play ("test_one", "sfx/click.wav")]
+    imagebutton auto "gui/log_%s.png" xpos 0.6 ypos 0.8 action [Jump('credits'), Hide("save"), Hide("load"), Hide("sound_On"), Hide("sound_Off"), Hide("fullscreen_Off"), Hide("fullscreen_On")] hovered [ Play ("test_one", "sfx/click.wav")]
     
 screen sound_Off: 
     imagebutton auto "gui/sound_off_%s.png" xpos 0.58 ypos 0.22 focus_mask True action [SetMute("music",False), SetMute("sfx",False), SetMute("voice",False), Hide("sound_Off"), Show("sound_On")] hovered [ Play ("test_one", "sfx/click.wav")]
