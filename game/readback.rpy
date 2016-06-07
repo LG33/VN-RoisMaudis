@@ -6,10 +6,16 @@
 # voice_replay function added by backansi from Lemma soft forum.
 # required renpy 6.12 or higher.
 
-init -3 python:
-    # config.game_menu.insert(1,( "text_history", u"Text History", ui.jumps("text_history_screen"), 'not main_menu'))
 
-    # styles
+init 5 python:
+    style.vscrollbar.xmaximum = 20
+    style.vscrollbar.top_bar=Frame("gui/rrvscrollbar.png", 5, 5)
+    style.vscrollbar.bottom_bar=Frame("gui/rrvscrollbar.png", 5, 5)
+    style.vscrollbar.thumb=Frame("gui/rrvscrollbar_thumb.png", 5, 5)
+    
+init -5 python:
+    #config.game_menu.insert(1,( "text_history", u"Text History", ui.jumps("text_history_screen"), 'not main_menu'))
+
     style.readback_window.xmaximum = 1400
     style.readback_window.ymaximum = 700
     style.readback_window.align = (.5, .5)
@@ -39,9 +45,9 @@ init -3 python:
     config.readback_full = True # True = completely replaces rollback, False = readback accessible from game menu only (dev mode)
     config.readback_disallowed_tags = ["size"] # a list of tags that will be removed in the text history
     config.readback_choice_prefix = ">> "   # this is prefixed to the choices the user makes in readback
+
+    style.vscrollbar.xmaximum = 20
     
-    # ends adding new config variables
-    config.locked = True
     
 init -2 python:
 

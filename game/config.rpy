@@ -43,19 +43,19 @@ image helene_demon souriante:
 
 image gaston normal:
     "characters/gaston/gaston_normal.png"
-    zoom 0.45
+    zoom 0.4
 image gaston masque:
     "characters/gaston/gaston_masque.png"
-    zoom 0.45
+    zoom 0.4
 image gaston serieux:
     "characters/gaston/gaston_serieux.png"
-    zoom 0.45
+    zoom 0.4
 image gaston souriant:
     "characters/gaston/gaston_souriant.png"
-    zoom 0.45
+    zoom 0.4
 image gaston panique:
     "characters/gaston/gaston_panique.png"
-    zoom 0.45
+    zoom 0.4
 
 image anne normal:
     "characters/anne/anne_normal.png"
@@ -75,19 +75,19 @@ image anne souriante:
 
 image charles normal:
     "characters/charles/charles_normal.png"
-    zoom 0.45
+    zoom 0.4
 image charles masque:
     "characters/charles/charles_masque.png"
-    zoom 0.45
+    zoom 0.4
 image charles panique:
     "characters/charles/charles_panique.png"
-    zoom 0.45
+    zoom 0.4
 image charles serieux:
     "characters/charles/charles_serieux.png"
-    zoom 0.45
+    zoom 0.4
 image charles dague:
     "characters/charles/charles_dague.png"
-    zoom 0.45
+    zoom 0.4
 
 image arm_0:
     "backgrounds/bras/bras_0.png"
@@ -112,6 +112,7 @@ image bras_leon_flashback = im.MatrixColor("characters/bras_leon_fin.png",im.mat
 
 define leon = Character('Léon', outlines=[(1, "#008800", 0, 0)], window_top_padding=40, window_background="gui/dialogue_box.png")
 define helene = Character('Hélène', image="helene", outlines=[(1, "#ff00ff", 0, 0)], window_top_padding=40, window_background="gui/dialogue_box.png")
+define helene_demon = Character('Hélène', image="helene_demon", outlines=[(1, "#ff00ff", 0, 0)], window_top_padding=40, window_background="gui/dialogue_box.png")
 define gaston = Character('Gaston', image="gaston", color="#9999ff", window_top_padding=40, window_background="gui/dialogue_box.png")
 define anne = Character('Anne', image="anne", color="#eeeeee", window_top_padding=40, window_background="gui/dialogue_box.png")
 define charles = Character('Charles', image="charles", outlines=[(1, "#aa7700", 0, 0)], window_top_padding=40, window_background="gui/dialogue_box.png")
@@ -123,15 +124,15 @@ define t = Character(None, what_xalign=0.5, what_yalign=0.5, what_text_align=0.5
 
 transform left: 
     xalign 0.2 
-    yalign 1.8
+    yalign 1.0
     
 transform right: 
     xalign 0.8
-    yalign 1.8
+    yalign 1.0
     
 transform center: 
     xalign 0.5 
-    yalign 1.8
+    yalign 1.0
     
 transform enter_right:
     on show:
@@ -158,8 +159,8 @@ transform bras_transform:
         yalign 1.2
         linear 0.5 yalign 2.0
 
-define ellipse = Fade(0.5, 1.0, 0.5)
-define long_dissolve = Dissolve(1.0)
+define ellipse = Fade(0.5, 2.0, 0.5)
+define long_dissolve = Dissolve(0.5)
 define dissolve = Dissolve(0.2)
 
 init python:

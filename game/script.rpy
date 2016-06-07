@@ -1,11 +1,11 @@
 ﻿# commentaires généraux.
-# ATTENTION : vrai guillemet-> "    (faux guillemets -> "")
+# ATTENTION : vrai guillemet-> "    (faux guillemets -> “”)
 
 # 01 - Fuite
 label start:
 
     show screen menu_button
-    scene decor noir with dissolve
+    scene decor noir with long_dissolve
     
     inconnu "Léon ! Léon !!"
     pause 1.0
@@ -31,12 +31,15 @@ label fuite_fin:
     
     pause 2.0
     
-    inconnu "On n’a pas le temps, suis-moi !"
+    inconnu "Il manquait plus que ça !"
+    inconnu "Léon… tu…"
+    inconnu "..."
+    inconnu "On n’a pas le temps. Suis-moi !"
     leon "Ah… {w=0.5}ma tête…"
     
     with shake
 
-    scene decor noir with dissolve
+    scene decor noir with long_dissolve
 
     inconnu "LÉON !!!"
 
@@ -49,7 +52,7 @@ label fuite_fin:
 label reveil_start:
     scene decor chambre
     show helene inquiete at center
-    with dissolve
+    with long_dissolve
 
     inconnu "Ça y est, tu es réveillé ?"
     leon "..."    
@@ -123,27 +126,26 @@ label reveil_1_end:
 
 # 03 - Réunion
 label reunion_start:
-    scene decor noir with dissolve
+    scene decor noir with long_dissolve
     pause 2.0
 
-    self "Les couloirs sont étroits et humides... {w=0.5}ça ne me met pas vraiment à l'aise."
-
-    pause 2.0
+    #self "Les couloirs sont étroits et humides... {w=0.5}ça ne me met pas vraiment à l'aise."
+    #pause 2.0
     
     scene decor grande_salle
     show charles normal at left
     show gaston normal at right
-    with dissolve
+    with long_dissolve
 
     self "Ces personnes… {w=0.5}évidemment, leur visage ne me dit rien."
 
-    self "Au moins, cette salle est déjà un peu plus spacieuse."
+    #self "Au moins, cette salle est déjà un peu plus spacieuse."
 
     hide gaston with dissolve
     show charles normal at center with move
     
     inconnu "Léon aurait donc perdu la mémoire..."
-    charles "Je me présente. Tu peux m'appeler Charles. Je suis fondateur et dirigeant de l'Ordre du Lys."
+    charles "Je m'appelle Charles. Je suis fondateur et dirigeant de l'Ordre du Lys."
     
     hide charles with dissolve
     show gaston souriant at center with dissolve
@@ -160,32 +162,33 @@ label reunion_start:
     hide charles with dissolve
     show helene inquiete at center with dissolve
 
-    helene "Tu ne te souviens même pas de ça…"
+    helene "Bon… ne perdons pas de temps avec des devinettes, concrètement, de quoi te souviens tu ?"
+    # Explication de Léon sur ce qu’il se souvient (France, monarchie etc.)
+    leon "Nous sommes en France, en 1300 quelque chose je crois bien, mais c’est à peu près tout..."
 
     hide helene with dissolve
     show charles normal at center with dissolve
 
-    charles "Le royaume de France était encore paisible jusqu’à récemment."
-    charles serieux "Cependant, il y a une dizaine d’années, celui-ci a été renversé par les Templiers."
+    charles "C’est un début. L’année est 1320. Il y a un dizaine d’années, la monarchie a été renversée par les Templier."
     leon "Les Templiers ?"
-    charles normal "C’est un groupe religieux maléfique qui a mis la main sur un artefact démoniaque lors de la dernière croisade."
-    charles serieux "Ils s’en sont servis afin de pratiquer des rites occultes qui leur ont permis d’invoquer des démons."
+    charles normal "C’est un groupe religieux extrémiste qui a mis la main sur un artefact démoniaque lors de la dernière croisade."
+    charles serieux "Ils s’en sont servis afin de pratiquer des rites occultes qui leur ont permis d’invoquer des démons et de créer une sorte de maladie contagieuse leur permettant de décimer l’armée française."
     self "Des… {w=0.5}des démons ?! Vraiment ?!"
 
     hide charles with dissolve
     show gaston serieux at center with dissolve
 
-    gaston "Ces salopards ont utilisé les pouvoirs des démons pour tuer un grand nombre d’innocents."
+    gaston "Ces chiens ont utilisés les pouvoirs des démons pour tuer un grand nombre d’innocents."
 
     hide gaston with dissolve
     show charles serieux at center with dissolve
     
-    charles "Il ne leur a fallu qu’une nuit pour prendre d’assaut le château royal et assassiner la majorité des nobles qui s’y trouvaient."
+    #charles "Il ne leur a fallu qu’une nuit pour prendre d’assaut le château royal et assassiner la majorité des nobles qui s’y trouvaient."
     charles "En un clin d’oeil, ils ont terrassé tout le royaume et ont pris le pouvoir"
-    charles "À présent, ils dirigent le pays dans une atmosphère de terreur."
+    charles "À présent, ils dirigent le pays et imposent leurs dogmes religieux."
     charles normal "L’Ordre du Lys est un groupe de résistants."
     charles "Il a été crée dans le but de lutter contre les Templiers."
-    leon "L’Ordre du Lys doit être un très grand groupe pour pouvoir lutter contre eux…"
+    leon "L’Ordre du Lys doit être un puissant groupe pour pouvoir lutter contre eux…"
     charles serieux "..."
     charles "Tous les membres de l’Ordre sont présents dans cette pièce."
     leon "Que… quoi ?!"
@@ -235,7 +238,7 @@ label reunion_3_1:
 
 label reunion_3_2:
 
-    leon "Un prince devrait vraiment se battre alors qu’il n’y a plus d’autre héritier ?"
+    leon "Un prince devrait vraiment risquer sa vie alors qu’il n’y a plus d’autre héritier ?"
 
     hide charles with dissolve
     show anne normal at center with dissolve
@@ -255,7 +258,7 @@ label reunion_3_end:
     hide gaston with dissolve
     show helene normal at center with dissolve
 
-    helene "Quand à nous deux, nous étions nobles mais avons perdu le statut lors du coup d’état."
+    helene "Quand à nous deux, nous étions nobles avant la prise de pouvoir par les Templiers"
 
     hide helene with dissolve
     show charles normal at center with dissolve
@@ -450,18 +453,19 @@ label reunion_3_end:
 
 # 04 - Chambre
 label retour_chambre:
-    scene decor noir with dissolve
+    scene decor noir with long_dissolve
     pause 3.0
-    scene chambre with dissolve
+    scene chambre with long_dissolve
 
     self "J’ai la tête qui tourne… et mon bras…"
 
     scene arm_gant with dissolve
 
-    self "Ca me brûle sous ce gant…!"
+    self "Ca me brûle sous ce gant..."
 
     scene arm_1 with dissolve
 
+    self "...!"
     self "Qu… Qu’est-ce que c’est que ça !"
     self "Ce ne serait quand même pas… non, ça ne peut pas être ça !"
     self "C’était déjà là quand je me suis réveillé ?"
@@ -554,9 +558,7 @@ label chambre_1_end:
 # 05 - Dialogue Charles
 label grande_salle:
     
-    scene decor noir with dissolve
-    pause 3.0
-    scene decor grande_salle
+    scene decor grande_salle with ellipse
     show anne normal at left
     show charles normal at right
     with dissolve
@@ -675,7 +677,7 @@ label dialogue_charles_1_end:
     self "Tout à l’heure… mon bras…"
 
     scene arm_gant with dissolve
-    pause 0.5
+    pause 0.8
     scene arm_2 with dissolve
 
     self "La marque… elle s’est propagée…"
@@ -686,58 +688,23 @@ label dialogue_charles_1_end:
 # 06 - Sortie
 label sortie_start:
     scene decor noir with dissolve
-    pause 3.0
-    scene decor entree
+    pause 1.5
+    scene entree
     show helene normal at center
     with dissolve
 
     helene "Ah, te voila !"
-    helene "On n’a pas beaucoup eu l’occasion de parler seul à seul jusqu’à maintenant. J’espère cette perte de mémoire n’est pas trop difficile à vivre."
-
-    menu:
-
-        "\"Tout va bien\"":
-           jump sortie_1_1
-        "\"L’objectif de l’Ordre… Il est vraiment réaliste ?\"":
-           jump sortie_1_2
-
-label sortie_1_1:
-
-    leon "Tout va bien." 
-    leon "Tout le monde m’aide comme il le peut."
-    helene souriante "Si quelque chose ne va pas, n’hésite pas à m’en parler !"
-
-    jump sortie_1_end
-
-label sortie_1_2:
-
-    leon "L’objectif de l’Ordre… Il est vraiment réaliste ?"
-    helene normal "Qu’est ce que tu veux dire par là ?"
-    leon "Les membres risquent leur vie et vont jusqu’à utiliser la torture, tout ça pour assassiner une personne…"
-    leon "Je comprends que Jacques de Molay est une ordure, mais le tuer va vraiment changer quelque chose ?"
-    leon "Les démons ne vont pas disparaître… N’est-ce pas ?"
-    helene "..."
-    leon "..."
-    self "Elle n’a pas l’air de vouloir répondre quoi que ce soit…"
-    leon "Oublie ce que j’ai dis, je réfléchis trop…"
-    helene "..."
-
-    jump sortie_1_end
-    
-label sortie_1_end:
-
-    helene souriante "Bref, allons-y."
+    helene souriante "Allons-y !"
 
     jump village_start
 # END FILE 06 - Sortie
 
 # 07 - Village
 label village_start:
-    scene decor noir with dissolve
-    pause 3.0
-    scene village
+    
+    scene decor village
     show helene normal at center
-    with dissolve
+    with ellipse
 
     helene "... et c’est à cette étale qu’on achète habituellement nos légumes."
     helene souriante "Ils vendent les meilleurs choux du coin !"
@@ -855,11 +822,9 @@ label village_2_2:
 # 08 - Ending A/B - Briefing
 label briefing_endingAB_start:
 
-    scene decor noir with dissolve
-    pause 3.0
     scene decor grande_salle
     show anne normal at center
-    with dissolve
+    with ellipse
 
     anne "Ah, vous êtes revenus !"
 
@@ -869,7 +834,7 @@ label briefing_endingAB_start:
     charles "Vous en avez mis, du temps."
 
     hide charles with dissolve
-    show helene souriante at center with dissolve
+    show helene normal at center with dissolve
 
     helene "Vraiment ? On s’est dépêchés, pourtant."
 
@@ -882,104 +847,129 @@ label briefing_endingAB_start:
 
     scene decor noir with dissolve
     pause 2.0
-    scene grande_salle
+    scene decor grande_salle
     show charles normal at center
     with dissolve
 
     charles "Une fois notre cible éliminée, on fuira en repassant par le chemin de notre venue puisqu’il sera déjà nettoyé."
     self "En gros, on s’infiltre en tuant les gardes Templiers sur notre chemin et on se cache dans la forêt jusqu’au passage de Jacques de Molay…"
     self "Ça paraît un peu simpliste, mais je suppose que le manque de temps et d’informations que nous avons nous empêche d’être mieux préparés…"
-    charles "Maintenant que c’est fait, il est temps d’aborder un autre sujet important."
-    charles "Léon est-ce que tu te sens assez bien pour participer ?"
+    charles "Nous en avons fini. Nous partons dans moins d’une heure. Léon, profites-en pour bien te reposer. Il faut que tu sois en forme."
 
     hide charles with dissolve
-    show helene serieuse with dissolve
+    show anne normal at left
+    show gaston normal at right
+    with dissolve
 
-    helene "Il est hors de question qu’il y aille dans son état."
+    anne "Gaston, viens m’aider à préparer les armes."
+    gaston "J’arrive."
+
+    hide anne
+    hide gaston
+    with dissolve
+
+    show helene normal at center
+
+    self "Il ne reste que nous deux…"
+    helene "Léon…"
+    helene inquiete "Tu as vraiment envie de participer à cet assaut ?"
+    leon "..."
+    helene "Charles ne t’a pas laissé le choix, mais si vraiment tu ne te sens pas prêt…"
+    helene serieuse "Tu peux toujours t’enfuir."
+    leon "Pour aller où ?"
+    leon "Ce n’est pas vraiment comme si j’avais quelque part où aller."
+    helene "Tu as juste à te cacher dans la forêt jusqu’à notre départ."
+    helene "L’attaque ne peut pas être repoussée, on serait obligé de partir sans toi. Tu n’auras qu’à attendre notre retour."
+    leon "Charles serait furieux…"
+    helene "Ne t’inquiète pas, je m’occuperai de lui expliquer."
+    helene "Je pourrais même lui dire que c’est moi qui t’ai forcé à ne pas venir."
+    helene "Vouloir te faire participer est déjà une erreur de toutes façons."
+    leon "..."
+    helene "..."
+    helene "Je dois finir de me préparer. Réfléchis-y."
 
     hide helene with dissolve
-    show gaston souriant at center with dissolve
 
-    gaston "Tu exagères, il est déjà en pleine forme !"
-    gaston "Il n’y a aucune raison qu’il ne vienne pas !"
+    self "..."
 
-    hide gaston with dissolve
+    jump soir_endingAB_start
+# END FILE 08 - Ending A/B - Briefing
+
+# 08 - Ending C - Briefing
+label briefing_endingC_start:
+
+    scene decor grande_salle
+    show anne normal at center
+    with ellipse
+
+    anne "Ah, vous êtes revenus !"
+
+    hide anne with dissolve
     show charles serieux at center with dissolve
 
-    charles "Silence !"
-    charles "Vous êtes fatiguants !"
-    charles normal "Léon, tu es le principal concerné. C’est à toi de décider."
-    charles "Souhaites-tu venir avec nous lors de l’attaque de demain ou non ?"
+    charles "Vous en avez mis, du temps."
 
-    menu:
-        "Accepter":
-           jump briefing_endingAB_1_1
-        "Refuser":
-           jump briefing_endingAB_1_2
-
-label briefing_endingAB_1_1:
-
-    leon "Je veux venir avec vous."
-    charles "Bien. Le problème est réglé."
-    
     hide charles with dissolve
     show helene serieuse at center with dissolve
 
-    self "Elle n’a vraiment pas l’air d’apprécier ma décision…"
-    self "Désolé, Hélène, mais j’ai vraiment envie d’y aller."
+    helene "..."
 
     hide helene with dissolve
     show charles normal at center with dissolve
 
+    charles "..."
+    charles "Peu importe."
+    charles "Maintenant que tout le monde est là, je vais vous expliquer le plan d’attaque de ce soir. Écoutez attentivement."
+
+    scene decor noir with dissolve
+    pause 2.0
+    scene decor grande_salle
+    show charles normal at center
+    with dissolve
+
+    charles "Une fois notre cible éliminée, on fuira en repassant par le chemin de notre venue puisqu’il sera déjà nettoyé."
+    self "En gros, on s’infiltre en tuant les gardes Templiers sur notre chemin et on se cache dans la forêt jusqu’au passage de Jacques de Molay…"
+    self "Ça paraît un peu simpliste, mais je suppose que le manque de temps et d’informations que nous avons nous empêche d’être mieux préparés…"
     charles "Nous en avons fini. Nous partons dans moins d’une heure. Léon, profites-en pour bien te reposer. Il faut que tu sois en forme."
 
-
-    jump soir_endingA_start
-
-label briefing_endingAB_1_2:
-
-    leon "Je préfère ne pas y aller."
-    charles "..."
-    charles "Bien. Le problème est réglé."
-
     hide charles with dissolve
-    show gaston souriant at center with dissolve
+    show anne normal at left
+    show gaston normal at right
+    with dissolve
 
-    gaston "Alors Léon, t’as peur ?"
-    gaston "Ça te ressemble pas !"
+    anne "Gaston, viens m’aider à préparer les armes."
+    gaston "J’arrive."
 
-    hide gaston with dissolve
-    show helene souriante at center with dissolve
+    hide anne
+    hide gaston
+    with dissolve
 
-    self "Elle a l’air soulagée…"
+    show helene normal at center
+
+    self "Il ne reste que nous deux…"
+    leon "Hélène, je…"
+    helne "Je vais me préparer."
 
     hide helene with dissolve
-    show charles normal at center with dissolve
 
-    charles "Nous en avons fini. Nous partons dans moins d’une heure. Il faut finir les derniers préparatifs."
-    charles "Quant à toi Léon, tu resteras ici en attendant notre retour. Profites-en pour bien te reposer. "
+    self "..."
 
-    hide charles with dissolve
-    show gaston souriant at center with dissolve
+    jump soir_endingC_start
+# END FILE 08 - Ending C - Briefing
 
-    gaston "T’inquiète pas, on fêtera notre victoire quand on sera revenu !"
-
-    jump soir_endingB_start
-# END FILE 08 - Ending A/B - Briefing
     
-    
-    
-# 09 - Ending A - Soir
-label soir_endingA_start:
+# 09 - Ending AB - Soir
+label soir_endingAB_start:
 
-    scene decor noir with dissolve
-    pause 3.0
-    scene decor chambre with dissolve
+    scene decor chambre with ellipse
 
-    self "La journée passe tellement rapidement..."
+    self "..."
+    self "Me cacher avant leur départ…"
+    self "C’est vraiment raisonnable ?"
 
-    scene arm_gant with dissolve
     pause 0.5
+    scene arm_gant with dissolve
+    pause 0.8
     scene arm_3 with dissolve
 
     self "..."
@@ -990,7 +980,7 @@ label soir_endingA_start:
     show helene normal at center
     with dissolve
 
-    helene "Léon, je…"
+    helene "Léon, à propos de…"
     helene serieuse "..."
     self "...Merde !"
     self "Elle a eu le temps de le voir ?!"
@@ -1016,69 +1006,44 @@ label soir_endingA_start:
     self "..."
     self "Enfin, j’espère…"
     self "..."
+    self "Qu’est ce que je dois faire…"
+
+    menu:
+
+        "Participer à l’assaut":
+           jump soir_2_1
+        "Se cacher dans la forêt":
+           jump soir_2_2
+
+label village_2_1:
+
+    self "..."
+    self "Cette attaque est trop importante. Je me sentirais coupable de ne pas y aller avec eux."
+    self "Je ferais mieux de me reposer jusqu’à notre départ."
 
     jump massacre_endingA_start
-# END FILE 09 - Ending A - Soir
 
-# 09 - Ending B - Soir
-label soir_endingB_start:
-
-    scene decor noir with dissolve
-    pause 3.0
-    scene decor chambre with dissolve
-
-    self "La journée passe tellement rapidement..."
-
-    scene arm_gant with dissolve
-    pause 0.5
-    scene arm_3 with dissolve
+label village_2_1:
 
     self "..."
-    self "Ça s’est encore propagé…"
-    self "*bruit de porte qui s’ouvre*"
-
-    scene decor chambre
-    show helene normal at center
-    with dissolve
-
-    helene "Léon, je…"
-    helene serieuse "..."
-    self "...Merde !"
-    self "Elle a eu le temps de le voir ?!"
-    helene "À plus tard."
-
-    hide helene with dissolve
-
-    leon "Hélène ! Je… Ah…!"
-
-    scene decor noir with flash_blanc
-    pause 1.0
-
-    jacques_inconnu "On peut reconnaître ces démons sous forme humaine à leurs yeux."
-
-    pause 1.0
-    scene decor chambre with flash_blanc
-
-    self "Encore ce truc…"
-    self "Plus important… {w=0.5}Hélène !"
-    self "Elle a manifestement vu mon bras…"
-    self "Elle ne va pas en parler aux autres... {w=0.5}pas vrai ?"
-    self "Nous sommes en couple… {w=0.5}Elle ne ferait pas ça !"
-    self "..."
-    self "Enfin, j’espère…"
-    self "..."
+    self "Et puis merde !"
+    self "Je veux pas risquer ma vie pour des personnes dont je n’ai aucun souvenir"
+    self "Je fous le camps !"
 
     jump massacre_endingB_start
-# END FILE 09 - Ending B - Soir
+
+
+
+
+# END FILE 09 - Ending A - Soir
+
 
 # 10 - Ending A - Massacre
 label massacre_endingA_start:
 
-    scene decor noir with dissolve
-    pause 5.0
     scene decor chambre
     show anne serieuse at center
-    with dissolve
+    with ellipse
 
     anne "Léon, il est l’heure. Je t’attends à l’entrée."
 
@@ -1086,10 +1051,10 @@ label massacre_endingA_start:
     self "..."
     self "Hélène…"
     self "Elle m’évite depuis tout à l’heure…"
-    self "Vu que les autres agissent normalement, je ne pense pas qu’elle leur ait parlé de mon bras."
+    self "Vu que les autres agissent normalement, je ne pense pas qu’elle leur ait parlé de mon bras. C’est déjà un soulagement."
 
     scene arm_gant with dissolve
-    pause 0.5
+    pause 0.8
     scene arm_4 with dissolve
 
     self "Ça s’est encore propagé…"
@@ -1138,7 +1103,7 @@ label massacre_endingA_start:
     hide helene with dissolve
     show anne masque at center with dissolve
 
-    $ anne("Qu’est-ce que tu veux dire pa…", interact=False)
+    $ anne("Qu’est-ce que tu veux dire pa", interact=False)
     pause 0.95
 
     self "*bruit de coeur transpercé*"
@@ -1151,7 +1116,7 @@ label massacre_endingA_start:
     show helene_demon normal at center
     with dissolve
 
-    helene "Et de un."
+    helene_demon "Et de un."
     self "...!"
     self "Cette chose… {w=0.5}C’est Hélène ?!"
 
@@ -1166,7 +1131,7 @@ label massacre_endingA_start:
 
     gaston "Ah !"
     gaston "Espèce de monstre ! Meurs !"
-    helene souriante "Tu es ridicule."
+    helene_demon souriante "Tu es ridicule."
 
     self "*bruit de coeur transpercé*"
     with flash_rouge
@@ -1181,7 +1146,7 @@ label massacre_endingA_start:
     hide helene_demon with dissolve
     show charles panique at center with dissolve
 
-    charles "Anne…! Par pitié, ouvre les yeux !"
+    charles "Anne…! Dis quelque chose !"
 
     self "*bruit de coeur transpercé*"
     with flash_rouge
@@ -1196,12 +1161,12 @@ label massacre_endingA_start:
 
     show helene_demon normal with dissolve
 
-    helene "J’aurais préféré garder ma couverture plus longtemps, mais l’attaque se déroulait trop bien et je ne pouvais pas risquer la vie du grand maître."
+    helene_demon "J’aurais préféré garder ma couverture plus longtemps, mais l’attaque se déroulait trop bien et je ne pouvais pas risquer la vie du grand maître."
     self "Me battre ? Ah, j’ai la dague que Charles m’a donné !"
     self "Est-ce que ça va vraiment marcher sur une créature pareille ?"
-    helene "Je devais récolter autant d’informations que possible sur les alliés de la résistance… On dirait que ma mission se termine prématurément."
+    helene_demon "Je devais récolter autant d’informations que possible sur les alliés de la résistance… On dirait que ma mission se termine prématurément."
     self "Elle se rapproche de plus en plus… Je n’ai plus le choix !"
-    helene "Je m’attendais à plus de résistance… C’en est presque décevant."
+    helene_demon "Je m’attendais à plus de résistance… C’en est presque décevant."
 
     jump mort_de_helene_start
 # END FILE 10 - Ending A - Massacre
@@ -1210,22 +1175,34 @@ label massacre_endingA_start:
 label massacre_endingB_start:
 
     scene decor noir with dissolve
-    pause 5.0
-    scene decor chambre with dissolve
+    pause 3.0
 
-    self "Voila… ils sont partis."
-    self "Anne et Gaston sont venus, probablement pour me prévenir de leur départ, mais j’ai fait semblant de dormir."
-    self "Je n’ai pas vraiment envie de parler à qui que ce soit depuis qu’Hélène a vu mon bras…"
-    self "Hélène… elle n’est pas venue me voir depuis tout à l’heure..."
-    self "Au moins, les autres avaient l’air d’agir normalement. Je ne pense pas qu’elle leur en ait parlé."
+    self "Il ne me trouveront pas, ici."
+    self "Je n’ai plus qu’à attendre qu’ils partent."
+    self "Ah, je les entends."
+    charles "Si on revient vivants, il m’entendra à notre retour !"
+    charles "Et toi aussi, Hélène !"
+    anne "Charles, calme toi !"
+    charles "..."
+    charles "Allons-y."
+    self "..."
+    self "Ils sont partis…"
+    self "Hélène a vu mon bras… Est-ce que je ne devrais pas m’enfuir pour de bon ?"
+    self "..."
+    self "Je ne saurais même pas où aller..."
+    self "Je n’ai pas d’autre choix que de les attendre et espérer qu’elle n’ai rien dit..."
+
+    scene decor chambre with ellipse
+
+    self "Ça fait déjà un moment… J’espère que ça ne se passe pas mal."
 
     scene arm_gant with dissolve
-    pause 0.5
+    pause 0.8
     scene arm_4 with dissolve
 
     self "J’ai l’impression que ça se propage de plus en plus vite."
-    self "Je devrais peut-être m’enfuir d’ici…? Au moins, je ne leur causerais plus de problèmes…"
-    self "...!"
+    self "Au final, je ne fais que leur causer des problèmes..."
+    self "...?!"
 
     scene decor chambre with dissolve
 
@@ -1233,17 +1210,17 @@ label massacre_endingB_start:
     inconnu "...Léon !"
     self "Ça vient de l’entrée !"
 
-    scene entree
+    scene decor entree
     show gaston panique
     with dissolve
 
-    gaston "Ah, te voila ! Dépêche-toi, on dégage en vitesse !"
+    gaston "Dieu merci, tu es bien là ! Dépêche-toi, on dégage en vitesse !"
     leon "Qu’est-ce qui se passe ?!"
     gaston "C’est Hélène ! C’est une saloperie de démone !"
     leon "Qu… {w=0.5}quoi ?!"
     gaston "Elle a tué Anne et Charles et si on ne se grouille pas, on est les suivants !"
     leon "Qu’est-ce que tu racontes ?!"
-    $ gaston("Magne-toi, putain, on n’a pas le temps ! Elle va nou…", interact=False)
+    $ gaston("Magne-toi, putain, on n’a pas le temps ! Elle va nou", interact=False)
     pause 1.75
 
     self "*bruit de coeur transpercé*"
@@ -1255,42 +1232,163 @@ label massacre_endingB_start:
     pause 1.5
     show helene_demon normal at center with dissolve
 
-    helene "Qu’est-ce qu’il est bruyant, celui-là."
+    helene_demon "Qu’est-ce qu’il est bruyant, celui-là."
     self "...!"
     self "... Gaston !"
-    helene sourire "Cet imbécile avait une chance de s’échapper mais il a préféré revenir ici pour te prévenir."
+    helene_demon sourire "Cet imbécile avait une chance de s’échapper mais il a préféré revenir ici pour te prévenir."
     self "Cette chose… C’est Hélène ?!"
-    helene normal "J’aurais préféré garder ma couverture plus longtemps, mais l’attaque se déroulait trop bien et je ne pouvais pas risquer la vie du grand maître."
+    helene_demon normal "J’aurais préféré garder ma couverture plus longtemps, mais l’attaque se déroulait trop bien et je ne pouvais pas risquer la vie du grand maître."
     self "C’est vraiment elle ?!"
-    helene "Je devais récolter autant d’informations que possible sur les alliés de la résistance… On dirait que ma mission se termine prématurément."
+    helene_demon "Je devais récolter autant d’informations que possible sur les alliés de la résistance… On dirait que ma mission se termine prématurément."
     self "Qu’est-ce que je dois faire ? Fuir ?"
-    helene souriante "J’ai commencé par attaquer Anne dans le dos, par surprise. C’était la plus dangereuse des trois, après tout !"
+    helene_demon souriante "J’ai commencé par attaquer Anne dans le dos, par surprise. C’était la plus dangereuse des trois, après tout !"
     self "Impossible, elle bloque l’entrée… et elle me rattraperait probablement sans difficulté."
-    helene normal "Elle est morte en un instant. Charles était complètement figé, je l’ai tué dans la foulée sans qu’il ne bouge d’un pouce."
+    helene_demon normal "Elle est morte en un instant. Charles était complètement figé, je l’ai tué dans la foulée sans qu’il ne bouge d’un pouce."
     self "Me battre ? Ah, j’ai la dague que Charles m’a donné !"
-    helene "Gaston a essayé d’utiliser son artefact sur moi."
-    helene souriante "Quel crétin ! Comme si ça pouvait marcher sur un démon !"
+    helene_demon "Gaston a essayé d’utiliser son artefact sur moi."
+    helene_demon souriante "Quel crétin ! Comme si ça pouvait marcher sur un démon !"
     self "Est-ce que ça va vraiment marcher sur une créature pareille ?"
-    helene normale "Quand il a vu que ça n’avait aucun effet, cet imbécile s’est enfuit au seul endroit où il savait que j’allais le chercher."
+    helene_demon normale "Quand il a vu que ça n’avait aucun effet, cet imbécile s’est enfuit au seul endroit où il savait que j’allais le chercher."
     self "Elle se rapproche de plus en plus… Je n’ai plus le choix !"
-    helene souriante "Je ne l’aurais pas cru capable de courir aussi vite."
+    helene_demon souriante "Je ne l’aurais pas cru capable de courir aussi vite."
 
     jump mort_de_helene_start
 # END FILE 10 - Ending B - Massacre
+
+# 10 - Ending C - Massacre
+
+label soir_endingC_start:
+
+    scene decor noir with dissolve
+    pause 3.0
+    scene decor chambre with dissolve
+
+    self "..."
+    self "Je ne peux qu’attendre, maintenant…"
+    self "Ah !"
+
+    scene decor noir with flash_blanc
+    pause 1.0
+
+    jacques_inconnu "On peut reconnaître ces démons sous forme humaine à leurs yeux."
+
+    pause 1.0
+    scene decor chambre with flash_blanc
+
+    self "Encore ce truc…"
+    self "Mon bras me brûle…"
+
+    scene arm_gant with dissolve
+    pause 0.5
+    scene arm_3 with dissolve
+
+    self "..."
+    self "La réaction qu’elle a eu quand elle a vu mon bras…"
+    self "Elle ne va pas en parler aux autres... {w=0.5}pas vrai ?"
+    self "Nous sommes en couple… {w=0.5}Elle ne ferait pas ça !"
+    self "..."
+    self "Enfin, j’espère…"
+    self "..."
+    self "Il faut que j’aille lui parler !"
+
+    pause 0.5
+    self "*bruit de porte qui s’ouvre*"
+    pause 0.5
+
+    self "!!!"
+    leon "Aah… AAAAAH !"
+
+    scene cadavre_gaston with dissolve
+
+    self "Qu’est-ce que...!"
+    self "Ah !"
+    self "Nous sommes en danger ici !"
+     
+    scene decor noir with dissolve
+    pause 1.0
+    scene decor grande_salle
+    show helene normal at center
+    with dissolve
+
+    leon "Ah ! Hélène !"
+    leon "On doit partir d’ici !"
+    helene inquiete "Qu’est-ce que tu racontes ?"
+    leon "Dépêche-toi !"
+    charles "Qu’est-ce qu’il se passe, ici ?"
+
+    hide helene with dissolve
+    show charles serieux at center
+
+    charles "Quelque chose ne va pas ?"
+    leon "C’est Gaston, il…"
+    self "Attends…"
+    self "C’est forcément l’un d’entre eux qui a fait ça !"
+    self "Je ne peux faire confiance à personne !"
+    $ self("Je dois partir d’ici le plu", interact=False)
+    pause 1.0
+
+    self "*bruit de coeur transpercé*"
+    with flash_rouge
+    hide charles with dissolve
+    pause 0.5
+    with shake
+    self "*bruit de corps qui tombe au sol*"
+    pause 1.5
+    show helene_demon normal at center
+    with dissolve
+
+    self "...!"
+    self "... Charles !"
+    helene_demon sourire "Et de deux."
+    self "Cette chose… C’est Hélène ?!"
+    anne "Vous en faites, du bruit !"
+
+    hide helene_demon with dissolve
+    show anne normal at center with dissolve
+
+    anne "Qu’est ce qu… Aah…Non…"
+    anne panique "AAAAAAAAH !"
+    anne "Charles ! Charles !!"
+    $ anne("Dis quelque cho", interact=False)
+    pause 0.6
+
+    self "*bruit de coeur transpercé*"
+    with flash_rouge
+    hide anne with dissolve
+    pause 0.5
+    with shake
+    self "*bruit de corps qui tombe au sol*"
+    pause 1.0
+
+    show helene_demon sourire at center
+
+    self "C’est un cauchemar !"
+    helene_demon "Les humains sont si faibles !"
+    self "Qu’est-ce que je dois faire ? Fuir ?"
+    self "Elle me rattraperait probablement sans difficulté…"
+    helene_demon normal "J’aurais préféré garder ma couverture plus longtemps."
+    self "Me battre ? Ah, j’ai la dague que Charles m’a donné !"
+    self "Est-ce que ça va vraiment marcher sur une créature pareille ?"
+    helene_demon "Je devais récolter autant d’informations que possible sur les alliés de la résistance… On dirait que ma mission se termine prématurément."
+    self "Elle se rapproche de plus en plus… Je n’ai plus le choix !"
+    helene_demon "Je m’attendais quand même à plus de résistance… C’en est presque décevant."
+
+    jump mort_de_helene_start
+# END FILE 10 - Ending C - Massacre
 
 # 11 - Mort de Hélène
 label mort_de_helene_start:
 
     self "*bruit de coeur transpercé*"
-    scene decor rouge with dissolve
+    with flash_rouge
     pause 3.0
-    scene decor mort_de_helene with dissolve
+    scene mort_de_helene with dissolve
 
-    helene "L...Léon."
+    helene_demon "L...Léon."
     self "...Ça a marché ? Une simple dague ?"
-    helene "Tu dois… vivre…"
+    helene_demon "Tu dois… vivre…"
     self "Qu’est-ce qu’elle raconte ?"
-    helene "Je suis vraiment heureuse… de tout ce qu’on a vécu ensemble…"
+    helene_demon "Je suis vraiment heureuse… de tout ce qu’on a vécu ensemble…"
     self "Elle débloque !"
 
     scene decor noir with dissolve
@@ -1302,11 +1400,18 @@ label mort_de_helene_start:
     self "Je me sens si apaisé tout d’un coup… Qu’est-ce que ?!"
 
     scene arm_gant with dissolve
+    pause 0.8
+    scene arm_3 with dissolve
+
+    self "...!"
+
+    scene arm_2 with dissolve
+    pause 0.5
+    scene arm_1 with dissolve
     pause 0.5
     scene arm_0 with dissolve
 
-    self "...!"
-    self "Pourquoi elle n’est plus là ?!"
+    self "Comment est-ce que…"
     self "Ah ! Ma mémoire !"
     self "..."
     self "Je me souviens…"
@@ -1340,7 +1445,7 @@ label flashback_start:
 
     jacques "Autre chose. Un démon et son invocateur peuvent se transférer leur énergie vitale."
     jacques "Un démon peut même allonger la durée de vie de son invocateur de cette façon."
-    jacques "Cependant, celui lui coûterait sa propre espérance de vie. Il n’a pas vraiment d’intérêt à faire ça."
+    jacques "Cependant, cela lui coûterait sa propre espérance de vie. Il n’a pas vraiment d’intérêt à faire ça."
     jacques "Mais tout cela est sans importance pour le moment."
     jacques "Nous sommes sur le point de vivre un moment historique !"
     jacques "Je suppose que tu te souviens de toutes les étapes du rituel ?"
@@ -1349,7 +1454,7 @@ label flashback_start:
     jacques "Tu lui as déjà choisi un nom ?"
     leon "Oui, grand maître."
     leon "Si c’est un mâle, je l’appellerai Horace."
-    leon "Et si c’est une femelle, je l’appellerai…"
+    leon "Et si c’est une femelle, je l’appellerais…"
     leon "Hélène."
     return
 # END 12 - Flashback

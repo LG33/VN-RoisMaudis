@@ -108,7 +108,7 @@ screen main_menu:
     # unhovered - action to run when the button loses focus. In this case we hide a tooltip.
     
     $ y+=142 # We increase y position for the next menu item. y has a value of 185(114+81=185) now. We could also use: xpos 773 ypos 185
-    imagebutton auto "gui/main_load_%s.png" xpos 1490 ypos y focus_mask True  action ShowMenu('load') hovered [ Play ("test_two", "sfx/click.wav")] at main_eff2
+    imagebutton auto "gui/main_load_%s.png" xpos 1490 ypos y focus_mask True  action [ShowMenu('charger'), Show("load")] hovered [ Play ("test_two", "sfx/click.wav")] at main_eff2
     $ y+=142
     imagebutton auto "gui/main_quit_%s.png" xpos 1490 ypos y focus_mask True action Quit(confirm=False) hovered [ Play ("test_five", "sfx/click.wav")] at main_eff3
     
@@ -153,33 +153,35 @@ screen load_save_slot:
 ## ■██▓▒░ SAVE / LOAD FILE PICKER ░▒▓███████████████████████■
 ## Since saving and loading are so similar, we combine them into a single screen, file_picker. We then use the file_picker screen from simple load and save screens.
     
-screen save:
+screen charger:
     tag menu
     
+    use sound_On
+    use fullscreen_Off
+    
+    use nav_buttons
+    
+screen sauvegarder:
+    tag menu
+    
+    use save
+    
+    use sound_On
+    use fullscreen_Off
+    
+    use nav_buttons
+    
+screen save:
     image "gui/save_tab_on.png" xpos 0.22 ypos 0.1
     imagebutton auto "gui/load_tab_off_%s.png" xpos 0.1 ypos 0.1 focus_mask True action [Hide("save"), Show("load")] hovered [ Play ("test_one", "sfx/click.wav")]
+    
     use save_load_slots
-    
-    use sound_On
-    use fullscreen_Off
-    
-    imagebutton auto "gui/retour_%s.png" xpos 0.1 ypos 0.8 action Return() hovered [ Play ("test_one", "sfx/click.wav")]
-    imagebutton auto "gui/menu_%s.png" xpos 0.22 ypos 0.8 action MainMenu() hovered [ Play ("test_one", "sfx/click.wav")]
-    imagebutton auto "gui/log_%s.png" xpos 0.7 ypos 0.8 action ShowMenu('text_history') hovered [ Play ("test_one", "sfx/click.wav")]
     
 screen load:
-    tag menu
-    
     image "gui/load_tab_on.png" xpos 0.1 ypos 0.1
     imagebutton auto "gui/save_tab_off_%s.png" xpos 0.22 ypos 0.1 focus_mask True action [Hide("load"), Show("save")] hovered [ Play ("test_one", "sfx/click.wav")]
+    
     use save_load_slots
-    
-    use sound_On
-    use fullscreen_Off
-    
-    imagebutton auto "gui/retour_%s.png" xpos 0.1 ypos 0.8 action [Return(), Hide("sound_On"), Hide("sound_Off"), Hide("fullscreen_Off"), Hide("fullscreen_On")] hovered [ Play ("test_one", "sfx/click.wav")]
-    imagebutton auto "gui/menu_%s.png" xpos 0.22 ypos 0.8 action [MainMenu(), Hide("sound_On"), Hide("sound_Off"), Hide("fullscreen_Off"), Hide("fullscreen_On")] hovered [ Play ("test_one", "sfx/click.wav")]
-    imagebutton auto "gui/log_%s.png" xpos 0.7 ypos 0.8 action [ShowMenu('text_history'), Hide("sound_On"), Hide("sound_Off"), Hide("fullscreen_Off"), Hide("fullscreen_On")] hovered [ Play ("test_one", "sfx/click.wav")]
     
 screen save_load_slots:
     $ y=210
@@ -193,6 +195,11 @@ screen save_load_slots:
         imagebutton auto "gui/fileslot_%s.png" xpos 620 ypos y focus_mask True action FileAction(i)
         use load_save_slot(number=i, x=620, y=y)
         $ y+=124
+        
+screen nav_buttons:
+    imagebutton auto "gui/retour_%s.png" xpos 0.1 ypos 0.8 action [Return(), Hide("save"), Hide("load"), Hide("sound_On"), Hide("sound_Off"), Hide("fullscreen_Off"), Hide("fullscreen_On")] hovered [ Play ("test_one", "sfx/click.wav")]
+    imagebutton auto "gui/menu_%s.png" xpos 0.22 ypos 0.8 action [MainMenu(), Hide("save"), Hide("load"), Hide("sound_On"), Hide("sound_Off"), Hide("fullscreen_Off"), Hide("fullscreen_On")] hovered [ Play ("test_one", "sfx/click.wav")]
+    imagebutton auto "gui/log_%s.png" xpos 0.7 ypos 0.8 action [ShowMenu('text_history'), Hide("save"), Hide("load"), Hide("sound_On"), Hide("sound_Off"), Hide("fullscreen_Off"), Hide("fullscreen_On")] hovered [ Play ("test_one", "sfx/click.wav")]
     
 screen sound_Off: 
     imagebutton auto "gui/sound_off_%s.png" xpos 0.58 ypos 0.22 focus_mask True action [SetMute("music",False), SetMute("sfx",False), SetMute("voice",False), Hide("sound_Off"), Show("sound_On")] hovered [ Play ("test_one", "sfx/click.wav")]
@@ -205,7 +212,6 @@ screen fullscreen_Off:
     
 screen fullscreen_On: 
     imagebutton auto "gui/config_display_window_%s.png" xpos 0.58 ypos 0.1 focus_mask True action [Preference('display', 'window'), Hide("fullscreen_On"), Show("fullscreen_Off")] hovered [ Play ("test_one", "sfx/click.wav")]
-
 
 ## ■██▓▒░ YES/NO PROMPT ░▒▓█████████████████████████████████■
 ## Screen that asks the user a yes or no question. You'll need to edit this to change the position and style of the text.
@@ -288,7 +294,7 @@ init:
 ## Screens for the quick menus above the textbox. We use several different quick menus for presentation purposes.
 
 screen menu_button:
-    imagebutton auto "gui/ingame_menu_%s.png" action ShowMenu('save') xpos 0.85 ypos 0 focus_mask True
+    imagebutton auto "gui/ingame_menu_%s.png" action ShowMenu('sauvegarder') xpos 0.85 ypos 0 focus_mask True
 
 screen ingame_menu:
     imagebutton auto "gui/quick_config_%s.png" action ShowMenu('preferences') focus_mask True at option
