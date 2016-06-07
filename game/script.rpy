@@ -3,24 +3,15 @@
 
 # 01 - Fuite
 label start:
-<<<<<<< .merge_file_a06988
-    play sound "music/AttaqueMagique.mp3"
-    play sound "music/SonCloche.mp3"
-    play sound "music/BruitageChien.mp3"
-=======
     play sound ["music/AttaqueMagique.mp3" , "music/ChuteHomme.mp3"] fadein 1.0
->>>>>>> .merge_file_a09276
     show screen menu_button
     scene decor noir with long_dissolve
 
     inconnu "Léon ! Léon !!"
     pause 1.0
-<<<<<<< .merge_file_a06988
-=======
-    play cloche "music/SonCloche.mp3" fadein 1.0 loop
-    play sound "music/BruitageChien.mp3" fadein 1.0 loop
+    play cloche "music/SonCloche.mp3" fadein 4.0 loop
+    play sound "music/BruitageChien.mp3" fadein 2.0 loop
 
->>>>>>> .merge_file_a09276
     self "Que... qu’est-ce qu’il se passe ?"
     
     scene decor intro with long_dissolve
@@ -48,10 +39,7 @@ label fuite_fin:
     inconnu "..."
     inconnu "On n’a pas le temps. Suis-moi !"
     leon "Ah... {w=0.5}ma tête..."
-<<<<<<< .merge_file_a06988
-=======
     play sound "music/FlashSound.mp3"
->>>>>>> .merge_file_a09276
     
     with shake
 
@@ -184,24 +172,6 @@ label reunion_start:
     show charles normal at center with dissolve
 
     charles "Te souviens-tu de la situation dans laquelle la France se trouve actuellement ?"
-<<<<<<< .merge_file_a06988
-    leon "Absolument pas..."
-
-    hide charles with dissolve
-    show helene inquiete at center with dissolve
-
-    helene "Bon... ne perdons pas de temps avec des devinettes, concrètement, de quoi te souviens tu ?"
-    # Explication de Léon sur ce qu’il se souvient (France, monarchie etc.)
-    leon "Nous sommes en France, en 1300 quelque chose je crois bien, mais c’est à peu près tout..."
-
-    hide helene with dissolve
-    show charles normal at center with dissolve
-
-    charles "C’est un début. L’année est 1320. Il y a un dizaine d’années, la monarchie a été renversée par les Templier."
-    leon "Les Templiers ?"
-    charles normal "C’est un groupe religieux extrémiste qui a mis la main sur un artefact démoniaque lors de la dernière croisade."
-    charles serieux "Ils s’en sont servis afin de pratiquer des rites occultes qui leur ont permis d’invoquer des démons et de créer une sorte de maladie contagieuse leur permettant de décimer l’armée française."
-=======
     leon "Non..."
     charles "De quoi tu te souviens ?"
     leon "Pas de grand chose… {w=0.5}Je sais juste que nous sommes en France et il me semble que nous sommes en 1313."
@@ -213,7 +183,6 @@ label reunion_start:
     charles normal "C’est un groupe religieux extrémiste."
     charles serieux "Ils se sont procurés durant la dernière croisade un artefact démoniaque."
     charles "Ils s’en sont servi afin d’invoquer des démons en pratiquant des rites occultes."
->>>>>>> .merge_file_a09276
     self "Des... {w=0.5}des démons ?! Vraiment ?!"
 
     hide charles with dissolve
@@ -224,64 +193,6 @@ label reunion_start:
     hide gaston with dissolve
     show charles normal at center with dissolve
     
-<<<<<<< .merge_file_a06988
-    #charles "Il ne leur a fallu qu’une nuit pour prendre d’assaut le château royal et assassiner la majorité des nobles qui s’y trouvaient."
-    charles "En un clin d’oeil, ils ont terrassé tout le royaume et ont pris le pouvoir"
-    charles "À présent, ils dirigent le pays et imposent leurs dogmes religieux."
-    charles normal "L’Ordre du Lys est un groupe de résistants."
-    charles "Il a été crée dans le but de lutter contre les Templiers."
-    leon "L’Ordre du Lys doit être un puissant groupe pour pouvoir lutter contre eux..."
-    charles serieux "..."
-    charles "Tous les membres de l’Ordre sont présents dans cette pièce."
-    leon "Que... quoi ?!"
-    leon "Vous comptez les vaincre avec seulement 5 personnes ?!"
-    self "Ils se moquent de moi ?!"
-
-    hide charles with dissolve
-    show anne serieuse at center with dissolve
-
-    anne serieuse "Eh, nous ne sommes peut-être pas nombreux, mais le peuple est de notre côté."
-    anne "Nous agissons au nom de tous ceux qui n’ont pas le courage de faire face aux Templier."
-    anne "Nous avons de nombreux alliés qui nous aident financièrement ou qui nous fournissent des informations."
-    anne "Avoir un prince parmi nous aide vraiment pour notre image."
-    leon "Un... un prince ?!"
-    anne normal "Ah, c’est vrai que tu ne t’en souviens plus."
-    anne souriante "Charles était un prince de l’ancien royaume."
-
-    hide anne with dissolve
-    show charles normal with dissolve
-
-    charles "Je suis le dernier survivant de la famille royale."
-    self "Un prince, vraiment ?!"
-
-    menu:
-        "\"Excusez mon impolitesse, votre Altesse. Je ne savais pas.\"":
-           jump reunion_3_1
-        "\"Un prince devrait vraiment se battre alors qu’il n’y a plus d’autre héritier ?\"":
-           jump reunion_3_2
-
-label reunion_3_1:
-    leon "Excusez mon impolitesse, votre Altesse. Je ne savais pas."
-
-    pause 2.0
-    hide charles with dissolve
-    show gaston souriant at center with dissolve
-
-    gaston "Ha ha! Tu devrais voir ta tête !"
-
-    hide gaston with dissolve
-    show anne normal at center with dissolve
-
-    anne "Gaston, ne te moque pas! Tu avais réagi exactement de la même façon la première fois que tu as rencontré Charles toi aussi."
-    self "Elle dit ça, mais elle se retient de rire elle aussi..."
-    anne souriante"Nous avons décidé que les statuts n’auraient pas d’importance au sein de l’ordre. D’ailleurs, j’étais moi même servante avant de rejoindre l’Ordre !"
-
-    jump reunion_3_end
-
-label reunion_3_2:
-
-    leon "Un prince devrait vraiment risquer sa vie alors qu’il n’y a plus d’autre héritier ?"
-=======
     charles "Il y a 6 ans, ils ont terrassé les armées de la monarchie en utilisant la puissance de ces démons."
     charles serieux "En un mois à peine, ils ont assassiné le roi Philippe le Bel et se sont emparés du pouvoir."
     charles "Ils dirigent depuis le pays en imposant leurs dogmes religieux."
@@ -290,7 +201,6 @@ label reunion_3_2:
     charles normal "En tant qu’ancien prince, il était de ma responsabilité de fonder l’Ordre du Lys."
     charles "C’est un groupe de résistants qui lutte face aux Templiers."
     leon "Un... un prince ?!"
->>>>>>> .merge_file_a09276
 
     hide charles with dissolve
     show anne souriante with dissolve
@@ -304,40 +214,17 @@ label reunion_3_2:
     hide anne with dissolve
     show charles serieux with dissolve
 
-<<<<<<< .merge_file_a06988
-    charles "Quoi qu’il en soit, nous avons beau n’être que cinq véritables exécutants, c’est largement suffisant."
-    charles "Ce n’est pas comme si nous avions besoin d’une armée."
-    charles "Le règne des Templiers est centré autour d’une seule et unique personne."
-    charles serieux "Jacques de Molay."
-    charles normal "Il est le grand maître des Templiers. C’est lui qui est à l’origine de toutes les atrocités commises par les Templiers."
-    charles serieux "Si nous le tuons tout le reste s’écroulera."
-    self "Ce raisonnement semble bien optimiste..."
-    charles normal "Nous sommes un groupe d’élite spécialisé dans l’infiltration et l’assassinat. L’Ordre du Lys a été crée dans le but d’abattre cet homme."
-    leon "Mais... l’Ordre doit se battre contre des démons, pas vrai ?"
-    charles "À vrai dire, nous n’en avons que rarement croisé et nous avons réussi à nous enfuir à chaque fois."
-    charles "Bien qu’on ne sache presque rien sur eux, ils ne sont pas si nombreux et la plupart restent dans les châteaux sans en sortir."
-    leon "..."
-    leon "Les Templiers sont-ils vraiment si mauvais pour justifier de renverser le pouvoir ?"
-    self "Après tout, il ne font que me donner leur version des faits..."
-=======
     charles "..."
     leon "Que... quoi ?!"
     leon "Vous comptez les vaincre avec seulement cinq personnes ?!"
     self "Ils se moquent de moi ?!"
->>>>>>> .merge_file_a09276
 
     hide charles with dissolve
     show anne serieuse at center with dissolve
 
-<<<<<<< .merge_file_a06988
-    anne "Léon."
-    anne "Si quelqu’un renie leur façon de faire ou est soupçonné d’agir contre leur intérêt..."
-    anne "Ils le punissent par une malédiction."
-=======
     anne serieuse "Eh, nous ne sommes peut-être pas nombreux, mais le peuple est de notre côté."
     anne "Nous agissons au nom de tous ceux qui n’ont pas le courage de faire face aux Templier."
     anne "Nous avons de nombreux alliés qui nous aident financièrement ou qui nous fournissent des informations."
->>>>>>> .merge_file_a09276
 
     hide anne with dissolve
     show charles normal with dissolve
@@ -353,82 +240,15 @@ label reunion_3_2:
     charles "Le corps est entièrement recouvert après quelques jours."
     charles serieux "La personne maudite perd alors la raison. Elle se met à se déchaîner sans distinction sur les gens qui l’entourent." 
     charles "Elle fini alors par mourir une fois épuisée mentalement."
-<<<<<<< .merge_file_a06988
-    self "Ça semble vraiment tiré par les cheveux... {w=0.5}Un phénomène pareil existe réellement ?"
-    leon "Pourquoi les Templiers ne tuent pas simplement la personne concernée plutôt que de lui infliger ça ?"
-    charles normal "Leur objectif est de traumatiser le peuple pour le convaincre de ne pas s’opposer à eux."
-    charles "Cette malédiction est contagieuse. Elle se transmet simplement par le toucher."
-    charles serieux "Par conséquent, les personnes affectées finissent souvent exécutées par leur propre famille ou amis."
-    charles "Malheureusement, il n’y a pas de remède une fois que quelqu’un a été affecté par la malédiction."
-
-    hide charles with dissolve
-    show gaston serieux at center with dissolve
-
-    gaston "Eh, on s’était mis d’accord pour plus aborder ce sujet."
-
-    hide gaston with dissolve
-    show helene serieuse with dissolve
-
-    helene "Gaston... Léon ne se souvient plus de rien, la situation est particulière."
-
-    hide helene with dissolve
-    show gaston serieux at center with dissolve
-
-    gaston "Alors ce sera sans moi."
-
-    hide gaston with dissolve
-    pause 0.5
-    show helene serieuse with dissolve
-
-    helene "Eh !"
-
-    hide helene with dissolve
-    show charles serieux at center with dissolve
-
-    charles "Laisse-le, Hélène."
-    leon "Qu’est-ce qu’il lui arrive ?"
-=======
     self "Un phénomène pareil existe réellement ?"
     charles normal "Cette malédiction est contagieuse. Elle se transmet simplement par le toucher."
     charles "Il n’y a pas de remède une fois que quelqu’un a été affecté par la malédiction."
     charles serieux "Par conséquent, les personnes affectées sont condamnées à être exécutées sur le champs."
     leon "L’Ordre du Lys s’est fait massacré alors qu’il avait une armée et souhaite toujours se battre avec une poignée de personnes ?!"
->>>>>>> .merge_file_a09276
 
     hide charles with dissolve
     show anne normal with dissolve
 
-<<<<<<< .merge_file_a06988
-    anne "Parler de ce sujet est un tabou pour lui."
-    leon "Comment ça ?"
-    anne "..."
-    anne "C’est une histoire qui remonte à l’époque où Hélène et toi n’aviez pas encore rejoint l’Ordre. Celui-ci était composé de Charles, Gaston, moi-même et d’un dernier membre."
-    anne normal "C’était une jeune femme radieuse. Elle s’appelait Charlotte."
-    anne souriante "Dès la première fois qu’il l’a vue, Gaston est tout de suite tombé sous son charme."
-    anne "Charlotte, quand à elle, était un peu plus réservée mais a fini par se laisser séduire"
-    anne normal "..."
-    anne serieuse "..."
-    anne "Un jour, l’Ordre a mené un assaut dont le but était d’assassiner un dirigeant Templier."
-    anne "L’attaque s’est mal déroulée et Charlotte a été atteinte par un artefact démoniaque."
-    anne "Une marque noire est apparue sur son corps... Elle était touchée par la malédiction."
-    anne "..."
-    anne "Nous avons réussi à nous échapper, mais Charlotte était condamnée."
-
-    hide anne with dissolve
-    show charles serieux at center with dissolve
-
-    charles "Je lui ai porté le coup de grâce lorsque la marque avait recouvert la moitié de son corps."
-    charles "Nous n’avions pas d’autre choix."
-    self "C’est horrible..."
-
-    hide charles with dissolve
-    show anne serieuse at center with dissolve
-
-    anne "Tu comprendras qu’aborder le sujet est devenu difficile pour Gaston."
-
-    hide anne with dissolve
-    show charles normal at center with dissolve
-=======
     anne "Nous avons toujours une chance."
     anne "Le règne des Templiers est centré autour d’une seule et unique personne."
     anne serieuse "Jacques de Molay."
@@ -438,21 +258,12 @@ label reunion_3_2:
 
     hide anne with dissolve
     show charles normal with dissolve
->>>>>>> .merge_file_a09276
 
     charles "Bref. Je sais que tout ne doit pas être encore très clair pour toi, mais le temps presse."
     charles "Je vous ai tous demandé de venir pour une raison précise."
     self "Tout le monde semble si sérieux d’un coup..."
-<<<<<<< .merge_file_a06988
-    charles "Le but de l’attaque d’hier était de soutirer des informations à un officier Templier proche de Jacques de Molay."
-
-    show charles serieux with dissolve
-
-    charles "Malgré ce qui est arrivé à Léon, c’était un succès."
-=======
     charles "Le but de notre attaque de cette nuit était de soutirer des informations à un officier Templier proche de Jacques de Molay."
     charles serieux "Malgré ce qui est arrivé à Léon, c’était un succès."
->>>>>>> .merge_file_a09276
     charles normal "Suite à ça, nous avons réussi à connaître l’emploi du temps de Jacques de Molay pour les jours à venir."
     leon "Ce Templier l’a simplement révélé ?!"
 
@@ -496,16 +307,10 @@ label reunion_3_2:
     hide helene with dissolve
     show charles serieux at center with dissolve
 
-<<<<<<< .merge_file_a06988
-    self "*bruit d’attaque contrée*" 
-    leon "Ah...!"
-    anne souriante "Vu l’aisance avec laquelle il a bloqué mon attaque, je pense qu’il est évident qu’il a gardé tous ses réflexes."
-=======
     charles "C’est Jacques de Molay que nous attaquons, Hélène. Nous ne pouvons pas nous permettre de nous séparer d’un membre du groupe."
     charles "Nous attendons ce jour depuis si longtemps, nous devons mettre toutes les chances de notre côté."
     charles "Il viendra avec nous, la discussion est close."
     self "Je n’ai même pas mon mot à dire…"
->>>>>>> .merge_file_a09276
 
     hide charles with dissolve
     show helene serieuse at center with dissolve
@@ -545,11 +350,11 @@ label retour_chambre:
 
     self "J’ai la tête qui tourne... et mon bras..."
 
-    scene arm_gant with dissolve
+    scene arm_gant with long_dissolve
 
     self "Ca me brûle sous ce gant..."
 
-    scene arm_1 with dissolve
+    scene arm_1 with long_dissolve
 
     self "...!"
     self "Qu... Qu’est-ce que c’est que ça !"
@@ -565,11 +370,7 @@ label retour_chambre:
 
     self "Alors c’est à ça que je ressemble... Je tire une de ces têtes..."
     self "D’ailleurs, j’ai aucune idée de l’âge que j’ai..."
-<<<<<<< .merge_file_a06988
-    self "J’ai l’air plus vieux que je ne l’aurais espéré..."
-=======
     self "J’ai l’air plus vieux que je l’aurais espéré..."
->>>>>>> .merge_file_a09276
 
     play sound "music/FlashSound.mp3"
     scene decor noir with flash_blanc
@@ -590,62 +391,24 @@ label retour_chambre:
 
     anne "Léon, tu vas mieux ?"
     self "C’était limite mais j’ai pu remettre mon gant à temps..."
-<<<<<<< .merge_file_a06988
-    gaston "Eh, tu m’écoutes ?"
-    leon "Ne... ne t’inquiète pas, c’est juste un coup de fatigue, rien de bien grave."
-    gaston serieux "Je voulais m'excuser d’être parti comme ça tout à l’heure. C’était maladroit de ma part"
-    gaston "T’as perdu la mémoire quand même, c’était logique d’aborder ce sujet..."
-
-    menu:
-        "\"Il fallait y penser avant d’agir comme ça.\"":
-           jump chambre_1_1
-        "\"Ne t’inquiète pas, je comprends.\"":
-           jump chambre_1_2
-
-label chambre_1_1:
-    leon "Il fallait y penser avant d’agir comme ça."
-    gaston normal "Eh ! J’ai j’ai l’effort de m’excuser, tu pourrais me pardonner, quand même !"
-    jump chambre_1_end
-
-label chambre_1_2:
-    leon "Ne t’inquiète pas, je comprends."
-    gaston souriant "Merci, t’es vraiment un pote !"
-    jump chambre_1_end
-
-label chambre_1_end:
-    
-    pause 0.5
-    show gaston normal at center with dissolve
-    self "*bruit de porte qui s’ouvre"
-
-    show gaston normal at left with move
-=======
     anne "Eh, tu m’écoutes ?"
->>>>>>> .merge_file_a09276
-    show anne normal at right with dissolve
+    leon "Ne… ne t’inquiète pas, c’est juste un coup de fatigue, rien de bien grave."
+    anne serieuse "..."
+    anne "Te réveiller sans souvenirs au milieu d’inconnus doit être dur à vivre."
+    leon "Je n’ai des souvenirs d’aucun d’entre vous…"
+    leon "Je suppose que vous devez être des personnes importantes"
+    
 
-    anne "Ah, Gaston, tu es là."
-    anne serieuse "On avait dit qu’on laisserait Léon se reposer."
-    gaston "Je voulais juste voir comment il allait."
-    anne normal "Peu importe. Charles veut te parler à propos des préparatifs de l’attaque de demain."
-    gaston normal "Ça marche. Je vous laisse."
-
-    hide gaston with dissolve
-    show anne at center with move
-
-    anne "..."
-    anne "Tu as vraiment mauvaise mine."
-    anne "Pas étonnant qu’Hélène se soit énervée tout à l’heure quand Charles parlait de te faire participer à l’attaque."
-    leon "Elle était persistante."
-    anne souriante "Eh, c’est normal, elle t’aime, quand même !"
-    leon "...!"
+    anne souriante ""
+    leon "Un… un couple ?!"
     leon "Vraiment ?!"
     anne normal "Oh... elle ne t’en a pas parlé ?"
     anne serieuse "Je vois... ton amnésie doit être très dure à vivre pour elle aussi."
     anne souriante "Hélène et toi êtes en couple depuis bien avant que vous n'ayez intégré l’Ordre."
     leon "Elle ne m’en a pas dit un mot..."
     anne normal "..."
-    anne "J’ai quelque chose à proposer. Allons voir Charles."
+    anne serieuse "Tu as vraiment mavaise mine."
+    anne normal "J’ai quelque chose à proposer. Allons voir Charles."
     
     jump grande_salle
 # END FILE 04 - Chambre
@@ -772,9 +535,9 @@ label dialogue_charles_1_end:
 
     self "Tout à l’heure... mon bras..."
 
-    scene arm_gant with dissolve
+    scene arm_gant with long_dissolve
     pause 0.8
-    scene arm_2 with dissolve
+    scene arm_2 with long_dissolve
 
     self "La marque... elle s’est propagée..."
 
@@ -1077,9 +840,9 @@ label soir_endingAB_start:
     self "C’est vraiment raisonnable ?"
 
     pause 0.5
-    scene arm_gant with dissolve
+    scene arm_gant with long_dissolve
     pause 0.8
-    scene arm_3 with dissolve
+    scene arm_3 with long_dissolve
 
     self "..."
     self "Ça s’est encore propagé..."
@@ -1125,7 +888,7 @@ label soir_endingAB_start:
         "Se cacher dans la forêt":
            jump soir_2_2
 
-label village_2_1:
+label soir_2_1:
 
     self "..."
     self "Cette attaque est trop importante. Je me sentirais coupable de ne pas y aller avec eux."
@@ -1133,7 +896,7 @@ label village_2_1:
 
     jump massacre_endingA_start
 
-label village_2_1:
+label soir_2_1:
 
     self "..."
     self "Et puis merde !"
@@ -1163,9 +926,9 @@ label massacre_endingA_start:
     self "Elle m’évite depuis tout à l’heure..."
     self "Vu que les autres agissent normalement, je ne pense pas qu’elle leur ait parlé de mon bras. C’est déjà un soulagement."
 
-    scene arm_gant with dissolve
+    scene arm_gant with long_dissolve
     pause 0.8
-    scene arm_4 with dissolve
+    scene arm_4 with long_dissolve
 
     self "Ça s’est encore propagé..."
     self "..."
@@ -1313,9 +1076,9 @@ label massacre_endingB_start:
 
     self "Ça fait déjà un moment... J’espère que ça ne se passe pas mal."
 
-    scene arm_gant with dissolve
+    scene arm_gant with long_dissolve
     pause 0.8
-    scene arm_4 with dissolve
+    scene arm_4 with long_dissolve
 
     self "J’ai l’impression que ça se propage de plus en plus vite."
     self "Au final, je ne fais que leur causer des problèmes..."
@@ -1398,9 +1161,9 @@ label soir_endingC_start:
     self "Encore ce truc..."
     self "Mon bras me brûle..."
 
-    scene arm_gant with dissolve
+    scene arm_gant with long_dissolve
     pause 0.5
-    scene arm_3 with dissolve
+    scene arm_3 with long_dissolve
 
     self "..."
     self "La réaction qu’elle a eu quand elle a vu mon bras..."
@@ -1582,11 +1345,7 @@ label flashback_start:
     jacques "Parfait. Tu vas pouvoir passer à l’invocation de ton démon."
     jacques "Tu lui as déjà choisi un nom ?"
     leon "Oui, grand maître."
-<<<<<<< .merge_file_a06988
-    leon "Si c’est un mâle, je l’appellerai Horace."
-=======
     leon "Si c’est un mâle, je l’appellerai Horace." # ohrace oh desespoir !
->>>>>>> .merge_file_a09276
     leon "Et si c’est une femelle, je l’appellerais..."
     leon "Hélène."
     return
