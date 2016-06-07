@@ -55,7 +55,7 @@ image anne normal:
     "characters/anne/Anne_Normale.png"
 image anne masque:
     "characters/anne/Anne_Masque.png"
-image anne choquee:
+image anne panique:
     "characters/anne/Anne_Panique.png"
 image anne serieuse:
     "characters/anne/Anne_Serieuse.png"

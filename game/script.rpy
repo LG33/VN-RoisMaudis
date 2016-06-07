@@ -819,7 +819,7 @@ label briefing_endingC_start:
 
     self "Il ne reste que nous deux..."
     leon "Hélène, je..."
-    helne "Je vais me préparer."
+    helene "Je vais me préparer."
 
     hide helene with dissolve
 
