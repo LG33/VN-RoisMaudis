@@ -1,19 +1,16 @@
 image decor noir = "#000"
 image decor intro:
     "backgrounds/intro.png"
-    zoom 0.5
+    zoom 0.6
 image decor chambre:
     "backgrounds/bedroom.png"
     zoom 0.5
 image decor grande_salle:
     "backgrounds/bigroom.png"
-    zoom 0.5
 image decor entree:
     "backgrounds/entry.png"
-    zoom 0.5
 image decor village:
-    "backgrounds/village.jpg"
-    zoom 0.5
+    "backgrounds/village.png"
 image decor chateau:
     "backgrounds/fontainebleau.png"
     zoom 0.5
@@ -21,7 +18,7 @@ image decor water:
     "backgrounds/water.png"
     zoom 0.5
 image decor eglise:
-    "backgrounds/eglise.jpg"
+    "backgrounds/eglise.png"
 
 image helene normal:
     "characters/helene/Helene_Normale.png"
@@ -50,6 +47,7 @@ image gaston souriant:
     "characters/gaston/Gaston_Sourire.png"
 image gaston panique:
     "characters/gaston/Gaston_Panique.png"
+image cadavre_gaston = "backgrounds/CG_Gaston.jpg"
 
 image anne normal:
     "characters/anne/Anne_Normale.png"
