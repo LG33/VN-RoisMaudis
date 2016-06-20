@@ -62,7 +62,7 @@ label reveil_start:
     stop music fadeout 1.0
     play music "music/planque_dialogue.mp3" fadein 1.0 loop
 
-    show helene inquiete at center_zoom
+    show helene inquiete at center
     with long_dissolve
 
     inconnu "Ça y est, tu es réveillé ?"
@@ -613,6 +613,8 @@ label village_start:
     helene normal "..."
     helene serieuse "Léon..."
     leon "Oui ?"
+
+    show helene normal at center_zoom
     helene "Je n’ai pas vraiment trouvé le moment pour t’en parler plus tôt, mais..."
     helene "Toi et moi... {w=0.5}nous formons un couple."
 
@@ -704,7 +706,7 @@ label village_2_2:
     leon "..."
     helene normal "Peu importe."
     helene souriante "Si un jour tu dois me parler de quelque chose, tu sais que je serai là pour t’écouter."
-    helene normal "Il commence à être tard. Nous devrions rentrer."
+    helene normal "Il commence à se faire tard. Nous devrions rentrer."
 
     # On stoppe la musique dans cette scène là, en même temps que la transition visuelle
     stop music fadeout 3.0

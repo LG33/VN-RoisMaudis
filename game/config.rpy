@@ -124,17 +124,17 @@ transform center:
     
 transform left_zoom: 
     xalign 0.2 
-    yalign 1.2
+    yalign 0.3
     zoom 2
     
 transform right_zoom: 
     xalign 0.8
-    yalign 1.2
+    yalign 0.3
     zoom 2
     
 transform center_zoom: 
     xalign 0.5 
-    yalign 1.2
+    yalign 0.3
     zoom 2
 
 define ellipse = Fade(0.5, 2.0, 0.5)
