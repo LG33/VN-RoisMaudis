@@ -32,7 +32,7 @@ label credits:
     return
 
 init python:
-    credits = ('Game Designer', 'Sven'), ('Game Designer', 'David'), ('Game Designer', 'Louis'), ('Game Designer', 'Joseph'), ('Graphistes', 'Alice'), ('Graphistes', 'Alexandre'), ('Graphistes', 'Coline'), ('Graphistes', 'Philipine'), ('Graphistes', 'Nina'), ('Graphistes', 'Julia'),
+    credits = ('Game Designer', 'Sven Barray'), ('Game Designer', 'David Birgé-Cotte'), ('Game Designer', 'Louis Gaillard'), ('Game Designer', 'Joseph reichenbach'), ('Graphistes', 'Alice Leclerc'), ('Graphistes', 'Alexandre Mahmoudi'), ('Graphistes', 'Coline Bertrand'), ('Graphistes', 'Philipine Briard'), ('Graphistes', 'Nina Yang'), ('Graphistes', 'Julia Blarda'),
     credits_s = "{size=80}Credits\n\n"
     c1 = ''
     for c in credits:
