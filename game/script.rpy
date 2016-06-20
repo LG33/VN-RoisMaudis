@@ -3,6 +3,8 @@
 
 # 01 - Fuite
 label start:
+    stop music fadeout 1
+    
     play sound ["music/AttaqueMagique.mp3" , "music/ChuteHomme.mp3"] fadein 1.0
     show screen menu_button
     scene decor noir with long_dissolve

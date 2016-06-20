@@ -89,11 +89,11 @@ screen main_menu:
     
     add "gui/accueil/accueil.jpg"
     
-    imagebutton auto "gui/accueil/nouveau_%s.png" xpos 0 ypos 0 focus_mask True action Start() hovered [ Play ("test_one", "sfx/click.wav")] mouse "hover"
+    imagebutton auto "gui/accueil/nouveau_%s.png" xpos 0 ypos 0 focus_mask True action [Start(), Play("sound", "music/BoutonNavigation.mp3")]  mouse "hover"
 
-    imagebutton auto "gui/accueil/charger_%s.png" xpos 0 ypos 0 focus_mask True action [ShowMenu('charger'), Show("load")] hovered [ Play ("test_two", "sfx/click.wav")] mouse "hover"
+    imagebutton auto "gui/accueil/charger_%s.png" xpos 0 ypos 0 focus_mask True action [ShowMenu('charger'), Show("load"), Play("sound", "music/BoutonNavigation.mp3")]  mouse "hover"
     
-    imagebutton auto "gui/accueil/quitter_%s.png" xpos 0 ypos 0 focus_mask True action Quit(confirm=False) hovered [ Play ("test_five", "sfx/click.wav")] mouse "hover"
+    imagebutton auto "gui/accueil/quitter_%s.png" xpos 0 ypos 0 focus_mask True action [Quit(confirm=False), Play("sound", "music/BoutonNavigation.mp3")]  mouse "hover"
 
             
 ## ■██▓▒░ SAVE / LOAD SLOT ░▒▓██████████████████████████████■
@@ -101,6 +101,8 @@ screen main_menu:
 init -2 python: #we initialize x and y, so the load_save_slot screen below works at startup
     x=0
     y=0
+    
+    soundOn = True
         
 screen load_save_slot:
     $ file_text = "% s\n  %s" % (FileTime(number, empty="Empty Slot."), FileSaveName(number))
@@ -119,8 +121,15 @@ screen load_save_slot:
 screen charger:
     tag menu
     
-    use sound_On
-    use fullscreen_Off
+    if soundOn:
+        use sound_On
+    else:
+        use sound_Off
+    
+    if _preferences.fullscreen:
+        use fullscreen_On
+    else:
+        use fullscreen_Off
     
     use nav_buttons
     
@@ -129,65 +138,72 @@ screen sauvegarder:
     
     use save
     
-    use sound_On
-    use fullscreen_Off
+    if soundOn:
+        use sound_On
+    else:
+        use sound_Off
+    
+    if _preferences.fullscreen:
+        use fullscreen_On
+    else:
+        use fullscreen_Off
     
     use nav_buttons
     
 screen save:
     image "gui/save_tab_on.png" xpos 0.22 ypos 0.1
-    imagebutton auto "gui/load_tab_off_%s.png" xpos 0.1 ypos 0.1 focus_mask True action [Hide("save"), Show("load")] hovered [ Play ("test_one", "sfx/click.wav")] mouse "hover"
+    imagebutton auto "gui/load_tab_off_%s.png" xpos 0.1 ypos 0.1 focus_mask True action [Hide("save"), Show("load"), Play("sound", "music/BoutonNavigation.mp3")] mouse "hover"
     
     use save_load_slots
     
 screen load:
     image "gui/load_tab_on.png" xpos 0.1 ypos 0.1
-    imagebutton auto "gui/save_tab_off_%s.png" xpos 0.22 ypos 0.1 focus_mask True action [Hide("load"), Show("save")] hovered [ Play ("test_one", "sfx/click.wav")] mouse "hover"
+    imagebutton auto "gui/save_tab_off_%s.png" xpos 0.22 ypos 0.1 focus_mask True action [Hide("load"), Show("save"), Play("sound", "music/BoutonNavigation.mp3")] mouse "hover"
     
     use save_load_slots
     
 screen save_load_slots:
     $ y=210
     for i in range(0, 3):
-        imagebutton auto "gui/fileslot_%s.png" xpos 195 ypos y focus_mask True action FileAction(i) mouse "hover"
+        imagebutton auto "gui/fileslot_%s.png" xpos 195 ypos y focus_mask True action [FileAction(i), Play("sound", "music/BoutonSelection.mp3")] mouse "hover"
         use load_save_slot(number=i, x=195, y=y)
         $ y+=124
     
     $ y=210
     for i in range(3, 6):
-        imagebutton auto "gui/fileslot_%s.png" xpos 620 ypos y focus_mask True action FileAction(i) mouse "hover"
+        imagebutton auto "gui/fileslot_%s.png" xpos 620 ypos y focus_mask True action [FileAction(i), Play("sound", "music/BoutonSelection.mp3")] mouse "hover"
         use load_save_slot(number=i, x=620, y=y)
         $ y+=124
         
 screen nav_buttons:
-    imagebutton auto "gui/retour_%s.png" xpos 0.1 ypos 0.8 action [Return(), Hide("save"), Hide("load"), Hide("sound_On"), Hide("sound_Off"), Hide("fullscreen_Off"), Hide("fullscreen_On")] hovered [ Play ("test_one", "sfx/click.wav")] mouse "hover"
-    imagebutton auto "gui/menu_%s.png" xpos 0.22 ypos 0.8 action [MainMenu(), Hide("save"), Hide("load"), Hide("sound_On"), Hide("sound_Off"), Hide("fullscreen_Off"), Hide("fullscreen_On")] hovered [ Play ("test_one", "sfx/click.wav")] mouse "hover"
-    imagebutton auto "gui/log_%s.png" xpos 0.7 ypos 0.8 action [ShowMenu('text_history'), Hide("save"), Hide("load"), Hide("sound_On"), Hide("sound_Off"), Hide("fullscreen_Off"), Hide("fullscreen_On")] hovered [ Play ("test_one", "sfx/click.wav")] mouse "hover"
+    imagebutton auto "gui/retour_%s.png" xpos 0.1 ypos 0.8 action [Return(), Hide("save"), Hide("load"), Hide("sound_On"), Hide("sound_Off"), Hide("fullscreen_Off"), Hide("fullscreen_On"), Play("sound", "music/BoutonNavigation.mp3")] mouse "hover"
+    imagebutton auto "gui/menu_%s.png" xpos 0.22 ypos 0.8 action [MainMenu(), Hide("save"), Hide("load"), Hide("sound_On"), Hide("sound_Off"), Hide("fullscreen_Off"), Hide("fullscreen_On"), Play("sound", "music/BoutonNavigation.mp3")] mouse "hover"
+    imagebutton auto "gui/log_%s.png" xpos 0.7 ypos 0.8 action [ShowMenu('text_history'), Hide("save"), Hide("load"), Hide("sound_On"), Hide("sound_Off"), Hide("fullscreen_Off"), Hide("fullscreen_On"), Play("sound", "music/BoutonNavigation.mp3")] mouse "hover"
     #imagebutton auto "gui/log_%s.png" xpos 0.6 ypos 0.8 action [Jump('credits'), Hide("save"), Hide("load"), Hide("sound_On"), Hide("sound_Off"), Hide("fullscreen_Off"), Hide("fullscreen_On")] hovered [ Play ("test_one", "sfx/click.wav")]
     
 screen sound_Off: 
-    imagebutton auto "gui/sound_off_%s.png" xpos 0.58 ypos 0.22 focus_mask True action [SetMute("music",False), SetMute("sfx",False), SetMute("voice",False), Hide("sound_Off"), Show("sound_On")] hovered [ Play ("test_one", "sfx/click.wav")] mouse "hover"
+    imagebutton auto "gui/sound_off_%s.png" xpos 0.58 ypos 0.22 focus_mask True action [ToggleVariable("soundOn"), SetMute("music",False), SetMute("sfx",False), SetMute("voice",False), Hide("sound_Off"), Show("sound_On"), Play("sound", "music/BoutonSelection.mp3")] mouse "hover"
     
 screen sound_On: 
-    imagebutton auto "gui/sound_on_%s.png" xpos 0.58 ypos 0.22 focus_mask True action [SetMute("music",True), SetMute("sfx",True), SetMute("voice",True), Hide("sound_On"), Show("sound_Off")] hovered [ Play ("test_one", "sfx/click.wav")] mouse "hover"
+    imagebutton auto "gui/sound_on_%s.png" xpos 0.58 ypos 0.22 focus_mask True action [ToggleVariable("soundOn"), SetMute("music",True), SetMute("sfx",True), SetMute("voice",True), Hide("sound_On"), Show("sound_Off"), Play("sound", "music/BoutonSelection.mp3")] mouse "hover"
     
 screen fullscreen_Off:
-    imagebutton auto "gui/config_display_fullscreen_%s.png" xpos 0.58 ypos 0.1 focus_mask True action [Preference('display', 'fullscreen'), Hide("fullscreen_Off"), Show("fullscreen_On")] hovered [ Play ("test_one", "sfx/click.wav")] mouse "hover"
+    imagebutton auto "gui/config_display_fullscreen_%s.png" xpos 0.58 ypos 0.1 focus_mask True action [Preference('display', 'fullscreen'), Hide("fullscreen_Off"), Show("fullscreen_On"), Play("sound", "music/BoutonSelection.mp3")] mouse "hover"
     
 screen fullscreen_On: 
-    imagebutton auto "gui/config_display_window_%s.png" xpos 0.58 ypos 0.1 focus_mask True action [Preference('display', 'window'), Hide("fullscreen_On"), Show("fullscreen_Off")] hovered [ Play ("test_one", "sfx/click.wav")] mouse "hover"
+    imagebutton auto "gui/config_display_window_%s.png" xpos 0.58 ypos 0.1 focus_mask True action [Preference('display', 'window'), Hide("fullscreen_On"), Show("fullscreen_Off"), Play("sound", "music/BoutonSelection.mp3")] mouse "hover"
 
 ## ■██▓▒░ YES/NO PROMPT ░▒▓█████████████████████████████████■
 ## Screen that asks the user a yes or no question. You'll need to edit this to change the position and style of the text.
 ## http://www.renpy.org/doc/html/screen_special.html#yesno-prompt
 
 screen yesno_prompt:
-    on "show" action Play("sound", "sfx/alert.wav")
+    on "show"
     modal True # A modal screen prevents the user from interacting with displayables below it, except for the default keymap.
 
     add "gui/yesno_ground.png"
-    imagebutton auto "gui/yesno_yes_%s.png" xpos 0.35 ypos 0.8 action yes_action hover_sound "sfx/click.wav" mouse "hover"
-    imagebutton auto "gui/yesno_no_%s.png" xpos 0.65 ypos 0.8 action no_action hover_sound "sfx/click.wav" mouse "hover"
+    imagebutton auto "gui/yesno_yes_%s.png" xpos 0.35 ypos 0.8 action [yes_action, Play("sound", "music/BoutonNavigation.mp3")] mouse "hover"
+    imagebutton auto "gui/yesno_no_%s.png" xpos 0.65 ypos 0.8 action [no_action, Play("sound", "music/BoutonNavigation.mp3")]  mouse "hover"
     
     if message == layout.ARE_YOU_SURE:
         add "gui/yesno_are_you_sure.png"
@@ -206,15 +222,6 @@ screen yesno_prompt:
 screen gui_tooltip:
     add my_picture xpos my_tt_xpos ypos my_tt_ypos
 
-## ■██▓▒░ CUSTOM SOUND CHANNEL ░▒▓██████████████████████████■
-# This is the block where we declare the individual sound channels. This enables us to play several sound FX's without overlapping
-init python:
-    renpy.music.register_channel("test_one", "sfx", False)
-    renpy.music.register_channel("test_two", "sfx", False)
-    renpy.music.register_channel("test_three", "sfx", False)
-    renpy.music.register_channel("test_four", "sfx", False)
-    renpy.music.register_channel("test_five", "sfx", False)
-    renpy.music.register_channel("test_six", "sfx", False)
 
 ## ■██▓▒░ THE TEXTBOX ░▒▓███████████████████████████████████■
 # Screen that's used to display adv-mode dialogue.
@@ -249,7 +256,7 @@ init python:
 ## Screens for the quick menus above the textbox. We use several different quick menus for presentation purposes.
 
 screen menu_button:
-    imagebutton auto "gui/ingame_menu_%s.png" action ShowMenu('sauvegarder') xpos 0.85 ypos 0 focus_mask True mouse "hover"
+    imagebutton auto "gui/ingame_menu_%s.png" action [ShowMenu('sauvegarder'), Play("sound", "music/BoutonNavigation.mp3")]  xpos 0.85 ypos 0 focus_mask True mouse "hover"
 
 screen ingame_menu:
     imagebutton auto "gui/quick_config_%s.png" action ShowMenu('preferences') focus_mask True at option mouse "hover"

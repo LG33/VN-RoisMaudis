@@ -13,7 +13,6 @@ image decor village:
     "backgrounds/village.png"
 image decor chateau:
     "backgrounds/fontainebleau.png"
-    zoom 0.5
 image decor water:
     "backgrounds/water.png"
     zoom 0.5
