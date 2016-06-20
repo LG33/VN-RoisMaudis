@@ -4,7 +4,6 @@ image decor intro:
     zoom 0.6
 image decor chambre:
     "backgrounds/bedroom.png"
-    zoom 0.5
 image decor grande_salle:
     "backgrounds/bigroom.png"
 image decor entree:
