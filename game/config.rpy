@@ -7,13 +7,10 @@ image decor chambre:
     zoom 0.5
 image decor grande_salle:
     "backgrounds/bigroom.png"
-    zoom 0.5
 image decor entree:
     "backgrounds/entry.png"
-    zoom 0.5
 image decor village:
     "backgrounds/village.png"
-    zoom 0.5
 image decor chateau:
     "backgrounds/fontainebleau.png"
     zoom 0.5
@@ -50,7 +47,7 @@ image gaston souriant:
     "characters/gaston/Gaston_Sourire.png"
 image gaston panique:
     "characters/gaston/Gaston_Panique.png"
-image mort_de_helene = "backgrounds/CG_Gaston.jpg"
+image cadavre_gaston = "backgrounds/CG_Gaston.jpg"
 
 image anne normal:
     "characters/anne/Anne_Normale.png"
