@@ -46,9 +46,9 @@ label fuite_fin:
 
     inconnu "LÉON !!!"
 
-    stop sound fadeout 3.0
-    stop music fadeout 3.0
-    stop cloche fadeout 3.0
+    stop sound fadeout 1.5
+    stop music fadeout 1.5
+    stop cloche fadeout 1.5
 
     pause 4.0
 
@@ -1376,13 +1376,13 @@ label flashback_start:
     scene decor noir with dissolve
     
 
-    jacques_inconnu "{cps=*3}Demain, c’est le grand jour...{/cps}"
-    jacques_inconnu "{cps=*3}Nous allons enfin pouvoir nous débarrasser de cette monarchie exécrable qui règne depuis bien trop longtemps.{/cps}"
-    jacques_inconnu "{cps=*3}N’es-tu pas excité, Léon ?{/cps}"
-    jacques_inconnu "{cps=*3}Tu t’es préparé tellement longtemps pour ce jour.{/cps}"
-    jacques_inconnu "{cps=*3}Plus que n’importe qui d’autre.{/cps}"
-    jacques_inconnu "{cps=*3}...{/cps}"
-    jacques_inconnu "{cps=*3}Il y a plusieurs choses que tu dois savoir sur les démons.{/cps}"
+    jacques_inconnu "{cps=*1.3}Demain, c’est le grand jour...{/cps}"
+    jacques_inconnu "{cps=*1.3}Nous allons enfin pouvoir nous débarrasser de cette monarchie exécrable qui règne depuis bien trop longtemps.{/cps}"
+    jacques_inconnu "{cps=*1.3}N’es-tu pas excité, Léon ?{/cps}"
+    jacques_inconnu "{cps=*1.3}Tu t’es préparé tellement longtemps pour ce jour.{/cps}"
+    jacques_inconnu "{cps=*1.3}Plus que n’importe qui d’autre.{/cps}"
+    jacques_inconnu "{cps=*1.3}...{/cps}"
+    jacques_inconnu "{cps=*1.3}Il y a plusieurs choses que tu dois savoir sur les démons.{/cps}"
 
     scene decor eglise with dissolve
     # on attend la CG pour mettre la musique

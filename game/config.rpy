@@ -1,7 +1,6 @@
 image decor noir = "#000"
 image decor intro:
     "backgrounds/intro.png"
-    zoom 0.6
 image decor chambre:
     "backgrounds/bedroom.png"
 image decor grande_salle:
@@ -98,7 +97,7 @@ define charles = Character('Charles', image="charles", window_top_padding=22, wi
 
 define inconnu = Character('???', window_top_padding=22, window_background="gui/ingame/dialogue_box.png")
 
-define jacques_inconnu = Character("???", what_color="#8888ff", what_italic=True, what_slow_cps=10, window_top_padding=22, window_background="gui/ingame/dialogue_box.png")
+define jacques_inconnu = Character("???", what_color="#8888ff", what_italic=True, what_slow_cps=15, window_top_padding=22, window_background="gui/ingame/dialogue_box.png")
 define jacques = Character("Jacques De Molay", what_color="#8888ff", what_italic=True, what_slow_cps=20, window_top_padding=22, window_background="gui/ingame/dialogue_box.png")
 
 define self = Character(None, what_italic=True, what_color="#ffdd55", window_top_padding=90, window_background="gui/ingame/narrative_box.png")
