@@ -1,8 +1,9 @@
 ﻿# commentaires généraux.
 # 01 - Fuite
 label start:
-    play sound ["music/AttaqueMagique.mp3" , "music/ChuteHomme.mp3"] fadein 1.0
+    # play sound ["music/AttaqueMagique.mp3" , "music/ChuteHomme.mp3"] fadein 1.0
     show screen menu_button
+    stop music fadeout 3.0
     scene decor noir with long_dissolve
 
     inconnu "Léon ! Léon !!"
@@ -110,7 +111,7 @@ label reveil_1_end:
     leon "L’Ordre du Lys ?"
 
     pause 0.3
-    play sound "music/Clacporte.mp3"
+    play sound "music/door_opening.ogg"
     pause 0.5
     show helene at left with move
     show anne normal at right with long_dissolve
@@ -138,7 +139,7 @@ label reveil_1_end:
     anne "Je suis Anne, nous sommes amis. "
     anne normal "Charles nous attend. Léon, tu devrais venir avec nous."
 
-    play sound "music/Clacporte.mp3"
+    play sound "music/door_close.ogg"
 
     jump reunion_start
 # END FILE 02 - Réveil
@@ -152,6 +153,9 @@ label reunion_start:
     self "Où est-ce qu’ils m’emmènent..."
     pause 1.0
     
+    stop music fadeout 2.0
+    play cloche "music/grande_salle.ogg" fadein 1.0 loop
+
     scene decor grande_salle
     show charles normal at left
     show gaston normal at right
@@ -355,6 +359,9 @@ label retour_chambre:
     
     scene decor chambre with ellipse
 
+    stop cloche fadeout 2.0
+    play music "music/planque_dialogue.mp3" fadein 1.0 loop
+
     self "J’ai la tête qui tourne... {w=0.5}et mon bras..."
 
     scene arm_gant with long_dissolve
@@ -398,7 +405,7 @@ label retour_chambre:
     self "Une hallucination ?! Un souvenir ?!"
 
     pause 0.5
-    play sound "music/Clacporte.mp3"
+    play sound "music/door_opening.ogg"
     show anne normal at center with dissolve
 
     anne "Léon, tu vas mieux ?"
@@ -425,7 +432,7 @@ label retour_chambre:
     anne serieuse "Tu as vraiment mauvaise mine."
     anne normal "J’ai quelque chose à proposer. Allons voir Charles."
 
-    play sound "music/Clacporte.mp3"
+    play sound "music/door_close.ogg"
     
     jump grande_salle
 # END FILE 04 - Chambre
@@ -434,6 +441,10 @@ label retour_chambre:
 label grande_salle:
     
     scene decor grande_salle
+
+    stop music fadeout 2.0
+    play cloche "music/grande_salle.ogg" fadein 1.0 loop
+
     show anne normal at left
     show charles normal at right
     with ellipse
@@ -518,7 +529,7 @@ label grande_salle:
 
     show charles normal
 
-    play sound "music/BoutonNaviguation.mp3"
+    play sound "music/BoutonNavigation.mp3"
     self "Effectivement, elle rentre parfaitement dans le fourreau que j’ai à la taille."
     charles "Bien. Va retrouver Hélène. Revenez vite."
     leon "Ah! Je..."
@@ -567,8 +578,8 @@ label dialogue_charles_1_end:
 label sortie_start:
     scene decor noir with dissolve
 
-    # Stop la musique, sans en jouer une autre. Pause auditive pour cette scène de transition
-    stop music fadeout 1.0
+    stop music fadeout 3.0
+    stop cloche fadeout 3.0
 
     pause 1.5
     scene decor entree
@@ -719,7 +730,9 @@ label village_2_2:
 label briefing_endingAB_start:
 
     scene decor grande_salle
-    play music "music/planque_dialogue.mp3" fadein 1.0 loop
+    #play music "music/planque_dialogue.mp3" fadein 1.0 loop
+    play music "music/grande_salle.ogg" fadein 1.0 loop
+
     show anne normal at center
     with ellipse
 
@@ -861,6 +874,9 @@ label soir_endingAB_start:
 
     scene decor chambre with ellipse
 
+    stop music fadeout 1.0
+    play music "music/planque_dialogue.mp3" fadein 1.0 loop
+
     self "..."
     self "Me cacher avant leur départ..."
     self "C’est vraiment raisonnable ?"
@@ -872,7 +888,7 @@ label soir_endingAB_start:
 
     self "..."
     self "Ça s’est encore propagé..."
-    play sound "music/Clacporte.mp3"
+    play sound "music/door_opening.ogg"
 
     scene decor chambre
     show helene normal at center
@@ -885,7 +901,7 @@ label soir_endingAB_start:
     self "Elle a eu le temps de le voir ?!"
     helene "À plus tard."
 
-    play sound "music/Clacporte.mp3"
+    play sound "music/door_close.ogg"
 
     hide helene with dissolve
 
@@ -944,11 +960,12 @@ label soir_2_2:
 label massacre_endingA_start:
 
     scene decor chambre
-    play sound "music/Clacporte.mp3"
     show anne serieuse at center
     with ellipse
 
     anne "Léon, il est l’heure. Je t’attends à l’entrée."
+
+    play sound "music/door_close.ogg"
 
     self "Je suis stressé et excité à la fois."
     self "..."
@@ -1025,7 +1042,7 @@ label massacre_endingA_start:
     hide anne with dissolve
     pause 0.5
     with shake
-    #self "*bruit de corps qui tombe au sol*"
+    play sound "music/FlashSound.mp3"
     pause 1.5
     show helene_demon normal at center
     with long_dissolve
@@ -1053,7 +1070,7 @@ label massacre_endingA_start:
     hide gaston with dissolve
     pause 0.5
     with shake
-    #self "*bruit de corps qui tombe au sol*"
+    play sound "music/FlashSound.mp3"
     pause 0.5
 
     self "C’est un cauchemar !"
@@ -1068,7 +1085,7 @@ label massacre_endingA_start:
     hide charles with dissolve
     pause 0.5
     with shake
-    #self "*bruit de corps qui tombe au sol*"
+    play sound "music/FlashSound.mp3"
     pause 0.5
 
     self "Qu’est-ce que je dois faire ? Fuir ?"
@@ -1152,7 +1169,7 @@ label massacre_endingB_start:
     hide gaston with dissolve
     pause 0.5
     with shake
-    #self "*bruit de corps qui tombe au sol*"
+    play sound "music/FlashSound.mp3"
     pause 1.5
     show helene_demon normal at center with dissolve
 
@@ -1213,7 +1230,7 @@ label soir_endingC_start:
     self "Il faut que j’aille lui parler !"
 
     pause 0.5
-    play sound "music/ClacPorte.mp3"
+    play sound "music/door_opening.ogg"
     stop music fadeout 1.0
     play music "music/action.mp3" fadein 1.0 loop
     pause 0.5
@@ -1259,7 +1276,7 @@ label soir_endingC_start:
     hide charles with dissolve
     pause 0.5
     with shake
-    #self "*bruit de corps qui tombe au sol*"
+    play sound "music/FlashSound.mp3"
     pause 1.5
     show helene_demon normal at center
     with dissolve
@@ -1286,7 +1303,7 @@ label soir_endingC_start:
     hide anne with dissolve
     pause 0.5
     with shake
-    #self "*bruit de corps qui tombe au sol*"
+    play sound "music/FlashSound.mp3"
     pause 1.0
 
     show helene_demon souriante at center
@@ -1325,7 +1342,7 @@ label mort_de_helene_start:
 
     scene decor noir with dissolve
     with shake
-    #self "*bruit de corps qui tombe au sol*"
+    play sound "music/FlashSound.mp3"
     self "..."
     self "...elle ne respire plus."
     self "...!"
