@@ -58,10 +58,8 @@ init -1 python hide:
     style.window.background = Frame("gui/narrative_box.png", 0, 0)
 
     ## Padding is space inside the window, where the background is drawn.
-    style.window.left_padding = 110
-    style.window.right_padding = 110
-    style.window.top_padding = 90
-    # style.window.bottom_padding = 6
+    style.window.left_padding = 200
+    style.window.right_padding = 200
     
     style.say_vbox.spacing = 30
 
@@ -256,5 +254,7 @@ init python:
 
     build.documentation('*.html')
     build.documentation('*.txt')
+    
+    config.mouse = { 'default' : [ ('gui/mouse_pointer.png', 0, 0)], 'hover' : [ ('gui/mouse_hover.png', 0, 0)] }
     
     
