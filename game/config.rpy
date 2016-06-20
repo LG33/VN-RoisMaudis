@@ -189,3 +189,5 @@ init python:
 
     # Channels
     renpy.music.register_channel('cloche')
+    renpy.music.register_channel('menu', loop=False)
+    renpy.music.set_volume(0.5, 0, channel='menu')
