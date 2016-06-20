@@ -263,4 +263,13 @@ init python:
     
     config.main_menu_music = "music/ecran_titre.mp3"
     
+    config.keymap['rollback'].remove('K_PAGEUP')
+    config.keymap['rollback'].remove('repeat_K_PAGEUP')
+    config.keymap['rollback'].remove('K_AC_BACK')
+    config.keymap['rollback'].remove('mousedown_4')
+    
+    config.keymap['game_menu'].remove('K_ESCAPE')
+    config.keymap['game_menu'].remove('K_MENU')
+    config.keymap['game_menu'].remove('mouseup_3')
+    
     

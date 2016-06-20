@@ -71,22 +71,16 @@ image charles dague:
 
 image arm_0:
     "backgrounds/bras/bras_0.png"
-    zoom 0.5
 image arm_1:
     "backgrounds/bras/bras_1.png"
-    zoom 0.5
 image arm_2:
     "backgrounds/bras/bras_2.png"
-    zoom 0.5
 image arm_3:
     "backgrounds/bras/bras_3.png"
-    zoom 0.5
 image arm_4:
     "backgrounds/bras/bras_4.png"
-    zoom 0.5
 image arm_gant:
     "backgrounds/bras/bras_gant.png"
-    zoom 0.5
 
 # image test = im.MatrixColor("characters/bras_leon_fin.png",im.matrix.saturation(0.1))
 
