@@ -156,14 +156,14 @@ screen sauvegarder:
     use nav_buttons
     
 screen save:
-    image "gui/charger/sauvegarder_selected_idle.png" xpos 0.22 ypos 0.1
-    imagebutton auto "gui/charger/charger_%s.png" xpos 0.1 ypos 0.1 focus_mask True action [Hide("save"), Show("load"), Play("menu", "music/BoutonNavigation.mp3")] mouse "hover"
+    image "gui/charger/sauvegarder_selected_idle.png" xpos 155 ypos 165
+    imagebutton auto "gui/charger/charger_%s.png" xpos 559 ypos 175 focus_mask True action [Hide("save"), Show("load"), Play("menu", "music/BoutonNavigation.mp3")] mouse "hover"
     
     use save_load_slots
     
 screen load:
-    image "gui/charger/charger_selected_idle.png" xpos 0.1 ypos 0.1
-    imagebutton auto "gui/charger/sauvegarder_%s.png" xpos 0.22 ypos 0.1 focus_mask True action [Hide("load"), Show("save"), Play("menu", "music/BoutonNavigation.mp3")] mouse "hover"
+    image "gui/charger/charger_selected_idle.png" xpos 540 ypos 165
+    imagebutton auto "gui/charger/sauvegarder_%s.png" xpos 174 ypos 175 focus_mask True action [Hide("load"), Show("save"), Play("menu", "music/BoutonNavigation.mp3")] mouse "hover"
     
     use save_load_slots
     
@@ -181,10 +181,10 @@ screen save_load_slots:
         $ y+=188
         
 screen nav_buttons:
-    imagebutton auto "gui/charger/retour_%s.png" xpos 0.1 ypos 0.8 action [Return(), Hide("save"), Hide("load"), Hide("sound_On"), Hide("sound_Off"), Hide("fullscreen_Off"), Hide("fullscreen_On"), Play("menu", "music/BoutonNavigation.mp3")] mouse "hover"
-    imagebutton auto "gui/charger/main_menu_%s.png" xpos 0.22 ypos 0.8 action [MainMenu(), Hide("save"), Hide("load"), Hide("sound_On"), Hide("sound_Off"), Hide("fullscreen_Off"), Hide("fullscreen_On"), Play("menu", "music/BoutonNavigation.mp3")] mouse "hover"
-    imagebutton auto "gui/charger/credits_%s.png" xpos 0.7 ypos 0.8 action [ShowMenu('text_history'), Hide("save"), Hide("load"), Hide("sound_On"), Hide("sound_Off"), Hide("fullscreen_Off"), Hide("fullscreen_On"), Play("menu", "music/BoutonNavigation.mp3")] mouse "hover"
-    imagebutton auto "gui/charger/credits_%s.png" xpos 0.6 ypos 0.8 action [Jump('credits'), Hide("save"), Hide("load"), Hide("sound_On"), Hide("sound_Off"), Hide("fullscreen_Off"), Hide("fullscreen_On"), Play("menu", "music/BoutonNavigation.mp3")]
+    imagebutton auto "gui/charger/retour_%s.png" xpos 250 ypos 880 action [Return(), Hide("save"), Hide("load"), Hide("sound_On"), Hide("sound_Off"), Hide("fullscreen_Off"), Hide("fullscreen_On"), Play("menu", "music/BoutonNavigation.mp3")] mouse "hover"
+    imagebutton auto "gui/charger/main_menu_%s.png" xpos 820 ypos 880 action [MainMenu(), Hide("save"), Hide("load"), Hide("sound_On"), Hide("sound_Off"), Hide("fullscreen_Off"), Hide("fullscreen_On"), Play("menu", "music/BoutonNavigation.mp3")] mouse "hover"
+    imagebutton auto "gui/charger/credits_%s.png" xpos 1395 ypos 755 action [ShowMenu('text_history'), Hide("save"), Hide("load"), Hide("sound_On"), Hide("sound_Off"), Hide("fullscreen_Off"), Hide("fullscreen_On"), Play("menu", "music/BoutonNavigation.mp3")] mouse "hover"
+    imagebutton auto "gui/charger/credits_%s.png" xpos 1395 ypos 880 action [Jump('credits'), Hide("save"), Hide("load"), Hide("sound_On"), Hide("sound_Off"), Hide("fullscreen_Off"), Hide("fullscreen_On"), Play("menu", "music/BoutonNavigation.mp3")]
     
 screen sound_Off: 
     imagebutton auto "gui/charger/sound_off_%s.png" xpos 1475 ypos 275 focus_mask True action [ToggleVariable("soundOn"), SetMute("music",False), SetMute("sfx",False), SetMute("menu",False), Hide("sound_Off"), Show("sound_On"), Play("menu", "music/BoutonSelection.mp3")] mouse "hover"
@@ -193,10 +193,10 @@ screen sound_On:
     imagebutton auto "gui/charger/sound_on_%s.png" xpos 1475 ypos 275 focus_mask True action [ToggleVariable("soundOn"), SetMute("music",True), SetMute("sfx",True), SetMute("menu",True), Hide("sound_On"), Show("sound_Off"), Play("menu", "music/BoutonSelection.mp3")] mouse "hover"
     
 screen fullscreen_Off:
-    imagebutton auto "gui/charger/windowed_%s.png" xpos 1480 ypos 510 focus_mask True action [Preference('display', 'fullscreen'), Hide("fullscreen_Off"), Show("fullscreen_On"), Play("menu", "music/BoutonSelection.mp3")] mouse "hover"
+    imagebutton auto "gui/charger/fullscreen_%s.png" xpos 1480 ypos 510 focus_mask True action [Preference('display', 'fullscreen'), Hide("fullscreen_Off"), Show("fullscreen_On"), Play("menu", "music/BoutonSelection.mp3")] mouse "hover"
     
 screen fullscreen_On: 
-    imagebutton auto "gui/charger/fullscreen.png" xpos 1480 ypos 510 focus_mask True action [Preference('display', 'window'), Hide("fullscreen_On"), Show("fullscreen_Off"), Play("menu", "music/BoutonSelection.mp3")] mouse "hover"
+    imagebutton auto "gui/charger/windowed_%s.png" xpos 1480 ypos 510 focus_mask True action [Preference('display', 'window'), Hide("fullscreen_On"), Show("fullscreen_Off"), Play("menu", "music/BoutonSelection.mp3")] mouse "hover"
 
 ## ■██▓▒░ YES/NO PROMPT ░▒▓█████████████████████████████████■
 ## Screen that asks the user a yes or no question. You'll need to edit this to change the position and style of the text.

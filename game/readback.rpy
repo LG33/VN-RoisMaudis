@@ -17,14 +17,15 @@ init -5 python:
     #config.game_menu.insert(1,( "text_history", u"Text History", ui.jumps("text_history_screen"), 'not main_menu'))
 
     style.readback_window.xmaximum = 1400
+    style.readback_window.xminimum = 1400
     style.readback_window.ymaximum = 700
+    style.readback_window.yminimum = 700
     style.readback_window.align = (.5, .5)
-    style.readback_window.background = None
+    style.readback_window.background = "gui/log.png"
+    style.readback_window.xpadding = 60
+    style.readback_window.ypadding = 38
 
-    style.readback_frame.background = "#000000aa"
-    style.readback_frame.xpadding = 10
-    style.readback_frame.xmargin = 5
-    style.readback_frame.ymargin = 5
+    style.readback_frame.background = None
     
     style.readback_text.color = "#fff"
 
@@ -313,12 +314,8 @@ screen text_history:
                         # if there's no voice just log a dialogue
                         if not line[2]:
                             text line[1]
-                            
-                        # else, dialogue will be saved as a button of which plays voice when clicked
-                        else: 
-                            textbutton line[1] action Play("voice", line[2] )
                         
                         null height 10
                 
             bar adjustment adj style 'vscrollbar'
-        imagebutton auto "gui/retour_%s.png" xpos 0.0 ypos 1.1 focus_mask True action Return() hovered [ Play ("test_one", "sfx/click.wav")]
+        imagebutton auto "gui/charger/retour_%s.png" xpos -0.05 ypos 1.1 focus_mask True action [Return(), Play("menu", "music/BoutonNavigation.mp3")]
