@@ -62,24 +62,21 @@ init -2:
     #le texte
     style menu_choice is button_text:
         color "#fff"
-        size 28
+        size 35
         drop_shadow [ (-1, -1), (1, -1), (-1, 1), (1, 1) ] 
         outlines [(1, "#231906", 0, 0)]
-        hover_outlines [(1, "#000000", 0, 0)]
-        selected_outlines [(1, "#000000", 0, 0)]
-        selected_hover_outlines [(1, "#000000", 0, 0)]
         font "gui/century.ttf"
     
     # la boite de texte
     style menu_choice_button is button:
-        xminimum 700
-        xmaximum 700
-        yminimum 90
-        ymaximum 90
+        xminimum 907
+        xmaximum 907
+        yminimum 207
+        ymaximum 207
+        xpadding 100
         ypadding 10
-        xpadding 10
-        background "#000000dd"
-        hover_background "#231906dd"
+        background "gui/ingame/choice_idle.png"
+        hover_background "gui/ingame/choice_hover.png"
         mouse "hover"
         
 

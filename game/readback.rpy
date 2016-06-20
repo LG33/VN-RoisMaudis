@@ -28,15 +28,21 @@ init -5 python:
     style.readback_frame.background = None
     
     style.readback_text.color = "#fff"
+    style.readback_text.size = 22
 
     style.create("readback_button", "readback_text")
     style.readback_button.background = None
     
     style.create("readback_button_text", "readback_text")
-    style.readback_button_text.selected_color = "#f12"
-    style.readback_button_text.hover_color = "#f12"
+    style.readback_button_text.selected_color = "#fff"
+    style.readback_button_text.hover_color = "#fff"
     
+    style.readback_label_text.color = "#C1AF8D"
+    #style.readback_label_text.outlines = [(1, "#fff", 0, 0)]
     style.readback_label_text.bold = True
+    style.readback_label_text.size = 25
+    
+    style.readback_label.top_margin = 10
     
     # starts adding new config variables
     config.locked = False 
