@@ -91,24 +91,24 @@ image arm_gant:
 
 # image test = im.MatrixColor("characters/bras_leon_fin.png",im.matrix.saturation(0.1))
 
-define leon = Character('Léon', window_top_padding=22, window_background="gui/dialogue_box.png")
+define leon = Character('Léon', window_top_padding=22, window_background="gui/ingame/dialogue_box.png")
 
-define helene = Character('Hélène', image="helene", window_top_padding=22, window_background="gui/dialogue_box.png")
-define helene_demon = Character('Hélène', image="helene_demon", window_top_padding=22, window_background="gui/dialogue_box.png")
+define helene = Character('Hélène', image="helene", window_top_padding=22, window_background="gui/ingame/dialogue_box.png")
+define helene_demon = Character('Hélène', image="helene_demon", window_top_padding=22, window_background="gui/ingame/dialogue_box.png")
 
-define gaston = Character('Gaston', image="gaston", window_top_padding=22, window_background="gui/dialogue_box.png")
+define gaston = Character('Gaston', image="gaston", window_top_padding=22, window_background="gui/ingame/dialogue_box.png")
 
-define anne = Character('Anne', image="anne", window_top_padding=22, window_background="gui/dialogue_box.png")
+define anne = Character('Anne', image="anne", window_top_padding=22, window_background="gui/ingame/dialogue_box.png")
 
-define charles = Character('Charles', image="charles", window_top_padding=22, window_background="gui/dialogue_box.png")
+define charles = Character('Charles', image="charles", window_top_padding=22, window_background="gui/ingame/dialogue_box.png")
 #define charles = Character('Charles', image="charles", outlines=[(1, "#aa7700", 0, 0)], window_top_padding=22, window_background="gui/dialogue_box.png")
 
-define inconnu = Character('???', window_top_padding=22, window_background="gui/dialogue_box.png")
+define inconnu = Character('???', window_top_padding=22, window_background="gui/ingame/dialogue_box.png")
 
-define jacques_inconnu = Character("???", what_color="#8888ff", what_italic=True, what_slow_cps=10, window_top_padding=22, window_background="gui/dialogue_box.png")
-define jacques = Character("Jacques De Molay", what_color="#8888ff", what_italic=True, what_slow_cps=20, window_top_padding=22, window_background="gui/dialogue_box.png")
+define jacques_inconnu = Character("???", what_color="#8888ff", what_italic=True, what_slow_cps=10, window_top_padding=22, window_background="gui/ingame/dialogue_box.png")
+define jacques = Character("Jacques De Molay", what_color="#8888ff", what_italic=True, what_slow_cps=20, window_top_padding=22, window_background="gui/ingame/dialogue_box.png")
 
-define self = Character(None, what_italic=True, what_color="#ffdd55", window_top_padding=90, window_background="gui/narrative_box.png")
+define self = Character(None, what_italic=True, what_color="#ffdd55", window_top_padding=90, window_background="gui/ingame/narrative_box.png")
 
 transform left: 
     xalign 0.2 
@@ -121,6 +121,21 @@ transform right:
 transform center: 
     xalign 0.5 
     yalign 1.2
+    
+transform left_zoom: 
+    xalign 0.2 
+    yalign 1.2
+    zoom 2
+    
+transform right_zoom: 
+    xalign 0.8
+    yalign 1.2
+    zoom 2
+    
+transform center_zoom: 
+    xalign 0.5 
+    yalign 1.2
+    zoom 2
 
 define ellipse = Fade(0.5, 2.0, 0.5)
 define long_dissolve = Dissolve(0.5)

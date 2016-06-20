@@ -56,6 +56,10 @@ init -1 python hide:
     ## These settings let you customize the window containing the dialogue and narration, by replacing it with an image.
     ## The background of the window. In a Frame, the two numbers are the size of the left/right and top/bottom borders, respectively.
     style.window.background = Frame("gui/narrative_box.png", 0, 0)
+    
+    ## style.window.xalign = 0
+    style.window.yanchor = 0
+    style.window.ypos = 760
 
     ## Padding is space inside the window, where the background is drawn.
     style.window.left_padding = 200
