@@ -112,15 +112,18 @@ define self = Character(None, what_italic=True, what_color="#ffdd55", window_top
 
 transform left: 
     xalign 0.2 
-    yalign 1.2
+    yalign 1
+    zoom 1.3
     
 transform right: 
     xalign 0.8
-    yalign 1.2
+    yalign 1
+    zoom 1.3
     
 transform center: 
     xalign 0.5 
-    yalign 1.2
+    yalign 1
+    zoom 1.3
     
 transform left_zoom: 
     xalign 0.2 
