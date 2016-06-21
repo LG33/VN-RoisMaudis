@@ -5,7 +5,7 @@ label start:
     show screen menu_button
     stop music fadeout 3.0
     scene decor noir with long_dissolve
-
+    
     inconnu "Léon ! Léon !!"
     pause 1.0
     play cloche "music/SonCloche.mp3" fadein 4.0 loop
@@ -50,7 +50,7 @@ label fuite_fin:
     stop music fadeout 1.5
     stop cloche fadeout 1.5
 
-    pause 4.0
+    pause 5.0
 
     jump reveil_start
 # END FILE 01 - Fuite
@@ -331,8 +331,8 @@ label reunion_start:
     hide helene with dissolve
     show charles serieux at center with dissolve
 
-    $ charles("B{w=0.0}r{w=0.0}e{w=0.0}f{w=0.0},{w=0.0} {w=0.0}n{w=0.0}o{w=0.0}u{w=0.0}s{w=0.0} {w=0.0}a{w=0.0}v{w=0.0}o{w=0.0}n{w=0.0}s{w=0.0} {w=0.0}p{w=0.0}e{w=0.0}u{w=0.0} {w=0.0}d{w=0.0}e{w=0.0} {w=0.0}t{w=0.0}e{w=0.0}m{w=0.0}p{w=0.0}s{w=0.0}.{w=0.0} {w=0.0}N{w=0.0}o{w=0.0}u{w=0.0}s{w=0.0} {w=0.0}d{w=0.0}e{w=0.0}v{w=0.0}o{w=0.0}n{w=0.0}s{w=0.0} {w=0.0}d{w=0.0}è{w=0.0}s{w=0.0} {w=0.0}m{w=0.0}a{w=0.0}i{w=0.0}n{w=0.0}t{w=0.0}e{w=0.0}n{w=0.0}a{w=0.0}n{w=0.0}t{w=0.0} {w=0.0}n{w=0.0}o{w=0.0}u{w=0.0}s{w=0.0} {w=0.0}p{w=0.0}r{w=0.0}é{w=0.0}p{w=0.0}a{w=0.0}r", interact=False)
-    pause 2.4
+    $ charles("Br{w=0.0}ef{w=0.0}, no{w=0.0}us{w=0.0} a{w=0.0}von{w=0.0}s {w=0.0}pe{w=0.0}u d{w=0.0}e {w=0.0}te{w=0.0}mps{w=0.0}. {w=0.0}No{w=0.0}us {w=0.0}de{w=0.0}vo{w=0.0}ns {w=0.0}dè{w=0.0}s {w=0.0}mai{w=0.0}nt{w=0.0}en{w=0.0}ant{w=0.0} n{w=0.0}ou{w=0.0}s p{w=0.0}ré{w=0.0}par", interact=False)
+    pause 1.36
 
     play sound "music/FlashSound.mp3"    
     with flash_blanc
@@ -365,6 +365,7 @@ label retour_chambre:
     self "J’ai la tête qui tourne... {w=0.5}et mon bras..."
 
     scene arm_gant with long_dissolve
+    stop music fadeout 2.0
 
     self "Ca me brûle sous ce gant..."
 
@@ -384,6 +385,7 @@ label retour_chambre:
     self "{cps=*2}Oh !{/cps}"
 
     scene decor water with dissolve
+    play music "music/planque_dialogue.mp3" fadein 1.0 loop
     pause 2.0
 
     self "Alors c’est à ça que je ressemble... {w=0.5}Je tire une de ces têtes..."
@@ -394,7 +396,7 @@ label retour_chambre:
     scene decor noir with flash_blanc
     pause 1.0
 
-    jacques_inconnu "I{w=0.0}l{w=0.0} {w=0.0}y{w=0.0} {w=0.0}a{w=0.0} {w=0.0}p{w=0.0}l{w=0.0}u{w=0.0}s{w=0.0}i{w=0.0}e{w=0.0}u{w=0.0}r{w=0.0}s{w=0.0} {w=0.0}c{w=0.0}h{w=0.0}o{w=0.0}s{w=0.0}e{w=0.0}s{w=0.0} {w=0.0}q{w=0.0}u{w=0.0}e{w=0.0} {w=0.0}t{w=0.0}u{w=0.0} {w=0.0}d{w=0.0}o{w=0.0}i{w=0.0}s{w=0.0} {w=0.0}s{w=0.0}a{w=0.0}v{w=0.0}o{w=0.0}i{w=0.0}r{w=0.0} {w=0.0}s{w=0.0}u{w=0.0}r {w=0.0}l{w=0.0}e{w=0.0}s {w=0.0}d{w=0.0}é{w=0.0}m{w=0.0}o{w=0.0}n{w=0.0}s{w=0.0}."
+    jacques_inconnu "Il y a plusieurs choses que tu dois savoir sur les démons."
 
     pause 1.0
     scene decor chambre with flash_blanc
@@ -483,7 +485,7 @@ label grande_salle:
     play sound "music/FlashSound.mp3"
     pause 1.0
 
-    jacques_inconnu "L{w=0.0}e{w=0.0}s{w=0.0} {w=0.0}d{w=0.0}é{w=0.0}m{w=0.0}o{w=0.0}n{w=0.0}s{w=0.0} {w=0.0}p{w=0.0}e{w=0.0}u{w=0.0}v{w=0.0}e{w=0.0}n{w=0.0}t{w=0.0} {w=0.0}p{w=0.0}r{w=0.0}e{w=0.0}n{w=0.0}d{w=0.0}r{w=0.0}e{w=0.0} {w=0.0}u{w=0.0}n{w=0.0}e{w=0.0} {w=0.0}f{w=0.0}o{w=0.0}r{w=0.0}m{w=0.0}e{w=0.0} {w=0.0}h{w=0.0}u{w=0.0}m{w=0.0}a{w=0.0}i{w=0.0}n{w=0.0}e{w=0.0}."
+    jacques_inconnu "Les démons peuvent prendre une forme humaine."
 
     pause 1.0
     scene decor grande_salle with flash_blanc
@@ -503,8 +505,8 @@ label grande_salle:
     charles "Anne, Hélène, laissez-nous seuls un instant."
 
     hide charles with dissolve
-    show anne serieuse at left
-    show helene inquiete at right
+    show anne serieuse at right
+    show helene inquiete at left
     with dissolve
 
     anne "Très bien."
@@ -521,7 +523,7 @@ label grande_salle:
     charles serieux "..."
     charles normal "Peu importe."
     charles "Ah, j’allais oublier !"
-    play sound "music/BoutonSelection.mp3"
+    # play sound "music/BoutonSelection.mp3"
     charles dague "Cette dague, tu t’en sers toujours pour le combat."
     charles "Tu avais l’habitude de ne jamais t’en séparer."
     charles "Je te la rends."
@@ -529,14 +531,14 @@ label grande_salle:
 
     show charles normal
 
-    play sound "music/BoutonNavigation.mp3"
+    # play sound "music/BoutonNavigation.mp3"
     self "Effectivement, elle rentre parfaitement dans le fourreau que j’ai à la taille."
     charles "Bien. Va retrouver Hélène. Revenez vite."
     leon "Ah! Je..."
     charles "Oui ?"
 
     menu:
-        "\"Demander si les démons peuvent prendre une forme humaine\"":
+        "\"Est-ce que les démons peuvent prendre une forme humaine ?\"":
            jump dialogue_charles_1_1
         "Ne rien demander":
            jump dialogue_charles_1_2
@@ -562,6 +564,7 @@ label dialogue_charles_1_2:
 label dialogue_charles_1_end:
 
     hide charles with long_dissolve
+    stop cloche fadeout 2.0
 
     self "Tout à l’heure... {w=0.5}mon bras..."
 
@@ -698,11 +701,11 @@ label village_2_1:
     helene "..."
     helene "Nous rentrons."
 
-    $ leon("{w=0.0}H{w=0.0}.{w=0.0}.{w=0.0}.{w=0.0} {w=0.0}H{w=0.0}é{w=0.0}l{w=0.0}è{w=0.0}n{w=0.0}e{w=0.0},{w=0.0} {w=0.0}j{w=0.0}e{w=0.0} {w=0.0}t{w=0.0}’{w=0.0}a{w=0.0}s{w=0.0}s{w=0.0}u", interact=False)
-    pause 0.7
+    $ leon("H.{w=0.0}..{w=0.0} Hé{w=0.0}lè{w=0.0}ne{w=0.0}, j{w=0.0}e {w=0.0}t’{w=0.0}ass{w=0.0}u", interact=False)
+    pause 0.4
     helene "Nous rentrons."
-    $ leon ("{w=0.0}J{w=0.0}e{w=0.0} {w=0.0}n{w=0.0}e{w=0.0} {w=0.0}v{w=0.0}o{w=0.0}u{w=0.0}l{w=0.0}a{w=0.0}i{w=0.0}s{w=0.0} {w=0.0}p{w=0.0}a", interact=False)
-    pause 0.6
+    $ leon ("Je{w=0.0} n{w=0.0}e v{w=0.0}ou{w=0.0}la{w=0.0}is {w=0.0}pa", interact=False)
+    pause 0.28
     helene "Nous rentrons."
     leon "..."    
    
@@ -874,13 +877,14 @@ label soir_endingAB_start:
 
     scene decor chambre with ellipse
 
-    stop music fadeout 1.0
-    play music "music/planque_dialogue.mp3" fadein 1.0 loop
+    stop music fadeout 2.0
+    play cloche "music/planque_dialogue.mp3" fadein 1.0 loop
 
     self "..."
     self "Me cacher avant leur départ..."
     self "C’est vraiment raisonnable ?"
 
+    stop cloche fadeout 1.0
     pause 0.5
     scene arm_gant with long_dissolve
     pause 0.8
@@ -889,6 +893,7 @@ label soir_endingAB_start:
     self "..."
     self "Ça s’est encore propagé..."
     play sound "music/door_opening.ogg"
+    play music"music/planque_dialogue.mp3" fadein 1.0 loop
 
     scene decor chambre
     show helene normal at center
@@ -911,7 +916,7 @@ label soir_endingAB_start:
     play sound "music/FlashSound.mp3"
     pause 1.0
 
-    jacques_inconnu "{w=0.0}O{w=0.0}n{w=0.0} {w=0.0}p{w=0.0}e{w=0.0}u{w=0.0}t{w=0.0} {w=0.0}r{w=0.0}e{w=0.0}c{w=0.0}o{w=0.0}n{w=0.0}n{w=0.0}a{w=0.0}î{w=0.0}t{w=0.0}r{w=0.0}e{w=0.0} {w=0.0}c{w=0.0}e{w=0.0}s{w=0.0} {w=0.0}d{w=0.0}é{w=0.0}m{w=0.0}o{w=0.0}n{w=0.0}s{w=0.0} {w=0.0}s{w=0.0}o{w=0.0}u{w=0.0}s{w=0.0} {w=0.0}f{w=0.0}o{w=0.0}r{w=0.0}m{w=0.0}e{w=0.0} {w=0.0}h{w=0.0}u{w=0.0}m{w=0.0}a{w=0.0}i{w=0.0}n{w=0.0}e{w=0.0} {w=0.0}à {w=0.0}l{w=0.0}e{w=0.0}u{w=0.0}r{w=0.0}s{w=0.0} {w=0.0}y{w=0.0}e{w=0.0}u{w=0.0}x{w=0.0}."
+    jacques_inconnu "On peut reconnaître ces démons sous forme humaine à leurs yeux."
 
     pause 1.0
     scene decor chambre with flash_blanc
@@ -946,7 +951,7 @@ label soir_2_2:
     self "..."
     self "Et puis merde !"
     self "Je veux pas risquer ma vie pour des personnes dont je n’ai aucun souvenir"
-    self "Je me planque !"
+    self "Je me planque !"    
 
     jump massacre_endingB_start
 
@@ -995,7 +1000,8 @@ label massacre_endingA_start:
     charles "Tout se passe comme prévu."
 
     scene decor chateau
-    stop music fadeout 1.0
+    stop music fadeout 2.0
+    stop cloche fadeout 2.0
     play music "music/action.mp3" fadein 1.0 loop
 
     show charles masque
@@ -1034,8 +1040,8 @@ label massacre_endingA_start:
     hide helene with dissolve
     show anne normal at center with dissolve
 
-    $ anne("{w=0.0}Q{w=0.0}u{w=0.0}’{w=0.0}e{w=0.0}s{w=0.0}t{w=0.0}-{w=0.0}c{w=0.0}e{w=0.0} {w=0.0}q{w=0.0}u{w=0.0}e{w=0.0} {w=0.0}t{w=0.0}u{w=0.0} {w=0.0}v{w=0.0}e{w=0.0}u{w=0.0}x{w=0.0} {w=0.0}d{w=0.0}i{w=0.0}r{w=0.0}e{w=0.0} {w=0.0}p{w=0.0}a", interact=False)
-    pause 0.95
+    $ anne("Qu{w=0.0}’e{w=0.0}st-{w=0.0}ce{w=0.0} q{w=0.0}ue {w=0.0}tu{w=0.0} v{w=0.0}eux{w=0.0} d{w=0.0}ir{w=0.0}e p{w=0.0}a", interact=False)
+    pause 0.54
 
     with flash_rouge
     play sound "music/sf_decapitation.mp3"
@@ -1151,7 +1157,8 @@ label massacre_endingB_start:
     show gaston panique
     with long_dissolve
 
-    stop music fadeout 1.0
+    stop music fadeout 2.0
+    stop cloche fadeout 2.0
     play music "music/action.mp3" fadein 1.0 loop
 
     gaston "Dieu merci, tu es bien là ! Dépêche-toi, on dégage en vitesse !"
@@ -1160,8 +1167,8 @@ label massacre_endingB_start:
     leon "Qu... {w=0.5}quoi ?!"
     gaston "Elle a tué Anne et Charles et si on ne se grouille pas, on est les suivants !"
     leon "Qu’est-ce que tu racontes ?!"
-    $ gaston("M{w=0.0}a{w=0.0}g{w=0.0}n{w=0.0}e{w=0.0}-{w=0.0}t{w=0.0}o{w=0.0}i{w=0.0},{w=0.0} {w=0.0}p{w=0.0}u{w=0.0}t{w=0.0}a{w=0.0}i{w=0.0}n{w=0.0},{w=0.0} {w=0.0}o{w=0.0}n{w=0.0} {w=0.0}n{w=0.0}’{w=0.0}a{w=0.0} {w=0.0}p{w=0.0}a{w=0.0}s{w=0.0} {w=0.0}l{w=0.0}e{w=0.0} {w=0.0}t{w=0.0}e{w=0.0}m{w=0.0}p{w=0.0}s{w=0.0} {w=0.0}!{w=0.0} {w=0.0}E{w=0.0}l{w=0.0}l{w=0.0}e{w=0.0} {w=0.0}v{w=0.0}a{w=0.0} {w=0.0}n{w=0.0}o{w=0.0}u", interact=False)
-    pause 1.75
+    $ gaston("Ma{w=0.0}gn{w=0.0}e-t{w=0.0}oi{w=0.0}, {w=0.0}put{w=0.0}ai{w=0.0}n,{w=0.0} on{w=0.0} n{w=0.0}’a{w=0.0} pa{w=0.0}s {w=0.0}le{w=0.0} te{w=0.0}mp{w=0.0}s {w=0.0}! E{w=0.0}ll{w=0.0}e {w=0.0}va {w=0.0}no{w=0.0}u", interact=False)
+    pause 1.0
 
     #self "*bruit de coeur transpercé*"
     with flash_rouge
@@ -1208,13 +1215,16 @@ label soir_endingC_start:
     scene decor noir with flash_blanc
     pause 1.0
 
-    jacques_inconnu "{w=0.0}O{w=0.0}n{w=0.0} {w=0.0}p{w=0.0}e{w=0.0}u{w=0.0}t{w=0.0} {w=0.0}r{w=0.0}e{w=0.0}c{w=0.0}o{w=0.0}n{w=0.0}n{w=0.0}a{w=0.0}î{w=0.0}t{w=0.0}r{w=0.0}e{w=0.0} {w=0.0}c{w=0.0}e{w=0.0}s{w=0.0} {w=0.0}d{w=0.0}é{w=0.0}m{w=0.0}o{w=0.0}n{w=0.0}s{w=0.0} {w=0.0}s{w=0.0}o{w=0.0}u{w=0.0}s{w=0.0} {w=0.0}f{w=0.0}o{w=0.0}r{w=0.0}m{w=0.0}e{w=0.0} {w=0.0}h{w=0.0}u{w=0.0}m{w=0.0}a{w=0.0}i{w=0.0}n{w=0.0}e{w=0.0} {w=0.0}à {w=0.0}l{w=0.0}e{w=0.0}u{w=0.0}r{w=0.0}s{w=0.0} {w=0.0}y{w=0.0}e{w=0.0}u{w=0.0}x{w=0.0}."
+    jacques_inconnu "On peut reconnaître ces démons sous forme humaine à leurs yeux."
 
     pause 1.0
     scene decor chambre with flash_blanc
 
     self "Encore ce truc..."
     self "Mon bras me brûle..."
+
+    stop music fadeout 2.0
+    stop cloche fadeout 2.0
 
     scene arm_gant with long_dissolve
     pause 0.8
@@ -1226,6 +1236,9 @@ label soir_endingC_start:
     self "Nous sommes en couple... {w=0.5}Elle ne ferait pas ça !"
     self "..."
     self "Enfin, j’espère..."
+
+    scene decor chambre with dissolve
+
     self "..."
     self "Il faut que j’aille lui parler !"
 
@@ -1236,7 +1249,7 @@ label soir_endingC_start:
     pause 0.5
 
     self "!!!"
-    leon "{cps=*2}Aah... {w=0.3}AAAAAH !"
+    leon "{cps=*2}Aah... {w=0.3}AAAAAH !{/cps}"
     with shake
 
     scene cadavre_gaston with dissolve
@@ -1255,7 +1268,7 @@ label soir_endingC_start:
 
     leon "{cps=*2}Ah ! Hélène !{/cps}"
     leon "{cps=*2}On doit partir d’ici !{/cps}"
-    helene inquiete "Qu’est-ce que tu racontes ?{/cps}"
+    helene inquiete "{cps=*2}Qu’est-ce que tu racontes ?{/cps}"
     leon "{cps=*2}Dépêche-toi !{/cps}"
     charles "Qu’est-ce qu’il se passe, ici ?"
 
@@ -1267,8 +1280,8 @@ label soir_endingC_start:
     self "Attends..."
     self "C’est forcément l’un d’entre eux qui a fait ça !"
     self "Je ne peux faire confiance à personne !"
-    $ self("{w=0.0}J{w=0.0}e{w=0.0} {w=0.0}d{w=0.0}o{w=0.0}i{w=0.0}s{w=0.0} {w=0.0}p{w=0.0}a{w=0.0}r{w=0.0}t{w=0.0}i{w=0.0}r{w=0.0} {w=0.0}d{w=0.0}’{w=0.0}i{w=0.0}c{w=0.0}i{w=0.0} {w=0.0}l{w=0.0}e{w=0.0} {w=0.0}p{w=0.0}l{w=0.0}u", interact=False)
-    pause 1.0
+    $ self("Je{w=0.0} d{w=0.0}ois{w=0.0} p{w=0.0}ar{w=0.0}tir{w=0.0} d{w=0.0}’i{w=0.0}ci {w=0.0}le{w=0.0} p{w=0.0}lu", interact=False)
+    pause 0.5
 
     #self "*bruit de coeur transpercé*"
     with flash_rouge
@@ -1294,8 +1307,8 @@ label soir_endingC_start:
     anne panique "AAAAAAAAH !"
     with shake
     anne "Charles ! Charles !!"
-    $ anne("D{w=0.0}i{w=0.0}s{w=0.0} {w=0.0}q{w=0.0}u{w=0.0}e{w=0.0}l{w=0.0}q{w=0.0}u{w=0.0}e{w=0.0} {w=0.0}c{w=0.0}h{w=0.0}o", interact=False)
-    pause 0.6
+    $ anne("Di{w=0.0}s {w=0.0}que{w=0.0}lq{w=0.0}ue{w=0.0} ch{w=0.0}o", interact=False)
+    pause 0.26
 
     #self "*bruit de coeur transpercé*"
     with flash_rouge
@@ -1376,13 +1389,13 @@ label flashback_start:
     scene decor noir with dissolve
     
 
-    jacques_inconnu "{cps=*1.3}Demain, c’est le grand jour...{/cps}"
-    jacques_inconnu "{cps=*1.3}Nous allons enfin pouvoir nous débarrasser de cette monarchie exécrable qui règne depuis bien trop longtemps.{/cps}"
-    jacques_inconnu "{cps=*1.3}N’es-tu pas excité, Léon ?{/cps}"
-    jacques_inconnu "{cps=*1.3}Tu t’es préparé tellement longtemps pour ce jour.{/cps}"
-    jacques_inconnu "{cps=*1.3}Plus que n’importe qui d’autre.{/cps}"
-    jacques_inconnu "{cps=*1.3}...{/cps}"
-    jacques_inconnu "{cps=*1.3}Il y a plusieurs choses que tu dois savoir sur les démons.{/cps}"
+    jacques_inconnu "Demain, c’est le grand jour..."
+    jacques_inconnu "Nous allons enfin pouvoir nous débarrasser de cette monarchie exécrable qui règne depuis bien trop longtemps."
+    jacques_inconnu "N’es-tu pas excité, Léon ?"
+    jacques_inconnu "Tu t’es préparé tellement longtemps pour ce jour."
+    jacques_inconnu "Plus que n’importe qui d’autre."
+    jacques_inconnu "..."
+    jacques_inconnu "Il y a plusieurs choses que tu dois savoir sur les démons."
 
     scene decor eglise with dissolve
     # on attend la CG pour mettre la musique
@@ -1407,7 +1420,7 @@ label flashback_start:
     jacques "Parfait. Tu vas pouvoir passer à l’invocation de ton démon."
     jacques "Tu lui as déjà choisi un nom ?"
     leon "Oui, grand maître."
-    leon "Si c’est un mâle, je l’appellerai Horace." # horace oh desespoir !
+    leon "Si c’est un mâle, je l’appellerai Horace."
     leon "Et si c’est une femelle, je l’appellerai..."
     pause 0.5
     leon "Hélène."

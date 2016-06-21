@@ -55,23 +55,24 @@ init -1 python hide:
     #########################################
     ## These settings let you customize the window containing the dialogue and narration, by replacing it with an image.
     ## The background of the window. In a Frame, the two numbers are the size of the left/right and top/bottom borders, respectively.
-    style.window.background = Frame("gui/narrative_box.png", 0, 0)
+    style.window.background = Frame("gui/ingame/narrative_box.png", 0, 0)
     
     ## style.window.xalign = 0
     style.window.yanchor = 0
     style.window.ypos = 760
 
     ## Padding is space inside the window, where the background is drawn.
-    style.window.left_padding = 200
-    style.window.right_padding = 200
+    style.window.top_padding = 60
+    style.window.left_padding = 230
+    style.window.right_padding = 230
     
     style.say_vbox.spacing = 30
 
     ## This is the minimum height of the window, including the margins and padding.
     # style.window.yminimum = 250
     
-    style.window.yminimum = 330
-    style.window.ymaximum = 330
+    style.window.yminimum = 320
+    style.window.ymaximum = 320
 
     #########################################
     ## This lets you change the placement of the main menu.
@@ -186,7 +187,7 @@ init -1 python hide:
     config.default_fullscreen = False
 
     ## The default text speed in characters per second. 0 is infinite.
-    config.default_text_cps = 30
+    config.default_text_cps = 50
 
     #########################################
     ## Size of the thumbnails for save games.
@@ -272,4 +273,4 @@ init python:
     config.keymap['game_menu'].remove('K_MENU')
     config.keymap['game_menu'].remove('mouseup_3')
     
-    
+    # config.keymap['dismiss'].remove('mouseup_1')

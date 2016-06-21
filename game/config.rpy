@@ -24,7 +24,7 @@ image helene masque:
 image helene inquiete:
     "characters/helene/Helene_Panique.png"
 image helene serieuse:
-    "characters/helene/Helene_Panique.png"
+    "characters/helene/Helene_Serieuse.png"
 image helene souriante:
     "characters/helene/Helene_Sourire.png"
 
@@ -83,24 +83,24 @@ image arm_gant:
 
 # image test = im.MatrixColor("characters/bras_leon_fin.png",im.matrix.saturation(0.1))
 
-define leon = Character('Léon', window_top_padding=22, window_background="gui/ingame/dialogue_box.png")
+define leon = Character("Léon", show_side_image=Image("gui/ingame/noms/Leon.png", xpos=140, ypos=738))
 
-define helene = Character('Hélène', image="helene", window_top_padding=22, window_background="gui/ingame/dialogue_box.png")
-define helene_demon = Character('Hélène', image="helene_demon", window_top_padding=22, window_background="gui/ingame/dialogue_box.png")
+define helene = Character("Hélène", image="helene", show_side_image=Image("gui/ingame/noms/Helene.png", xpos=140, ypos=738))
+define helene_demon = Character("Hélène", image="helene_demon", show_side_image=Image("gui/ingame/noms/Helene.png", xpos=140, ypos=738))
 
-define gaston = Character('Gaston', image="gaston", window_top_padding=22, window_background="gui/ingame/dialogue_box.png")
+define gaston = Character("Gaston", image="gaston", show_side_image=Image("gui/ingame/noms/Gaston.png", xpos=140, ypos=738))
 
-define anne = Character('Anne', image="anne", window_top_padding=22, window_background="gui/ingame/dialogue_box.png")
+define anne = Character("Anne", image="anne", show_side_image=Image("gui/ingame/noms/Anne.png", xpos=140, ypos=738))
 
-define charles = Character('Charles', image="charles", window_top_padding=22, window_background="gui/ingame/dialogue_box.png")
+define charles = Character("Charles", image="charles", show_side_image=Image("gui/ingame/noms/Charles.png", xpos=140, ypos=738))
 #define charles = Character('Charles', image="charles", outlines=[(1, "#aa7700", 0, 0)], window_top_padding=22, window_background="gui/dialogue_box.png")
 
-define inconnu = Character('???', window_top_padding=22, window_background="gui/ingame/dialogue_box.png")
+define inconnu = Character("???", show_side_image=Image("gui/ingame/noms/Inconnu.png", xpos=140, ypos=738))
 
-define jacques_inconnu = Character("???", what_color="#8888ff", what_italic=True, what_slow_cps=15, window_top_padding=22, window_background="gui/ingame/dialogue_box.png")
-define jacques = Character("Jacques De Molay", what_color="#8888ff", what_italic=True, what_slow_cps=20, window_top_padding=22, window_background="gui/ingame/dialogue_box.png")
+define jacques_inconnu = Character("???", what_color="#8888ff", what_italic=True, show_side_image=Image("gui/ingame/noms/Inconnu.png", xpos=140, ypos=738))
+define jacques = Character("Jacques de Molay", what_color="#8888ff", what_italic=True, show_side_image=Image("gui/ingame/noms/Jacques.png", xpos=140, ypos=738))
 
-define self = Character(None, what_italic=True, what_color="#ffdd55", window_top_padding=90, window_background="gui/ingame/narrative_box.png")
+define self = Character("Introspection", what_italic=True, what_color="#ffdd55")
 
 transform left: 
     xalign 0.2 
@@ -190,7 +190,7 @@ init python:
 
     Shake = renpy.curry(_Shake)
     
-    shake = Shake((0, 0, 0, 0), 1.0, dist=15)
+    shake = Shake((0, 0, 0, 0), 0.33, dist=15)
     
     flash_rouge = Fade(.25, 0, .25, color="#ff0000")
     flash_blanc = Fade(.25, 0, .25, color="#ffffff")
@@ -201,3 +201,5 @@ init python:
     renpy.music.register_channel('cloche')
     renpy.music.register_channel('menu', loop=False)
     renpy.music.set_volume(0.5, 0, channel='menu')
+    
+    _dismiss_pause = True

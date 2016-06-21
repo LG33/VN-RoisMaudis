@@ -63,8 +63,6 @@ init -2:
     style menu_choice is button_text:
         color "#fff"
         size 35
-        drop_shadow [ (-1, -1), (1, -1), (-1, 1), (1, 1) ] 
-        outlines [(1, "#231906", 0, 0)]
         font "gui/century.ttf"
     
     # la boite de texte
@@ -73,7 +71,7 @@ init -2:
         xmaximum 907
         yminimum 207
         ymaximum 207
-        xpadding 100
+        xpadding 150
         ypadding 10
         background "gui/ingame/choice_idle.png"
         hover_background "gui/ingame/choice_hover.png"
@@ -101,16 +99,21 @@ init -2 python: #we initialize x and y, so the load_save_slot screen below works
     y=0
     
     soundOn = True
+    
+    style.text.font = "gui/century.ttf"
         
 screen load_save_slot:
-    $ file_text = "% s\n  %s" % (FileTime(number, empty="Empty Slot."), FileSaveName(number))
+    $ file_text = "{size=30}{color=#000}% s\n  %s" % (FileTime(number, empty="Empty Slot."), FileSaveName(number))
     
-    $ x1=x+337
+    $ x1=x+300
     $ y1=y+22
-    add FileScreenshot(number) xpos x1 ypos y1
+    add FileScreenshot(number) xpos x1 ypos y1 at filescreenshot
     $ x2=x+30
     $ y2=y+30
     text file_text xpos x2 ypos y2 size 20
+    
+transform filescreenshot:
+    zoom 1.25
     
 
 ## ■██▓▒░ SAVE / LOAD FILE PICKER ░▒▓███████████████████████■
@@ -181,7 +184,7 @@ screen nav_buttons:
     imagebutton auto "gui/charger/retour_%s.png" xpos 250 ypos 880 action [Return(), Hide("save"), Hide("load"), Hide("sound_On"), Hide("sound_Off"), Hide("fullscreen_Off"), Hide("fullscreen_On"), Play("menu", "music/BoutonNavigation.mp3")] mouse "hover"
     imagebutton auto "gui/charger/main_menu_%s.png" xpos 820 ypos 880 action [MainMenu(), Hide("save"), Hide("load"), Hide("sound_On"), Hide("sound_Off"), Hide("fullscreen_Off"), Hide("fullscreen_On"), Play("menu", "music/BoutonNavigation.mp3")] mouse "hover"
     imagebutton auto "gui/charger/credits_%s.png" xpos 1395 ypos 755 action [ShowMenu('text_history'), Hide("save"), Hide("load"), Hide("sound_On"), Hide("sound_Off"), Hide("fullscreen_Off"), Hide("fullscreen_On"), Play("menu", "music/BoutonNavigation.mp3")] mouse "hover"
-    imagebutton auto "gui/charger/credits_%s.png" xpos 1395 ypos 880 action [Jump('credits'), Hide("save"), Hide("load"), Hide("sound_On"), Hide("sound_Off"), Hide("fullscreen_Off"), Hide("fullscreen_On"), Play("menu", "music/BoutonNavigation.mp3")]
+    imagebutton auto "gui/charger/credits_%s.png" xpos 1395 ypos 880 action [Hide("charger"), Hide("save"), Hide("load"), Hide("sound_On"), Hide("sound_Off"), Hide("fullscreen_Off"), Hide("fullscreen_On"), Play("menu", "music/BoutonNavigation.mp3"), Start("credits")]
     
 screen sound_Off: 
     imagebutton auto "gui/charger/sound_off_%s.png" xpos 1475 ypos 275 focus_mask True action [ToggleVariable("soundOn"), SetMute("music",False), SetMute("sfx",False), SetMute("menu",False), Hide("sound_Off"), Show("sound_On"), Play("menu", "music/BoutonSelection.mp3")] mouse "hover"
@@ -249,11 +252,13 @@ screen say:
 ## ■██▓▒░ TEXTBOX DROP SHADOW ░▒▓███████████████████████████■
 ## This block is responsible for the text drop shadow effect for the textbox dialogue.
 init python:
-    style.say_dialogue.drop_shadow = (2, 2)
-    style.say_dialogue.drop_shadow_color = "#000"
+    ## style.say_dialogue.drop_shadow = (2, 2)
+    style.say_dialogue.color = "#fff"
     
     style.say_dialogue.font = "gui/century.ttf"
     style.say_dialogue.size = 40
+    
+    style.say_label.color = "#00000000"
     
     #style.say_dialogue.color = "#231906"
 
