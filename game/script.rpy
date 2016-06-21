@@ -5,7 +5,7 @@ label start:
     show screen menu_button
     stop music fadeout 3.0
     scene decor noir with long_dissolve
-    
+
     inconnu "Léon ! Léon !!"
     pause 1.0
     play cloche "music/SonCloche.mp3" fadein 4.0 loop
@@ -39,7 +39,6 @@ label fuite_fin:
     inconnu "On n’a pas le temps. Suis-moi !"
     leon "Ah... {w=0.5}ma tête..."
     play sound "music/FlashSound.mp3"
-    
     with shake
 
     scene decor noir with long_dissolve
@@ -50,7 +49,7 @@ label fuite_fin:
     stop music fadeout 1.5
     stop cloche fadeout 1.5
 
-    pause 5.0
+    pause 4.0
 
     jump reveil_start
 # END FILE 01 - Fuite
@@ -221,10 +220,8 @@ label reunion_start:
 
     charles "..."
     charles "Tous les membres de l’Ordre sont actuellement présents."
-    leon "Que... quoi ?!"
-    with shake
-    leon "Vous comptez les vaincre avec seulement cinq personnes ?!"
-    with shake
+    leon "Que... quoi ?!" with little_shake
+    leon "Vous comptez les vaincre avec seulement cinq personnes ?!" with little_shake
     self "Ils se moquent de moi ?!"
 
     hide charles with dissolve
@@ -311,9 +308,7 @@ label reunion_start:
     hide charles with dissolve
     show helene serieuse at center with dissolve
 
-    helene "C’est ridicule, il a perdu la mémoire ! On ne sait même pas s’il saura se battre !"
-
-    with shake
+    helene "C’est ridicule, il a perdu la mémoire ! On ne sait même pas s’il saura se battre !" with little_shake
 
     hide helene with dissolve
     show charles serieux at center with dissolve
@@ -372,10 +367,8 @@ label retour_chambre:
     scene arm_1 with long_dissolve
 
     self "{cps=*2}...!{/cps}"
-    self "{cps=*2}Qu... {w=0.3}Qu’est-ce que c’est que ça !{/cps}"
-    with shake
-    self "{cps=*2}Ce ne serait quand même pas... {w=0.3}non, ça ne peut pas être ça !{/cps}"
-    with shake
+    self "{cps=*2}Qu... {w=0.3}Qu’est-ce que c’est que ça !{/cps}" with little_shake
+    self "{cps=*2}Ce ne serait quand même pas... {w=0.3}non, ça ne peut pas être ça !{/cps}" with little_shake
     self "{cps=*2}C’était déjà là quand je me suis réveillé ?{/cps}"
     self "{cps=*2}C’est arrivé pendant l’assaut d’hier ?!{/cps}"
     self "{cps=*2}Charles a dit que des armes magiques pouvaient infliger ça...{/cps}"
@@ -394,6 +387,7 @@ label retour_chambre:
 
     play sound "music/FlashSound.mp3"
     scene decor noir with flash_blanc
+    stop music fadeout 2.0
     pause 1.0
 
     jacques_inconnu "Il y a plusieurs choses que tu dois savoir sur les démons."
@@ -401,11 +395,11 @@ label retour_chambre:
     pause 1.0
     scene decor chambre with flash_blanc
 
-    self "Que... {w=0.5}quoi ?!"
-    with shake
+    self "Que... {w=0.5}quoi ?!" with shake
     self "C’était quoi, ça ?!"
     self "Une hallucination ?! Un souvenir ?!"
 
+    play music "music/planque_dialogue.mp3" fadein 1.0 loop
     pause 0.5
     play sound "music/door_opening.ogg"
     show anne normal at center with dissolve
@@ -423,8 +417,7 @@ label retour_chambre:
     anne normal "Depuis le début, les statuts sociaux des membres de l’Ordre étaient très variés."
     anne "Gaston, lui, n’était qu’un paysan."
     anne souriante "Quand à Hélène et toi, vous étiez un couple de nobles."
-    leon "Un... {w=0.5}un couple ?!"
-    with shake
+    leon "Un... {w=0.5}un couple ?!" with little_shake
     leon "Vraiment ?!"
     anne normal "Oh... {w=0.5}elle ne t’en a pas parlé ?"
     anne serieuse "Je vois... ton amnésie doit être très dure à vivre pour elle aussi."
@@ -481,6 +474,8 @@ label grande_salle:
 
     leon "Agh..."
 
+    stop cloche fadeout 2.0
+
     scene decor noir with flash_blanc
     play sound "music/FlashSound.mp3"
     pause 1.0
@@ -489,6 +484,8 @@ label grande_salle:
 
     pause 1.0
     scene decor grande_salle with flash_blanc
+
+    play cloche "music/grande_salle.ogg" fadein 1.0 loop
 
     self "Ah... {w=0.5}encore ça ?!"
 
@@ -524,7 +521,10 @@ label grande_salle:
     charles normal "Peu importe."
     charles "Ah, j’allais oublier !"
     # play sound "music/BoutonSelection.mp3"
-    charles dague "Cette dague, tu t’en sers toujours pour le combat."
+
+    show charles dague at center_dague
+
+    charles "Cette dague, tu t’en sers toujours pour le combat."
     charles "Tu avais l’habitude de ne jamais t’en séparer."
     charles "Je te la rends."
     leon "Ah, merci."
@@ -665,8 +665,7 @@ label village_1_end:
     helene serieuse "Léon."
     helene "Tu me caches quelque chose d’important, pas vrai ?"
     self "{cps=*2}Que...{/cps}"
-    self "{cps=*2}Elle est au courant pour mon bras ?!{/cps}"
-    with shake
+    self "{cps=*2}Elle est au courant pour mon bras ?!{/cps}" with little_shake
     self "Non... {w=0.5}Ce n’est pas possible..."
     self "Elle se doute juste de quelque chose..."
     self "Qu’est-ce que je dois faire ? Je dois lui en parler ?"
@@ -901,8 +900,7 @@ label soir_endingAB_start:
 
     helene "Léon, à propos de..."
     helene serieuse "..."
-    self "...Merde !"
-    with shake
+    self "...Merde !" with little_shake
     self "Elle a eu le temps de le voir ?!"
     helene "À plus tard."
 
@@ -920,6 +918,7 @@ label soir_endingAB_start:
 
     pause 1.0
     scene decor chambre with flash_blanc
+    play cloche "music/planque_dialogue.mp3" fadein 1.0 loop
 
     self "Encore ce truc..."
     self "Plus important... {w=0.5}Hélène !"
@@ -992,9 +991,9 @@ label massacre_endingA_start:
     scene decor noir with long_dissolve
     pause 3.0
 
+    play sound "music/sf_decapitation.mp3"
     with shake
 
-    play sound "music/sf_decapitation.mp3"
     charles "Bien. Nous avons réussi à franchir les gardes en les éliminant."
     charles "Nous ne leur avons pas non plus laissé l’occasion de donner l’alerte."
     charles "Tout se passe comme prévu."
@@ -1047,8 +1046,8 @@ label massacre_endingA_start:
     play sound "music/sf_decapitation.mp3"
     hide anne with dissolve
     pause 0.5
-    with shake
     play sound "music/FlashSound.mp3"
+    with shake
     pause 1.5
     show helene_demon normal at center
     with long_dissolve
@@ -1075,8 +1074,8 @@ label massacre_endingA_start:
     play sound "music/sf_decapitation.mp3"
     hide gaston with dissolve
     pause 0.5
-    with shake
     play sound "music/FlashSound.mp3"
+    with shake
     pause 0.5
 
     self "C’est un cauchemar !"
@@ -1090,8 +1089,8 @@ label massacre_endingA_start:
     with flash_rouge
     hide charles with dissolve
     pause 0.5
-    with shake
     play sound "music/FlashSound.mp3"
+    with shake
     pause 0.5
 
     self "Qu’est-ce que je dois faire ? Fuir ?"
@@ -1249,14 +1248,12 @@ label soir_endingC_start:
     pause 0.5
 
     self "!!!"
-    leon "{cps=*2}Aah... {w=0.3}AAAAAH !{/cps}"
-    with shake
+    leon "{cps=*2}Aah... {w=0.3}AAAAAH !{/cps}" with little_shake
 
     scene cadavre_gaston with dissolve
 
     self "{cps=*2}Qu’est-ce que...!{/cps}"
-    leon "{cps=*2}Gaston ! Tu m’entends ?!{/cps}"
-    with shake
+    leon "{cps=*2}Gaston ! Tu m’entends ?!{/cps}" with little_shake
     self "{cps=*2}Il n’a plus de pouls... {w=0.5}merde !{/cps}"
     self "{cps=*2}Nous sommes en danger ici ! On doit se barrer !{/cps}"
      
@@ -1288,8 +1285,8 @@ label soir_endingC_start:
     play sound "music/BruitDattaque.mp3"
     hide charles with dissolve
     pause 0.5
-    with shake
     play sound "music/FlashSound.mp3"
+    with shake
     pause 1.5
     show helene_demon normal at center
     with dissolve
@@ -1304,8 +1301,7 @@ label soir_endingC_start:
     show anne normal at center with dissolve
 
     anne "Qu’est ce qu... {w=0.5}Aah... {w=0.5}Non..."
-    anne panique "AAAAAAAAH !"
-    with shake
+    anne panique "AAAAAAAAH !" with little_shake
     anne "Charles ! Charles !!"
     $ anne("Di{w=0.0}s {w=0.0}que{w=0.0}lq{w=0.0}ue{w=0.0} ch{w=0.0}o", interact=False)
     pause 0.26
@@ -1315,8 +1311,8 @@ label soir_endingC_start:
     play sound "music/sf_decapitation.mp3"
     hide anne with dissolve
     pause 0.5
-    with shake
     play sound "music/FlashSound.mp3"
+    with shake
     pause 1.0
 
     show helene_demon souriante at center
@@ -1354,8 +1350,8 @@ label mort_de_helene_start:
     self "Elle débloque !"
 
     scene decor noir with dissolve
-    with shake
     play sound "music/FlashSound.mp3"
+    with shake
     self "..."
     self "...elle ne respire plus."
     self "...!"

@@ -117,6 +117,11 @@ transform center:
     yalign 1
     zoom 1.3
     
+transform center_dague: 
+    xalign 0.05
+    yalign 1
+    zoom 1.3
+    
 transform left_zoom: 
     xalign 0.2 
     yalign 0.3

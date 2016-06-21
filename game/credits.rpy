@@ -20,6 +20,8 @@ label end_credits:
     return
 
 label credits:
+    hide menu_button
+    
     $ credits_speed = 25 #scrolling speed in seconds
     scene black #replace this with a fancy background
     hide theend with long_dissolve
@@ -40,7 +42,7 @@ init python:
     c1 = ''
     for c in credits:
         if not c1==c[0]:
-            credits_s += "\n{size=80}{font=gui/century.ttf}" + c[0] + "\n"
+            credits_s += "\n{size=60}{font=gui/century.ttf}" + c[0] + "\n"
         credits_s += "{size=40}{font=gui/century.ttf}" + c[1] + "\n"
         c1=c[0]
     
