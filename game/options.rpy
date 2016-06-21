@@ -260,7 +260,7 @@ init python:
     build.documentation('*.html')
     build.documentation('*.txt')
     
-    config.mouse = { 'default' : [ ('gui/mouse_pointer.png', 0, 0)], 'hover' : [ ('gui/mouse_hover.png', 0, 0)] }
+    config.mouse = { 'default' : [ ('gui/mouse_pointer.png', 5, 0)], 'hover' : [ ('gui/mouse_hover.png', 5, 0)] }
     
     config.main_menu_music = "music/ecran_titre.mp3"
     
