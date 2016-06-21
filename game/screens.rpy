@@ -105,7 +105,7 @@ init -2 python: #we initialize x and y, so the load_save_slot screen below works
 screen load_save_slot:
     $ file_text = "{size=30}{color=#000}% s\n  %s" % (FileTime(number, empty="Empty Slot."), FileSaveName(number))
     
-    $ x1=x+300
+    $ x1=x+295
     $ y1=y+22
     add FileScreenshot(number) xpos x1 ypos y1 at filescreenshot
     $ x2=x+30
@@ -123,6 +123,8 @@ screen charger:
     tag menu
     
     add "gui/charger/background.png"
+    
+    use load
     
     if soundOn:
         use sound_On
@@ -267,25 +269,3 @@ init python:
 
 screen menu_button:
     imagebutton auto "gui/ingame/menu_%s.png" action [ShowMenu('sauvegarder'), Play("menu", "music/BoutonNavigation.mp3")]  xpos 0.75 ypos 0 focus_mask True mouse "hover"
-
-screen ingame_menu:
-    imagebutton auto "gui/quick_config_%s.png" action ShowMenu('preferences') focus_mask True at option mouse "hover"
-    imagebutton auto "gui/quick_main_%s.png" action MainMenu() focus_mask True at home mouse "hover"
-    imagebutton auto "gui/ingame_menu_%s.png" action [Show('menu_button'), Hide('ingame_menu')] xpos 0.85 ypos 0 focus_mask True mouse "hover"
-    
-init -2:
-    transform option:
-        xpos 0.85
-        ypos -150
-        easein_bounce 0.5 ypos 75
-        on hide:
-            ypos 75
-            linear 0.3 ypos -150
-    transform home:
-        xpos 0.85
-        ypos -75
-        easein_bounce 0.5 ypos 150
-        on hide:
-            ypos 150
-            linear 0.3 ypos -75
-            

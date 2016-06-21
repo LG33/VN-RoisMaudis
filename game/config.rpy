@@ -191,6 +191,7 @@ init python:
     Shake = renpy.curry(_Shake)
     
     shake = Shake((0, 0, 0, 0), 0.33, dist=15)
+    little_shake = Shake((0, 0, 0, 0), 0.15, dist=15)
     
     flash_rouge = Fade(.25, 0, .25, color="#ff0000")
     flash_blanc = Fade(.25, 0, .25, color="#ffffff")
