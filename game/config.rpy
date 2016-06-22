@@ -13,7 +13,6 @@ image decor chateau:
     "backgrounds/fontainebleau.png"
 image decor water:
     "backgrounds/water.png"
-    zoom 0.5
 image decor eglise:
     "backgrounds/eglise.png"
 

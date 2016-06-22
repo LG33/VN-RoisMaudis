@@ -2,7 +2,7 @@
 # 01 - Fuite
 label start:
     # play sound ["music/AttaqueMagique.mp3" , "music/ChuteHomme.mp3"] fadein 1.0
-    show screen menu_button
+    
     stop music fadeout 1.0
     scene decor noir with long_dissolve
 
@@ -384,7 +384,7 @@ label retour_chambre:
     
     scene decor chambre with ellipse
 
-    stop cloche fadeout 4.0
+    stop cloche fadeout 2.0
     #play music "music/planque_dialogue.mp3" fadein 1.0 loop
 
     self "J’ai la tête qui tourne... {w=0.5}et mon bras..."
@@ -605,7 +605,8 @@ label dialogue_charles_1_end:
 
     self "La marque... {w=0.5}elle est plus étendue que tout à l’heure..."
 
-    jump sortie_start
+    jump village_start
+    #jump sortie_start
 # END FILE 05 - Dialogue Charles
 
 # 06 - Sortie
@@ -622,8 +623,15 @@ label sortie_start:
 
     helene souriante "Ah, te voila !"
     helene normal "De quoi avez-vous parlé avec Charles ?"
-    leon "Rien d’important..."
+    leon "Rien d’important…"
     helene "..."
+
+    #menu:
+        #"\"Il m’a donné une dague\"":
+           #helene "Quoi ? Et il fallait que nous sortions pour ça ?"
+        #"\"Rien d’important…\"":
+           #helene "..."
+
     helene souriante "Bien, allons-y !"
 
     jump village_start
@@ -840,7 +848,8 @@ label briefing_endingAB_start:
 label briefing_endingC_start:
 
     scene decor grande_salle
-    play music "music/planque_dialogue.mp3" fadein 1.0 loop
+    stop music fadeout 2.0
+    play cloche "music/grande_salle.ogg" fadein 1.0 loop
     show anne normal at center
     with ellipse
 
@@ -849,12 +858,13 @@ label briefing_endingC_start:
     hide anne with dissolve
     show charles serieux at center with dissolve
 
-    charles "Vous en avez mis, du temps."
+    charles "Vous en avez mis du temps, tout va bien ?"
 
     hide charles with dissolve
     show helene serieuse at center with dissolve
 
     helene "..."
+    helene "Oui."
 
     hide helene with dissolve
     show charles normal at center with dissolve
@@ -1075,12 +1085,11 @@ label massacre_endingA_start:
     hide helene with dissolve
     show anne normal at center with dissolve
 
-    $ anne("Qu{w=0.0}’e{w=0.0}st-{w=0.0}ce{w=0.0} q{w=0.0}ue {w=0.0}tu{w=0.0} v{w=0.0}eux{w=0.0} d{w=0.0}ir{w=0.0}e p{w=0.0}a", interact=False)
+    anne "Qu{w=0.0}’e{w=0.0}st-{w=0.0}ce{w=0.0} q{w=0.0}ue {w=0.0}tu{w=0.0} v{w=0.0}eux{w=0.0} d{w=0.0}ir{w=0.0}e p{w=0.0}a{nw}"
     pause 0.54
 
     play sound "music/sf_decapitation.mp3"
-    with flash_rouge
-    hide anne with dissolve
+    hide anne with flash_rouge
     pause 0.5
     play sound "music/FlashSound.mp3"
     with shake
@@ -1106,8 +1115,7 @@ label massacre_endingA_start:
     helene_demon souriante "Tu es ridicule."
 
     play sound "music/sf_decapitation.mp3"
-    with flash_rouge
-    hide gaston with dissolve
+    hide gaston with flash_rouge
     pause 0.5
     play sound "music/FlashSound.mp3"
     with shake
@@ -1121,8 +1129,7 @@ label massacre_endingA_start:
     charles "Anne...! Dis quelque chose !"
 
     play sound "music/BruitDattaque.mp3"
-    with flash_rouge
-    hide charles with dissolve
+    hide charles with flash_rouge
     pause 0.5
     play sound "music/FlashSound.mp3"
     with shake
@@ -1203,12 +1210,11 @@ label massacre_endingB_start:
     leon "Qu... {w=0.5}quoi ?!"
     gaston "Elle a tué Anne et Charles et si on ne se grouille pas, on est les suivants !"
     leon "Qu’est-ce que tu racontes ?!"
-    $ gaston("Ma{w=0.0}gn{w=0.0}e-t{w=0.0}oi{w=0.0}, {w=0.0}put{w=0.0}ai{w=0.0}n,{w=0.0} on{w=0.0} n{w=0.0}’a{w=0.0} pa{w=0.0}s {w=0.0}le{w=0.0} te{w=0.0}mp{w=0.0}s {w=0.0}! E{w=0.0}ll{w=0.0}e {w=0.0}va {w=0.0}no{w=0.0}u", interact=False)
+    gaston "Ma{w=0.0}gn{w=0.0}e-t{w=0.0}oi{w=0.0}, {w=0.0}put{w=0.0}ai{w=0.0}n,{w=0.0} on{w=0.0} n{w=0.0}’a{w=0.0} pa{w=0.0}s {w=0.0}le{w=0.0} te{w=0.0}mp{w=0.0}s {w=0.0}! E{w=0.0}ll{w=0.0}e {w=0.0}va {w=0.0}no{w=0.0}u{nw}"
     pause 1.0
 
     play sound "music/sf_decapitation.mp3"
-    with flash_rouge
-    hide gaston with dissolve
+    hide gaston with flash_rouge
     pause 0.5
     with shake
     play sound "music/FlashSound.mp3"
@@ -1249,6 +1255,9 @@ label soir_endingC_start:
     self "Je ne peux qu’attendre, maintenant..."
     self "Ah !"
 
+    stop music fadeout 2.0
+    stop cloche fadeout 2.0
+
     scene decor noir with flash_blanc
     pause 1.0
 
@@ -1259,9 +1268,6 @@ label soir_endingC_start:
 
     self "Encore ce truc..."
     self "Mon bras me brûle..."
-
-    stop music fadeout 2.0
-    stop cloche fadeout 2.0
 
     scene arm_gant with long_dissolve
     pause 0.8
@@ -1315,12 +1321,11 @@ label soir_endingC_start:
     self "Attends..."
     self "C’est forcément l’un d’entre eux qui a fait ça !"
     self "Je ne peux faire confiance à personne !"
-    $ self("Je{w=0.0} d{w=0.0}ois{w=0.0} p{w=0.0}ar{w=0.0}tir{w=0.0} d{w=0.0}’i{w=0.0}ci {w=0.0}le{w=0.0} p{w=0.0}lu", interact=False)
+    self "Je{w=0.0} d{w=0.0}ois{w=0.0} p{w=0.0}ar{w=0.0}tir{w=0.0} d{w=0.0}’i{w=0.0}ci {w=0.0}le{w=0.0} p{w=0.0}lu{nw}"
     pause 0.5
 
-    with flash_rouge
     play sound "music/BruitDattaque.mp3"
-    hide charles with dissolve
+    hide charles with flash_rouge
     pause 0.5
     play sound "music/FlashSound.mp3"
     with shake
@@ -1340,12 +1345,12 @@ label soir_endingC_start:
     anne "Qu’est ce qu... {w=0.5}Aah... {w=0.5}Non..."
     anne panique "AAAAAAAAH !" with little_shake
     anne "Charles ! Charles !!"
-    $ anne("Di{w=0.0}s {w=0.0}que{w=0.0}lq{w=0.0}ue{w=0.0} ch{w=0.0}o", interact=False)
+    anne "Di{w=0.0}s {w=0.0}que{w=0.0}lq{w=0.0}ue{w=0.0} ch{w=0.0}o{nw}"
     pause 0.26
 
     play sound "music/sf_decapitation.mp3"
-    with flash_rouge
-    hide anne with dissolve
+
+    hide anne with flash_rouge
     pause 0.5
     play sound "music/FlashSound.mp3"
     with shake
@@ -1371,10 +1376,9 @@ label soir_endingC_start:
 label mort_de_helene_start:
 
     play sound "music/BruitDattaque.mp3"
-    with flash_rouge
+    hide helene_demon with flash_rouge
     # on stoppe la musique car moment drama
     stop music fadeout 1.0
-    pause 3.0
 
     if ending == "A":
         scene mort_de_helene_A with dissolve
@@ -1383,6 +1387,7 @@ label mort_de_helene_start:
     if ending == "C":
         scene mort_de_helene_C with dissolve
 
+    pause 3.0
     helene_demon "L... {w=0.5}Léon."
     self "...Ça a marché ? Une simple dague ?"
     helene_demon "Tu dois... {w=0.5}vivre..."
@@ -1463,6 +1468,6 @@ label flashback_start:
     leon "Hélène."
     pause 1.0
 
-    jump end_credits
+    show screen end_credits
 
 # END 12 - Flashback

@@ -269,8 +269,4 @@ init python:
     config.keymap['rollback'].remove('K_AC_BACK')
     config.keymap['rollback'].remove('mousedown_4')
     
-    config.keymap['game_menu'].remove('K_ESCAPE')
-    config.keymap['game_menu'].remove('K_MENU')
-    config.keymap['game_menu'].remove('mouseup_3')
-    
     # config.keymap['dismiss'].remove('mouseup_1')

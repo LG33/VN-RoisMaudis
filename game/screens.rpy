@@ -87,7 +87,7 @@ screen main_menu:
     
     imagebutton auto "gui/accueil/nouveau_%s.png" xpos 0 ypos 0 focus_mask True action [Start(), Play("menu", "music/BoutonNavigation.mp3")]  mouse "hover"
 
-    imagebutton auto "gui/accueil/charger_%s.png" xpos 0 ypos 0 focus_mask True action [ShowMenu('charger'), Show("load"), Play("menu", "music/BoutonNavigation.mp3")]  mouse "hover"
+    imagebutton auto "gui/accueil/charger_%s.png" xpos 0 ypos 0 focus_mask True action [ShowMenu('load'), Play("menu", "music/BoutonNavigation.mp3")]  mouse "hover"
     
     imagebutton auto "gui/accueil/quitter_%s.png" xpos 0 ypos 0 focus_mask True action [Quit(confirm=False), Play("menu", "music/BoutonNavigation.mp3")]  mouse "hover"
 
@@ -96,31 +96,15 @@ screen main_menu:
 ## ■██▓▒░ SAVE / LOAD FILE PICKER ░▒▓███████████████████████■
 ## Since saving and loading are so similar, we combine them into a single screen, file_picker. We then use the file_picker screen from simple load and save screens.
     
-screen charger:
+screen load:
     tag menu
     
     add "gui/charger/background.png"
     
-    on "show" action Show("load")
+    add "gui/charger/charger_selected_idle.png" xpos 540 ypos 165
+    imagebutton auto "gui/charger/sauvegarder_%s.png" xpos 174 ypos 175 focus_mask True action [Show("save"), Hide("load"), Play("menu", "music/BoutonNavigation.mp3")] mouse "hover"
     
-    if soundOn:
-        use sound_On
-    else:
-        use sound_Off
-    
-    if _preferences.fullscreen:
-        use fullscreen_On
-    else:
-        use fullscreen_Off
-    
-    use nav_buttons
-    
-screen sauvegarder:
-    tag menu
-    
-    add "gui/charger/background.png"
-    
-    on "show" action Show("save")
+    use save_load_slots
     
     if soundOn:
         use sound_On
@@ -135,16 +119,26 @@ screen sauvegarder:
     use nav_buttons
     
 screen save:
+    tag menu
+    
+    add "gui/charger/background.png"
+    
     add "gui/charger/sauvegarder_selected_idle.png" xpos 155 ypos 165
     imagebutton auto "gui/charger/charger_%s.png" xpos 559 ypos 175 focus_mask True action [Show("load"), Hide("save"), Play("menu", "music/BoutonNavigation.mp3")] mouse "hover"
     
     use save_load_slots
     
-screen load:
-    add "gui/charger/charger_selected_idle.png" xpos 540 ypos 165
-    imagebutton auto "gui/charger/sauvegarder_%s.png" xpos 174 ypos 175 focus_mask True action [Show("save"), Hide("load"), Play("menu", "music/BoutonNavigation.mp3")] mouse "hover"
+    if soundOn:
+        use sound_On
+    else:
+        use sound_Off
     
-    use save_load_slots
+    if _preferences.fullscreen:
+        use fullscreen_On
+    else:
+        use fullscreen_Off
+    
+    use nav_buttons
     
 screen save_load_slots:
     $ y=295
@@ -181,10 +175,10 @@ transform filescreenshot:
     zoom 1.25
         
 screen nav_buttons:
-    imagebutton auto "gui/charger/retour_%s.png" xpos 250 ypos 880 action [Return(), Hide("save"), Hide("load"), Hide("sound_On"), Hide("sound_Off"), Hide("fullscreen_Off"), Hide("fullscreen_On"), Play("menu", "music/BoutonNavigation.mp3")] mouse "hover"
+    imagebutton auto "gui/charger/retour_%s.png" xpos 250 ypos 880 action [Return(), Hide("sauvegarder"), Hide("charger"), Hide("sound_On"), Hide("sound_Off"), Hide("fullscreen_Off"), Hide("fullscreen_On"), Play("menu", "music/BoutonNavigation.mp3")] mouse "hover"
     imagebutton auto "gui/charger/main_menu_%s.png" xpos 820 ypos 880 action [MainMenu(), Play("menu", "music/BoutonNavigation.mp3")] mouse "hover"
-    imagebutton auto "gui/charger/log_%s.png" xpos 1395 ypos 755 action [ShowMenu('text_history'), Hide("save"), Hide("load"), Hide("sound_On"), Hide("sound_Off"), Hide("fullscreen_Off"), Hide("fullscreen_On"), Play("menu", "music/BoutonNavigation.mp3")] mouse "hover"
-    imagebutton auto "gui/charger/credits_%s.png" xpos 1395 ypos 880 action [Hide("charger"), Hide("save"), Hide("load"), Hide("sound_On"), Hide("sound_Off"), Hide("fullscreen_Off"), Hide("fullscreen_On"), Play("menu", "music/BoutonNavigation.mp3"), Start("credits")] mouse "hover"
+    imagebutton auto "gui/charger/log_%s.png" xpos 1395 ypos 755 action [ShowMenu('text_history'), Hide("sauvegarder"), Hide("charger"), Hide("sound_On"), Hide("sound_Off"), Hide("fullscreen_Off"), Hide("fullscreen_On"), Play("menu", "music/BoutonNavigation.mp3")] mouse "hover"
+    imagebutton auto "gui/charger/credits_%s.png" xpos 1395 ypos 880 action [ShowMenu("credits"), Hide("charger"), Hide("sauvegarder"), Hide("charger"), Hide("sound_On"), Hide("sound_Off"), Hide("fullscreen_Off"), Hide("fullscreen_On"), Play("menu", "music/BoutonNavigation.mp3")] mouse "hover"
     
 screen sound_Off: 
     imagebutton auto "gui/charger/sound_off_%s.png" xpos 1475 ypos 275 focus_mask True action [ToggleVariable("soundOn"), SetMute("music",False), SetMute("sfx",False), SetMute("menu",False), Hide("sound_Off"), Show("sound_On"), Play("menu", "music/BoutonSelection.mp3")] mouse "hover"
@@ -213,15 +207,10 @@ screen yesno_prompt:
     elif message == layout.MAIN_MENU:
         add "gui/yesno/main_menu.png"
 
-    imagebutton auto "gui/yesno/yes_%s.png" xpos 500 ypos 700 action [yes_action, Hide("save"), Hide("load"), Hide("sound_On"), Hide("sound_Off"), Hide("fullscreen_Off"), Hide("fullscreen_On"), Play("menu", "music/BoutonNavigation.mp3")] mouse "hover"
+    imagebutton auto "gui/yesno/yes_%s.png" xpos 500 ypos 700 action [yes_action, Hide("sauvegarder"), Hide("charger"), Hide("sound_On"), Hide("sound_Off"), Hide("fullscreen_Off"), Hide("fullscreen_On"), Play("menu", "music/BoutonNavigation.mp3")] mouse "hover"
     imagebutton auto "gui/yesno/no_%s.png" xpos 1050 ypos 700 action [no_action, Play("menu", "music/BoutonNavigation.mp3")]  mouse "hover"
     
-
-## ■██▓▒░ TOOLTIP ░▒▓███████████████████████████████████████■
-screen gui_tooltip:
-    add my_picture xpos my_tt_xpos ypos my_tt_ypos
-
-
+    
 ## ■██▓▒░ THE TEXTBOX ░▒▓███████████████████████████████████■
 # Screen that's used to display adv-mode dialogue.
 # http://www.renpy.org/doc/html/screen_special.html#say
@@ -259,5 +248,16 @@ init python:
 ## ■██▓▒░ QUICK MENU ░▒▓████████████████████████████████████■
 ## Screens for the quick menus above the textbox. We use several different quick menus for presentation purposes.
 
-screen menu_button:
-    imagebutton auto "gui/ingame/menu_%s.png" action [ShowMenu('sauvegarder'), Play("menu", "music/BoutonNavigation.mp3")]  xpos 0.75 ypos 0 focus_mask True mouse "hover"
+## screen menu_button:
+##     imagebutton auto "gui/ingame/menu_%s.png" action [ShowMenu('save'), Play("menu", "music/BoutonNavigation.mp3")]  xpos 0.75 ypos 0 focus_mask True mouse "hover"
+
+screen credits:
+    tag menu
+    imagebutton idle "gui/credits.png" action Return()
+    
+screen end_credits:
+    tag menu
+    imagebutton idle "gui/credits.png" action ShowMenu("thanks")
+screen thanks:
+    tag menu
+    imagebutton idle "gui/merci.png" action MainMenu(confirm=False)
