@@ -11,14 +11,14 @@ label start:
     play cloche "music/SonCloche.mp3" fadein 4.0 loop
     play sound "music/BruitageChien.mp3" fadein 2.0 loop
 
-    self "Que... {w=0.5}qu’est-ce qu’il se passe ?"
+    self "Que... {w=0.3}qu’est-ce qu’il se passe ?"
 
     scene decor intro with long_dissolve
 
     pause 0.5
 
     inconnu "Tu t’es évanoui. Dépêche-toi, il faut fuir !"
-    self "Je... {w=0.5}je ne comprends rien..."
+    self "Je... {w=0.3}je ne comprends rien..."
 
     menu:
         "\"Où sommes nous ?\"":
@@ -29,15 +29,15 @@ label start:
             jump fuite_fin
     
 label fuite_fin:
-    inconnu "QU... {w=0.5}QUOI ?!"
+    inconnu "QU... {w=0.3}QUOI ?!"
     
     pause 2.0
     
     inconnu "Il manquait plus que ça ! "
-    inconnu "Léon... {w=0.5}tu..."
+    inconnu "Léon... {w=0.3}tu..."
     inconnu "..."
     inconnu "On n’a pas le temps. Suis-moi !"
-    leon "Ah... {w=0.5}ma tête..."
+    leon "Ah... {w=0.3}ma tête..."
     play sound "music/FlashSound.mp3"
     with shake
 
@@ -68,7 +68,7 @@ label reveil_start:
     inconnu "Ça y est, tu es réveillé ?"
     leon "..."    
     inconnu "J’étais vraiment inquiète, tu sais !"
-    self "Cette voix... {w=0.5}c’est la fille au masque ?"
+    self "Cette voix... {w=0.3}c’est la fille au masque ?"
 
     show helene normal
     
@@ -86,9 +86,9 @@ label reveil_start:
     show helene inquiete
     pause 1.0
 
-    inconnu "Je m’en doutais... {w=0.5}Tu ne te souviens vraiment plus de rien..."
+    inconnu "Je m’en doutais... {w=0.3}Tu ne te souviens vraiment plus de rien..."
 
-    helene normal "Tu ne te souviens même plus de moi... {w=0.5}je m’appelle Hélène."
+    helene normal "Tu ne te souviens même plus de moi... {w=0.3}je m’appelle Hélène."
 
     menu:
         "\"Où est ce qu’on est ?\"":
@@ -125,7 +125,7 @@ label reveil_1_end:
 
     show helene inquiete
 
-    helene "Anne... {w=0.5}Il a perdu la mémoire..."
+    helene "Anne... {w=0.3}Il a perdu la mémoire..."
 
     show anne serieuse
 
@@ -160,7 +160,7 @@ label reunion_start:
     show gaston normal at right
     with long_dissolve
 
-    self "Ces personnes... {w=0.5}évidemment, leur visage ne me dit rien."
+    self "Ces personnes... {w=0.3}évidemment, leur visage ne me dit rien."
 
     hide gaston with dissolve
     show charles normal at center with move
@@ -172,7 +172,7 @@ label reunion_start:
     show gaston souriant at center with dissolve
 
     gaston "Moi, c'est Gaston. T'as intérêt à vite retrouver la mémoire !"
-    leon "L'Ordre du Lys... {w=0.5}qu’est-ce que c'est ?"
+    leon "L'Ordre du Lys... {w=0.3}qu’est-ce que c'est ?"
 
     hide gaston with dissolve
     show charles normal at center with dissolve
@@ -180,14 +180,14 @@ label reunion_start:
     charles "Te souviens-tu de la situation dans laquelle la France se trouve actuellement ?"
     leon "Non..."
     charles "De quoi tu te souviens ?"
-    leon "Pas de grand chose... {w=0.5}Je sais juste que nous sommes en France et il me semble que nous sommes en 1313."
+    leon "Pas de grand chose... {w=0.3}Je sais juste que nous sommes en France et il me semble que nous sommes en 1313."
     charles serieux "C’est tout ?"
     charles "..."
     charles normal  "On va devoir reprendre depuis le début."
     charles "La France est actuellement dirigée par les Templier, un groupe religieux extrémiste."
     charles serieux "Ils se sont procurés durant la dernière croisade un artefact démoniaque."
     charles "Ils s’en sont servi afin d’invoquer des démons en pratiquant des rites occultes."
-    self "Des... {w=0.5}des démons ?! Vraiment ?!"
+    self "Des... {w=0.3}des démons ?! Vraiment ?!"
 
     hide charles with dissolve
     show gaston serieux at center with dissolve
@@ -204,7 +204,7 @@ label reunion_start:
     charles "..."
     charles normal "En tant que prince, il était de ma responsabilité de fonder l’Ordre du Lys."
     charles "C’est un groupe de résistants qui lutte face aux Templiers."
-    self "Un... {w=0.5}un prince ?!"
+    self "Un... {w=0.3}un prince ?!"
 
     menu:
         "\"Excusez mon impolitesse, votre altesse. Je ne savais pas.\"":
@@ -303,7 +303,7 @@ label reunion_1_end:
     hide charles with dissolve
     show gaston serieux at center with dissolve
 
-    gaston "Léon... {w=0.5}Nous l’avons torturé puis égorgé."
+    gaston "Léon... {w=0.3}Nous l’avons torturé puis égorgé."
     self "...Quoi ?!"
     self "Mais c’est horrible !"
     self "Je fais vraiment partie d’un groupe qui suit ce genre de pratiques ?!"
@@ -387,7 +387,7 @@ label retour_chambre:
     stop cloche fadeout 2.0
     #play music "music/planque_dialogue.mp3" fadein 1.0 loop
 
-    self "J’ai la tête qui tourne... {w=0.5}et mon bras..."
+    self "J’ai la tête qui tourne... {w=0.3}et mon bras..."
 
     scene arm_gant with long_dissolve
     #stop music fadeout 2.0
@@ -397,8 +397,8 @@ label retour_chambre:
     scene arm_1 with long_dissolve
 
     self "{cps=*2}...!{/cps}"
-    self "{cps=*2}Qu... {w=0.3}Qu’est-ce que c’est que ça !{/cps}" with little_shake
-    self "{cps=*2}Ce ne serait quand même pas... {w=0.3}non, ça ne peut pas être ça !{/cps}" with little_shake
+    self "{cps=*2}Qu... {w=0.15}Qu’est-ce que c’est que ça !{/cps}" with little_shake
+    self "{cps=*2}Ce ne serait quand même pas... {w=0.15}non, ça ne peut pas être ça !{/cps}" with little_shake
     self "{cps=*2}C’était déjà là quand je me suis réveillé ?{/cps}"
     self "{cps=*2}C’est arrivé pendant l’assaut d’hier ?!{/cps}"
     self "{cps=*2}Charles a dit que des armes magiques pouvaient infliger ça...{/cps}"
@@ -411,7 +411,7 @@ label retour_chambre:
     #play music "music/planque_dialogue.mp3" fadein 1.0 loop
     pause 2.0
 
-    self "Alors c’est à ça que je ressemble... {w=0.5}Je tire une de ces têtes..."
+    self "Alors c’est à ça que je ressemble... {w=0.3}Je tire une de ces têtes..."
     self "D’ailleurs, j’ai aucune idée de l’âge que j’ai..."
     self "J’ai l’air plus vieux que je l’aurais espéré..."
 
@@ -426,7 +426,7 @@ label retour_chambre:
     scene decor chambre with flash_blanc
     play music "music/planque_dialogue.mp3" fadein 1.0 loop
 
-    self "Que... {w=0.5}quoi ?!" with shake
+    self "Que... {w=0.3}quoi ?!" with shake
     self "C’était quoi, ça ?!"
     self "Une hallucination ?! Un souvenir ?!"
 
@@ -438,7 +438,7 @@ label retour_chambre:
     anne "Léon, tu vas mieux ?"
     self "C’était limite mais j’ai pu remettre mon gant à temps..."
     anne "Eh, tu m’écoutes ?"
-    leon "Ne... {w=0.5}ne t’inquiète pas, c’est juste un coup de fatigue, rien de bien grave."
+    leon "Ne... {w=0.3}ne t’inquiète pas, c’est juste un coup de fatigue, rien de bien grave."
     anne serieuse "..."
     anne "Te réveiller au milieu d’inconnus doit être dur à vivre..."
     leon "Je n’ai des souvenirs d’aucun d’entre vous..."
@@ -448,10 +448,10 @@ label retour_chambre:
     anne normal "Depuis le début, les statuts sociaux des membres de l’Ordre étaient très variés."
     anne "Gaston, lui, n’était qu’un paysan."
     anne souriante "Quand à Hélène et toi, vous étiez un couple de nobles."
-    leon "Un... {w=0.5}un couple ?!" with little_shake
+    leon "Un... {w=0.3}un couple ?!" with little_shake
     leon "Vraiment ?!"
-    anne normal "Oh... {w=0.5}elle ne t’en a pas parlé ?"
-    anne serieuse "Je vois... {w=0.5}ton amnésie doit être très dure à vivre pour elle aussi."
+    anne normal "Oh... {w=0.3}elle ne t’en a pas parlé ?"
+    anne serieuse "Je vois... {w=0.3}ton amnésie doit être très dure à vivre pour elle aussi."
     anne souriante "Hélène et toi êtes en couple depuis bien avant que vous n'ayez intégré l’Ordre."
     leon "Elle ne m’en a pas dit un mot..."
     anne normal "..."
@@ -482,7 +482,7 @@ label grande_salle:
     anne normal "Hélène peut l’accompagner, ils y allaient toujours ensemble pour faire des provisions."
     anne "Après tout, leurs visages ne sont pas connus des Templiers, contrairement à ceux du reste de l’Ordre."
 
-    charles "Anne... {w=0.5}tu es consciente de l’importance de l’attaque de demain...?"
+    charles "Anne... {w=0.3}tu es consciente de l’importance de l’attaque de demain...?"
     charles "Léon ne peut pas vraiment nous aider à préparer quoi que ce soit dans son état, mais Hélène n’a pas de temps à perdre à gambader au village."
     helene "Je veux y aller !"
     anne souriante "Ah, tu es là !"
@@ -518,7 +518,7 @@ label grande_salle:
 
     play cloche "music/grande_salle.ogg" fadein 1.0 loop
 
-    self "Ah... {w=0.5}encore ça ?!"
+    self "Ah... {w=0.3}encore ça ?!"
 
     show helene inquiete at center with dissolve
 
@@ -544,7 +544,7 @@ label grande_salle:
     with long_dissolve
     show charles normal at center with dissolve
 
-    charles "Léon... {w=0.5}tu es certain que tout va bien ? N’essaye pas de ma faire croire que tu as juste de simples vertiges."
+    charles "Léon... {w=0.3}tu es certain que tout va bien ? N’essaye pas de ma faire croire que tu as juste de simples vertiges."
     charles "Tu peux nous en parler, tu sais."
     self "Je ne peux pas le laisser savoir ce que j’ai au bras..."
     leon "Je t’assure. Je suis juste un peu fatigué mais je ne me sens pas particulièrement mal."
@@ -578,7 +578,7 @@ label dialogue_charles_1_1:
 
     leon "Est-ce que les démons peuvent prendre une forme humaine ?"
     charles serieux "Où a-tu entendu une chose pareille ?"
-    leon "Nulle part... {w=0.5}je me posais juste la question."
+    leon "Nulle part... {w=0.3}je me posais juste la question."
     charles normal "Ne te pose pas des questions aussi insensées. Évidemment qu’ils ne peuvent pas."
     charles "Bref. Ne tardez pas."
 
@@ -586,7 +586,7 @@ label dialogue_charles_1_1:
 
 label dialogue_charles_1_2:
 
-    leon "Non... {w=0.5}rien."
+    leon "Non... {w=0.3}rien."
     charles "..."
     charles "Bref, ne tardez pas."
 
@@ -597,13 +597,13 @@ label dialogue_charles_1_end:
     hide charles with long_dissolve
     stop cloche fadeout 2.0
 
-    self "Tout à l’heure... {w=0.5}mon bras..."
+    self "Tout à l’heure... {w=0.3}mon bras..."
 
     scene arm_gant with long_dissolve
     pause 0.8
     scene arm_2 with long_dissolve
 
-    self "La marque... {w=0.5}elle est plus étendue que tout à l’heure..."
+    self "La marque... {w=0.3}elle est plus étendue que tout à l’heure..."
 
     jump village_start
     #jump sortie_start
@@ -649,7 +649,7 @@ label village_start:
     with ellipse
 
     helene "... et c’est à cet étal qu’on achète habituellement nos légumes."
-    self "On a déjà acheté les herbes... {w=0.5}on ne devait pas se dépêcher de rentrer ?"
+    self "On a déjà acheté les herbes... {w=0.3}on ne devait pas se dépêcher de rentrer ?"
     helene souriante "Ils vendent les meilleurs choux du coin !"
     helene normal "Par contre, leurs navets sont écoeurants..."
     helene "Ne va pas le répéter au marchand, il est persuadé du contraire."
@@ -669,7 +669,7 @@ label village_start:
 
     show helene normal at center_zoom
     helene "Je n’ai pas vraiment trouvé le moment pour t’en parler plus tôt, mais..."
-    helene "Toi et moi... {w=0.5}nous formons un couple."
+    helene "Toi et moi... {w=0.3}nous formons un couple."
 
     menu:
 
@@ -680,7 +680,7 @@ label village_start:
 
 label village_1_1:
 
-    leon "Oui... {w=0.5}Anne l’a déjà mentionné."
+    leon "Oui... {w=0.3}Anne l’a déjà mentionné."
     helene normal "Vraiment ? Décidément, elle ne sait pas tenir sa langue !"
     helene "J’aurais préféré te l’annoncer moi-même..."
     helene "C’est aussi de ma faute, je n’ai pas eu le courage de t’en parler avant..."
@@ -692,7 +692,7 @@ label village_1_2:
 
     leon "Vraiment ?! Je n’en avais aucune idée..."
     helene normal "Oui. Nous étions déjà ensemble bien avant de rejoindre l’Ordre."
-    helene "Désolée... {w=0.5}Je n’ai pas trouvé le courage de t’en parler plus tôt."
+    helene "Désolée... {w=0.3}Je n’ai pas trouvé le courage de t’en parler plus tôt."
     
     jump village_1_end
     
@@ -705,15 +705,15 @@ label village_1_end:
     helene "Tu me caches quelque chose d’important, pas vrai ?"
     self "{cps=*2}Que...{/cps}"
     self "{cps=*2}Elle est au courant pour mon bras ?!{/cps}" with little_shake
-    self "Non... {w=0.5}Ce n’est pas possible..."
+    self "Non... {w=0.3}Ce n’est pas possible..."
     self "Elle se doute juste de quelque chose..."
     self "Qu’est-ce que je dois faire ? Je dois lui en parler ?"
-    self "Nous étions en couple... {w=0.5}C’est probablement la seule à qui je peux me confier..."
+    self "Nous étions en couple... {w=0.3}C’est probablement la seule à qui je peux me confier..."
     self "Mais ce que Charles a dit au sujet de ceux qui ont cette marque..."
     self "Non. C’est probablement une mauvaise idée de lui en parler."
     self "Ça ne peut que mal finir."
-    self "Mais... {w=0.5}Elle m’aime, pas vrai ?"
-    self "Mais même si je lui en parle... {w=0.5}elle ne pourrait sûrement rien faire pour m’aider..."
+    self "Mais... {w=0.3}Elle m’aime, pas vrai ?"
+    self "Mais même si je lui en parle... {w=0.3}elle ne pourrait sûrement rien faire pour m’aider..."
 
     menu:
 
@@ -724,7 +724,7 @@ label village_1_end:
 
 label village_2_1:
 
-    leon "Hélène... {w=0.5}Mon bras..."
+    leon "Hélène... {w=0.3}Mon bras..."
     helene normal "Oui ?"
     leon "Je m’en suis rendu compte un peu plus tôt..."
     leon "..."
@@ -753,7 +753,7 @@ label village_2_1:
 label village_2_2:
 
     leon "Je ne comprends pas de quoi tu parles. Je ne te cache rien."
-    helene inquiete "Je vois... {w=0.5}tu ne me fais pas encore confiance, pas vrai ?"
+    helene inquiete "Je vois... {w=0.3}tu ne me fais pas encore confiance, pas vrai ?"
     helene "Je ne peux pas t’en vouloir puisque tu as tout oublié."
     leon "..."
     helene normal "Peu importe."
@@ -947,7 +947,7 @@ label soir_endingAB_start:
 
     hide helene with dissolve
 
-    leon "Hélène ! Je... {w=0.5}Ah...!"
+    leon "Hélène ! Je... {w=0.3}Ah...!"
 
     scene decor noir with flash_blanc
     play sound "music/FlashSound.mp3"
@@ -961,10 +961,10 @@ label soir_endingAB_start:
     play cloche "music/planque_dialogue.mp3" fadein 1.0 loop
 
     self "Encore ce truc..."
-    self "Plus important... {w=0.5}Hélène !"
+    self "Plus important... {w=0.3}Hélène !"
     self "Elle a manifestement vu mon bras..."
-    self "Elle ne va pas en parler aux autres... {w=0.5}pas vrai ?"
-    self "Nous sommes en couple... {w=0.5}Elle ne ferait pas ça !"
+    self "Elle ne va pas en parler aux autres... {w=0.3}pas vrai ?"
+    self "Nous sommes en couple... {w=0.3}Elle ne ferait pas ça !"
     self "..."
     self "Enfin, j’espère..."
     self "..."
@@ -1099,13 +1099,13 @@ label massacre_endingA_start:
 
     helene_demon "Et de un."
     self "...!"
-    self "Cette chose... {w=0.5}C’est Hélène ?!"
+    self "Cette chose... {w=0.3}C’est Hélène ?!"
 
     show helene_demon at left with move
     show charles panique at right with dissolve
 
-    charles "Anne... {w=0.5}non... {w=0.5}ce n’est pas possible !"
-    self "Qu... {w=0.5}qu’est-ce qu’il se passe ?!"
+    charles "Anne... {w=0.3}non... {w=0.3}ce n’est pas possible !"
+    self "Qu... {w=0.3}qu’est-ce qu’il se passe ?!"
 
     hide charles with dissolve
     show gaston panique at right with dissolve
@@ -1143,9 +1143,9 @@ label massacre_endingA_start:
     helene_demon "J’aurais préféré garder ma couverture plus longtemps, mais l’attaque se déroulait trop bien et je ne pouvais pas risquer la vie du grand maître."
     self "Me battre ? Ah, j’ai la dague que Charles m’a donné !"
     self "Est-ce que ça va vraiment marcher sur une créature pareille ?"
-    helene_demon "Je devais récolter autant d’informations que possible sur les alliés de la résistance... {w=0.5}On dirait que ma mission se termine prématurément."
+    helene_demon "Je devais récolter autant d’informations que possible sur les alliés de la résistance... {w=0.3}On dirait que ma mission se termine prématurément."
     self "Elle se rapproche de plus en plus... Je n’ai plus le choix !"
-    helene_demon "Je m’attendais à plus de résistance... {w=0.5}C’en est presque décevant."
+    helene_demon "Je m’attendais à plus de résistance... {w=0.3}C’en est presque décevant."
 
     jump mort_de_helene_start
 # END FILE 10 - Ending A - Massacre
@@ -1173,14 +1173,14 @@ label massacre_endingB_start:
     charles "Allons-y."
     self "..."
     self "Ils sont partis..."
-    self "Hélène a vu mon bras... {w=0.5}Est-ce que je ne devrais pas m’enfuir pour de bon ?"
+    self "Hélène a vu mon bras... {w=0.3}Est-ce que je ne devrais pas m’enfuir pour de bon ?"
     self "..."
     self "Je ne saurais même pas où aller..."
     self "Je n’ai pas d’autre choix que de les attendre et espérer qu’elle n’en parle à personne..."
 
     scene decor chambre with ellipse
 
-    self "Ça fait déjà un moment... {w=0.5}J’espère que ça ne se passe pas mal."
+    self "Ça fait déjà un moment... {w=0.3}J’espère que ça ne se passe pas mal."
 
     scene arm_gant with long_dissolve
     pause 0.8
@@ -1207,7 +1207,7 @@ label massacre_endingB_start:
     gaston "Dieu merci, tu es bien là ! Dépêche-toi, on dégage en vitesse !"
     leon "Qu’est-ce qui se passe ?!"
     gaston "C’est Hélène ! C’est une saloperie de démon !"
-    leon "Qu... {w=0.5}quoi ?!"
+    leon "Qu... {w=0.3}quoi ?!"
     gaston "Elle a tué Anne et Charles et si on ne se grouille pas, on est les suivants !"
     leon "Qu’est-ce que tu racontes ?!"
     gaston "Ma{w=0.0}gn{w=0.0}e-t{w=0.0}oi{w=0.0}, {w=0.0}put{w=0.0}ai{w=0.0}n,{w=0.0} on{w=0.0} n{w=0.0}’a{w=0.0} pa{w=0.0}s {w=0.0}le{w=0.0} te{w=0.0}mp{w=0.0}s {w=0.0}! E{w=0.0}ll{w=0.0}e {w=0.0}va {w=0.0}no{w=0.0}u{nw}"
@@ -1225,18 +1225,18 @@ label massacre_endingB_start:
     self "...!"
     self "...Gaston !"
     helene_demon souriante "Cet imbécile avait une chance de s’échapper mais il a préféré revenir ici pour te prévenir."
-    self "Cette chose... {w=0.5}C’est Hélène ?!"
+    self "Cette chose... {w=0.3}C’est Hélène ?!"
     self "C’est vraiment elle ?!"
     helene_demon normal "J’aurais préféré garder ma couverture plus longtemps, mais l’attaque se déroulait trop bien et je ne pouvais pas risquer la vie du grand maître."
     self "Qu’est-ce que je dois faire ? Fuir ?"
-    self "Impossible, elle bloque l’entrée... {w=0.5}et elle me rattraperait probablement sans difficulté."
-    helene_demon "Je devais récolter autant d’informations que possible sur les alliés de la résistance... {w=0.5}On dirait que ma mission se termine prématurément."
+    self "Impossible, elle bloque l’entrée... {w=0.3}et elle me rattraperait probablement sans difficulté."
+    helene_demon "Je devais récolter autant d’informations que possible sur les alliés de la résistance... {w=0.3}On dirait que ma mission se termine prématurément."
     self "Me battre ? Ah, j’ai la dague que Charles m’a donné !"
     helene_demon souriante "J’ai commencé par attaquer Anne dans le dos, par surprise. C’était la plus dangereuse des trois, après tout !"
     self "Est-ce que ça va vraiment marcher sur une créature pareille ?"
     helene_demon normal "Elle est morte en un instant. Charles était complètement figé, je l’ai tué dans la foulée sans qu’il ne bouge d’un pouce."
-    self "Elle se rapproche de plus en plus... {w=0.5}Je n’ai plus le choix !"
-    helene_demon "Je m’attendais à plus de résistance... {w=0.5}C’en est presque décevant."
+    self "Elle se rapproche de plus en plus... {w=0.3}Je n’ai plus le choix !"
+    helene_demon "Je m’attendais à plus de résistance... {w=0.3}C’en est presque décevant."
 
     jump mort_de_helene_start
 # END FILE 10 - Ending B - Massacre
@@ -1275,8 +1275,8 @@ label soir_endingC_start:
 
     self "..."
     self "La réaction qu’elle a eu quand elle a vu mon bras..."
-    self "Elle ne va pas en parler aux autres... {w=0.5}pas vrai ?"
-    self "Nous sommes en couple... {w=0.5}Elle ne ferait pas ça !"
+    self "Elle ne va pas en parler aux autres... {w=0.3}pas vrai ?"
+    self "Nous sommes en couple... {w=0.3}Elle ne ferait pas ça !"
     self "..."
     self "Enfin, j’espère..."
 
@@ -1292,13 +1292,13 @@ label soir_endingC_start:
     pause 0.5
 
     self "!!!"
-    leon "{cps=*2}Aah... {w=0.3}AAAAAH !{/cps}" with little_shake
+    leon "{cps=*2}Aah... {w=0.15}AAAAAH !{/cps}" with little_shake
 
     scene cadavre_gaston with dissolve
 
     self "{cps=*2}Qu’est-ce que...!{/cps}"
     leon "{cps=*2}Gaston ! Tu m’entends ?!{/cps}" with little_shake
-    self "{cps=*2}Il n’a plus de pouls... {w=0.5}merde !{/cps}"
+    self "{cps=*2}Il n’a plus de pouls... {w=0.3}merde !{/cps}"
     self "{cps=*2}Nous sommes en danger ici ! On doit se barrer !{/cps}"
      
     scene decor noir with dissolve
@@ -1336,13 +1336,13 @@ label soir_endingC_start:
     self "...!"
     self "...Charles !"
     helene_demon souriante "Et de deux."
-    self "Cette chose... {w=0.5}C’est Hélène ?!"
+    self "Cette chose... {w=0.3}C’est Hélène ?!"
     anne "Vous en faites, du bruit !"
 
     hide helene_demon with dissolve
     show anne normal at center with dissolve
 
-    anne "Qu’est ce qu... {w=0.5}Aah... {w=0.5}Non..."
+    anne "Qu’est ce qu... {w=0.3}Aah... {w=0.3}Non..."
     anne panique "AAAAAAAAH !" with little_shake
     anne "Charles ! Charles !!"
     anne "Di{w=0.0}s {w=0.0}que{w=0.0}lq{w=0.0}ue{w=0.0} ch{w=0.0}o{nw}"
@@ -1365,9 +1365,9 @@ label soir_endingC_start:
     helene_demon normal "J’aurais préféré garder ma couverture plus longtemps."
     self "Me battre ? Ah, j’ai la dague que Charles m’a donné !"
     self "Est-ce que ça va vraiment marcher sur une créature pareille ?"
-    helene_demon "Je devais récolter autant d’informations que possible sur les alliés de la résistance... {w=0.5}On dirait que ma mission se termine prématurément."
+    helene_demon "Je devais récolter autant d’informations que possible sur les alliés de la résistance... {w=0.3}On dirait que ma mission se termine prématurément."
     self "Elle se rapproche de plus en plus... Je n’ai plus le choix !"
-    helene_demon "Je m’attendais quand même à plus de résistance... {w=0.5}C’en est presque décevant."
+    helene_demon "Je m’attendais quand même à plus de résistance... {w=0.3}C’en est presque décevant."
 
     jump mort_de_helene_start
 # END FILE 10 - Ending C - Massacre
@@ -1388,11 +1388,11 @@ label mort_de_helene_start:
         scene mort_de_helene_C with dissolve
 
     pause 3.0
-    helene_demon "L... {w=0.5}Léon."
+    helene_demon "L... {w=0.3}Léon."
     self "...Ça a marché ? Une simple dague ?"
-    helene_demon "Tu dois... {w=0.5}vivre..."
+    helene_demon "Tu dois... {w=0.3}vivre..."
     self "Qu’est-ce qu’elle raconte ?"
-    helene_demon "Je suis vraiment heureuse... {w=0.5}de t’avoir rencontré..."
+    helene_demon "Je suis vraiment heureuse... {w=0.3}de t’avoir rencontré..."
     helene_demon "Je ne regrette rien..."
     self "Elle débloque !"
 
@@ -1402,7 +1402,7 @@ label mort_de_helene_start:
     self "..."
     self "...elle ne respire plus."
     self "...!"
-    self "Je me sens si apaisé tout d’un coup... {w=0.5}Qu’est-ce que ?!"
+    self "Je me sens si apaisé tout d’un coup... {w=0.3}Qu’est-ce que ?!"
 
     scene arm_gant with dissolve
     pause 0.8

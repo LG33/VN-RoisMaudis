@@ -1,20 +1,28 @@
 image decor noir = "#000"
 image decor intro:
     "backgrounds/intro.png"
+    zoom 1.01
 image decor chambre:
     "backgrounds/bedroom.png"
+    zoom 1.01
 image decor grande_salle:
     "backgrounds/bigroom.png"
+    zoom 1.01
 image decor entree:
     "backgrounds/entry.png"
+    zoom 1.01
 image decor village:
     "backgrounds/village.png"
+    zoom 1.01
 image decor chateau:
     "backgrounds/fontainebleau.png"
+    zoom 1.01
 image decor water:
     "backgrounds/water.png"
+    zoom 1.01
 image decor eglise:
     "backgrounds/eglise.png"
+    zoom 1.01
 
 image helene normal:
     "characters/helene/Helene_Normale.png"
