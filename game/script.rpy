@@ -3,6 +3,8 @@
 label start:
     # play sound ["music/AttaqueMagique.mp3" , "music/ChuteHomme.mp3"] fadein 1.0
     
+    play gui "music/BoutonNavigation.mp3"
+    
     stop music fadeout 1.0
     scene decor noir with long_dissolve
 
