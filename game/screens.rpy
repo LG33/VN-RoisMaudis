@@ -85,11 +85,11 @@ screen main_menu:
     
     add "gui/accueil/background.jpg"
     
-    imagebutton auto "gui/accueil/nouveau_%s.png" xpos 0 ypos 0 focus_mask True action [Start(), Play("menu", "music/BoutonNavigation.mp3")]  mouse "hover"
+    imagebutton auto "gui/accueil/nouveau_%s.png" xpos 0 ypos 0 focus_mask True action [Start(), Play("gui", "music/BoutonNavigation.mp3")]  mouse "hover"
 
-    imagebutton auto "gui/accueil/charger_%s.png" xpos 0 ypos 0 focus_mask True action [ShowMenu('load'), Play("menu", "music/BoutonNavigation.mp3")]  mouse "hover"
+    imagebutton auto "gui/accueil/charger_%s.png" xpos 0 ypos 0 focus_mask True action [ShowMenu('load'), Play("gui", "music/BoutonNavigation.mp3")]  mouse "hover"
     
-    imagebutton auto "gui/accueil/quitter_%s.png" xpos 0 ypos 0 focus_mask True action [Quit(confirm=False), Play("menu", "music/BoutonNavigation.mp3")]  mouse "hover"
+    imagebutton auto "gui/accueil/quitter_%s.png" xpos 0 ypos 0 focus_mask True action [Quit(confirm=False), Play("gui", "music/BoutonNavigation.mp3")]  mouse "hover"
 
     
 
@@ -102,7 +102,7 @@ screen load:
     add "gui/charger/background.png"
     
     add "gui/charger/charger_selected_idle.png" xpos 540 ypos 165
-    imagebutton auto "gui/charger/sauvegarder_%s.png" xpos 174 ypos 175 focus_mask True action [Show("save"), Hide("load"), Play("menu", "music/BoutonNavigation.mp3")] mouse "hover"
+    imagebutton auto "gui/charger/sauvegarder_%s.png" xpos 174 ypos 175 focus_mask True action [Show("save"), Hide("load"), Play("gui", "music/BoutonNavigation.mp3")] mouse "hover"
     
     use save_load_slots
     
@@ -124,7 +124,7 @@ screen save:
     add "gui/charger/background.png"
     
     add "gui/charger/sauvegarder_selected_idle.png" xpos 155 ypos 165
-    imagebutton auto "gui/charger/charger_%s.png" xpos 559 ypos 175 focus_mask True action [Show("load"), Hide("save"), Play("menu", "music/BoutonNavigation.mp3")] mouse "hover"
+    imagebutton auto "gui/charger/charger_%s.png" xpos 559 ypos 175 focus_mask True action [Show("load"), Hide("save"), Play("gui", "music/BoutonNavigation.mp3")] mouse "hover"
     
     use save_load_slots
     
@@ -143,13 +143,13 @@ screen save:
 screen save_load_slots:
     $ y=295
     for i in range(0, 3):
-        imagebutton auto "gui/charger/fileslot_%s.png" xpos 195 ypos y focus_mask True action [FileAction(i), Play("menu", "music/BoutonSelection.mp3")] mouse "hover"
+        imagebutton auto "gui/charger/fileslot_%s.png" xpos 195 ypos y focus_mask True action [FileAction(i), Play("gui", "music/BoutonSelection.mp3")] mouse "hover"
         use load_save_slot(number=i, x=195, y=y)
         $ y+=188
     
     $ y=295
     for i in range(3, 6):
-        imagebutton auto "gui/charger/fileslot_%s.png" xpos 755 ypos y focus_mask True action [FileAction(i), Play("menu", "music/BoutonSelection.mp3")] mouse "hover"
+        imagebutton auto "gui/charger/fileslot_%s.png" xpos 755 ypos y focus_mask True action [FileAction(i), Play("gui", "music/BoutonSelection.mp3")] mouse "hover"
         use load_save_slot(number=i, x=755, y=y)
         $ y+=188
             
@@ -175,22 +175,22 @@ transform filescreenshot:
     zoom 1.25
         
 screen nav_buttons:
-    imagebutton auto "gui/charger/retour_%s.png" xpos 250 ypos 880 action [Return(), Hide("sauvegarder"), Hide("charger"), Hide("sound_On"), Hide("sound_Off"), Hide("fullscreen_Off"), Hide("fullscreen_On"), Play("menu", "music/BoutonNavigation.mp3")] mouse "hover"
-    imagebutton auto "gui/charger/main_menu_%s.png" xpos 820 ypos 880 action [MainMenu(), Play("menu", "music/BoutonNavigation.mp3")] mouse "hover"
-    imagebutton auto "gui/charger/log_%s.png" xpos 1395 ypos 755 action [ShowMenu('text_history'), Hide("sauvegarder"), Hide("charger"), Hide("sound_On"), Hide("sound_Off"), Hide("fullscreen_Off"), Hide("fullscreen_On"), Play("menu", "music/BoutonNavigation.mp3")] mouse "hover"
-    imagebutton auto "gui/charger/credits_%s.png" xpos 1395 ypos 880 action [ShowMenu("credits"), Hide("charger"), Hide("sauvegarder"), Hide("charger"), Hide("sound_On"), Hide("sound_Off"), Hide("fullscreen_Off"), Hide("fullscreen_On"), Play("menu", "music/BoutonNavigation.mp3")] mouse "hover"
+    imagebutton auto "gui/charger/retour_%s.png" xpos 250 ypos 880 action [Return(), Hide("sauvegarder"), Hide("charger"), Hide("sound_On"), Hide("sound_Off"), Hide("fullscreen_Off"), Hide("fullscreen_On"), Play("gui", "music/BoutonNavigation.mp3")] mouse "hover"
+    imagebutton auto "gui/charger/main_menu_%s.png" xpos 820 ypos 880 action [MainMenu(), Play("gui", "music/BoutonNavigation.mp3")] mouse "hover"
+    imagebutton auto "gui/charger/log_%s.png" xpos 1395 ypos 755 action [ShowMenu('text_history'), Hide("sauvegarder"), Hide("charger"), Hide("sound_On"), Hide("sound_Off"), Hide("fullscreen_Off"), Hide("fullscreen_On"), Play("gui", "music/BoutonNavigation.mp3")] mouse "hover"
+    imagebutton auto "gui/charger/credits_%s.png" xpos 1395 ypos 880 action [ShowMenu("credits"), Hide("charger"), Hide("sauvegarder"), Hide("charger"), Hide("sound_On"), Hide("sound_Off"), Hide("fullscreen_Off"), Hide("fullscreen_On"), Play("gui", "music/BoutonNavigation.mp3")] mouse "hover"
     
 screen sound_Off: 
-    imagebutton auto "gui/charger/sound_off_%s.png" xpos 1475 ypos 275 focus_mask True action [ToggleVariable("soundOn"), SetMute("music",False), SetMute("sfx",False), SetMute("menu",False), Hide("sound_Off"), Show("sound_On"), Play("menu", "music/BoutonSelection.mp3")] mouse "hover"
+    imagebutton auto "gui/charger/sound_off_%s.png" xpos 1475 ypos 275 focus_mask True action [ToggleVariable("soundOn"), SetMute("music",False), SetMute("sfx",False), SetMute("menu",False), Hide("sound_Off"), Show("sound_On"), Play("gui", "music/BoutonSelection.mp3")] mouse "hover"
     
 screen sound_On: 
-    imagebutton auto "gui/charger/sound_on_%s.png" xpos 1475 ypos 275 focus_mask True action [ToggleVariable("soundOn"), SetMute("music",True), SetMute("sfx",True), SetMute("menu",True), Hide("sound_On"), Show("sound_Off"), Play("menu", "music/BoutonSelection.mp3")] mouse "hover"
+    imagebutton auto "gui/charger/sound_on_%s.png" xpos 1475 ypos 275 focus_mask True action [ToggleVariable("soundOn"), SetMute("music",True), SetMute("sfx",True), SetMute("menu",True), Hide("sound_On"), Show("sound_Off"), Play("gui", "music/BoutonSelection.mp3")] mouse "hover"
     
 screen fullscreen_Off:
-    imagebutton auto "gui/charger/fullscreen_%s.png" xpos 1480 ypos 510 focus_mask True action [Preference('display', 'fullscreen'), Hide("fullscreen_Off"), Show("fullscreen_On"), Play("menu", "music/BoutonSelection.mp3")] mouse "hover"
+    imagebutton auto "gui/charger/fullscreen_%s.png" xpos 1480 ypos 510 focus_mask True action [Preference('display', 'fullscreen'), Hide("fullscreen_Off"), Show("fullscreen_On"), Play("gui", "music/BoutonSelection.mp3")] mouse "hover"
     
 screen fullscreen_On: 
-    imagebutton auto "gui/charger/windowed_%s.png" xpos 1480 ypos 510 focus_mask True action [Preference('display', 'window'), Hide("fullscreen_On"), Show("fullscreen_Off"), Play("menu", "music/BoutonSelection.mp3")] mouse "hover"
+    imagebutton auto "gui/charger/windowed_%s.png" xpos 1480 ypos 510 focus_mask True action [Preference('display', 'window'), Hide("fullscreen_On"), Show("fullscreen_Off"), Play("gui", "music/BoutonSelection.mp3")] mouse "hover"
 
 ## ■██▓▒░ YES/NO PROMPT ░▒▓█████████████████████████████████■
 ## Screen that asks the user a yes or no question. You'll need to edit this to change the position and style of the text.
@@ -207,8 +207,8 @@ screen yesno_prompt:
     elif message == layout.MAIN_MENU:
         add "gui/yesno/main_menu.png"
 
-    imagebutton auto "gui/yesno/yes_%s.png" xpos 500 ypos 700 action [yes_action, Hide("sauvegarder"), Hide("charger"), Hide("sound_On"), Hide("sound_Off"), Hide("fullscreen_Off"), Hide("fullscreen_On"), Play("menu", "music/BoutonNavigation.mp3")] mouse "hover"
-    imagebutton auto "gui/yesno/no_%s.png" xpos 1050 ypos 700 action [no_action, Play("menu", "music/BoutonNavigation.mp3")]  mouse "hover"
+    imagebutton auto "gui/yesno/yes_%s.png" xpos 500 ypos 700 action [yes_action, Hide("sauvegarder"), Hide("charger"), Hide("sound_On"), Hide("sound_Off"), Hide("fullscreen_Off"), Hide("fullscreen_On"), Play("gui", "music/BoutonNavigation.mp3")] mouse "hover"
+    imagebutton auto "gui/yesno/no_%s.png" xpos 1050 ypos 700 action [no_action, Play("gui", "music/BoutonNavigation.mp3")]  mouse "hover"
     
     
 ## ■██▓▒░ THE TEXTBOX ░▒▓███████████████████████████████████■
@@ -249,7 +249,7 @@ init python:
 ## Screens for the quick menus above the textbox. We use several different quick menus for presentation purposes.
 
 ## screen menu_button:
-##     imagebutton auto "gui/ingame/menu_%s.png" action [ShowMenu('save'), Play("menu", "music/BoutonNavigation.mp3")]  xpos 0.75 ypos 0 focus_mask True mouse "hover"
+##     imagebutton auto "gui/ingame/menu_%s.png" action [ShowMenu('save'), Play("gui", "music/BoutonNavigation.mp3")]  xpos 0.75 ypos 0 focus_mask True mouse "hover"
 
 screen credits:
     tag menu

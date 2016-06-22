@@ -326,4 +326,4 @@ screen text_history:
                         null height 10
                 
             bar adjustment adj style 'vscrollbar'
-        imagebutton auto "gui/charger/retour_%s.png" xpos -0.05 ypos 1.1 focus_mask True action [Return(), Play("menu", "music/BoutonNavigation.mp3")]
+        imagebutton auto "gui/charger/retour_%s.png" xpos -0.05 ypos 1.1 focus_mask True action [Return(), Play("gui", "music/BoutonNavigation.mp3")]
