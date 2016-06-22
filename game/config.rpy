@@ -215,6 +215,6 @@ init python:
     # Channels
     renpy.music.register_channel('cloche')
     renpy.music.register_channel('gui', loop=False)
-    renpy.music.set_volume(0.5, 0, channel='menu')
+    renpy.music.set_volume(0.5, 0, channel='gui')
     
     _dismiss_pause = False
