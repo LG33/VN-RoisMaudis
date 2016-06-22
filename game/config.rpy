@@ -79,16 +79,22 @@ image charles dague:
 
 image arm_0:
     "backgrounds/bras/bras_0.png"
+    zoom 1.01
 image arm_1:
     "backgrounds/bras/bras_1.png"
+    zoom 1.01
 image arm_2:
     "backgrounds/bras/bras_2.png"
+    zoom 1.01
 image arm_3:
     "backgrounds/bras/bras_3.png"
+    zoom 1.01
 image arm_4:
     "backgrounds/bras/bras_4.png"
+    zoom 1.01
 image arm_gant:
     "backgrounds/bras/bras_gant.png"
+    zoom 1.01
 
 # image test = im.MatrixColor("characters/bras_leon_fin.png",im.matrix.saturation(0.1))
 
@@ -146,7 +152,7 @@ transform center_zoom:
     yalign 0.3
     zoom 2
 
-define ellipse = Fade(0.5, 2.0, 0.5)
+define ellipse = Fade(0.5, 4.0, 0.5)
 define long_dissolve = Dissolve(0.5)
 define dissolve = Dissolve(0.2)
 
@@ -215,6 +221,6 @@ init python:
     # Channels
     renpy.music.register_channel('cloche')
     renpy.music.register_channel('gui', loop=False)
-    renpy.music.set_volume(0.5, 0, channel='gui')
+    renpy.music.set_volume(0.25, 0, channel='gui')
     
     _dismiss_pause = False

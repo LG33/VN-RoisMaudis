@@ -87,7 +87,7 @@ screen main_menu:
     
     imagebutton auto "gui/accueil/nouveau_%s.png" xpos 0 ypos 0 focus_mask True action [Start(), Play("gui", "music/BoutonNavigation.mp3")]  mouse "hover"
 
-    imagebutton auto "gui/accueil/charger_%s.png" xpos 0 ypos 0 focus_mask True action [ShowMenu('load'), Play("gui", "music/BoutonNavigation.mp3")]  mouse "hover"
+    imagebutton auto "gui/accueil/charger_%s.png" xpos 0 ypos 0 focus_mask True action [ShowMenu('load2', 1), Play("gui", "music/BoutonNavigation.mp3")]  mouse "hover"
     
     imagebutton auto "gui/accueil/quitter_%s.png" xpos 0 ypos 0 focus_mask True action [Quit(confirm=False), Play("gui", "music/BoutonNavigation.mp3")]  mouse "hover"
 
@@ -117,6 +117,7 @@ screen load:
         use fullscreen_Off
     
     use nav_buttons
+    imagebutton auto "gui/charger/main_menu_%s.png" xpos 820 ypos 880 action [MainMenu(), Play("gui", "music/BoutonNavigation.mp3")] mouse "hover"
     
 screen save:
     tag menu
@@ -125,6 +126,51 @@ screen save:
     
     add "gui/charger/sauvegarder_selected_idle.png" xpos 155 ypos 165
     imagebutton auto "gui/charger/charger_%s.png" xpos 559 ypos 175 focus_mask True action [Show("load"), Hide("save"), Play("gui", "music/BoutonNavigation.mp3")] mouse "hover"
+    
+    use save_load_slots
+    
+    if soundOn:
+        use sound_On
+    else:
+        use sound_Off
+    
+    if _preferences.fullscreen:
+        use fullscreen_On
+    else:
+        use fullscreen_Off
+    
+    use nav_buttons
+    imagebutton auto "gui/charger/main_menu_%s.png" xpos 820 ypos 880 action [MainMenu(), Play("gui", "music/BoutonNavigation.mp3")] mouse "hover"
+    
+screen load2:
+    tag menu
+    
+    add "gui/charger/background.png"
+    
+    add "gui/charger/charger_selected_idle.png" xpos 540 ypos 165
+    imagebutton auto "gui/charger/sauvegarder_%s.png" xpos 174 ypos 175 focus_mask True action [Show("save2"), Hide("load2"), Play("gui", "music/BoutonNavigation.mp3")] mouse "hover"
+    
+    use save_load_slots
+    
+    if soundOn:
+        use sound_On
+    else:
+        use sound_Off
+    
+    if _preferences.fullscreen:
+        use fullscreen_On
+    else:
+        use fullscreen_Off
+    
+    use nav_buttons
+    
+screen save2:
+    tag menu
+    
+    add "gui/charger/background.png"
+    
+    add "gui/charger/sauvegarder_selected_idle.png" xpos 155 ypos 165
+    imagebutton auto "gui/charger/charger_%s.png" xpos 559 ypos 175 focus_mask True action [Show("load2"), Hide("save2"), Play("gui", "music/BoutonNavigation.mp3")] mouse "hover"
     
     use save_load_slots
     
@@ -176,7 +222,6 @@ transform filescreenshot:
         
 screen nav_buttons:
     imagebutton auto "gui/charger/retour_%s.png" xpos 250 ypos 880 action [Return(), Hide("sauvegarder"), Hide("charger"), Hide("sound_On"), Hide("sound_Off"), Hide("fullscreen_Off"), Hide("fullscreen_On"), Play("gui", "music/BoutonNavigation.mp3")] mouse "hover"
-    imagebutton auto "gui/charger/main_menu_%s.png" xpos 820 ypos 880 action [MainMenu(), Play("gui", "music/BoutonNavigation.mp3")] mouse "hover"
     imagebutton auto "gui/charger/log_%s.png" xpos 1395 ypos 755 action [ShowMenu('text_history'), Hide("sauvegarder"), Hide("charger"), Hide("sound_On"), Hide("sound_Off"), Hide("fullscreen_Off"), Hide("fullscreen_On"), Play("gui", "music/BoutonNavigation.mp3")] mouse "hover"
     imagebutton auto "gui/charger/credits_%s.png" xpos 1395 ypos 880 action [ShowMenu("credits"), Hide("charger"), Hide("sauvegarder"), Hide("charger"), Hide("sound_On"), Hide("sound_Off"), Hide("fullscreen_Off"), Hide("fullscreen_On"), Play("gui", "music/BoutonNavigation.mp3")] mouse "hover"
     
