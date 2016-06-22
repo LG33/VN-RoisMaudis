@@ -279,7 +279,9 @@ init python:
 screen text_history:
 
     #use navigation
-    tag menu 
+    tag menu
+    
+    add "images/backgrounds/fontainebleau.png"
     
     if not current_line and len(readback_buffer) == 0:
         $ lines_to_show = []

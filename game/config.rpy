@@ -102,7 +102,7 @@ define jacques = Character("Jacques de Molay", what_color="#8888ff", what_italic
 
 define self = Character("Introspection", what_italic=True, what_color="#ffdd55")
 
-transform left: 
+transform left:
     xalign 0.2 
     yalign 1
     zoom 1.3

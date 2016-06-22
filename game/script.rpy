@@ -3,7 +3,7 @@
 label start:
     # play sound ["music/AttaqueMagique.mp3" , "music/ChuteHomme.mp3"] fadein 1.0
     show screen menu_button
-    stop music fadeout 3.0
+    stop music fadeout 1.0
     scene decor noir with long_dissolve
 
     inconnu "Léon ! Léon !!"
@@ -12,11 +12,11 @@ label start:
     play sound "music/BruitageChien.mp3" fadein 2.0 loop
 
     self "Que... {w=0.5}qu’est-ce qu’il se passe ?"
-    
+
     scene decor intro with long_dissolve
-    
+
     pause 0.5
-    
+
     inconnu "Tu t’es évanoui. Dépêche-toi, il faut fuir !"
     self "Je... {w=0.5}je ne comprends rien..."
 
@@ -184,7 +184,7 @@ label reunion_start:
     charles serieux "C’est tout ?"
     charles "..."
     charles normal  "On va devoir reprendre depuis le début."
-    charles "La France est actuellement dirigée par les Templier, un groupe religieux extrémiste"
+    charles "La France est actuellement dirigée par les Templier, un groupe religieux extrémiste."
     charles serieux "Ils se sont procurés durant la dernière croisade un artefact démoniaque."
     charles "Ils s’en sont servi afin d’invoquer des démons en pratiquant des rites occultes."
     self "Des... {w=0.5}des démons ?! Vraiment ?!"
@@ -209,7 +209,7 @@ label reunion_start:
     hide charles with dissolve
     show anne souriante with dissolve
 
-    anne "Charles était un prince de l’ancien royaume"
+    anne "Charles était un prince de l’ancien royaume."
     anne serieuse "Lors de la prise du pouvoir des Templiers, son père, Phillippe le Bel, ainsi que le reste de sa famille ont été executés."
     anne "Charles est le seul survivant de la famille royale."
     leon "Un prince... {w=0.5}L’Ordre du Lys doit être bien plus grand que ce que j’imaginais."
@@ -241,14 +241,14 @@ label reunion_start:
     charles "Les personnes dans cette pièce sont les seuls survivants qui ont encore la volonté de se battre."
     charles "..."
     charles "Cette malédiction est pire que la mort."
-    charles normal "Une marque noire aparaît sur le corps de la personne maudite et s’étend peu à peu sur son corps."
+    charles normal "Une marque noire apparaît sur le corps de la personne maudite et s’étend peu à peu sur son corps."
     charles "Le corps est entièrement recouvert après quelques jours."
     charles serieux "La personne maudite perd alors la raison. Elle se met à se déchaîner sans distinction sur les gens qui l’entourent." 
     charles "Elle finit alors par mourir une fois épuisée mentalement."
     self "Un phénomène pareil existe réellement ?"
     charles normal "Cette malédiction est contagieuse. Elle se transmet simplement par le toucher."
     charles "Il n’y a pas de remède une fois que quelqu’un a été affecté par la malédiction."
-    charles serieux "Par conséquent, les personnes affectées sont condamnées à être exécutées sur le champs."
+    charles serieux "Par conséquent, les personnes affectées sont condamnées à être exécutées sur le champ."
     charles "Certains Templiers possèdent même une arme crée par des démons qui peut infliger cette malédiction alors qu’ils n’ont aucun pouvoir magique."
     leon "L’Ordre du Lys s’est fait massacré alors qu’il avait une armée et souhaite toujours se battre avec une poignée de personnes ?!"
 
@@ -259,7 +259,7 @@ label reunion_start:
     anne "Le règne des Templiers est centré autour d’une seule et unique personne."
     anne serieuse "Jacques de Molay."
     anne normal "Il est le grand maître des Templiers. C’est lui qui est à l’origine de toutes les atrocités commises par les Templiers."
-    anne serieuse "Si nous le tuons tout le reste s’écroulera."
+    anne serieuse "Si nous le tuons, tout le reste s’écroulera."
     self "Ce raisonnement semble bien optimiste..."
 
     hide anne with dissolve
@@ -286,13 +286,14 @@ label reunion_start:
 
     charles "Quoi qu’il en soit, nous savons que Jacques de Molay se trouve actuellement au Château de Fontainebleau."
     charles "De plus, il quittera le château ce soir pour un déplacement vers Paris."
-    charles "Le délai est trop court pour qu’il prenne connaissance de la mort de l’officier Templier. Autrement dit, il ne se doutera de rien et ne changera pas son emploi du temps."
+    charles "Le délai est trop court pour qu’il prenne connaissance de la mort de l’officier Templier."
+    charles "Autrement dit, il ne se doutera de rien et ne changera pas son emploi du temps."
     charles serieux "..."
     charles "Évidemment, nous ne pouvons pas laisser passer une occasion pareille."
     charles "Nous allons l’attendre à la sortie du château et l’assassiner."
     charles "Bref. Léon, repose-toi pendant que nous nous occupons des préparatifs. Il faut que tu sois en forme ce soir."
     self "...moi ?!"
-    self "Ils comptent me faire combattre dans mon état ?!"
+    self "Ils comptent me faire combattre ?!"
 
     hide charles with dissolve
     show helene serieuse at center with dissolve
@@ -330,10 +331,12 @@ label reunion_start:
     pause 1.36
 
     play sound "music/FlashSound.mp3"    
-    with flash_blanc
+    scene decor_noir with flash_blanc
+    pause 2.0
     
-    hide charles
+    scene decor grande_salle
     show helene inquiete at center
+    with long_dissolve
 
     helene "Léon ! Tu vas bien ?!"
     leon "...J’ai subitement un énorme mal de crâne..."
@@ -354,13 +357,13 @@ label retour_chambre:
     
     scene decor chambre with ellipse
 
-    stop cloche fadeout 2.0
-    play music "music/planque_dialogue.mp3" fadein 1.0 loop
+    stop cloche fadeout 4.0
+    #play music "music/planque_dialogue.mp3" fadein 1.0 loop
 
     self "J’ai la tête qui tourne... {w=0.5}et mon bras..."
 
     scene arm_gant with long_dissolve
-    stop music fadeout 2.0
+    #stop music fadeout 2.0
 
     self "Ca me brûle sous ce gant..."
 
@@ -378,7 +381,7 @@ label retour_chambre:
     self "{cps=*2}Oh !{/cps}"
 
     scene decor water with dissolve
-    play music "music/planque_dialogue.mp3" fadein 1.0 loop
+    #play music "music/planque_dialogue.mp3" fadein 1.0 loop
     pause 2.0
 
     self "Alors c’est à ça que je ressemble... {w=0.5}Je tire une de ces têtes..."
@@ -387,19 +390,20 @@ label retour_chambre:
 
     play sound "music/FlashSound.mp3"
     scene decor noir with flash_blanc
-    stop music fadeout 2.0
+    #stop music fadeout 2.0
     pause 1.0
 
     jacques_inconnu "Il y a plusieurs choses que tu dois savoir sur les démons."
 
     pause 1.0
     scene decor chambre with flash_blanc
+    play music "music/planque_dialogue.mp3" fadein 1.0 loop
 
     self "Que... {w=0.5}quoi ?!" with shake
     self "C’était quoi, ça ?!"
     self "Une hallucination ?! Un souvenir ?!"
 
-    play music "music/planque_dialogue.mp3" fadein 1.0 loop
+
     pause 0.5
     play sound "music/door_opening.ogg"
     show anne normal at center with dissolve
@@ -420,7 +424,7 @@ label retour_chambre:
     leon "Un... {w=0.5}un couple ?!" with little_shake
     leon "Vraiment ?!"
     anne normal "Oh... {w=0.5}elle ne t’en a pas parlé ?"
-    anne serieuse "Je vois... ton amnésie doit être très dure à vivre pour elle aussi."
+    anne serieuse "Je vois... {w=0.5}ton amnésie doit être très dure à vivre pour elle aussi."
     anne souriante "Hélène et toi êtes en couple depuis bien avant que vous n'ayez intégré l’Ordre."
     leon "Elle ne m’en a pas dit un mot..."
     anne normal "..."
@@ -449,7 +453,7 @@ label grande_salle:
     anne souriante "Ça ne peut que lui faire du bien de prendre l’air !"
     charles "Il ne se souvient plus du chemin."
     anne normal "Hélène peut l’accompagner, ils y allaient toujours ensemble pour faire des provisions."
-    anne "Après tout, leurs visages ne sont pas connus des Templiers, contrairement à ceux du reste de l’Ordre"
+    anne "Après tout, leurs visages ne sont pas connus des Templiers, contrairement à ceux du reste de l’Ordre."
 
     charles "Anne... {w=0.5}tu es consciente de l’importance de l’attaque de demain...?"
     charles "Léon ne peut pas vraiment nous aider à préparer quoi que ce soit dans son état, mais Hélène n’a pas de temps à perdre à gambader au village."
@@ -474,7 +478,7 @@ label grande_salle:
 
     leon "Agh..."
 
-    stop cloche fadeout 2.0
+    stop cloche fadeout 3.0
 
     scene decor noir with flash_blanc
     play sound "music/FlashSound.mp3"
@@ -529,7 +533,7 @@ label grande_salle:
     charles "Je te la rends."
     leon "Ah, merci."
 
-    show charles normal
+    show charles normal at center
 
     # play sound "music/BoutonNavigation.mp3"
     self "Effectivement, elle rentre parfaitement dans le fourreau que j’ai à la taille."
@@ -593,7 +597,7 @@ label sortie_start:
     helene normal "De quoi avez-vous parlé avec Charles ?"
     leon "Rien d’important..."
     helene "..."
-    helene souriante"Bien, allons-y !"
+    helene souriante "Bien, allons-y !"
 
     jump village_start
 # END FILE 06 - Sortie
@@ -625,7 +629,7 @@ label village_start:
     helene "On peut bien traîner un peu, ce sont pas dix minutes que vont changer quoi que ce soit."
     helene "..."
     helene normal "..."
-    helene serieuse "Léon..."
+    helene "Léon..."
     leon "Oui ?"
 
     show helene normal at center_zoom
@@ -662,7 +666,7 @@ label village_1_end:
     helene souriante "Tu es très important pour moi."
     helene normal "Et tu sais, je te connais mieux que quiconque."
     helene normal "..."
-    helene serieuse "Léon."
+    helene "Léon."
     helene "Tu me caches quelque chose d’important, pas vrai ?"
     self "{cps=*2}Que...{/cps}"
     self "{cps=*2}Elle est au courant pour mon bras ?!{/cps}" with little_shake
@@ -720,9 +724,6 @@ label village_2_2:
     helene normal "Peu importe."
     helene souriante "Si un jour tu dois me parler de quelque chose, tu sais que je serai là pour t’écouter."
     helene normal "Il commence à se faire tard. Nous devrions rentrer."
-
-    # On stoppe la musique dans cette scène là, en même temps que la transition visuelle
-    stop music fadeout 3.0
      
     jump briefing_endingAB_start
 # END FILE 07 - Village
@@ -733,7 +734,8 @@ label briefing_endingAB_start:
 
     scene decor grande_salle
     #play music "music/planque_dialogue.mp3" fadein 1.0 loop
-    play music "music/grande_salle.ogg" fadein 1.0 loop
+    stop music fadeout 3.0
+    play cloche "music/grande_salle.ogg" fadein 1.0 loop
 
     show anne normal at center
     with ellipse
@@ -787,7 +789,7 @@ label briefing_endingAB_start:
     helene inquiete "Tu as vraiment envie de participer à cet assaut ?"
     leon "..."
     helene "Charles ne t’a pas laissé le choix, mais si vraiment tu ne te sens pas prêt..."
-    helene serieuse "Tu peux toujours t’enfuir."
+    helene normal "Tu peux toujours t’enfuir."
     leon "Pour aller où ?"
     leon "Ce n’est pas vraiment comme si j’avais quelque part où aller. L’Ordre du Lys est le seul endroit où on peut m’aider."
     helene "Tu as juste à te cacher jusqu’à notre départ."
@@ -876,14 +878,14 @@ label soir_endingAB_start:
 
     scene decor chambre with ellipse
 
-    stop music fadeout 2.0
-    play cloche "music/planque_dialogue.mp3" fadein 1.0 loop
+    stop cloche fadeout 2.0
+    play music "music/planque_dialogue.mp3" fadein 1.0 loop
 
     self "..."
     self "Me cacher avant leur départ..."
     self "C’est vraiment raisonnable ?"
 
-    stop cloche fadeout 1.0
+    stop music fadeout 1.0
     pause 0.5
     scene arm_gant with long_dissolve
     pause 0.8
@@ -892,7 +894,7 @@ label soir_endingAB_start:
     self "..."
     self "Ça s’est encore propagé..."
     play sound "music/door_opening.ogg"
-    play music"music/planque_dialogue.mp3" fadein 1.0 loop
+    play music "music/planque_dialogue.mp3" fadein 1.0 loop
 
     scene decor chambre
     show helene normal at center
@@ -912,6 +914,7 @@ label soir_endingAB_start:
 
     scene decor noir with flash_blanc
     play sound "music/FlashSound.mp3"
+    stop music fadeout 1.0
     pause 1.0
 
     jacques_inconnu "On peut reconnaître ces démons sous forme humaine à leurs yeux."
@@ -968,6 +971,7 @@ label massacre_endingA_start:
     with ellipse
 
     anne "Léon, il est l’heure. Je t’attends à l’entrée."
+    hide anne with long_dissolve
 
     play sound "music/door_close.ogg"
 
@@ -976,6 +980,9 @@ label massacre_endingA_start:
     self "Hélène..."
     self "Elle m’évite depuis tout à l’heure..."
     self "Vu que les autres agissent normalement, je ne pense pas qu’elle leur ait parlé de mon bras. C’est déjà un soulagement."
+
+    stop cloche fadeout 2.0
+    stop music fadeout 2.0
 
     scene arm_gant with long_dissolve
     pause 0.8
@@ -1004,7 +1011,7 @@ label massacre_endingA_start:
     play music "music/action.mp3" fadein 1.0 loop
 
     show charles masque
-    with dissolve
+    with long_dissolve
 
     charles "Nous n’avons plus qu’à attendre le passage de Jacques de Molay."
 
@@ -1418,7 +1425,6 @@ label flashback_start:
     leon "Oui, grand maître."
     leon "Si c’est un mâle, je l’appellerai Horace."
     leon "Et si c’est une femelle, je l’appellerai..."
-    pause 0.5
     leon "Hélène."
     pause 1.0
 

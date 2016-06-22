@@ -91,10 +91,75 @@ screen main_menu:
     
     imagebutton auto "gui/accueil/quitter_%s.png" xpos 0 ypos 0 focus_mask True action [Quit(confirm=False), Play("menu", "music/BoutonNavigation.mp3")]  mouse "hover"
 
+    
+
+## ■██▓▒░ SAVE / LOAD FILE PICKER ░▒▓███████████████████████■
+## Since saving and loading are so similar, we combine them into a single screen, file_picker. We then use the file_picker screen from simple load and save screens.
+    
+screen charger:
+    tag menu
+    
+    add "gui/charger/background.png"
+    
+    on "show" action Show("load")
+    
+    if soundOn:
+        use sound_On
+    else:
+        use sound_Off
+    
+    if _preferences.fullscreen:
+        use fullscreen_On
+    else:
+        use fullscreen_Off
+    
+    use nav_buttons
+    
+screen sauvegarder:
+    tag menu
+    
+    add "gui/charger/background.png"
+    
+    on "show" action Show("save")
+    
+    if soundOn:
+        use sound_On
+    else:
+        use sound_Off
+    
+    if _preferences.fullscreen:
+        use fullscreen_On
+    else:
+        use fullscreen_Off
+    
+    use nav_buttons
+    
+screen save:
+    add "gui/charger/sauvegarder_selected_idle.png" xpos 155 ypos 165
+    imagebutton auto "gui/charger/charger_%s.png" xpos 559 ypos 175 focus_mask True action [Show("load"), Hide("save"), Play("menu", "music/BoutonNavigation.mp3")] mouse "hover"
+    
+    use save_load_slots
+    
+screen load:
+    add "gui/charger/charger_selected_idle.png" xpos 540 ypos 165
+    imagebutton auto "gui/charger/sauvegarder_%s.png" xpos 174 ypos 175 focus_mask True action [Show("save"), Hide("load"), Play("menu", "music/BoutonNavigation.mp3")] mouse "hover"
+    
+    use save_load_slots
+    
+screen save_load_slots:
+    $ y=295
+    for i in range(0, 3):
+        imagebutton auto "gui/charger/fileslot_%s.png" xpos 195 ypos y focus_mask True action [FileAction(i), Play("menu", "music/BoutonSelection.mp3")] mouse "hover"
+        use load_save_slot(number=i, x=195, y=y)
+        $ y+=188
+    
+    $ y=295
+    for i in range(3, 6):
+        imagebutton auto "gui/charger/fileslot_%s.png" xpos 755 ypos y focus_mask True action [FileAction(i), Play("menu", "music/BoutonSelection.mp3")] mouse "hover"
+        use load_save_slot(number=i, x=755, y=y)
+        $ y+=188
             
-## ■██▓▒░ SAVE / LOAD SLOT ░▒▓██████████████████████████████■
-## This represents a load/save slot. You should customize this to ensure that the placement of the thumbnail and the slot text are as desired. Positions (x1, y1, x2 and y2) are relative to the x, y parameters, that are passed when the screen is called. To set the screenshot thumbnail size see options.rpy.
-init -2 python: #we initialize x and y, so the load_save_slot screen below works at startup
+init -2 python:
     x=0
     y=0
     
@@ -114,78 +179,11 @@ screen load_save_slot:
     
 transform filescreenshot:
     zoom 1.25
-    
-
-## ■██▓▒░ SAVE / LOAD FILE PICKER ░▒▓███████████████████████■
-## Since saving and loading are so similar, we combine them into a single screen, file_picker. We then use the file_picker screen from simple load and save screens.
-    
-screen charger:
-    tag menu
-    
-    add "gui/charger/background.png"
-    
-    use load
-    
-    if soundOn:
-        use sound_On
-    else:
-        use sound_Off
-    
-    if _preferences.fullscreen:
-        use fullscreen_On
-    else:
-        use fullscreen_Off
-    
-    use nav_buttons
-    
-screen sauvegarder:
-    tag menu
-    
-    add "gui/charger/background.png"
-    
-    use save
-    
-    if soundOn:
-        use sound_On
-    else:
-        use sound_Off
-    
-    if _preferences.fullscreen:
-        use fullscreen_On
-    else:
-        use fullscreen_Off
-    
-    use nav_buttons
-    
-screen save:
-    image "gui/charger/sauvegarder_selected_idle.png" xpos 155 ypos 165
-    imagebutton auto "gui/charger/charger_%s.png" xpos 559 ypos 175 focus_mask True action [Hide("save"), Show("load"), Play("menu", "music/BoutonNavigation.mp3")] mouse "hover"
-    
-    use save_load_slots
-    
-screen load:
-    image "gui/charger/charger_selected_idle.png" xpos 540 ypos 165
-    imagebutton auto "gui/charger/sauvegarder_%s.png" xpos 174 ypos 175 focus_mask True action [Hide("load"), Show("save"), Play("menu", "music/BoutonNavigation.mp3")] mouse "hover"
-    
-    use save_load_slots
-    
-screen save_load_slots:
-    $ y=295
-    for i in range(0, 3):
-        imagebutton auto "gui/charger/fileslot_%s.png" xpos 195 ypos y focus_mask True action [FileAction(i), Play("menu", "music/BoutonSelection.mp3")] mouse "hover"
-        use load_save_slot(number=i, x=195, y=y)
-        $ y+=188
-    
-    $ y=295
-    for i in range(3, 6):
-        imagebutton auto "gui/charger/fileslot_%s.png" xpos 755 ypos y focus_mask True action [FileAction(i), Play("menu", "music/BoutonSelection.mp3")] mouse "hover"
-        use load_save_slot(number=i, x=755, y=y)
-        $ y+=188
         
 screen nav_buttons:
     imagebutton auto "gui/charger/retour_%s.png" xpos 250 ypos 880 action [Return(), Hide("save"), Hide("load"), Hide("sound_On"), Hide("sound_Off"), Hide("fullscreen_Off"), Hide("fullscreen_On"), Play("menu", "music/BoutonNavigation.mp3")] mouse "hover"
-    imagebutton auto "gui/charger/main_menu_%s.png" xpos 820 ypos 880 action [MainMenu(), Hide("save"), Hide("load"), Hide("sound_On"), Hide("sound_Off"), Hide("fullscreen_Off"), Hide("fullscreen_On"), Play("menu", "music/BoutonNavigation.mp3")] mouse "hover"
-    imagebutton auto "gui/charger/credits_%s.png" xpos 1395 ypos 755 action [ShowMenu('text_history'), Hide("save"), Hide("load"), Hide("sound_On"), Hide("sound_Off"), Hide("fullscreen_Off"), Hide("fullscreen_On"), Play("menu", "music/BoutonNavigation.mp3")] mouse "hover"
+    imagebutton auto "gui/charger/main_menu_%s.png" xpos 820 ypos 880 action [MainMenu(), Play("menu", "music/BoutonNavigation.mp3")] mouse "hover"
+    imagebutton auto "gui/charger/log_%s.png" xpos 1395 ypos 755 action [ShowMenu('text_history'), Hide("save"), Hide("load"), Hide("sound_On"), Hide("sound_Off"), Hide("fullscreen_Off"), Hide("fullscreen_On"), Play("menu", "music/BoutonNavigation.mp3")] mouse "hover"
     imagebutton auto "gui/charger/credits_%s.png" xpos 1395 ypos 880 action [Hide("charger"), Hide("save"), Hide("load"), Hide("sound_On"), Hide("sound_Off"), Hide("fullscreen_Off"), Hide("fullscreen_On"), Play("menu", "music/BoutonNavigation.mp3"), Start("credits")] mouse "hover"
     
 screen sound_Off: 
@@ -207,23 +205,17 @@ screen fullscreen_On:
 screen yesno_prompt:
     on "show"
     modal True # A modal screen prevents the user from interacting with displayables below it, except for the default keymap.
-
-    add "gui/yesno_ground.png"
-    imagebutton auto "gui/yesno_yes_%s.png" xpos 0.35 ypos 0.8 action [yes_action, Play("menu", "music/BoutonNavigation.mp3")] mouse "hover"
-    imagebutton auto "gui/yesno_no_%s.png" xpos 0.65 ypos 0.8 action [no_action, Play("menu", "music/BoutonNavigation.mp3")]  mouse "hover"
     
-    if message == layout.ARE_YOU_SURE:
-        add "gui/yesno_are_you_sure.png"
-    elif message == layout.DELETE_SAVE:
-        add "gui/yesno_delete_save.png"
-    elif message == layout.OVERWRITE_SAVE:
-        add "gui/yesno_overwrite_save.png"
+    if message == layout.OVERWRITE_SAVE:
+        add "gui/yesno/ecraser.png"
     elif message == layout.LOADING:
-        add "gui/yesno_loading.png"
-    elif message == layout.QUIT:
-        add "gui/yesno_quit.png"
+        add "gui/yesno/charger.png"
     elif message == layout.MAIN_MENU:
-        add "gui/yesno_main_menu.png"
+        add "gui/yesno/main_menu.png"
+
+    imagebutton auto "gui/yesno/yes_%s.png" xpos 500 ypos 700 action [yes_action, Hide("save"), Hide("load"), Hide("sound_On"), Hide("sound_Off"), Hide("fullscreen_Off"), Hide("fullscreen_On"), Play("menu", "music/BoutonNavigation.mp3")] mouse "hover"
+    imagebutton auto "gui/yesno/no_%s.png" xpos 1050 ypos 700 action [no_action, Play("menu", "music/BoutonNavigation.mp3")]  mouse "hover"
+    
 
 ## ■██▓▒░ TOOLTIP ░▒▓███████████████████████████████████████■
 screen gui_tooltip:
