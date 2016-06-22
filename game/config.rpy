@@ -32,7 +32,9 @@ image helene_demon normal:
     "characters/helene_demon/Helene_Demon_Evil.png"
 image helene_demon souriante:
     "characters/helene_demon/Helene_Demon_Smirk.png"
-image mort_de_helene = "backgrounds/CG_Helene.png"
+image mort_de_helene_A = "backgrounds/Mort_Helene_foret.png"
+image mort_de_helene_B = "backgrounds/Mort_Helene_entree.png"
+image mort_de_helene_C = "backgrounds/Mort_Helene_grande_salle.png"
 
 image gaston normal:
     "characters/gaston/Gaston_Normal.png"
@@ -44,7 +46,7 @@ image gaston souriant:
     "characters/gaston/Gaston_Sourire.png"
 image gaston panique:
     "characters/gaston/Gaston_Panique.png"
-image cadavre_gaston = "backgrounds/CG_Gaston.jpg"
+image cadavre_gaston = "backgrounds/CG_Gaston.png"
 
 image anne normal:
     "characters/anne/Anne_Normale.png"

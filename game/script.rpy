@@ -202,17 +202,44 @@ label reunion_start:
     charles "Ils dirigent depuis le pays en imposant leurs dogmes religieux."
     charles "Ils convoitent mêmes les terres des pays voisins à présent."
     charles "..."
-    charles normal "En tant qu’ancien prince, il était de ma responsabilité de fonder l’Ordre du Lys."
+    charles normal "En tant que prince, il était de ma responsabilité de fonder l’Ordre du Lys."
     charles "C’est un groupe de résistants qui lutte face aux Templiers."
-    leon "Un... {w=0.5}un prince ?!"
+    self "Un... {w=0.5}un prince ?!"
+
+    menu:
+        "\"Excusez mon impolitesse, votre altesse. Je ne savais pas.\"":
+            jump reunion_1_1
+        "\"Mais tu n'es plus un prince maintenant que les Templiers ont pris le pouvoir, pas vrai ?\"":
+            jump reunion_1_2
+
+label reunion_1_1:
+    leon "Excusez mon impolitesse, votre altesse. Je ne savais pas."
+    charles "Ne t'inquiète pas pour ça, j'ai horreur de ce genre de formalités."
 
     hide charles with dissolve
     show anne souriante with dissolve
 
-    anne "Charles était un prince de l’ancien royaume."
-    anne serieuse "Lors de la prise du pouvoir des Templiers, son père, Phillippe le Bel, ainsi que le reste de sa famille ont été executés."
     anne "Charles est le seul survivant de la famille royale."
-    leon "Un prince... {w=0.5}L’Ordre du Lys doit être bien plus grand que ce que j’imaginais."
+    anne serieuse "Lors de la prise du pouvoir des Templiers, son père, Philippe le Bel, ainsi que le reste de sa famille ont été exécutés."
+    leon "Avec un prince à sa tête, L’Ordre du Lys doit être bien plus grand que ce que j’imaginais."
+    jump reunion_1_end
+
+label reunion_1_2:
+    leon "Mais tu n'es plus un prince maintenant que les Templiers ont pris le pouvoir, pas vrai ?"
+    charles serieux "..."
+    charles "Tu as raison."
+    charles normal "Cependant, en tant qu'unique survivant de la famille royal, je suis le seul à pouvoir endosser la responsabilité de diriger l'Ordre."
+
+    hide charles with dissolve
+    show anne souriante with dissolve
+
+    anne serieuse "Lors de la prise du pouvoir des Templiers, son père, Philippe le Bel, ainsi que le reste de sa famille ont été exécutés."
+    leon "L’Ordre du Lys a l'air d'avoir plus d'ampleur que je ne l'imaginais..."
+
+    jump reunion_1_end
+
+label reunion_1_end:
+
     anne "..."
 
     hide anne with dissolve
@@ -274,14 +301,14 @@ label reunion_start:
     leon "Ce Templier l’a simplement révélé ?!"
 
     hide charles with dissolve
-    show anne serieuse at center with dissolve
+    show gaston serieux at center with dissolve
 
-    anne "Léon... {w=0.5}Nous l’avons torturé puis égorgé."
+    gaston "Léon... {w=0.5}Nous l’avons torturé puis égorgé."
     self "...Quoi ?!"
     self "Mais c’est horrible !"
     self "Je fais vraiment partie d’un groupe qui suit ce genre de pratiques ?!"
 
-    hide anne with dissolve
+    hide gaston with dissolve
     show charles normal at center with dissolve
 
     charles "Quoi qu’il en soit, nous savons que Jacques de Molay se trouve actuellement au Château de Fontainebleau."
@@ -503,7 +530,7 @@ label grande_salle:
     show charles serieux at center with dissolve
 
     charles "..."
-    charles "Anne, Hélène, laissez-nous seuls un instant."
+    charles "Anne, Hélène, pourriez-vous nous laissez seuls un instant ?"
 
     hide charles with dissolve
     show anne serieuse at right
@@ -734,7 +761,7 @@ label briefing_endingAB_start:
 
     scene decor grande_salle
     #play music "music/planque_dialogue.mp3" fadein 1.0 loop
-    stop music fadeout 3.0
+    stop music fadeout 2.0
     play cloche "music/grande_salle.ogg" fadein 1.0 loop
 
     show anne normal at center
@@ -966,6 +993,8 @@ label soir_2_2:
 # 10 - Ending A - Massacre
 label massacre_endingA_start:
 
+    $ ending = "A"
+
     scene decor chambre
     show anne serieuse at center
     with ellipse
@@ -1049,8 +1078,8 @@ label massacre_endingA_start:
     $ anne("Qu{w=0.0}’e{w=0.0}st-{w=0.0}ce{w=0.0} q{w=0.0}ue {w=0.0}tu{w=0.0} v{w=0.0}eux{w=0.0} d{w=0.0}ir{w=0.0}e p{w=0.0}a", interact=False)
     pause 0.54
 
-    with flash_rouge
     play sound "music/sf_decapitation.mp3"
+    with flash_rouge
     hide anne with dissolve
     pause 0.5
     play sound "music/FlashSound.mp3"
@@ -1076,9 +1105,8 @@ label massacre_endingA_start:
     gaston "Espèce de monstre ! Meurs !"
     helene_demon souriante "Tu es ridicule."
 
-    #self "*bruit de coeur transpercé*"
-    with flash_rouge
     play sound "music/sf_decapitation.mp3"
+    with flash_rouge
     hide gaston with dissolve
     pause 0.5
     play sound "music/FlashSound.mp3"
@@ -1117,6 +1145,8 @@ label massacre_endingA_start:
 
 # 10 - Ending B - Massacre
 label massacre_endingB_start:
+
+    $ ending = "B"
 
     scene decor entree with long_dissolve
     pause 3.0
@@ -1176,9 +1206,8 @@ label massacre_endingB_start:
     $ gaston("Ma{w=0.0}gn{w=0.0}e-t{w=0.0}oi{w=0.0}, {w=0.0}put{w=0.0}ai{w=0.0}n,{w=0.0} on{w=0.0} n{w=0.0}’a{w=0.0} pa{w=0.0}s {w=0.0}le{w=0.0} te{w=0.0}mp{w=0.0}s {w=0.0}! E{w=0.0}ll{w=0.0}e {w=0.0}va {w=0.0}no{w=0.0}u", interact=False)
     pause 1.0
 
-    #self "*bruit de coeur transpercé*"
-    with flash_rouge
     play sound "music/sf_decapitation.mp3"
+    with flash_rouge
     hide gaston with dissolve
     pause 0.5
     with shake
@@ -1209,6 +1238,8 @@ label massacre_endingB_start:
 # 10 - Ending C - Massacre
 
 label soir_endingC_start:
+
+    $ ending = "C"
 
     scene decor noir with dissolve
     pause 3.0
@@ -1287,7 +1318,6 @@ label soir_endingC_start:
     $ self("Je{w=0.0} d{w=0.0}ois{w=0.0} p{w=0.0}ar{w=0.0}tir{w=0.0} d{w=0.0}’i{w=0.0}ci {w=0.0}le{w=0.0} p{w=0.0}lu", interact=False)
     pause 0.5
 
-    #self "*bruit de coeur transpercé*"
     with flash_rouge
     play sound "music/BruitDattaque.mp3"
     hide charles with dissolve
@@ -1313,9 +1343,8 @@ label soir_endingC_start:
     $ anne("Di{w=0.0}s {w=0.0}que{w=0.0}lq{w=0.0}ue{w=0.0} ch{w=0.0}o", interact=False)
     pause 0.26
 
-    #self "*bruit de coeur transpercé*"
-    with flash_rouge
     play sound "music/sf_decapitation.mp3"
+    with flash_rouge
     hide anne with dissolve
     pause 0.5
     play sound "music/FlashSound.mp3"
@@ -1346,7 +1375,13 @@ label mort_de_helene_start:
     # on stoppe la musique car moment drama
     stop music fadeout 1.0
     pause 3.0
-    scene mort_de_helene with dissolve
+
+    if ending == "A":
+        scene mort_de_helene_A with dissolve
+    if ending == "B":
+        scene mort_de_helene_B with dissolve
+    if ending == "C":
+        scene mort_de_helene_C with dissolve
 
     helene_demon "L... {w=0.5}Léon."
     self "...Ça a marché ? Une simple dague ?"
