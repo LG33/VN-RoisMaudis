@@ -19,3 +19,9 @@ game/script.rpyc
 log.txt
 tmp/navigation.json
 traceback.txt
+tmp/Info.plist
+tmp/distribute.txt
+tmp/script_version.txt
+*.save
+*.rpyc
+project.json
