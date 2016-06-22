@@ -253,11 +253,17 @@ init python:
 
 screen credits:
     tag menu
-    imagebutton idle "gui/credits.png" action Return()
+    imagebutton idle "gui/credits.png" action ShowMenu("musics")
+screen musics:
+    tag menu
+    imagebutton idle "gui/musics.png" action Return()
     
 screen end_credits:
     tag menu
-    imagebutton idle "gui/credits.png" action ShowMenu("thanks")
+    imagebutton idle "gui/credits.png" action ShowMenu("end_musics")
+screen end_musics:
+    tag menu
+    imagebutton idle "gui/musics.png" action ShowMenu("thanks")
 screen thanks:
     tag menu
     imagebutton idle "gui/merci.png" action MainMenu(confirm=False)

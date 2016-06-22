@@ -1468,7 +1468,10 @@ label flashback_start:
     leon "Et si c’est une femelle, je l’appellerai..."
     leon "Hélène."
     pause 1.0
-
+    
     show screen end_credits
+    with dissolve
+    
+    pause 100000
 
 # END 12 - Flashback
